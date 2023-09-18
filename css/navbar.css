@@ -5,6 +5,7 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+
 nav{
   position: fixed;
   z-index: 99;
@@ -33,6 +34,11 @@ nav .wrapper{
   display: inline-flex;
   text-decoration: none;
 }
+
+.nav-links{
+  margin-top: 15px;
+}
+
 .nav-links li{
   list-style: none;
 }

@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuario/Cliente | Grupo Piasa</title>
+    <title>Home | Grupo Piasa</title>
     <link rel="stylesheet" href="../../css/navbar.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -15,7 +15,7 @@
     <div class="navbar" style="margin-top: 25px;">
     <nav>
     <div class="wrapper">
-      <div class="logo"><a href="#"> Grupo Piasa</a></div>
+      <div class="logo"><a href="#"> Tipo </a></div>
       <input type="radio" name="slider" id="menu-btn">
       <input type="radio" name="slider" id="close-btn">
       <ul class="nav-links">
@@ -33,7 +33,7 @@
                   <li><a href="../Nomenclatura/nomenclatura.php">Nomenclatura</a></li>
                   <li><a href="../Sub_procesos/subPros.php">Sub_procesos</a></li>
                   <li><a href="../Taxonomina/taxo.php">Taxonomina</a></li>
-                  <li><a href="../Tipo/tipo.php">Tipo</a></li>
+                  <li><a href="tipo.php">Tipo</a></li>
                 </ul>
               </div>
               <div class="row">
@@ -41,7 +41,7 @@
                   <li><a href="../Calculo/calculo.php">Calculo</a></li>
                   <li><a href="../Detalle_actividad/DA.php">Detalle_actividad</a></li>
                   <li><a href="../Puestos/puesto.php">Puestos</a></li>
-                  <li><a href="UN.php">Unidad_Negocio</a></li>
+                  <li><a href="../Unidad_N/UN.php">Unidad_Negocio</a></li>
                   <li><a href="../Eventos/eventos.php">Eventos</a></li>
                 </ul>
               </div>
@@ -110,7 +110,7 @@
                         </div>
                         <div class="mb-3">
                           <label for="exampleInputEmail1" class="form-label">Nombre Actividad</label>
-                          <select class="form-select mb-3" name="ID_Actividad">
+                          <select class="form-select mb-3" name="nom_actividad">
                             <option selected disabled>Selecciona una opción</option>
                             <?php
                                 include ("../../config/conexion.php");
@@ -136,14 +136,14 @@
     <table class="table" style="width: 400px;">
   <thead>
     <tr>
-      <th scope="col">ID_Tipo</th>
+      <th scope="col">ID</th>
       <th scope="col">Transaccional</th>
       <th scope="col">Estrategico</th>
       <th scope="col">ID_Actividad</th>
       <th scope="col">Nom_Actividad</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="text-center">
     <?php
       $query = "SELECT * FROM tipo";
       $result_task = mysqli_query($conexion, $query);

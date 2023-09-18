@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuario/Cliente | Grupo Piasa</title>
+    <title>Home | Grupo Piasa</title>
     <link rel="stylesheet" href="../../css/navbar.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -15,7 +15,7 @@
     <div class="navbar" style="margin-top: 25px;">
     <nav>
     <div class="wrapper">
-      <div class="logo"><a href="#"> Grupo Piasa</a></div>
+      <div class="logo"><a href="#"> Unidad_Negocio </a></div>
       <input type="radio" name="slider" id="menu-btn">
       <input type="radio" name="slider" id="close-btn">
       <ul class="nav-links">

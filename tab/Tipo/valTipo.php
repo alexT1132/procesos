@@ -5,11 +5,14 @@
         $Transaccional = $_POST['Transaccional'];
         $Estrategico = $_POST['Estrategico'];
         $ID_Actividad = $_POST['ID_Actividad'];
+        $nom_actividad = $_POST['nom_actividad'];
         $query = "INSERT INTO tipo(Transaccional, 
                                         Estrategico, 
-                                        ID_Actividad) VALUES ('$Transaccional', 
+                                        ID_Actividad,
+                                        nom_actividad) VALUES ('$Transaccional', 
                                                                 '$Estrategico', 
-                                                                '$ID_Actividad')";
+                                                                '$ID_Actividad',
+                                                                '$nom_actividad')";
         $result = mysqli_query($conexion, $query);
         if(!$result) {
             die("Query Failed.");
