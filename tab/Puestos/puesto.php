@@ -87,8 +87,37 @@
                     <form action="valPuesto.php" method="POST">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nombre del Puesto</label>
-                            <input type="text" class="form-control" name="nom_puesto"  >
+                            <input type="text" class="form-control" name="Nuevo_Puesto">
                         </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">ID Actividad</label>
+                          <select class="form-select mb-3" name="ID_Actividad">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
+
+                                $sql = $conexion->query("SELECT * FROM detalle_actividad");
+                                $spc = "";
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['ID_Actividad']."'>".$resultado['nom_actividad']."</option>";
+                              }
+                            ?>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Nombre Actividad</label>
+                          <select class="form-select mb-3" name="nom_actividad">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
+
+                                $sql = $conexion->query("SELECT * FROM detalle_actividad");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['nom_actividad']."'>".$resultado['nom_actividad']."</option>";
+                              }
+                            ?>
+                          </select>
+                        </div>    
                         <div class="row justify-content-end">
                             <button type="submit" name="guardar" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;">Guardar</button>
                         </div>
@@ -105,17 +134,21 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Nombre_Puesto</th>
+      <th scope="col">ID_Actividad</th>
+      <th scope="col">Nom_Actividad</th>
     </tr>
   </thead>
   <tbody class="text-center">
     <?php
-      $query = "SELECT * FROM puestos";
+      $query = "SELECT * FROM nuevo_puesto";
       $result_task = mysqli_query($conexion, $query);
 
       while($row = mysqli_fetch_assoc($result_task)) { ?>
       <tr>
-        <td><?php echo $row['ID_puesto']; ?></td>
-        <td><?php echo $row['nom_puesto']; ?></td>
+        <td><?php echo $row['ID_Nuevo_Puesto']; ?></td>
+        <td><?php echo $row['Nuevo_Puesto']; ?></td>
+        <td><?php echo $row['ID_Actividad']; ?></td>
+        <td><?php echo $row['nom_actividad']; ?></td>
       </tr>
       <?php } ?>
   </tbody>

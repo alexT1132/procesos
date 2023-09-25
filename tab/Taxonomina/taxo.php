@@ -155,7 +155,7 @@
 
                                 $sql = $conexion->query("SELECT * FROM sub_proceso");
                                 while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['ID_subProcesos']."'>".$resultado['Nom_Subproceso']."</option>";
+                                echo "<option value='".$resultado['ID_subProcesos']."'>".$resultado['nom_Subproceso']."</option>";
                               }
                             ?>
                           </select>
@@ -169,7 +169,7 @@
 
                                 $sql = $conexion->query("SELECT * FROM sub_proceso");
                                 while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['Nom_Procesos']."'>".$resultado['Nom_Subproceso']."</option>";
+                                echo "<option value='".$resultado['nom_Subproceso']."'>".$resultado['nom_Subproceso']."</option>";
                               }
                             ?>
                           </select>
@@ -186,9 +186,9 @@
     <div class="row justify-content-center">
       <!-- formulario -->
     <table class="table" style="width: 400px;">
-  <thead>
+  <thead class="text-center">
     <tr>
-      <th scope="col">ID_Taxonomina</th>
+      <th scope="col">ID</th>
       <th scope="col">Nom_Taxonomina</th>
       <th scope="col">ID_Actividad</th>
       <th scope="col">Nom_Actividad</th>
@@ -198,7 +198,7 @@
       <th scope="col">Nom_Subproceso</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="text-center">
     <?php
       $query = "SELECT * FROM taxonomina";
       $result_task = mysqli_query($conexion, $query);

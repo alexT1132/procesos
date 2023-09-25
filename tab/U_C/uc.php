@@ -87,144 +87,250 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="valU_C.php" method="POST">
+                    <form action="valUC.php" method="POST">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" name="nombre">
+                            <input type="text" class="form-control" name="Nombre">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Apellido</label>
-                            <input type="text" class="form-control" name="apellido">
+                            <input type="text" class="form-control" name="Apellido">
                         </div>
                         <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Puesto</label>
-                            <select class="form-select" aria-label="Default select example" name="ID_puesto">
-                                <option selected>Seleciona una opción</option>
-                                <?php
-      $query = "SELECT * FROM puestos";
-      $result_task = mysqli_query($conexion, $query);
+                          <label for="exampleInputEmail1" class="form-label">ID Unidad_Negocio</label>
+                          <select class="form-select mb-3" name="ID_Unidad_Negocio">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
 
-      while($row = mysqli_fetch_assoc($result_task)) { ?>
-                                <option value="<?php echo $row['ID_puesto']; ?> <?php echo $row['nom_puesto']; ?>"><?php echo $row['ID_puesto']; ?>.- <?php echo $row['nom_puesto']; ?></option>
-                                <?php } ?>
-                            </select>
+                                $sql = $conexion->query("SELECT * FROM unidad_negocio");
+                                $spc = "";
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['ID_unidad_negocio']."'>".$resultado['nom_unidad_negocio']."</option>";
+                              }
+                            ?>
+                          </select>
                         </div>
                         <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Unidad de Negocio</label>
-                            <select class="form-select" aria-label="Default select example" name="ID_unidad_negocio">
-                                <option selected>Seleciona una opción</option>
-                                <?php
-                  $query = "SELECT * FROM unidad_negocio";
-                  $result_task = mysqli_query($conexion, $query);
-                  
-                  while($row = mysqli_fetch_assoc($result_task)) { ?>
-                                <option value="<?php echo $row['ID_unidad_negocio']; ?> <?php echo $row['nom_unidad_negocio']; ?>"><?php echo $row['ID_unidad_negocio']; ?>.- <?php echo $row['nom_unidad_negocio']; ?></option>
-                                <?php } ?>
-                            </select>
+                          <label for="exampleInputEmail1" class="form-label">Nombre Unidad_Negocio</label>
+                          <select class="form-select mb-3" name="Nom_Unidad_Negocio">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
+
+                                $sql = $conexion->query("SELECT * FROM unidad_negocio");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['nom_unidad_negocio']."'>".$resultado['nom_unidad_negocio']."</option>";
+                              }
+                            ?>
+                          </select>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Email</label>
-                            <input type="text" class="form-control" name="email" id="email">
+                            <input type="text" class="form-control" name="Email">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Area</label>
-                            <input type="text" class="form-control" name="area" id="area">
+                            <input type="text" class="form-control" name="Area">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Direccion</label>
-                            <input type="text" class="form-control" name="direccion" id="direccion">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Actividad</label>
-                            <select class="form-select" aria-label="Default select example" name="ID_actividad">
-                                <option selected>Seleciona una opción</option>
-                                <?php
-      $query = "SELECT * FROM detalle_actividad";
-      $result_task = mysqli_query($conexion, $query);
-      
-      while($row = mysqli_fetch_assoc($result_task)) { ?>
-                                <option value="<?php echo $row['ID_Actividad']; ?> <?php echo $row['nom_actividad']; ?>"><?php echo $row['ID_Actividad']; ?>.- <?php echo $row['nom_actividad']; ?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Nuevo Puesto</label>
-                            <select class="form-select" aria-label="Default select example" name="ID_nuevo_puesto">
-                                <option selected>Seleciona una opción</option>
-                                <?php
-      $query = "SELECT * FROM nuevo_puesto";
-      $result_task = mysqli_query($conexion, $query);
+                          <label for="exampleInputEmail1" class="form-label">ID Actividad</label>
+                          <select class="form-select mb-3" name="ID_Actividad">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
 
-      while($row = mysqli_fetch_assoc($result_task)) { ?>
-                                <option value="<?php echo $row['ID_Nuevo_Puesto']; ?> <?php echo $row['nom_nuevo_puesto']; ?>"><?php echo $row['ID_Nuevo_Puesto']; ?>.- <?php echo $row['nom_nuevo_puesto']; ?></option>
-                                <?php } ?>
-                            </select>
+                                $sql = $conexion->query("SELECT * FROM detalle_actividad");
+                                $spc = "";
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['ID_Actividad']."'>".$resultado['nom_actividad']."</option>";
+                              }
+                            ?>
+                          </select>
                         </div>
                         <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Procesos</label>
-                            <select class="form-select" aria-label="Default select example" name="ID_procesos">
-                                <option selected>Seleciona una opción</option>
-                                <?php
-      $query = "SELECT * FROM procesos";
-      $result_task = mysqli_query($conexion, $query);
+                          <label for="exampleInputEmail1" class="form-label">Nombre Actividad</label>
+                          <select class="form-select mb-3" name="Nom_Actividad">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
 
-      while($row = mysqli_fetch_assoc($result_task)) { ?>
-                                <option value="<?php echo $row['ID_Procesos']; ?> <?php echo $row['Nom_Procesos']; ?>"><?php echo $row['ID_Procesos']; ?>.- <?php echo $row['Nom_Procesos']; ?></option>
-                                <?php } ?>
-                            </select>
+                                $sql = $conexion->query("SELECT * FROM detalle_actividad");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['nom_actividad']."'>".$resultado['nom_actividad']."</option>";
+                              }
+                            ?>
+                          </select>
                         </div>
                         <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Direccion</label>
-                            <select class="form-select" aria-label="Default select example" name="ID_direccion">
-                                <option selected>Seleciona una opción</option>
-                                <?php
-      $query = "SELECT * FROM direcciones";
-      $result_task = mysqli_query($conexion, $query);
+                          <label for="exampleInputEmail1" class="form-label">ID_Nuevo_Puesto</label>
+                          <select class="form-select mb-3" name="ID_Nuevo_Puesto">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
 
-      while($row = mysqli_fetch_assoc($result_task)) { ?>
-                                <option value="<?php echo $row['ID_Direccion']; ?> <?php echo $row['Nom_Direccion']; ?>"><?php echo $row['ID_Direccion']; ?>.- <?php echo $row['Nom_Direccion']; ?></option>
-                                <?php } ?>
-                            </select>
+                                $sql = $conexion->query("SELECT * FROM nuevo_puesto");
+                                $spc = "";
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['ID_Nuevo_Puesto']."'>".$resultado['Nuevo_Puesto']."</option>";
+                              }
+                            ?>
+                          </select>
                         </div>
                         <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Subproceso</label>
-                            <select class="form-select" aria-label="Default select example" name="ID_subproceso">
-                                <option selected>Seleciona una opción</option>
-                                <?php
-      $query = "SELECT * FROM sub_proceso";
-      $result_task = mysqli_query($conexion, $query);
+                          <label for="exampleInputEmail1" class="form-label">Nom_Nuevo_Puesto</label>
+                          <select class="form-select mb-3" name="Nom_Nuevo_Puesto">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
 
-      while($row = mysqli_fetch_assoc($result_task)) { ?>
-                                <option value="<?php echo $row['ID_subProcesos']; ?> <?php echo $row['Nom_Subproceso']; ?>"><?php echo $row['ID_subProcesos']; ?>.- <?php echo $row['Nom_Subproceso']; ?></option>
-                                <?php } ?>
-                            </select>
+                                $sql = $conexion->query("SELECT * FROM nuevo_puesto");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['Nuevo_Puesto']."'>".$resultado['Nuevo_Puesto']."</option>";
+                              }
+                            ?>
+                          </select>
                         </div>
                         <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Temporalidad</label>
-                            <select class="form-select" aria-label="Default select example" name="ID_Temporalidad">
-                                <option selected>Seleciona una opción</option>
-                                <?php
-      $query = "SELECT * FROM temporalidad";
-      $result_task = mysqli_query($conexion, $query);
+                          <label for="exampleInputEmail1" class="form-label">ID Proceso</label>
+                          <select class="form-select mb-3" name="ID_Procesos">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
 
-      while($row = mysqli_fetch_assoc($result_task)) { ?>
-                                <option value="<?php echo $row['ID_Temporalidad']; ?> <?php echo $row['Nom_Temporalidad']; ?>"><?php echo $row['ID_Temporalidad']; ?>.- <?php echo $row['Nom_Temporalidad']; ?></option>
-                                <?php } ?>
-                            </select>
+                                $sql = $conexion->query("SELECT * FROM procesos");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['ID_Procesos']."'>".$resultado['Nom_Procesos']."</option>";
+                              }
+                            ?>
+                          </select>
                         </div>
                         <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Valor</label>
-                            <select class="form-select" aria-label="Default select example" name="ID_Valor">
-                                <option selected>Seleciona una opción</option>
-                                <?php
-      $query = "SELECT * FROM frecuencia";
-      $result_task = mysqli_query($conexion, $query);
+                          <label for="exampleInputEmail1" class="form-label">Nombre Proceso</label>
+                          <select class="form-select mb-3" name="Nom_Proceso">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
 
-      while($row = mysqli_fetch_assoc($result_task)) { ?>
-                                <option value="<?php echo $row['ID_Valor']; ?> <?php echo $row['Nom_Valor']; ?>"><?php echo $row['ID_Valor']; ?>.- <?php echo $row['Nom_Valor']; ?></option>
-                                <?php } ?>
-                            </select>
+                                $sql = $conexion->query("SELECT * FROM procesos");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['Nom_Procesos']."'>".$resultado['Nom_Procesos']."</option>";
+                              }
+                            ?>
+                          </select>
                         </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">ID Direccion</label>
+                          <select class="form-select mb-3" name="ID_Direcciones">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
+
+                                $sql = $conexion->query("SELECT * FROM direcciones");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['ID_Direccion']."'>".$resultado['Nom_Direccion']."</option>";
+                              }
+                            ?>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Nombre Direccion</label>
+                          <select class="form-select mb-3" name="Nom_Direcciones">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
+
+                                $sql = $conexion->query("SELECT * FROM direcciones");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['Nom_Direccion']."'>".$resultado['Nom_Direccion']."</option>";
+                              }
+                            ?>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">ID Subproceso</label>
+                          <select class="form-select mb-3" name="ID_Subproceso">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
+
+                                $sql = $conexion->query("SELECT * FROM sub_proceso");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['ID_subProcesos']."'>".$resultado['nom_Subproceso']."</option>";
+                              }
+                            ?>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Nombre Subproceso</label>
+                          <select class="form-select mb-3" name="Nom_Subproceso">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
+
+                                $sql = $conexion->query("SELECT * FROM sub_proceso");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['nom_Subproceso']."'>".$resultado['nom_Subproceso']."</option>";
+                              }
+                            ?>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">ID Temporalidad</label>
+                          <select class="form-select mb-3" name="ID_Temporalidad">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
+
+                                $sql = $conexion->query("SELECT * FROM temporalidad");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['ID_Temporalidad']."'>".$resultado['Nom_Temporalidad']."</option>";
+                              }
+                            ?>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Nombre Temporalidad</label>
+                          <select class="form-select mb-3" name="Nom_Temporalidad">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
+
+                                $sql = $conexion->query("SELECT * FROM temporalidad");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['Nom_Temporalidad']."'>".$resultado['Nom_Temporalidad']."</option>";
+                              }
+                            ?>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">ID Valor</label>
+                          <select class="form-select mb-3" name="ID_Valor">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
+
+                                $sql = $conexion->query("SELECT * FROM frecuencia");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['ID_Valor']."'>".$resultado['Nom_Valor']."</option>";
+                              }
+                            ?>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Nombre Valor</label>
+                          <select class="form-select mb-3" name="Nom_Valor">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
+
+                                $sql = $conexion->query("SELECT * FROM frecuencia");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['Nom_Valor']."'>".$resultado['Nom_Valor']."</option>";
+                              }
+                            ?>
+                          </select>
+                        </div>     
                         <div class="row justify-content-end">
                             <button type="submit" name="guardar" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;">Guardar</button>
                         </div>
@@ -236,27 +342,33 @@
 
     <div class="row justify-content-center">
       <!-- formulario -->
-    <table class="table" style="width: 400px;">
-  <thead>
+    <table class="table" style="margin-left: 1150px; margin-right: 30px;">
+  <thead class="text-center">
     <tr>
-      <th scope="col">ID_empleado</th>
+      <th scope="col">ID</th>
       <th scope="col">Nombre</th>
       <th scope="col">Apellido</th>
-      <th scope="col">ID_puesto</th>
-      <th scope="col">ID_unidad_negocio	</th>
+      <th scope="col">ID_unidad_negocio</th>
+      <th scope="col">Nom_unidad_negocio</th>
       <th scope="col">email</th>
       <th scope="col">area</th>
-      <th scope="col">direccion</th>
       <th scope="col">ID_actividad</th>
+      <th scope="col">Nom_Actividad</th>
       <th scope="col">ID_nuevo_puesto</th>
-      <th scope="col">ID_procesos</th>
+      <th scope="col">Nom_Nuevo_Puesto</th>
+      <th scope="col">ID_proceso</th>
+      <th scope="col">Nom_Proceso</th>
       <th scope="col">ID_direccion</th>
+      <th scope="col">Nom_Direccion</th>
       <th scope="col">ID_subproceso</th>
+      <th scope="col">Nom_Subproceso</th>
       <th scope="col">ID_temporalidad</th>
+      <th scope="col">Nom_Temporalidad</th>
       <th scope="col">ID_valor</th>
+      <th scope="col">Nom_Valor</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="text-center">
     <?php
       $query = "SELECT * FROM usuario_cliente";
       $result_task = mysqli_query($conexion, $query);
@@ -264,20 +376,26 @@
       while($row = mysqli_fetch_assoc($result_task)) { ?>
       <tr>
         <td><?php echo $row['ID_empleado']; ?></td>
-        <td><?php echo $row['nombre']; ?></td>
-        <td><?php echo $row['apellido']; ?></td>
-        <td><?php echo $row['ID_puesto']; ?></td>
-        <td><?php echo $row['ID_unidad_negocio']; ?></td>
-        <td><?php echo $row['email']; ?></td>
-        <td><?php echo $row['area']; ?></td>
-        <td><?php echo $row['direccion']; ?></td>
-        <td><?php echo $row['ID_actividad']; ?></td>
-        <td><?php echo $row['ID_nuevo_puesto']; ?></td>
-        <td><?php echo $row['ID_procesos']; ?></td>
-        <td><?php echo $row['ID_direccion']; ?></td>
-        <td><?php echo $row['ID_subproceso']; ?></td>
+        <td><?php echo $row['Nombre']; ?></td>
+        <td><?php echo $row['Apellido']; ?></td>
+        <td><?php echo $row['ID_Unidad_Negocio']; ?></td>
+        <td><?php echo $row['Nom_Unidad_Negocio']; ?></td>
+        <td><?php echo $row['Email']; ?></td>
+        <td><?php echo $row['Area']; ?></td>
+        <td><?php echo $row['ID_Actividad']; ?></td>
+        <td><?php echo $row['Nom_Actividad']; ?></td>
+        <td><?php echo $row['ID_Nuevo_Puesto']; ?></td>
+        <td><?php echo $row['Nom_Nuevo_Puesto']; ?></td>
+        <td><?php echo $row['ID_Procesos']; ?></td>
+        <td><?php echo $row['Nom_Proceso']; ?></td>
+        <td><?php echo $row['ID_Direcciones']; ?></td>
+        <td><?php echo $row['Nom_Direcciones']; ?></td>
+        <td><?php echo $row['ID_Subproceso']; ?></td>
+        <td><?php echo $row['Nom_Subproceso']; ?></td>
         <td><?php echo $row['ID_Temporalidad']; ?></td>
+        <td><?php echo $row['Nom_Temporalidad']; ?></td>
         <td><?php echo $row['ID_Valor']; ?></td>
+        <td><?php echo $row['Nom_Valor']; ?></td>
       </tr>
       <?php } ?>
   </tbody>

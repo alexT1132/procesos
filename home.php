@@ -46,7 +46,6 @@
                   <li><a href="tab/Direcciones/direcciones.php">Direcciones</a></li>
                   <li><a href="tab/Frecuencia/frecuencia.php">Frecuencia</a></li>
                   <li><a href="tab/Temporalidad/tem.php">Temporalidad</a></li>
-
                 </ul>
               </div>
             </div>

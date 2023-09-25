@@ -2,8 +2,14 @@
     include('../../config/conexion.php');
 
     if (isset($_POST['guardar'])) {
-        $nom_puesto = $_POST['nom_puesto'];
-        $query = "INSERT INTO puestos(nom_puesto) VALUES ('$nom_puesto')";
+        $Nuevo_Puesto = $_POST['Nuevo_Puesto'];
+        $ID_Actividad = $_POST['ID_Actividad'];
+        $nom_actividad = $_POST['nom_actividad'];
+        $query = "INSERT INTO nuevo_puesto(Nuevo_Puesto,
+                                    ID_Actividad,
+                                    nom_actividad) VALUES ('$Nuevo_Puesto',
+                                                            '$ID_Actividad',
+                                                            '$nom_actividad')";
         $result = mysqli_query($conexion, $query);
         if(!$result) {
             die("Query Failed.");

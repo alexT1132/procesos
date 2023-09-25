@@ -119,12 +119,60 @@
                           </select>
                         </div>         
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Nom_Proceso</label>
-                            <input type="text" class="form-control" name="Nom_Proceso">
+                          <label for="exampleInputEmail1" class="form-label">ID Proceso</label>
+                          <select class="form-select mb-3" name="ID_Procesos">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
+
+                                $sql = $conexion->query("SELECT * FROM procesos");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['ID_Procesos']."'>".$resultado['Nom_Procesos']."</option>";
+                              }
+                            ?>
+                          </select>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Nom_Subproceso</label>
-                            <input type="text" class="form-control" name="Nom_Subproceso">
+                          <label for="exampleInputEmail1" class="form-label">Nombre Proceso</label>
+                          <select class="form-select mb-3" name="Nom_Proceso">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
+
+                                $sql = $conexion->query("SELECT * FROM procesos");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['Nom_Procesos']."'>".$resultado['Nom_Procesos']."</option>";
+                              }
+                            ?>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">ID Subproceso</label>
+                          <select class="form-select mb-3" name="ID_Subproceso">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
+
+                                $sql = $conexion->query("SELECT * FROM sub_proceso");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['ID_subProcesos']."'>".$resultado['nom_Subproceso']."</option>";
+                              }
+                            ?>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Nombre Subproceso</label>
+                          <select class="form-select mb-3" name="Nom_Subproceso">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
+
+                                $sql = $conexion->query("SELECT * FROM sub_proceso");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['nom_Subproceso']."'>".$resultado['nom_Subproceso']."</option>";
+                              }
+                            ?>
+                          </select>
                         </div>
                         <div class="row justify-content-end">
                             <button type="submit" name="guardar" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;">Guardar</button>
@@ -138,17 +186,19 @@
     <div class="row justify-content-center">
       <!-- formulario -->
     <table class="table" style="width: 400px;">
-  <thead>
+  <thead class="text-center">
     <tr>
-      <th scope="col">ID_Nomen</th>
+      <th scope="col">ID</th>
       <th scope="col">Nomenclatura</th>
       <th scope="col">ID_Actividad</th>
-      <th scope="col">ID_Procesos</th>
+      <th scope="col">Nom_Actividad</th>
+      <th scope="col">ID_Proceso</th>
       <th scope="col">Nom_Proceso</th>
+      <th scope="col">ID_Subproceso</th>
       <th scope="col">Nom_Subproceso</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="text-center">
     <?php
       $query = "SELECT * FROM nomenclatura";
       $result_task = mysqli_query($conexion, $query);
@@ -158,8 +208,10 @@
         <td><?php echo $row['ID_Nomen']; ?></td>
         <td><?php echo $row['Nomenclatura']; ?></td>
         <td><?php echo $row['ID_Actividad']; ?></td>
+        <td><?php echo $row['nom_actividad']; ?></td>
         <td><?php echo $row['ID_Procesos']; ?></td>
         <td><?php echo $row['Nom_Proceso']; ?></td>
+        <td><?php echo $row['ID_Subproceso']; ?></td>
         <td><?php echo $row['Nom_Subproceso']; ?></td>
       </tr>
       <?php } ?>
