@@ -72,7 +72,7 @@
     
     <div>
         <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin: 50px;">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModa1" style="margin: 50px;">
         Añadir <i class='bx bx-plus'></i>
     </button>
     </div>
@@ -342,7 +342,7 @@
 
     <div class="row justify-content-center">
       <!-- formulario -->
-    <table class="table" style="margin-left: 1150px; margin-right: 30px;">
+    <table class="table" style="margin-left: 1160px;">
   <thead class="text-center">
     <tr>
       <th scope="col">ID</th>
@@ -366,6 +366,7 @@
       <th scope="col">Nom_Temporalidad</th>
       <th scope="col">ID_valor</th>
       <th scope="col">Nom_Valor</th>
+      <th scope="col">Acciones</th>
     </tr>
   </thead>
   <tbody class="text-center">
@@ -396,6 +397,11 @@
         <td><?php echo $row['Nom_Temporalidad']; ?></td>
         <td><?php echo $row['ID_Valor']; ?></td>
         <td><?php echo $row['Nom_Valor']; ?></td>
+        <td>
+          <a href="edit.php?ID_empleado=<?php echo $row['ID_empleado']?>" class="btn btn-warning">
+            <i class='bx bxs-edit'></i>
+          </a>
+        </td>
       </tr>
       <?php } ?>
   </tbody>
