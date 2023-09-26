@@ -70,31 +70,28 @@
       </form>
     </div>
     
-    <div>
-        <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModa1" style="margin: 50px;">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin: 50px;">
         Añadir <i class='bx bx-plus'></i>
     </button>
-    </div>
-     
 
-        <!-- Modal -->
+    <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Añadir Nuevo Usuario/Cliente</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Añadir Unidad de Negocios</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="valUC.php" method="POST">
+                <form action="valUC.php" method="POST">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" name="Nombre">
+                            <input type="text" class="form-control" name="Nombre" placeholder="Nombre usuario/empleado">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Apellido</label>
-                            <input type="text" class="form-control" name="Apellido">
+                            <input type="text" class="form-control" name="Apellido" placeholder="Apellido usuario/empleado">
                         </div>
                         <div class="mb-3">
                           <label for="exampleInputEmail1" class="form-label">ID Unidad_Negocio</label>
@@ -340,8 +337,8 @@
         </div>
     </div>
 
+    <!-- formulario -->
     <div class="row justify-content-center">
-      <!-- formulario -->
     <table class="table" style="margin-left: 1160px;">
   <thead class="text-center">
     <tr>
@@ -398,7 +395,7 @@
         <td><?php echo $row['ID_Valor']; ?></td>
         <td><?php echo $row['Nom_Valor']; ?></td>
         <td>
-          <a href="edit.php?ID_empleado=<?php echo $row['ID_empleado']?>" class="btn btn-warning">
+          <a href="edit.php?ID=<?php echo $row['ID_empleado']?>" class="btn btn-warning">
             <i class='bx bxs-edit'></i>
           </a>
         </td>
@@ -407,6 +404,8 @@
   </tbody>
 </table>
     </div>
+
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>

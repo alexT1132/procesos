@@ -141,6 +141,8 @@
       <th scope="col">Estrategico</th>
       <th scope="col">ID_Actividad</th>
       <th scope="col">Nom_Actividad</th>
+      <th scope="col">Acciones</th>
+
     </tr>
   </thead>
   <tbody class="text-center">
@@ -155,6 +157,11 @@
         <td><?php echo $row['Estrategico']; ?></td>
         <td><?php echo $row['ID_Actividad']; ?></td>
         <td><?php echo $row['nom_actividad']; ?></td>
+        <td>
+          <a href="edit.php?ID_Tipo=<?php echo $row['ID_Tipo']?>" class="btn btn-warning">
+            <i class='bx bxs-edit'></i>
+          </a>
+        </td>
       </tr>
       <?php } ?>
   </tbody>

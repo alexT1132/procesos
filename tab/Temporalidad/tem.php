@@ -105,6 +105,7 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Nom_Temporalidad</th>
+      <th scope="col">Acciones</th>
     </tr>
   </thead>
   <tbody class="text-center">
@@ -116,6 +117,11 @@
       <tr>
         <td><?php echo $row['ID_Temporalidad']; ?></td>
         <td><?php echo $row['Nom_Temporalidad']; ?></td>
+        <td>
+          <a href="edit.php?ID_Temporalidad=<?php echo $row['ID_Temporalidad']?>" class="btn btn-warning">
+            <i class='bx bxs-edit'></i>
+          </a>
+        </td>
       </tr>
       <?php } ?>
   </tbody>

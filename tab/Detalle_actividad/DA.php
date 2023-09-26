@@ -115,6 +115,8 @@
       <th scope="col">Entregable</th>
       <th scope="col">sistema</th>
       <th scope="col">Descripcion</th>
+      <th scope="col">Acciones</th>
+
     </tr>
   </thead>
   <tbody class="text-center">
@@ -128,6 +130,11 @@
         <td><?php echo $row['Entregable']; ?></td>
         <td><?php echo $row['sistema']; ?></td>
         <td><?php echo $row['Descripcion']; ?></td>
+        <td>
+          <a href="edit.php?ID_Actividad=<?php echo $row['ID_Actividad']?>" class="btn btn-warning">
+            <i class='bx bxs-edit'></i>
+          </a>
+        </td>
       </tr>
       <?php } ?>
   </tbody>

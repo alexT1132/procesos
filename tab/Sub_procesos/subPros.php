@@ -167,6 +167,8 @@
       <th scope="col">Nom_Proceso</th>
       <th scope="col">ID_Actividad</th>
       <th scope="col">nom_actividad</th>
+      <th scope="col">Acciones</th>
+
     </tr>
   </thead>
   <tbody class="text-center">
@@ -182,6 +184,11 @@
         <td><?php echo $row['nom_proceso']; ?></td>
         <td><?php echo $row['ID_Actividad']; ?></td>
         <td><?php echo $row['nom_actividad']; ?></td>
+        <td>
+          <a href="edit.php?ID_subProcesos=<?php echo $row['ID_subProcesos']?>" class="btn btn-warning">
+            <i class='bx bxs-edit'></i>
+          </a>
+        </td>
       </tr>
       <?php } ?>
   </tbody>

@@ -146,6 +146,8 @@
       <th scope="col">Nom_Actividad</th>
       <th scope="col">Tiempo</th>
       <th scope="col">Frecuencia</th>
+      <th scope="col">Acciones</th>
+
     </tr>
   </thead>
   <tbody class="text-center">
@@ -161,6 +163,11 @@
         <td><?php echo $row['nom_actividad']; ?></td>
         <td><?php echo $row['Tiempo']; ?></td>
         <td><?php echo $row['Frecuencia']; ?></td>
+        <td>
+          <a href="edit.php?ID_Calculo=<?php echo $row['ID_Calculo']?>" class="btn btn-warning">
+            <i class='bx bxs-edit'></i>
+          </a>
+        </td>
       </tr>
       <?php } ?>
   </tbody>

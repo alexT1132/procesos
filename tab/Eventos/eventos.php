@@ -120,6 +120,8 @@
       <th scope="col">Por_Eventos</th>
       <th scope="col">Continuos</th>
       <th scope="col">Mensual</th>
+      <th scope="col">Acciones</th>
+
     </tr>
   </thead>
   <tbody class="text-center">
@@ -134,6 +136,11 @@
         <td><?php echo $row['Por_Eventos']; ?></td>
         <td><?php echo $row['Continuos']; ?></td>
         <td><?php echo $row['Mensual']; ?></td>
+        <td>
+          <a href="edit.php?ID_Eventos=<?php echo $row['ID_Eventos']?>" class="btn btn-warning">
+            <i class='bx bxs-edit'></i>
+          </a>
+        </td>
       </tr>
       </tr>
       <?php } ?>

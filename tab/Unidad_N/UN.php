@@ -98,15 +98,16 @@
         </div>
     </div>
 
-    <!-- formulario -->
+    <!-- Tabla -->
     <div class="row justify-content-center">
     <table class="table" style="width: 400px;">
-  <thead>
+  <thead class="text-center">
     <tr>
-      <th scope="col">ID Unidad Negocio</th>
-      <th scope="col">Nombre Unidad Negocio</th>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Acciones</th>
   </thead>
-  <tbody>
+  <tbody class="text-center">
     <?php
       $query = "SELECT * FROM unidad_negocio";
       $result_task = mysqli_query($conexion, $query);
@@ -115,6 +116,11 @@
       <tr>
         <td><?php echo $row['ID_unidad_negocio']; ?></td>
         <td><?php echo $row['nom_unidad_negocio']; ?></td>
+        <td>
+          <a href="edit.php?ID=<?php echo $row['ID_unidad_negocio']?>" class="btn btn-warning">
+            <i class='bx bxs-edit'></i>
+          </a>
+        </td>
       </tr>
       <?php } ?>
   </tbody>

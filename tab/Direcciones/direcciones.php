@@ -105,6 +105,8 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Nom_Direccion</th>
+      <th scope="col">Acciones</th>
+
     </tr>
   </thead>
   <tbody class="text-center">
@@ -116,6 +118,11 @@
       <tr>
         <td><?php echo $row['ID_Direccion']; ?></td>
         <td><?php echo $row['Nom_Direccion']; ?></td>
+        <td>
+          <a href="edit.php?ID_Direccion=<?php echo $row['ID_Direccion']?>" class="btn btn-warning">
+            <i class='bx bxs-edit'></i>
+          </a>
+        </td>
       </tr>
       </tr>
       <?php } ?>
