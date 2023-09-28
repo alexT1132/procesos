@@ -1,11 +1,11 @@
 <?php
-include("../../config/db.php");
+include("../../config/conexion.php");
 $Nom_Temporalidad = '';
 
 if  (isset($_GET['ID_Temporalidad'])) {
   $ID_Temporalidad = $_GET['ID_Temporalidad'];
   $query = "SELECT * FROM temporalidad WHERE ID_Temporalidad = $ID_Temporalidad";
-  $result = mysqli_query($conn, $query);
+  $result = mysqli_query($conexion, $query);
   if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_array($result);
     $Nom_Temporalidad = $row['Nom_Temporalidad'];
@@ -16,7 +16,7 @@ if (isset($_POST['update'])) {
     $ID_Temporalidad = $_GET['ID_Temporalidad'];
     $Nom_Temporalidad = $_POST['Nom_Temporalidad'];
     $query = "UPDATE temporalidad set Nom_Temporalidad = '$Nom_Temporalidad' WHERE ID_Temporalidad = $ID_Temporalidad";
-    mysqli_query($conn, $query);
+    mysqli_query($conexion, $query);
     header('Location: tem.php');
 }
 
