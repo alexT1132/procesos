@@ -6,6 +6,8 @@
     <title>Home | Grupo Piasa</title>
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="shortcut icon" href="img/logo_3.png">
+
 </head>
 <body>
   <nav>
@@ -13,7 +15,7 @@
       <div class="logo"><a href="#">Home</a></div>
       <input type="radio" name="slider" id="menu-btn">
       <input type="radio" name="slider" id="close-btn">
-      <ul class="nav-links">
+      <ul class="nav-links" style="margin-top: -2px;">
         <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
         <li><a href="home.php">Home</a></li>
         <li>

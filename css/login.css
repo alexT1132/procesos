@@ -4,9 +4,6 @@
     font-family: 'Poppins', sans serif;
 }
 
-body{
-    background: rgb(196, 196, 196);
-}
 
 .box{
     display: flex;

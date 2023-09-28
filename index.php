@@ -7,8 +7,9 @@
     <title>Login</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/login.css">
+    <link rel="shortcut icon" href="img/logo_3.png">
 </head>
-<body>
+<body style="background: rgb(205 205 205);">
     <div class="box">
         <div class="container">
             <div class="top-header">
