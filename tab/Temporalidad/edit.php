@@ -46,6 +46,7 @@ if (isset($_POST['update'])) {
                 <label for="exampleInputEmail1" class="form-label">Nom_Temporalidad</label>
                 <input type="text" class="form-control" name="Nom_Temporalidad" value="<?php echo $Nom_Temporalidad; ?>" placeholder="Actualizar Nombre">
             </div>
+            <a type="submite" class="btn btn-danger" href="tem.php">Back</a>
             <button class="btn btn-success" name="update">
                 Update
             </button>
