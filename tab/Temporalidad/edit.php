@@ -36,7 +36,7 @@ if (isset($_POST['update'])) {
     <div class="title text-center">
         <h1>Modificar datos</h1>
     </div>
-    <br><br>
+    <br>
     <div class="container p-4">
   <div class="row">
     <div class="col-md-4 mx-auto">

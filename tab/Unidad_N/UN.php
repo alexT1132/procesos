@@ -118,7 +118,7 @@
         <td><?php echo $row['ID_unidad_negocio']; ?></td>
         <td><?php echo $row['nom_unidad_negocio']; ?></td>
         <td>
-          <a href="edit.php?ID=<?php echo $row['ID_unidad_negocio']?>" class="btn btn-warning">
+          <a href="edit.php?ID_unidad_negocio=<?php echo $row['ID_unidad_negocio']?>" class="btn btn-warning">
             <i class='bx bxs-edit'></i>
           </a>
         </td>
