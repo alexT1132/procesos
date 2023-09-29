@@ -87,6 +87,10 @@
                 <div class="modal-body">
                     <form action="valDA.php" method="POST">
                         <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">nom_actividad</label>
+                            <input type="text" class="form-control" name="nom_actividad" id="entregable" >
+                        </div>
+                        <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Entregable</label>
                             <input type="text" class="form-control" name="Entregable" id="entregable" >
                         </div>
@@ -112,7 +116,8 @@
     <table class="table" style="width: 400px;">
   <thead class="text-center">
     <tr>
-      <th scope="col">ID_Actividad</th>
+      <th scope="col">ID</th>
+      <th scope="col">nom_actividad</th>
       <th scope="col">Entregable</th>
       <th scope="col">sistema</th>
       <th scope="col">Descripcion</th>
@@ -128,6 +133,7 @@
       while($row = mysqli_fetch_assoc($result_task)) { ?>
       <tr>
         <td><?php echo $row['ID_Actividad']; ?></td>
+        <td><?php echo $row['nom_actividad']; ?></td>
         <td><?php echo $row['Entregable']; ?></td>
         <td><?php echo $row['sistema']; ?></td>
         <td><?php echo $row['Descripcion']; ?></td>

@@ -1,5 +1,6 @@
 <?php
 include("../../config/conexion.php");
+$nom_actividad = '';
 $Entregable = '';
 $sistema = '';
 $Descripcion = '';
@@ -10,6 +11,7 @@ if  (isset($_GET['ID_Actividad'])) {
   $result = mysqli_query($conexion, $query);
   if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_array($result);
+    $nom_actividad = $row['nom_actividad'];
     $Entregable = $row['Entregable'];
     $sistema = $row['sistema'];
     $Descripcion = $row['Descripcion'];
@@ -18,10 +20,11 @@ if  (isset($_GET['ID_Actividad'])) {
 
 if (isset($_POST['update'])) {
     $ID_Actividad = $_GET['ID_Actividad'];
+    $nom_actividad = $_POST['nom_actividad'];
     $Entregable = $_POST['Entregable'];
     $sistema = $_POST['sistema'];
     $Descripcion = $_POST['Descripcion'];
-    $query = "UPDATE detalle_actividad set Entregable = '$Entregable', sistema = '$sistema', Descripcion = '$Descripcion' WHERE ID_Actividad = $ID_Actividad";
+    $query = "UPDATE detalle_actividad set nom_actividad = '$nom_actividad', Entregable = '$Entregable', sistema = '$sistema', Descripcion = '$Descripcion' WHERE ID_Actividad = $ID_Actividad";
     mysqli_query($conexion, $query);
     header('Location: DA.php');
 }
@@ -48,6 +51,10 @@ if (isset($_POST['update'])) {
     <div class="col-md-4 mx-auto">
       <div class="card card-body">
         <form action="edit.php?ID_Actividad=<?php echo $_GET['ID_Actividad']; ?>" method="POST">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">nom_actividad</label>
+                <input type="text" class="form-control" name="nom_actividad" value="<?php echo $nom_actividad; ?>" placeholder="Actualizar Nombre">
+            </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Entregable</label>
                 <input type="text" class="form-control" name="Entregable" value="<?php echo $Entregable; ?>" placeholder="Actualizar Nombre">
