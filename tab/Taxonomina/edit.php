@@ -3,6 +3,10 @@ include("../../config/conexion.php");
 $nom_taxonomina = '';
 $ID_Actividad = '';
 $nom_actividad = '';
+$ID_proceso = '';
+$nom_proceso = '';
+$ID_Subproceso = '';
+$nom_Subproceso = '';
 
 if  (isset($_GET['ID_Taxonomina'])) {
   $ID_Taxonomina = $_GET['ID_Taxonomina'];
@@ -13,6 +17,10 @@ if  (isset($_GET['ID_Taxonomina'])) {
     $nom_taxonomina = $row['nom_taxonomina'];
     $ID_Actividad = $row['ID_Actividad'];
     $nom_actividad = $row['nom_actividad'];
+    $ID_proceso = $row['ID_proceso'];
+    $nom_proceso = $row['nom_proceso'];
+    $ID_Subproceso = $row['ID_Subproceso'];
+    $nom_Subproceso = $row['nom_Subproceso'];
   }
 }
 
@@ -21,7 +29,11 @@ if (isset($_POST['update'])) {
     $nom_taxonomina = $_POST['nom_taxonomina'];
     $ID_Actividad = $_POST['ID_Actividad'];
     $nom_actividad = $_POST['nom_actividad'];
-    $query = "UPDATE taxonomina set nom_taxonomina = '$nom_taxonomina', ID_Actividad = '$ID_Actividad', nom_actividad = '$nom_actividad'  WHERE ID_Taxonomina = $ID_Taxonomina";
+    $ID_proceso = $_POST['ID_proceso'];
+    $nom_proceso = $_POST['nom_proceso'];
+    $ID_Subproceso = $_POST['ID_Subproceso'];
+    $nom_Subproceso = $_POST['nom_Subproceso'];
+    $query = "UPDATE taxonomina set nom_taxonomina = '$nom_taxonomina', ID_Actividad = '$ID_Actividad', nom_actividad = '$nom_actividad', ID_proceso = '$ID_proceso', nom_proceso = '$nom_proceso', ID_Subproceso = '$ID_Subproceso', nom_Subproceso = '$nom_Subproceso' WHERE ID_Taxonomina = $ID_Taxonomina";
     mysqli_query($conexion, $query);
     header('Location: taxo.php');
 }
@@ -93,6 +105,90 @@ if (isset($_POST['update'])) {
                             }
                         ?>   
                 </select>
+            </div>
+            <div class="mb-3">
+            <label>ID_Proceso</label>
+        <select class="form-select mb-3" aria-label="Default select example" name="ID_proceso">
+            <option selected disabled>--Seleccione Proceso--</option>
+            <?php
+                $sql1 = "SELECT * FROM taxonomina WHERE ID_proceso =".$row['ID_proceso'];
+                $resultado1 = $conexion->query($sql1);
+
+                $row1 = $resultado1->fetch_assoc();
+
+                echo "<option selected value='".$row1['ID_proceso']."'>".$row1['nom_proceso']."</option>";
+
+                $sql2 = "SELECT * FROM procesos";
+                $resultado2 = $conexion->query($sql2);
+
+                while ($Fila = $resultado2->fetch_array()) {
+                    echo "<option value='".$Fila['ID_Procesos']."'>".$Fila['Nom_Procesos']."</option>";
+                }
+            ?>   
+        </select>
+            </div>
+            <div class="mb-3">
+            <label>nom_proceso</label>
+        <select class="form-select mb-3" aria-label="Default select example" name="nom_proceso">
+            <option selected disabled>--Seleccione Proceso--</option>
+            <?php
+                $sql1 = "SELECT * FROM taxonomina WHERE ID_proceso =".$row['ID_proceso'];
+                $resultado1 = $conexion->query($sql1);
+
+                $row1 = $resultado1->fetch_assoc();
+
+                echo "<option selected value='".$row1['nom_proceso']."'>".$row1['nom_proceso']."</option>";
+
+                $sql2 = "SELECT * FROM procesos";
+                $resultado2 = $conexion->query($sql2);
+
+                while ($Fila = $resultado2->fetch_array()) {
+                    echo "<option value='".$Fila['Nom_Procesos']."'>".$Fila['Nom_Procesos']."</option>";
+                }
+            ?>   
+        </select>
+            </div>
+            <div class="mb-3">
+            <label>ID_subProceso</label>
+        <select class="form-select mb-3" aria-label="Default select example" name="ID_Subproceso">
+            <option selected disabled>--Seleccione subProceso--</option>
+            <?php
+                $sql1 = "SELECT * FROM taxonomina WHERE ID_Subproceso =".$row['ID_Subproceso'];
+                $resultado1 = $conexion->query($sql1);
+
+                $row1 = $resultado1->fetch_assoc();
+
+                echo "<option selected value='".$row1['ID_Subproceso']."'>".$row1['nom_Subproceso']."</option>";
+
+                $sql2 = "SELECT * FROM sub_proceso";
+                $resultado2 = $conexion->query($sql2);
+
+                while ($Fila = $resultado2->fetch_array()) {
+                    echo "<option value='".$Fila['ID_subProcesos']."'>".$Fila['nom_Subproceso']."</option>";
+                }
+            ?>   
+        </select>
+            </div>
+            <div class="mb-3">
+            <label>Nom_subProceso</label>
+        <select class="form-select mb-3" aria-label="Default select example" name="nom_Subproceso">
+            <option selected disabled>--Seleccione Proceso--</option>
+            <?php
+                $sql1 = "SELECT * FROM taxonomina WHERE ID_Subproceso =".$row['ID_Subproceso'];
+                $resultado1 = $conexion->query($sql1);
+
+                $row1 = $resultado1->fetch_assoc();
+
+                echo "<option selected value='".$row1['nom_Subproceso']."'>".$row1['nom_Subproceso']."</option>";
+
+                $sql2 = "SELECT * FROM sub_proceso";
+                $resultado2 = $conexion->query($sql2);
+
+                while ($Fila = $resultado2->fetch_array()) {
+                    echo "<option value='".$Fila['nom_Subproceso']."'>".$Fila['nom_Subproceso']."</option>";
+                }
+            ?>   
+        </select>
             </div>
             <a type="submite" class="btn btn-danger" href="taxo.php">Back</a>
             <button class="btn btn-success" name="update">

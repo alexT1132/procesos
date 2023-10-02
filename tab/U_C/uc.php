@@ -396,7 +396,7 @@
         <td><?php echo $row['ID_Valor']; ?></td>
         <td><?php echo $row['Nom_Valor']; ?></td>
         <td>
-          <a href="edit.php?ID=<?php echo $row['ID_empleado']?>" class="btn btn-warning">
+          <a href="editar.php?ID_empleado=<?php echo $row['ID_empleado']?>" class="btn btn-warning">
             <i class='bx bxs-edit'></i>
           </a>
         </td>
