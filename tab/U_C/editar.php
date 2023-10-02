@@ -99,7 +99,7 @@ if (isset($_POST['update'])) {
   <div class="row">
     <div class="col-md-4 mx-auto">
       <div class="card card-body">
-        <form action="edit.php?ID_empleado=<?php echo $_GET['ID_empleado']; ?>" method="POST">
+        <form action="editar.php?ID_empleado=<?php echo $_GET['ID_empleado']; ?>" method="POST">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nombre</label>
                 <input type="text" class="form-control" name="Nombre" value="<?php echo $Nombre; ?>" placeholder="Actualizar Nombre">
@@ -306,9 +306,9 @@ if (isset($_POST['update'])) {
         </select>
             </div>
             <div class="mb-3">
-            <label>Nom_Proceso</label>
+            <label>Nom_Direcciones</label>
         <select class="form-select mb-3" aria-label="Default select example" name="Nom_Direcciones">
-            <option selected disabled>--Seleccione Proceso--</option>
+            <option selected disabled>--Seleccione Nom_Direcciones--</option>
             <?php
                 $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Direcciones =".$row['ID_Direcciones'];
                 $resultado1 = $conexion->query($sql1);
