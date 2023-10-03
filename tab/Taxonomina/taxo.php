@@ -1,3 +1,15 @@
+<?php 
+//seguridad de sessiones paginacion
+session_start();
+error_reporting(0);
+$varsesion= $_SESSION['username'];
+if($varsesion== null || $varsesion=''){
+    header("location: Acceso Denegado");
+    die();
+}
+
+?>
+
 <?php include('../../config/conexion.php'); ?>
 
 <!DOCTYPE html>
@@ -57,7 +69,7 @@
             </div>
           </div>
         </li>
-        <li><a type="submite" href="#">Cerrar Sessión</a></li>
+        <li><a type="submite" href="../../destroy.php">Cerrar Sessión</a></li>
       </ul>
       <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
     </div>

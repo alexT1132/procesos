@@ -15,7 +15,7 @@
             <div class="top-header">
                 <header>Login</header>
             </div>
-            <form action="home.php" method="post">
+            <form action="validar.php" method="POST">
                 <div class="input-field">
                     <input type="text" class="input" name="username" placeholder="Username">
                     <i class="bx bx-user"></i>
