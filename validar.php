@@ -14,9 +14,12 @@ $filas=mysqli_fetch_array($resultado);
 if($filas['rol_id']==1){ 
     header("location: home.php");
 
-}
-else{
-    header('location: index.php');
+}else
+if($filas['rol_id']==2){ 
+    header("location: vis/home.php");
+
+}else{
+    header('location: alerts/index_incorrecto.php');
 }
 
 mysqli_free_result($resultado);

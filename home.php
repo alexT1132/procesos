@@ -4,7 +4,7 @@ session_start();
 error_reporting(0);
 $varsesion= $_SESSION['username'];
 if($varsesion== null || $varsesion=''){
-    header("location: Acceso Denegado");
+    header("location: error.php");
     die();
 }
 
