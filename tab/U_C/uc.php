@@ -64,6 +64,7 @@ if($varsesion== null || $varsesion=''){
                   <li><a href="../Direcciones/direcciones.php">Direcciones</a></li>
                   <li><a href="../Frecuencia/frecuencia.php">Frecuencia</a></li>
                   <li><a href="../Temporalidad/tem.php">Temporalidad</a></li>
+                  <li><a href="../entrega/entrega.php">Entrega</a></li>
                 </ul>
               </div>
             </div>
@@ -322,7 +323,7 @@ if($varsesion== null || $varsesion=''){
 
                                 $sql = $conexion->query("SELECT * FROM frecuencia");
                                 while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['ID_Valor']."'>".$resultado['Nom_Valor']."</option>";
+                                echo "<option value='".$resultado['ID_Valor']."'>".$resultado['Nom_frecuencia']."</option>";
                               }
                             ?>
                           </select>
@@ -336,7 +337,21 @@ if($varsesion== null || $varsesion=''){
 
                                 $sql = $conexion->query("SELECT * FROM frecuencia");
                                 while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['Nom_Valor']."'>".$resultado['Nom_Valor']."</option>";
+                                echo "<option value='".$resultado['Nom_Valor']."'>".$resultado['Nom_frecuencia']."</option>";
+                              }
+                            ?>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Nombre Frecuencia</label>
+                          <select class="form-select mb-3" name="Nom_frecuencia">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
+
+                                $sql = $conexion->query("SELECT * FROM frecuencia");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['Nom_frecuencia']."'>".$resultado['Nom_frecuencia']."</option>";
                               }
                             ?>
                           </select>
@@ -352,30 +367,31 @@ if($varsesion== null || $varsesion=''){
 
     <!-- formulario -->
     <div class="row justify-content-center">
-    <table class="table" style="margin-left: 1160px;">
+    <table class="table" style="margin-left: 40px;">
   <thead class="text-center">
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Nombre</th>
       <th scope="col">Apellido</th>
-      <th scope="col">ID_unidad_negocio</th>
-      <th scope="col">Nom_unidad_negocio</th>
+      <th scope="col">ID</th>
+      <th scope="col">Unidad_negocio</th>
       <th scope="col">email</th>
       <th scope="col">area</th>
-      <th scope="col">ID_actividad</th>
-      <th scope="col">Nom_Actividad</th>
-      <th scope="col">ID_nuevo_puesto</th>
-      <th scope="col">Nom_Nuevo_Puesto</th>
-      <th scope="col">ID_proceso</th>
-      <th scope="col">Nom_Proceso</th>
-      <th scope="col">ID_direccion</th>
-      <th scope="col">Nom_Direccion</th>
-      <th scope="col">ID_subproceso</th>
-      <th scope="col">Nom_Subproceso</th>
-      <th scope="col">ID_temporalidad</th>
-      <th scope="col">Nom_Temporalidad</th>
-      <th scope="col">ID_valor</th>
-      <th scope="col">Nom_Valor</th>
+      <th scope="col">ID</th>
+      <th scope="col">Actividad</th>
+      <th scope="col">ID</th>
+      <th scope="col">Nuevo_Puesto</th>
+      <th scope="col">ID</th>
+      <th scope="col">Proceso</th>
+      <th scope="col">ID</th>
+      <th scope="col">Direccion</th>
+      <th scope="col">ID</th>
+      <th scope="col">Subproceso</th>
+      <th scope="col">ID</th>
+      <th scope="col">Temporalidad</th>
+      <th scope="col">ID</th>
+      <th scope="col">Valor</th>
+      <th scope="col">frecuencia</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -407,9 +423,13 @@ if($varsesion== null || $varsesion=''){
         <td><?php echo $row['Nom_Temporalidad']; ?></td>
         <td><?php echo $row['ID_Valor']; ?></td>
         <td><?php echo $row['Nom_Valor']; ?></td>
+        <td><?php echo $row['Nom_frecuencia']; ?></td>
         <td>
           <a href="editar.php?ID_empleado=<?php echo $row['ID_empleado']?>" class="btn btn-warning">
             <i class='bx bxs-edit'></i>
+          </a>
+          <a href="delete.php?ID_empleado=<?php echo $row['ID_empleado']?>" class="btn btn-danger">
+            <i class='bx bx-trash'></i>
           </a>
         </td>
       </tr>

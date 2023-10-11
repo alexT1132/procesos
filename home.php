@@ -60,6 +60,7 @@ if($varsesion== null || $varsesion=''){
                   <li><a href="tab/Direcciones/direcciones.php">Direcciones</a></li>
                   <li><a href="tab/Frecuencia/frecuencia.php">Frecuencia</a></li>
                   <li><a href="tab/Temporalidad/tem.php">Temporalidad</a></li>
+                  <li><a href="tab/entrega/entrega.php">Entrega</a></li>
                 </ul>
               </div>
             </div>

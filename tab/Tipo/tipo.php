@@ -65,6 +65,7 @@ if($varsesion== null || $varsesion=''){
                   <li><a href="../Direcciones/direcciones.php">Direcciones</a></li>
                   <li><a href="../Frecuencia/frecuencia.php">Frecuencia</a></li>
                   <li><a href="../Temporalidad/tem.php">Temporalidad</a></li>
+                  <li><a href="../entrega/entrega.php">Entrega</a></li>
                 </ul>
               </div>
             </div>
@@ -100,22 +101,22 @@ if($varsesion== null || $varsesion=''){
                 <div class="modal-body">
                     <form action="valTipo.php" method="POST">
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Transaccional</label>
-                            <input type="text" class="form-control" name="Transaccional" >
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Estrategico</label>
-                            <input type="text" class="form-control" name="Estrategico" >
+                          <label for="" class="form-label">Nombre tipo</label>
+                          <select class="form-select mb-3" name="nom_tipo">
+                            <option selected disabled>Selecciona una opcion</option>
+                            <option value="Transaccional">Transaccional</option>
+                            <option value="Estrategico">Estratégico</option>
+                          </select>
                         </div>
                         <div class="mb-3">
                           <label for="exampleInputEmail1" class="form-label">ID Actividad</label>
                           <select class="form-select mb-3" name="ID_Actividad">
                             <option selected disabled>Selecciona una opción</option>
+                            <option value="">...</option>
                             <?php
                                 include ("../../config/conexion.php");
 
                                 $sql = $conexion->query("SELECT * FROM detalle_actividad");
-                                $spc = "";
                                 while ($resultado = $sql->fetch_assoc()) {
                                 echo "<option value='".$resultado['ID_Actividad']."'>".$resultado['nom_actividad']."</option>";
                               }
@@ -126,6 +127,7 @@ if($varsesion== null || $varsesion=''){
                           <label for="exampleInputEmail1" class="form-label">Nombre Actividad</label>
                           <select class="form-select mb-3" name="nom_actividad">
                             <option selected disabled>Selecciona una opción</option>
+                            <option value="">...</option>
                             <?php
                                 include ("../../config/conexion.php");
 
@@ -145,14 +147,13 @@ if($varsesion== null || $varsesion=''){
         </div>
     </div>
 
+    <!-- formulario -->
     <div class="row justify-content-center">
-      <!-- formulario -->
-    <table class="table" style="width: 400px;">
-  <thead>
+    <table class="table" style="width: 1000px;">
+  <thead class="text-center">
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Transaccional</th>
-      <th scope="col">Estrategico</th>
+      <th scope="col">Tipo</th>
       <th scope="col">ID_Actividad</th>
       <th scope="col">Nom_Actividad</th>
       <th scope="col">Acciones</th>
@@ -167,13 +168,15 @@ if($varsesion== null || $varsesion=''){
       while($row = mysqli_fetch_assoc($result_task)) { ?>
       <tr>
         <td><?php echo $row['ID_Tipo']; ?></td>
-        <td><?php echo $row['Transaccional']; ?></td>
-        <td><?php echo $row['Estrategico']; ?></td>
+        <td><?php echo $row['nom_tipo']; ?></td>
         <td><?php echo $row['ID_Actividad']; ?></td>
         <td><?php echo $row['nom_actividad']; ?></td>
         <td>
           <a href="edit.php?ID_Tipo=<?php echo $row['ID_Tipo']?>" class="btn btn-warning">
             <i class='bx bxs-edit'></i>
+          </a>
+          <a href="delete.php?ID_Tipo=<?php echo $row['ID_Tipo']?>" class="btn btn-danger">
+            <i class='bx bx-trash'></i>
           </a>
         </td>
       </tr>

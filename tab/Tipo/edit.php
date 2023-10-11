@@ -1,7 +1,6 @@
 <?php
 include("../../config/conexion.php");
-$Transaccional = '';
-$Estrategico = '';
+$nom_tipo = '';
 $ID_Actividad = '';
 $nom_actividad = '';
 
@@ -11,8 +10,7 @@ if  (isset($_GET['ID_Tipo'])) {
   $result = mysqli_query($conexion, $query);
   if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_array($result);
-    $Transaccional = $row['Transaccional'];
-    $Estrategico = $row['Estrategico'];
+    $nom_tipo = $row['nom_tipo'];
     $ID_Actividad = $row['ID_Actividad'];
     $nom_actividad = $row['nom_actividad'];
   }
@@ -20,11 +18,10 @@ if  (isset($_GET['ID_Tipo'])) {
 
 if (isset($_POST['update'])) {
     $ID_Tipo = $_GET['ID_Tipo'];
-    $Transaccional = $_POST['Transaccional'];
-    $Estrategico = $_POST['Estrategico'];
+    $nom_tipo = $_POST['nom_tipo'];
     $ID_Actividad = $_POST['ID_Actividad'];
     $nom_actividad = $_POST['nom_actividad'];
-    $query = "UPDATE tipo set Transaccional = '$Transaccional', Estrategico = '$Estrategico', ID_Actividad = '$ID_Actividad', nom_actividad = '$nom_actividad' WHERE ID_Tipo = $ID_Tipo";
+    $query = "UPDATE tipo set nom_tipo = '$nom_tipo', ID_Actividad = '$ID_Actividad', nom_actividad = '$nom_actividad' WHERE ID_Tipo = $ID_Tipo";
     mysqli_query($conexion, $query);
     header('Location: tipo.php');
 }
@@ -53,12 +50,12 @@ if (isset($_POST['update'])) {
       <div class="card card-body">
         <form action="edit.php?ID_Tipo=<?php echo $_GET['ID_Tipo']; ?>" method="POST">
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Transaccional</label>
-                <input type="text" class="form-control" name="Transaccional" value="<?php echo $Transaccional; ?>" placeholder="Actualizar dato">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Estrategico</label>
-                <input type="text" class="form-control" name="Estrategico" value="<?php echo $Estrategico; ?>" placeholder="Actualizar Nombre">
+                <label for="" class="form-label">Nombre tipo</label>
+                <select class="form-select mb-3" name="nom_tipo">
+                    <option selected disabled value="<?php echo $row['nom_tipo']; ?>"><?php echo $row['nom_tipo']; ?></option>
+                    <option value="Transaccional">Transaccional</option>
+                    <option value="Estrategico">Estratégico</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label>ID_Actividad</label>

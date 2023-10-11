@@ -2,15 +2,12 @@
     include('../../config/conexion.php');
 
     if (isset($_POST['guardar'])) {
-        $Transaccional = $_POST['Transaccional'];
-        $Estrategico = $_POST['Estrategico'];
+        $nom_tipo = $_POST['nom_tipo'];
         $ID_Actividad = $_POST['ID_Actividad'];
         $nom_actividad = $_POST['nom_actividad'];
-        $query = "INSERT INTO tipo(Transaccional, 
-                                        Estrategico, 
+        $query = "INSERT INTO tipo(nom_tipo, 
                                         ID_Actividad,
-                                        nom_actividad) VALUES ('$Transaccional', 
-                                                                '$Estrategico', 
+                                        nom_actividad) VALUES ('$nom_tipo', 
                                                                 '$ID_Actividad',
                                                                 '$nom_actividad')";
         $result = mysqli_query($conexion, $query);
@@ -18,6 +15,6 @@
             die("Query Failed.");
         }
 
-        header('Location: Tipo.php');
+        header('Location: tipo.php');
     }
 ?>

@@ -64,6 +64,7 @@ if($varsesion== null || $varsesion=''){
                   <li><a href="../Direcciones/direcciones.php">Direcciones</a></li>
                   <li><a href="../Frecuencia/frecuencia.php">Frecuencia</a></li>
                   <li><a href="../Temporalidad/tem.php">Temporalidad</a></li>
+                  <li><a href="../entrega/entrega.php">Entrega</a></li>
                 </ul>
               </div>
             </div>
@@ -198,7 +199,7 @@ if($varsesion== null || $varsesion=''){
 
     <div class="row justify-content-center">
       <!-- formulario -->
-    <table class="table" style="width: 400px;">
+    <table class="table" style="width: 1500px;">
   <thead class="text-center">
     <tr>
       <th scope="col">ID</th>
@@ -231,6 +232,9 @@ if($varsesion== null || $varsesion=''){
         <td>
           <a href="edit.php?ID_Taxonomina=<?php echo $row['ID_Taxonomina']?>" class="btn btn-warning">
             <i class='bx bxs-edit'></i>
+          </a>
+          <a href="delete.php?ID_Taxonomina=<?php echo $row['ID_Taxonomina']?>" class="btn btn-danger">
+            <i class='bx bx-trash'></i>
           </a>
         </td>
       </tr>

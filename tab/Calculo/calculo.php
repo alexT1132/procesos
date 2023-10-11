@@ -64,6 +64,7 @@ if($varsesion== null || $varsesion=''){
                   <li><a href="../Direcciones/direcciones.php">Direcciones</a></li>
                   <li><a href="../Frecuencia/frecuencia.php">Frecuencia</a></li>
                   <li><a href="../Temporalidad/tem.php">Temporalidad</a></li>
+                  <li><a href="../entrega/entrega.php">Entrega</a></li>
                 </ul>
               </div>
             </div>
@@ -98,10 +99,6 @@ if($varsesion== null || $varsesion=''){
                 </div>
                 <div class="modal-body">
                     <form action="valCal.php" method="POST">
-                    <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Nom_Calculo</label>
-                            <input type="text" class="form-control" name="nom_calculo"  >
-                        </div>
                         <div class="mb-3">
                           <label for="exampleInputEmail1" class="form-label">ID Actividad</label>
                           <select class="form-select mb-3" name="ID_Actividad">
@@ -136,9 +133,47 @@ if($varsesion== null || $varsesion=''){
                             <input type="text" class="form-control" name="Tiempo"  >
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Frecuencia</label>
-                            <input type="text" class="form-control" name="Frecuencia"  >
+                          <label for="exampleInputEmail1" class="form-label">ID Valor</label>
+                          <select class="form-select mb-3" name="ID_Valor">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
+
+                                $sql = $conexion->query("SELECT * FROM frecuencia");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['ID_Valor']."'>".$resultado['Nom_frecuencia']."</option>";
+                              }
+                            ?>
+                          </select>
                         </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Nombre Valor</label>
+                          <select class="form-select mb-3" name="Nom_Valor">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
+
+                                $sql = $conexion->query("SELECT * FROM frecuencia");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['Nom_Valor']."'>".$resultado['Nom_frecuencia']."</option>";
+                              }
+                            ?>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Nombre Frecuencia</label>
+                          <select class="form-select mb-3" name="Nom_frecuencia">
+                            <option selected disabled>Selecciona una opción</option>
+                            <?php
+                                include ("../../config/conexion.php");
+
+                                $sql = $conexion->query("SELECT * FROM frecuencia");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['Nom_frecuencia']."'>".$resultado['Nom_frecuencia']."</option>";
+                              }
+                            ?>
+                          </select>
+                        </div>  
                         <div class="row justify-content-end">
                             <button type="submit" name="guardar" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;">Guardar</button>
                         </div>
@@ -150,15 +185,16 @@ if($varsesion== null || $varsesion=''){
 
     <div class="row justify-content-center">
       <!-- formulario -->
-    <table class="table" style="width: 400px;">
+    <table class="table" style="width: 1500px;">
   <thead class="text-center">
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Nom_Calculo</th>
       <th scope="col">ID_Actividad</th>
       <th scope="col">Nom_Actividad</th>
       <th scope="col">Tiempo</th>
-      <th scope="col">Frecuencia</th>
+      <th scope="col">ID_valor</th>
+      <th scope="col">Valor</th>
+      <th scope="col">Nom_Frecuencia</th>
       <th scope="col">Acciones</th>
 
     </tr>
@@ -171,14 +207,18 @@ if($varsesion== null || $varsesion=''){
       while($row = mysqli_fetch_assoc($result_task)) { ?>
       <tr>
         <td><?php echo $row['ID_Calculo']; ?></td>
-        <td><?php echo $row['nom_calculo']; ?></td>
         <td><?php echo $row['ID_Actividad']; ?></td>
         <td><?php echo $row['nom_actividad']; ?></td>
         <td><?php echo $row['Tiempo']; ?></td>
-        <td><?php echo $row['Frecuencia']; ?></td>
+        <td><?php echo $row['ID_Valor']; ?></td>
+        <td><?php echo $row['Nom_Valor']; ?></td>
+        <td><?php echo $row['Nom_frecuencia']; ?></td>
         <td>
           <a href="edit.php?ID_Calculo=<?php echo $row['ID_Calculo']?>" class="btn btn-warning">
             <i class='bx bxs-edit'></i>
+          </a>
+          <a href="delete.php?ID_Calculo=<?php echo $row['ID_Calculo']?>" class="btn btn-danger">
+            <i class='bx bx-trash'></i>
           </a>
         </td>
       </tr>

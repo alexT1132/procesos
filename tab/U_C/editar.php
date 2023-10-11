@@ -20,6 +20,7 @@ $ID_Temporalidad = '';
 $Nom_Temporalidad = '';
 $ID_Valor = '';
 $Nom_Valor = '';
+$Nom_frecuencia = '';
 
 
 if  (isset($_GET['ID_empleado'])) {
@@ -48,6 +49,7 @@ if  (isset($_GET['ID_empleado'])) {
     $Nom_Temporalidad = $row['Nom_Temporalidad'];
     $ID_Valor = $row['ID_Valor'];
     $Nom_Valor = $row['Nom_Valor'];
+    $Nom_frecuencia = $row['Nom_frecuencia'];
   }
 }
 
@@ -73,8 +75,9 @@ if (isset($_POST['update'])) {
     $Nom_Temporalidad = $_POST['Nom_Temporalidad'];
     $ID_Valor = $_POST['ID_Valor'];
     $Nom_Valor = $_POST['Nom_Valor'];
+    $Nom_frecuencia = $_POST['Nom_frecuencia'];
     $query = "UPDATE usuario_cliente set Nombre = '$Nombre', Apellido = '$Apellido', ID_Unidad_Negocio = '$ID_Unidad_Negocio', Nom_Unidad_Negocio = '$Nom_Unidad_Negocio', Email = '$Email', Area = '$Area', ID_Actividad = '$ID_Actividad', Nom_Actividad = '$Nom_Actividad', ID_Nuevo_Puesto = '$ID_Nuevo_Puesto', Nom_Nuevo_Puesto = '$Nom_Nuevo_Puesto', ID_Procesos = '$ID_Procesos', Nom_Proceso = '$Nom_Proceso', ID_Direcciones = '$ID_Direcciones', Nom_Direcciones = '$Nom_Direcciones', ID_Subproceso = '$ID_Subproceso', Nom_Subproceso = '$Nom_Subproceso', ID_Temporalidad = '$ID_Temporalidad', Nom_Temporalidad = '$Nom_Temporalidad', ID_Valor = '$ID_Valor', 
-    Nom_Valor = '$Nom_Valor' WHERE ID_empleado = $ID_empleado";
+    Nom_Valor = '$Nom_Valor', Nom_frecuencia = '$Nom_frecuencia' WHERE ID_empleado = $ID_empleado";
     mysqli_query($conexion, $query);
     header('Location: uc.php');
 }
@@ -421,13 +424,13 @@ if (isset($_POST['update'])) {
 
                 $row1 = $resultado1->fetch_assoc();
 
-                echo "<option selected value='".$row1['ID_Valor']."'>".$row1['Nom_Valor']."</option>";
+                echo "<option selected value='".$row1['ID_Valor']."'>".$row1['Nom_frecuencia']."</option>";
 
                 $sql2 = "SELECT * FROM frecuencia";
                 $resultado2 = $conexion->query($sql2);
 
                 while ($Fila = $resultado2->fetch_array()) {
-                    echo "<option value='".$Fila['ID_Valor']."'>".$Fila['Nom_Valor']."</option>";
+                    echo "<option value='".$Fila['ID_Valor']."'>".$Fila['Nom_frecuencia']."</option>";
                 }
             ?>   
         </select>
@@ -442,13 +445,34 @@ if (isset($_POST['update'])) {
 
                 $row1 = $resultado1->fetch_assoc();
 
-                echo "<option selected value='".$row1['Nom_Valor']."'>".$row1['Nom_Valor']."</option>";
+                echo "<option selected value='".$row1['Nom_Valor']."'>".$row1['Nom_frecuencia']."</option>";
 
                 $sql2 = "SELECT * FROM frecuencia";
                 $resultado2 = $conexion->query($sql2);
 
                 while ($Fila = $resultado2->fetch_array()) {
-                    echo "<option value='".$Fila['Nom_Valor']."'>".$Fila['Nom_Valor']."</option>";
+                    echo "<option value='".$Fila['Nom_Valor']."'>".$Fila['Nom_frecuencia']."</option>";
+                }
+            ?>   
+        </select>
+            </div>
+            <div class="mb-3">
+            <label>Nom_frecuencia</label>
+        <select class="form-select mb-3" aria-label="Default select example" name="Nom_frecuencia">
+            <option selected disabled>--Seleccione Frecuencia--</option>
+            <?php
+                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Valor =".$row['ID_Valor'];
+                $resultado1 = $conexion->query($sql1);
+
+                $row1 = $resultado1->fetch_assoc();
+
+                echo "<option selected value='".$row1['Nom_frecuencia']."'>".$row1['Nom_frecuencia']."</option>";
+
+                $sql2 = "SELECT * FROM frecuencia";
+                $resultado2 = $conexion->query($sql2);
+
+                while ($Fila = $resultado2->fetch_array()) {
+                    echo "<option value='".$Fila['Nom_frecuencia']."'>".$Fila['Nom_frecuencia']."</option>";
                 }
             ?>   
         </select>

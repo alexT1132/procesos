@@ -1,26 +1,24 @@
 <?php
 include("../../config/conexion.php");
-$Nom_Valor = '';
-$Nom_frecuencia = '';
+$nom_entrega = '';
 
-if  (isset($_GET['ID_Valor'])) {
-  $ID_Valor = $_GET['ID_Valor'];
-  $query = "SELECT * FROM frecuencia WHERE ID_Valor = $ID_Valor";
+
+if  (isset($_GET['ID_entrega'])) {
+  $ID_entrega = $_GET['ID_entrega'];
+  $query = "SELECT * FROM entrega WHERE ID_entrega = $ID_entrega";
   $result = mysqli_query($conexion, $query);
   if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_array($result);
-    $Nom_Valor = $row['Nom_Valor'];
-    $Nom_frecuencia = $row['Nom_frecuencia'];
+    $nom_entrega = $row['nom_entrega'];
   }
 }
 
 if (isset($_POST['update'])) {
-    $ID_Valor = $_GET['ID_Valor'];
-    $Nom_Valor = $_POST['Nom_Valor'];
-    $Nom_frecuencia = $_POST['Nom_frecuencia'];
-    $query = "UPDATE frecuencia set Nom_Valor = '$Nom_Valor', Nom_frecuencia = '$Nom_frecuencia' WHERE ID_Valor = $ID_Valor";
+    $ID_entrega = $_GET['ID_entrega'];
+    $nom_entrega = $_POST['nom_entrega'];
+    $query = "UPDATE entrega set nom_entrega = '$nom_entrega' WHERE ID_entrega = $ID_entrega";
     mysqli_query($conexion, $query);
-    header('Location: frecuencia.php');
+    header('Location: entrega.php');
 }
 
 ?>
@@ -32,7 +30,6 @@ if (isset($_POST['update'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grupo Piasa</title>
-    <link rel="shortcut icon" href="../../img/logo_3.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
@@ -45,16 +42,12 @@ if (isset($_POST['update'])) {
   <div class="row">
     <div class="col-md-4 mx-auto">
       <div class="card card-body">
-        <form action="edit.php?ID_Valor=<?php echo $_GET['ID_Valor']; ?>" method="POST">
+        <form action="edit.php?ID_entrega=<?php echo $_GET['ID_entrega']; ?>" method="POST">
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Valor</label>
-                <input type="text" class="form-control" name="Nom_Valor" value="<?php echo $Nom_Valor; ?>" placeholder="Actualizar Valor">
+                <label for="exampleInputEmail1" class="form-label">Nombre entrega</label>
+                <input type="text" class="form-control" name="nom_entrega" value="<?php echo $nom_entrega; ?>" placeholder="Actualizar Nombre">
             </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Nom_frecuencia</label>
-                <input type="text" class="form-control" name="Nom_frecuencia" value="<?php echo $Nom_frecuencia; ?>" placeholder="Actualizar Nombre">
-            </div>
-            <a type="submite" class="btn btn-danger" href="frecuencia.php">Back</a>
+            <a type="submite" class="btn btn-danger" href="entrega.php">Back</a>
             <button class="btn btn-success" name="update">
                 Update
             </button>

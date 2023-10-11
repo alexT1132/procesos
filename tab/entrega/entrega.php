@@ -17,7 +17,7 @@ if($varsesion== null || $varsesion=''){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Grupo Piasa</title>
+    <title> Home | Grupo Piasa</title>
     <link rel="stylesheet" href="../../css/navbar.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -28,7 +28,7 @@ if($varsesion== null || $varsesion=''){
     <div class="navbar">
     <nav>
     <div class="wrapper">
-      <div class="logo"><a href="#"> Frecuencia </a></div>
+      <div class="logo"><a href="#"> Entrega </a></div>
       <input type="radio" name="slider" id="menu-btn">
       <input type="radio" name="slider" id="close-btn">
       <ul class="nav-links">
@@ -62,9 +62,9 @@ if($varsesion== null || $varsesion=''){
                 <ul class="mega-links">
                   <li><a href="../Procesos/procesos.php">Procesos</a></li>
                   <li><a href="../Direcciones/direcciones.php">Direcciones</a></li>
-                  <li><a href="frecuencia.php">Frecuencia</a></li>
+                  <li><a href="../Frecuencia/frecuencia.php">Frecuencia</a></li>
                   <li><a href="../Temporalidad/tem.php">Temporalidad</a></li>
-                  <li><a href="../entrega/entrega.php">Entrega</a></li>
+                  <li><a href="entrega.php">Entrega</a></li>
                 </ul>
               </div>
             </div>
@@ -84,8 +84,8 @@ if($varsesion== null || $varsesion=''){
       </form>
     </div>
 
-     <!-- Button trigger modal -->
-     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin: 50px;">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin: 50px;">
         Añadir <i class='bx bx-plus'></i>
     </button>
 
@@ -94,18 +94,14 @@ if($varsesion== null || $varsesion=''){
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Añadir Nueva Frecuencia</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Añadir Entrega</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="valFrec.php" method="POST">
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Valor</label>
-                            <input type="text" class="form-control" name="Nom_Valor" >
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Nom_Frecuencia</label>
-                            <input type="text" class="form-control" name="Nom_frecuencia" >
+                    <form action="valEnt.php" method="POST">         
+                          <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Nombre de entrega</label>
+                            <input type="text" class="form-control" name="nom_entrega" >
                         </div>
                         <div class="row justify-content-end">
                             <button type="submit" name="guardar" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;">Guardar</button>
@@ -118,31 +114,28 @@ if($varsesion== null || $varsesion=''){
 
     <!-- formulario -->
     <div class="row justify-content-center">
-    <table class="table" style="width: 600px;">
+    <table class="table" style="width: 400px;">
   <thead class="text-center">
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Valor</th>
-      <th scope="col">Nom_Frecuencia</th>
+      <th scope="col">Nombre</th>
       <th scope="col">Acciones</th>
-
     </tr>
   </thead>
   <tbody class="text-center">
     <?php
-      $query = "SELECT * FROM frecuencia";
+      $query = "SELECT * FROM entrega";
       $result_task = mysqli_query($conexion, $query);
 
       while($row = mysqli_fetch_assoc($result_task)) { ?>
       <tr>
-        <td><?php echo $row['ID_Valor']; ?></td>
-        <td><?php echo $row['Nom_Valor']; ?></td>
-        <td><?php echo $row['Nom_frecuencia']; ?></td>
+        <td><?php echo $row['ID_entrega']; ?></td>
+        <td><?php echo $row['nom_entrega']; ?></td>
         <td>
-          <a href="edit.php?ID_Valor=<?php echo $row['ID_Valor']?>" class="btn btn-warning">
+          <a href="edit.php?ID_entrega=<?php echo $row['ID_entrega']?>" class="btn btn-warning">
             <i class='bx bxs-edit'></i>
           </a>
-          <a href="delete.php?ID_Valor=<?php echo $row['ID_Valor']?>" class="btn btn-danger">
+          <a href="delete.php?ID_entrega=<?php echo $row['ID_entrega']?>" class="btn btn-danger">
             <i class='bx bx-trash'></i>
           </a>
         </td>

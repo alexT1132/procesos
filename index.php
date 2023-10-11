@@ -15,7 +15,7 @@
         <div class="container">
             <div class="top-header">
                 <header>
-                    <img src="img/logo_2.png" alt="" srcset="">
+                    <img src="img/logo_2.png">
                 </header>
                 <br>
             </div>

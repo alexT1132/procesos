@@ -1,10 +1,11 @@
 <?php
 include("../../config/conexion.php");
-$nom_calculo = '';
 $ID_Actividad = '';
 $Descripcion = '';
 $Tiempo = '';
-$Frecuencia = '';
+$ID_Valor = '';
+$Nom_Valor = '';
+$Nom_frecuencia = '';
 
 if  (isset($_GET['ID_Calculo'])) {
   $ID_Calculo = $_GET['ID_Calculo'];
@@ -12,22 +13,26 @@ if  (isset($_GET['ID_Calculo'])) {
   $result = mysqli_query($conexion, $query);
   if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_array($result);
-    $nom_calculo = $row['nom_calculo'];
     $ID_Actividad = $row['ID_Actividad'];
     $nom_actividad = $row['nom_actividad'];
     $Tiempo = $row['Tiempo'];
-    $Frecuencia = $row['Frecuencia'];
+    $ID_Valor = $row['ID_Valor'];
+    $Nom_Valor = $row['Nom_Valor'];
+    $Nom_frecuencia = $row['Nom_frecuencia'];
   }
 }
 
 if (isset($_POST['update'])) {
     $ID_Calculo = $_GET['ID_Calculo'];
-    $nom_calculo = $_POST['nom_calculo'];
     $ID_Actividad = $_POST['ID_Actividad'];
     $nom_actividad = $_POST['nom_actividad'];
     $Tiempo = $_POST['Tiempo'];
     $Frecuencia = $_POST['Frecuencia'];
-    $query = "UPDATE calculo set nom_calculo = '$nom_calculo', ID_Actividad = '$ID_Actividad', nom_actividad = '$nom_actividad', Tiempo = '$Tiempo', Frecuencia = '$Frecuencia' WHERE ID_Calculo = $ID_Calculo";
+    $ID_Valor = $_POST['ID_Valor'];
+    $Nom_Valor = $_POST['Nom_Valor'];
+    $Nom_frecuencia = $_POST['Nom_frecuencia'];
+    $query = "UPDATE calculo set ID_Actividad = '$ID_Actividad', nom_actividad = '$nom_actividad', Tiempo = '$Tiempo', ID_Valor = '$ID_Valor', 
+    Nom_Valor = '$Nom_Valor', Nom_frecuencia = '$Nom_frecuencia' WHERE ID_Calculo = $ID_Calculo";
     mysqli_query($conexion, $query);
     header('Location: calculo.php');
 }
@@ -54,10 +59,6 @@ if (isset($_POST['update'])) {
     <div class="col-md-4 mx-auto">
       <div class="card card-body">
         <form action="edit.php?ID_Calculo=<?php echo $_GET['ID_Calculo']; ?>" method="POST">
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Nombre calculo</label>
-                <input type="text" class="form-control" name="nom_calculo" value="<?php echo $nom_calculo; ?>" placeholder="Actualizar Nombre">
-            </div>
             <div class="mb-3">
                 <label>ID_Actividad</label>
                 <select class="form-select mb-3" aria-label="Default select example" name="ID_Actividad">
@@ -105,8 +106,67 @@ if (isset($_POST['update'])) {
                 <input type="text" class="form-control" name="Tiempo" value="<?php echo $Tiempo; ?>" placeholder="Actualizar dato">
             </div>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Frecuencia</label>
-                <input type="text" class="form-control" name="Frecuencia" value="<?php echo $Frecuencia; ?>" placeholder="Actualizar Nombre">
+            <label>ID_Valor</label>
+        <select class="form-select mb-3" aria-label="Default select example" name="ID_Valor">
+            <option selected disabled>--Seleccione Temporalidad--</option>
+            <?php
+                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Valor =".$row['ID_Valor'];
+                $resultado1 = $conexion->query($sql1);
+
+                $row1 = $resultado1->fetch_assoc();
+
+                echo "<option selected value='".$row1['ID_Valor']."'>".$row1['Nom_frecuencia']."</option>";
+
+                $sql2 = "SELECT * FROM frecuencia";
+                $resultado2 = $conexion->query($sql2);
+
+                while ($Fila = $resultado2->fetch_array()) {
+                    echo "<option value='".$Fila['ID_Valor']."'>".$Fila['Nom_frecuencia']."</option>";
+                }
+            ?>   
+        </select>
+            </div>
+            <div class="mb-3">
+            <label>Nom_Valor</label>
+        <select class="form-select mb-3" aria-label="Default select example" name="Nom_Valor">
+            <option selected disabled>--Seleccione Temporalidad--</option>
+            <?php
+                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Valor =".$row['ID_Valor'];
+                $resultado1 = $conexion->query($sql1);
+
+                $row1 = $resultado1->fetch_assoc();
+
+                echo "<option selected value='".$row1['Nom_Valor']."'>".$row1['Nom_frecuencia']."</option>";
+
+                $sql2 = "SELECT * FROM frecuencia";
+                $resultado2 = $conexion->query($sql2);
+
+                while ($Fila = $resultado2->fetch_array()) {
+                    echo "<option value='".$Fila['Nom_Valor']."'>".$Fila['Nom_frecuencia']."</option>";
+                }
+            ?>   
+        </select>
+            </div>
+            <div class="mb-3">
+            <label>Nom_frecuencia</label>
+        <select class="form-select mb-3" aria-label="Default select example" name="Nom_frecuencia">
+            <option selected disabled>--Seleccione Frecuencia--</option>
+            <?php
+                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Valor =".$row['ID_Valor'];
+                $resultado1 = $conexion->query($sql1);
+
+                $row1 = $resultado1->fetch_assoc();
+
+                echo "<option selected value='".$row1['Nom_frecuencia']."'>".$row1['Nom_frecuencia']."</option>";
+
+                $sql2 = "SELECT * FROM frecuencia";
+                $resultado2 = $conexion->query($sql2);
+
+                while ($Fila = $resultado2->fetch_array()) {
+                    echo "<option value='".$Fila['Nom_frecuencia']."'>".$Fila['Nom_frecuencia']."</option>";
+                }
+            ?>   
+        </select>
             </div>
             <a type="submite" class="btn btn-danger" href="calculo.php">Back</a>
             <button class="btn btn-success" name="update">

@@ -22,6 +22,7 @@
         $Nom_Temporalidad = $_POST['Nom_Temporalidad'];
         $ID_Valor = $_POST['ID_Valor'];
         $Nom_Valor = $_POST['Nom_Valor'];
+        $Nom_frecuencia = $_POST['Nom_frecuencia'];
         $query = "INSERT INTO usuario_cliente(Nombre, 
                                     Apellido,
                                     ID_Unidad_Negocio,
@@ -41,7 +42,8 @@
                                     ID_Temporalidad,
                                     Nom_Temporalidad,
                                     ID_Valor,
-                                    Nom_Valor) VALUES ('$Nombre',
+                                    Nom_Valor,
+                                    Nom_frecuencia) VALUES ('$Nombre',
                                                         '$Apellido',
                                                         '$ID_Unidad_Negocio',
                                                         '$Nom_Unidad_Negocio',
@@ -60,7 +62,8 @@
                                                         '$ID_Temporalidad',
                                                         '$Nom_Temporalidad',
                                                         '$ID_Valor',
-                                                        '$Nom_Valor')";
+                                                        '$Nom_Valor',
+                                                        '$Nom_frecuencia')";
         $result = mysqli_query($conexion, $query);
         if(!$result) {
             die("Query Failed.");

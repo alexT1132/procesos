@@ -1,11 +1,10 @@
 <?php
 include("../../config/conexion.php");
-$nom_taxonomina = '';
+$nom_Subproceso = '';
 $ID_Proceso = '';
 $nom_proceso = '';
 $ID_Actividad = '';
-$nom_actividad = '';
-
+$nom_actividad = ''; 
 
 if  (isset($_GET['ID_subProcesos'])) {
   $ID_subProcesos = $_GET['ID_subProcesos'];
@@ -14,7 +13,10 @@ if  (isset($_GET['ID_subProcesos'])) {
   if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_array($result);
     $nom_Subproceso = $row['nom_Subproceso'];
-    
+    $ID_Proceso = $row['ID_Proceso'];
+    $nom_proceso = $row['nom_proceso'];
+    $ID_Actividad = $row['ID_Actividad'];
+    $nom_actividad = $row['nom_actividad'];
   }
 }
 
@@ -39,7 +41,6 @@ if (isset($_POST['update'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grupo Piasa</title>
-    <link rel="shortcut icon" href="../../img/logo_3.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
@@ -54,20 +55,20 @@ if (isset($_POST['update'])) {
       <div class="card card-body">
         <form action="edit.php?ID_subProcesos=<?php echo $_GET['ID_subProcesos']; ?>" method="POST">
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">nom_Subproceso</label>
+                <label for="exampleInputEmail1" class="form-label">Nombre subproceso</label>
                 <input type="text" class="form-control" name="nom_Subproceso" value="<?php echo $nom_Subproceso; ?>" placeholder="Actualizar Nombre">
             </div>
             <div class="mb-3">
             <label>ID_Proceso</label>
         <select class="form-select mb-3" aria-label="Default select example" name="ID_Proceso">
-            <option selected disabled>--Seleccione SubProceso--</option>
+            <option selected disabled>--Seleccione Proceso--</option>
             <?php
                 $sql1 = "SELECT * FROM sub_proceso WHERE ID_Proceso =".$row['ID_Proceso'];
                 $resultado1 = $conexion->query($sql1);
 
                 $row1 = $resultado1->fetch_assoc();
 
-                echo "<option selected value='".$row1['ID_Proceso ']."'>".$row1['nom_proceso']."</option>";
+                echo "<option selected value='".$row1['ID_Proceso']."'>".$row1['nom_proceso']."</option>";
 
                 $sql2 = "SELECT * FROM procesos";
                 $resultado2 = $conexion->query($sql2);
@@ -81,7 +82,7 @@ if (isset($_POST['update'])) {
             <div class="mb-3">
             <label>nom_proceso</label>
         <select class="form-select mb-3" aria-label="Default select example" name="nom_proceso">
-            <option selected disabled>--Seleccione SubProceso--</option>
+            <option selected disabled>--Seleccione Proceso--</option>
             <?php
                 $sql1 = "SELECT * FROM sub_proceso WHERE ID_Proceso =".$row['ID_Proceso'];
                 $resultado1 = $conexion->query($sql1);
@@ -104,7 +105,7 @@ if (isset($_POST['update'])) {
                 <select class="form-select mb-3" aria-label="Default select example" name="ID_Actividad">
                     <option selected disabled>--Seleccione Actividad--</option>
                         <?php
-                            $sql1 = "SELECT * FROM detalle_actividad WHERE ID_Actividad=".$row['ID_Actividad'];
+                            $sql1 = "SELECT * FROM sub_proceso WHERE ID_subProcesos =".$row['ID_subProcesos'];
                             $resultado1 = $conexion->query($sql1);
 
                             $row1 = $resultado1->fetch_assoc();
@@ -125,7 +126,7 @@ if (isset($_POST['update'])) {
                 <select class="form-select mb-3" aria-label="Default select example" name="nom_actividad">
                     <option selected disabled>--Seleccione Actividad--</option>
                         <?php
-                            $sql1 = "SELECT * FROM detalle_actividad WHERE ID_Actividad=".$row['ID_Actividad'];
+                            $sql1 = "SELECT * FROM sub_proceso WHERE ID_subProcesos =".$row['ID_subProcesos'];
                             $resultado1 = $conexion->query($sql1);
 
                             $row1 = $resultado1->fetch_assoc();
