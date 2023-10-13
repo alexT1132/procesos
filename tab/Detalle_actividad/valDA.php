@@ -2,14 +2,14 @@
     include('../../config/conexion.php');
 
     if (isset($_POST['guardar'])) {
-        $ID_Actividad = $_POST['ID_Actividad'];
+        $nom_actividad = $_POST['nom_actividad'];
         $Entregable = $_POST['Entregable'];
         $sistema = $_POST['sistema'];
         $Descripcion = $_POST['Descripcion'];
-        $query = "INSERT INTO detalle_actividad(ID_Actividad, 
+        $query = "INSERT INTO detalle_actividad(nom_actividad, 
                                         Entregable, 
                                         sistema, 
-                                        Descripcion) VALUES ('$ID_Actividad', 
+                                        Descripcion) VALUES ('$nom_actividad', 
                                                                 '$Entregable', 
                                                                 '$sistema', 
                                                                 '$Descripcion')";

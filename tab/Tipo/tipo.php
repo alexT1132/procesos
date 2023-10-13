@@ -112,7 +112,6 @@ if($varsesion== null || $varsesion=''){
                           <label for="exampleInputEmail1" class="form-label">ID Actividad</label>
                           <select class="form-select mb-3" name="ID_Actividad">
                             <option selected disabled>Selecciona una opción</option>
-                            <option value="">...</option>
                             <?php
                                 include ("../../config/conexion.php");
 
@@ -127,7 +126,6 @@ if($varsesion== null || $varsesion=''){
                           <label for="exampleInputEmail1" class="form-label">Nombre Actividad</label>
                           <select class="form-select mb-3" name="nom_actividad">
                             <option selected disabled>Selecciona una opción</option>
-                            <option value="">...</option>
                             <?php
                                 include ("../../config/conexion.php");
 
