@@ -2,13 +2,13 @@
     include('../../config/conexion.php');
 
     if (isset($_POST['guardar'])) {
-        $Nom_Temporalidad = $_POST['Nom_Temporalidad'];
-        $query = "INSERT INTO temporalidad(Nom_Temporalidad) VALUES ('$Nom_Temporalidad')";
+        $Nom_funcion = $_POST['Nom_funcion'];
+        $query = "INSERT INTO funciones(Nom_funcion) VALUES ('$Nom_funcion')";
         $result = mysqli_query($conexion, $query);
         if(!$result) {
             die("Query Failed.");
         }
 
-        header('Location: tem.php');
+        header('Location: funcion.php');
     }
 ?>

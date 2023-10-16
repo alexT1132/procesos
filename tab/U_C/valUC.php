@@ -18,8 +18,8 @@
         $Nom_Direcciones = $_POST['Nom_Direcciones'];
         $ID_Subproceso = $_POST['ID_Subproceso'];
         $Nom_Subproceso = $_POST['Nom_Subproceso'];
-        $ID_Temporalidad = $_POST['ID_Temporalidad'];
-        $Nom_Temporalidad = $_POST['Nom_Temporalidad'];
+        $ID_funcion = $_POST['ID_funcion'];
+        $Nom_funcion = $_POST['Nom_funcion'];
         $ID_Valor = $_POST['ID_Valor'];
         $Nom_Valor = $_POST['Nom_Valor'];
         $Nom_frecuencia = $_POST['Nom_frecuencia'];
@@ -39,8 +39,8 @@
                                     Nom_Direcciones,
                                     ID_Subproceso,
                                     Nom_Subproceso,
-                                    ID_Temporalidad,
-                                    Nom_Temporalidad,
+                                    ID_funcion,
+                                    Nom_funcion,
                                     ID_Valor,
                                     Nom_Valor,
                                     Nom_frecuencia) VALUES ('$Nombre',
@@ -59,8 +59,8 @@
                                                         '$Nom_Direcciones',
                                                         '$ID_Subproceso',
                                                         '$Nom_Subproceso',
-                                                        '$ID_Temporalidad',
-                                                        '$Nom_Temporalidad',
+                                                        '$ID_funcion',
+                                                        '$Nom_funcion',
                                                         '$ID_Valor',
                                                         '$Nom_Valor',
                                                         '$Nom_frecuencia')";

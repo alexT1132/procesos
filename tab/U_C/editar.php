@@ -1,3 +1,15 @@
+<?php 
+//seguridad de sessiones paginacion
+session_start();
+error_reporting(0);
+$varsesion= $_SESSION['username'];
+if($varsesion== null || $varsesion=''){
+    header("location: ../../error.php");
+    die();
+}
+
+?>
+
 <?php
 include("../../config/conexion.php");
 $Nombre = '';
@@ -16,8 +28,8 @@ $ID_Direcciones = '';
 $Nom_Direcciones = '';
 $ID_Subproceso = '';
 $Nom_Subproceso = '';
-$ID_Temporalidad = '';
-$Nom_Temporalidad = '';
+$ID_funcion = '';
+$Nom_funcion = '';
 $ID_Valor = '';
 $Nom_Valor = '';
 $Nom_frecuencia = '';
@@ -45,8 +57,8 @@ if  (isset($_GET['ID_empleado'])) {
     $Nom_Direcciones = $row['Nom_Direcciones'];
     $ID_Subproceso = $row['ID_Subproceso'];
     $Nom_Subproceso = $row['Nom_Subproceso'];
-    $ID_Temporalidad = $row['ID_Temporalidad'];
-    $Nom_Temporalidad = $row['Nom_Temporalidad'];
+    $ID_funcion = $row['ID_funcion'];
+    $Nom_funcion = $row['Nom_funcion'];
     $ID_Valor = $row['ID_Valor'];
     $Nom_Valor = $row['Nom_Valor'];
     $Nom_frecuencia = $row['Nom_frecuencia'];
@@ -71,12 +83,12 @@ if (isset($_POST['update'])) {
     $Nom_Direcciones = $_POST['Nom_Direcciones'];
     $ID_Subproceso = $_POST['ID_Subproceso'];
     $Nom_Subproceso = $_POST['Nom_Subproceso'];
-    $ID_Temporalidad = $_POST['ID_Temporalidad'];
-    $Nom_Temporalidad = $_POST['Nom_Temporalidad'];
+    $ID_funcion = $_POST['ID_funcion'];
+    $Nom_funcion = $_POST['Nom_funcion'];
     $ID_Valor = $_POST['ID_Valor'];
     $Nom_Valor = $_POST['Nom_Valor'];
     $Nom_frecuencia = $_POST['Nom_frecuencia'];
-    $query = "UPDATE usuario_cliente set Nombre = '$Nombre', Apellido = '$Apellido', ID_Unidad_Negocio = '$ID_Unidad_Negocio', Nom_Unidad_Negocio = '$Nom_Unidad_Negocio', Email = '$Email', Area = '$Area', ID_Actividad = '$ID_Actividad', Nom_Actividad = '$Nom_Actividad', ID_Nuevo_Puesto = '$ID_Nuevo_Puesto', Nom_Nuevo_Puesto = '$Nom_Nuevo_Puesto', ID_Procesos = '$ID_Procesos', Nom_Proceso = '$Nom_Proceso', ID_Direcciones = '$ID_Direcciones', Nom_Direcciones = '$Nom_Direcciones', ID_Subproceso = '$ID_Subproceso', Nom_Subproceso = '$Nom_Subproceso', ID_Temporalidad = '$ID_Temporalidad', Nom_Temporalidad = '$Nom_Temporalidad', ID_Valor = '$ID_Valor', 
+    $query = "UPDATE usuario_cliente set Nombre = '$Nombre', Apellido = '$Apellido', ID_Unidad_Negocio = '$ID_Unidad_Negocio', Nom_Unidad_Negocio = '$Nom_Unidad_Negocio', Email = '$Email', Area = '$Area', ID_Actividad = '$ID_Actividad', Nom_Actividad = '$Nom_Actividad', ID_Nuevo_Puesto = '$ID_Nuevo_Puesto', Nom_Nuevo_Puesto = '$Nom_Nuevo_Puesto', ID_Procesos = '$ID_Procesos', Nom_Proceso = '$Nom_Proceso', ID_Direcciones = '$ID_Direcciones', Nom_Direcciones = '$Nom_Direcciones', ID_Subproceso = '$ID_Subproceso', Nom_Subproceso = '$Nom_Subproceso', ID_funcion = '$ID_funcion', Nom_funcion = '$Nom_funcion', ID_Valor = '$ID_Valor', 
     Nom_Valor = '$Nom_Valor', Nom_frecuencia = '$Nom_frecuencia' WHERE ID_empleado = $ID_empleado";
     mysqli_query($conexion, $query);
     header('Location: uc.php');
@@ -373,43 +385,43 @@ if (isset($_POST['update'])) {
         </select>
             </div>
             <div class="mb-3">
-            <label>ID_Temporalidad</label>
-        <select class="form-select mb-3" aria-label="Default select example" name="ID_Temporalidad">
-            <option selected disabled>--Seleccione Temporalidad--</option>
+            <label>ID_funcion</label>
+        <select class="form-select mb-3" aria-label="Default select example" name="ID_funcion">
+            <option selected disabled>--Seleccione funcion--</option>
             <?php
-                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Temporalidad =".$row['ID_Temporalidad'];
+                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_funcion =".$row['ID_funcion'];
                 $resultado1 = $conexion->query($sql1);
 
                 $row1 = $resultado1->fetch_assoc();
 
-                echo "<option selected value='".$row1['ID_Temporalidad']."'>".$row1['Nom_Temporalidad']."</option>";
+                echo "<option selected value='".$row1['ID_funcion']."'>".$row1['Nom_funcion']."</option>";
 
-                $sql2 = "SELECT * FROM sub_proceso";
+                $sql2 = "SELECT * FROM funciones";
                 $resultado2 = $conexion->query($sql2);
 
                 while ($Fila = $resultado2->fetch_array()) {
-                    echo "<option value='".$Fila['ID_subProcesos']."'>".$Fila['nom_Subproceso']."</option>";
+                    echo "<option value='".$Fila['ID_funcion']."'>".$Fila['Nom_funcion']."</option>";
                 }
             ?>   
         </select>
             </div>
             <div class="mb-3">
-            <label>Nom_Temporalidad</label>
-        <select class="form-select mb-3" aria-label="Default select example" name="Nom_Temporalidad">
-            <option selected disabled>--Seleccione Temporalidad--</option>
+            <label>Nom_funcion</label>
+        <select class="form-select mb-3" aria-label="Default select example" name="Nom_funcion">
+            <option selected disabled>--Seleccione Funcion--</option>
             <?php
-                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Temporalidad =".$row['ID_Temporalidad'];
+                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_funcion =".$row['ID_funcion'];
                 $resultado1 = $conexion->query($sql1);
 
                 $row1 = $resultado1->fetch_assoc();
 
-                echo "<option selected value='".$row1['Nom_Temporalidad']."'>".$row1['Nom_Temporalidad']."</option>";
+                echo "<option selected value='".$row1['Nom_funcion']."'>".$row1['Nom_funcion']."</option>";
 
-                $sql2 = "SELECT * FROM sub_proceso";
+                $sql2 = "SELECT * FROM funciones";
                 $resultado2 = $conexion->query($sql2);
 
                 while ($Fila = $resultado2->fetch_array()) {
-                    echo "<option value='".$Fila['nom_Subproceso']."'>".$Fila['nom_Subproceso']."</option>";
+                    echo "<option value='".$Fila['Nom_funcion']."'>".$Fila['Nom_funcion']."</option>";
                 }
             ?>   
         </select>

@@ -1,3 +1,15 @@
+<?php 
+//seguridad de sessiones paginacion
+session_start();
+error_reporting(0);
+$varsesion= $_SESSION['username'];
+if($varsesion== null || $varsesion=''){
+    header("location: ../../error.php");
+    die();
+}
+
+?>
+
 <?php
 include("../../config/conexion.php");
 $nom_taxonomina = '';

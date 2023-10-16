@@ -63,7 +63,7 @@ if($varsesion== null || $varsesion=''){
                   <li><a href="../Procesos/procesos.php">Procesos</a></li>
                   <li><a href="../Direcciones/direcciones.php">Direcciones</a></li>
                   <li><a href="../Frecuencia/frecuencia.php">Frecuencia</a></li>
-                  <li><a href="../Temporalidad/tem.php">Temporalidad</a></li>
+                  <li><a href="../funciones/funcion.php">Funcion</a></li>
                   <li><a href="../entrega/entrega.php">Entrega</a></li>
                 </ul>
               </div>
@@ -287,29 +287,29 @@ if($varsesion== null || $varsesion=''){
                           </select>
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">ID Temporalidad</label>
-                          <select class="form-select mb-3" name="ID_Temporalidad">
+                          <label for="exampleInputEmail1" class="form-label">ID Funcion</label>
+                          <select class="form-select mb-3" name="ID_funcion">
                             <option selected disabled>Selecciona una opción</option>
                             <?php
                                 include ("../../config/conexion.php");
 
-                                $sql = $conexion->query("SELECT * FROM temporalidad");
+                                $sql = $conexion->query("SELECT * FROM funciones");
                                 while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['ID_Temporalidad']."'>".$resultado['Nom_Temporalidad']."</option>";
+                                echo "<option value='".$resultado['ID_funcion']."'>".$resultado['Nom_funcion']."</option>";
                               }
                             ?>
                           </select>
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Nombre Temporalidad</label>
-                          <select class="form-select mb-3" name="Nom_Temporalidad">
+                          <label for="exampleInputEmail1" class="form-label">Nombre Funcion</label>
+                          <select class="form-select mb-3" name="Nom_funcion">
                             <option selected disabled>Selecciona una opción</option>
                             <?php
                                 include ("../../config/conexion.php");
 
-                                $sql = $conexion->query("SELECT * FROM temporalidad");
+                                $sql = $conexion->query("SELECT * FROM funciones");
                                 while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['Nom_Temporalidad']."'>".$resultado['Nom_Temporalidad']."</option>";
+                                echo "<option value='".$resultado['Nom_funcion']."'>".$resultado['Nom_funcion']."</option>";
                               }
                             ?>
                           </select>
@@ -388,7 +388,7 @@ if($varsesion== null || $varsesion=''){
       <th scope="col">ID</th>
       <th scope="col">Subproceso</th>
       <th scope="col">ID</th>
-      <th scope="col">Temporalidad</th>
+      <th scope="col">Función</th>
       <th scope="col">ID</th>
       <th scope="col">Valor</th>
       <th scope="col">frecuencia</th>
@@ -419,8 +419,8 @@ if($varsesion== null || $varsesion=''){
         <td><?php echo $row['Nom_Direcciones']; ?></td>
         <td><?php echo $row['ID_Subproceso']; ?></td>
         <td><?php echo $row['Nom_Subproceso']; ?></td>
-        <td><?php echo $row['ID_Temporalidad']; ?></td>
-        <td><?php echo $row['Nom_Temporalidad']; ?></td>
+        <td><?php echo $row['ID_funcion']; ?></td>
+        <td><?php echo $row['Nom_funcion']; ?></td>
         <td><?php echo $row['ID_Valor']; ?></td>
         <td><?php echo $row['Nom_Valor']; ?></td>
         <td><?php echo $row['Nom_frecuencia']; ?></td>

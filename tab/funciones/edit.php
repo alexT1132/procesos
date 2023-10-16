@@ -1,23 +1,35 @@
+<?php 
+//seguridad de sessiones paginacion
+session_start();
+error_reporting(0);
+$varsesion= $_SESSION['username'];
+if($varsesion== null || $varsesion=''){
+    header("location: ../../error.php");
+    die();
+}
+
+?>
+
 <?php
 include("../../config/conexion.php");
-$Nom_Temporalidad = '';
+$Nom_funcion = '';
 
-if  (isset($_GET['ID_Temporalidad'])) {
-  $ID_Temporalidad = $_GET['ID_Temporalidad'];
-  $query = "SELECT * FROM temporalidad WHERE ID_Temporalidad = $ID_Temporalidad";
+if  (isset($_GET['ID_funcion'])) {
+  $ID_funcion = $_GET['ID_funcion'];
+  $query = "SELECT * FROM funciones WHERE ID_funcion = $ID_funcion";
   $result = mysqli_query($conexion, $query);
   if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_array($result);
-    $Nom_Temporalidad = $row['Nom_Temporalidad'];
+    $Nom_funcion = $row['Nom_funcion'];
   }
 }
 
 if (isset($_POST['update'])) {
-    $ID_Temporalidad = $_GET['ID_Temporalidad'];
-    $Nom_Temporalidad = $_POST['Nom_Temporalidad'];
-    $query = "UPDATE temporalidad set Nom_Temporalidad = '$Nom_Temporalidad' WHERE ID_Temporalidad = $ID_Temporalidad";
+    $ID_funcion = $_GET['ID_funcion'];
+    $Nom_funcion = $_POST['Nom_funcion'];
+    $query = "UPDATE funciones set Nom_funcion = '$Nom_funcion' WHERE ID_funcion = $ID_funcion";
     mysqli_query($conexion, $query);
-    header('Location: tem.php');
+    header('Location: funcion.php');
 }
 
 ?>
@@ -28,7 +40,7 @@ if (isset($_POST['update'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Grupo Piasa</title>
     <link rel="shortcut icon" href="../../img/logo_3.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
@@ -42,12 +54,12 @@ if (isset($_POST['update'])) {
   <div class="row">
     <div class="col-md-4 mx-auto">
       <div class="card card-body">
-        <form action="edit.php?ID_Temporalidad=<?php echo $_GET['ID_Temporalidad']; ?>" method="POST">
+        <form action="edit.php?ID_funcion=<?php echo $_GET['ID_funcion']; ?>" method="POST">
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Nom_Temporalidad</label>
-                <input type="text" class="form-control" name="Nom_Temporalidad" value="<?php echo $Nom_Temporalidad; ?>" placeholder="Actualizar Nombre">
+                <label for="exampleInputEmail1" class="form-label">Nom_Funcion</label>
+                <input type="text" class="form-control" name="Nom_funcion" value="<?php echo $Nom_funcion; ?>" placeholder="Actualizar Nombre">
             </div>
-            <a type="submite" class="btn btn-danger" href="tem.php">Back</a>
+            <a type="submite" class="btn btn-danger" href="funcion.php">Back</a>
             <button class="btn btn-success" name="update">
                 Update
             </button>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-10-2023 a las 22:52:22
+-- Tiempo de generación: 17-10-2023 a las 01:55:03
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.1.17
 
@@ -140,7 +140,92 @@ INSERT INTO `detalle_actividad` (`ID_Actividad`, `nom_actividad`, `Entregable`, 
 (82, 'Notificar a almacén para coordinar descarga', '', '', ''),
 (83, 'Notificar a ingenios comprador seleccionado, condiciones de pago, precio y volumen', '', '', ''),
 (84, 'Notificar acuerdo a los ingenios', '', '', ''),
-(85, 'Notificar al agente aduanal el transportista seleccionado', '', '', '');
+(85, 'Notificar al agente aduanal el transportista seleccionado', '', '', ''),
+(86, 'Notificar al almacén el comprador designado', '', '', ''),
+(87, 'Notificar al almacén el comprador y precio designado', '', '', ''),
+(88, 'Notificar al proveedor', '', '', ''),
+(89, 'Notificar al seguro', '', '', ''),
+(90, 'Notificar alta', '', '', ''),
+(91, 'Notificar bloqueo', '', '', ''),
+(92, 'Notificar la modificación', '', '', ''),
+(93, 'Notificar precio de compra al almacén', '', '', ''),
+(94, 'Notificar precio de compra al almacén', '', '', ''),
+(95, 'Notificar rechazo', '', '', ''),
+(96, 'Notificar rechazo de liberación', '', '', ''),
+(97, 'Presentar a la auditoría', '', '', ''),
+(98, 'Presentar departamentos a evaluar y auditores', '', '', ''),
+(99, 'Proporcionar documentación para carta porte', '', '', ''),
+(100, 'Prospectar fletes disponibles', '', '', ''),
+(101, 'Realizar alta del DM', '', '', ''),
+(102, 'Realizar bloqueo', '', '', ''),
+(103, 'Realizar conferencia', '', '', ''),
+(104, 'Realizar evaluación (Si aplica)', '', '', ''),
+(105, 'Realizar formato de acción correctiva', '', '', ''),
+(106, 'Realizar modificación del DM', '', '', ''),
+(107, 'Realizar venta spot', '', '', ''),
+(108, 'Realizar visita', '', '', ''),
+(109, 'Recibir actualización de precio de compra', '', '', ''),
+(110, 'Recibir autorización técnica', '', '', ''),
+(111, 'Recibir confirmación de la orden de compra', '', '', ''),
+(112, 'Recibir evaluación', '', '', ''),
+(113, 'Recibir evaluaciones del SGC', '', '', ''),
+(114, 'Recibir notificación de auditoria', '', '', ''),
+(115, 'Recibir propuesta de proveedor', '', '', ''),
+(116, 'Recibir propuesta de proveedores', '', '', ''),
+(117, 'Recibir propuestas de posibles compradores', '', '', ''),
+(118, 'Recibir propuestas y seleccionar comprador', '', '', ''),
+(119, 'Recibir reportes de agentes aduanales (se reciben del contacto de agencias aduanales del ejecutivo que tiene la cuenta)', '', '', ''),
+(120, 'Recibir retroalimentación del área de proyectos en cuanto a la calificación de los proveedores (calificación integral)', '', '', ''),
+(121, 'Recibir solicitud de alta', '', '', ''),
+(122, 'Recibir solicitud de bloqueo', '', '', ''),
+(123, 'Recibir solicitud de consulta', '', '', ''),
+(124, 'Recibir solicitud de modificación', '', '', ''),
+(125, 'Recibir solicitud de venta de bagazo (de ingenios o comprador)', '', '', ''),
+(126, 'Recibir solicitud del área de proyectos', '', '', ''),
+(127, 'Recibir solicitud y propuestas', '', '', ''),
+(128, 'Recibir SolP', '', '', ''),
+(129, 'Recibir validación técnica', '', '', ''),
+(130, 'Recibir validación técnica (como anexo en la OC)', '', '', ''),
+(131, 'Recibir y registrar factura', '', '', ''),
+(132, 'Recibir y revisar propuestas de compra de equipo', '', '', ''),
+(133, 'Recibir y validar documentación', '', '', ''),
+(134, 'Recibir y validar reporte final de las áreas y si esta bien notificar al área para que haga el envío a economía', '', '', ''),
+(135, 'Recopilar consolidaciones mensuales (evaluaciones) y documentación a revisar', '', '', ''),
+(136, 'Recuperar información de tiempos de ciclo de compra', '', '', ''),
+(137, 'Recuperar información en SAP', '', '', ''),
+(138, 'Recuperar listado de SolP', '', '', ''),
+(139, 'Registrar proveedores con resultados positivos', '', '', ''),
+(140, 'Reportar comentarios de la visita', '', '', ''),
+(141, 'Resguardar catálogo', '', '', ''),
+(142, 'Resguardar evaluación', '', '', ''),
+(143, 'Resguardar evaluaciones y métricas', '', '', ''),
+(144, 'Revisar autorización técnica', '', '', ''),
+(145, 'Revisar comparativo y propuesta proporcionada', '', '', ''),
+(146, 'Revisar comparativo y propuesta proporcionada (Decisión de compra)', '', '', ''),
+(147, 'Revisar contrato firmado', '', '', ''),
+(148, 'Revisar información proporcionada', '', '', ''),
+(149, 'Seleccionar proveedor', '', '', ''),
+(150, 'Seleccionar proveedores a visitar', '', '', ''),
+(151, 'Seleccionar proveedores más frecuentes', '', '', ''),
+(152, 'Si no es igual, se hace observación a ingenio para que corrijan la informacion o soliciten aclaración con ejecutivos adu', '', '', ''),
+(153, 'Solicitar activación', '', '', ''),
+(154, 'Solicitar cotización al proveedor y visto bueno usuario', '', '', ''),
+(155, 'Solicitar documentación vigente (si aplica)', '', '', ''),
+(156, 'Solicitar información correcta', '', '', ''),
+(157, 'Solicitar nueva cotización/propuesta  ', '', '', ''),
+(158, 'Solicitar propuestas de compra', '', '', ''),
+(159, 'Solicitar validación', '', '', ''),
+(160, 'Solicitar validación con los ingenios', '', '', ''),
+(161, 'Tomar decisión de compra', '', '', ''),
+(162, 'Validar con ususarios y almacén / Retroalimentación proveedores', '', '', ''),
+(163, 'Validar documentación', '', '', ''),
+(164, 'Validar evaluaciones del proveedor', '', '', ''),
+(165, 'Validar los registros de las gerencias administrativas y/o contabilidad vs los reportes aduanales', '', '', ''),
+(166, 'Validar posible transportista', '', '', ''),
+(167, 'Validar propuesta del proveedor', '', '', ''),
+(168, 'Validar si se incluyen en la lista', '', '', ''),
+(169, 'Verificar salidas o cambio de proveedor', '', '', ''),
+(170, 'Visitar instalaciones', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -219,6 +304,25 @@ INSERT INTO `frecuencia` (`ID_Valor`, `Nom_Valor`, `Nom_frecuencia`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `funciones`
+--
+
+CREATE TABLE `funciones` (
+  `ID_funcion` int(11) NOT NULL,
+  `Nom_funcion` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `funciones`
+--
+
+INSERT INTO `funciones` (`ID_funcion`, `Nom_funcion`) VALUES
+(1, '...'),
+(2, 'Abastecimientos');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `nomenclatura`
 --
 
@@ -246,6 +350,13 @@ CREATE TABLE `nuevo_puesto` (
   `nom_actividad` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `nuevo_puesto`
+--
+
+INSERT INTO `nuevo_puesto` (`ID_Nuevo_Puesto`, `Nuevo_Puesto`, `ID_Actividad`, `nom_actividad`) VALUES
+(8, '...', 1, '...');
+
 -- --------------------------------------------------------
 
 --
@@ -262,16 +373,17 @@ CREATE TABLE `procesos` (
 --
 
 INSERT INTO `procesos` (`ID_Procesos`, `Nom_Procesos`) VALUES
-(1, 'Gestionar contratos'),
-(2, 'Gestionar Datos Maestros de Proveedores'),
-(3, 'Gestionar compras de materiales'),
-(4, 'Gestionar Compras de Servicios'),
-(5, 'Administrar proveedores'),
-(6, 'Gestionar Auditorias'),
-(7, 'Logistica de materiales/equipos'),
-(8, 'Atender Consultas Internas y Externas'),
-(9, 'Gestionar/Monitoreo de Indicadores y Reportes'),
-(10, 'Gestionar venta de chatarra, bagazo y equipo');
+(1, '...'),
+(2, 'Administrar proveedores'),
+(3, 'Atender consultas internas y externas'),
+(4, 'Gestión/Monitoreo de Indicadores y Reportes '),
+(5, 'Gestionar auditorías'),
+(6, 'Gestionar compras de materiales'),
+(7, 'Gestionar compras de servicios'),
+(8, 'Gestionar Contratos'),
+(9, 'Gestionar Datos Maestros de Proveedores'),
+(10, 'Gestionar venta de chatarra, bagazo y equipo'),
+(11, 'Logística de materiales/equipos');
 
 -- --------------------------------------------------------
 
@@ -300,12 +412,56 @@ INSERT INTO `roles` (`ID`, `rol`) VALUES
 
 CREATE TABLE `sub_proceso` (
   `ID_subProcesos` int(11) NOT NULL,
-  `nom_Subproceso` varchar(50) NOT NULL,
+  `nom_Subproceso` varchar(150) NOT NULL,
   `ID_Proceso` int(11) NOT NULL,
   `nom_proceso` varchar(50) NOT NULL,
   `ID_Actividad` int(11) NOT NULL,
   `nom_actividad` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `sub_proceso`
+--
+
+INSERT INTO `sub_proceso` (`ID_subProcesos`, `nom_Subproceso`, `ID_Proceso`, `nom_proceso`, `ID_Actividad`, `nom_actividad`) VALUES
+(1, '...', 1, '...', 1, '...'),
+(2, 'Actualizar catalogo de proveedores de insumos', 1, '...', 1, '...'),
+(3, 'Asignación de SolP', 1, '...', 1, '...'),
+(4, 'Atender consultas generales ', 1, '...', 1, '...'),
+(5, 'Ciclo de compra y cumplimiento de proveedores', 1, '...', 1, '...'),
+(6, 'Evaluar proveedores de servicios de proyectos ', 1, '...', 1, '...'),
+(7, 'Evaluar proveedores SGC (Reevaluación)', 1, '...', 1, '...'),
+(8, 'Fletes, traslado de proveedores nacionales/talleres/Ingenios', 1, '...', 1, '...'),
+(9, 'Fletes, traslado nacional de proveedores extranjeros (Importación)', 1, '...', 1, '...'),
+(10, 'Gestionar alta de DM de Proveedores', 1, '...', 1, '...'),
+(11, 'Gestionar alta de DM de Proveedores (Portal)', 1, '...', 1, '...'),
+(12, 'Gestionar auditoría interna y externa', 1, '...', 1, '...'),
+(13, 'Gestionar bloqueo de proveedores', 1, '...', 1, '...'),
+(14, 'Gestionar catálogo de proveedores de servicios (Excel)', 1, '...', 1, '...'),
+(15, 'Gestionar compras de importación', 1, '...', 1, '...'),
+(16, 'Gestionar contrato de servicios administrativos y de zafra', 1, '...', 1, '...'),
+(17, 'Gestionar contrato de transportistas', 1, '...', 1, '...'),
+(18, 'Gestionar contrato marco SAP', 1, '...', 1, '...'),
+(19, 'Gestionar contratos de bodegas de azúcar', 1, '...', 1, '...'),
+(20, 'Gestionar estrategia de fletes', 1, '...', 1, '...'),
+(21, 'Gestionar modificación de DM de Proveedores', 1, '...', 1, '...'),
+(22, 'Gestionar pedidos con convenio (Contrato Marco)', 1, '...', 1, '...'),
+(23, 'Gestionar pedidos estándar (Compras mayores)', 1, '...', 1, '...'),
+(24, 'Gestionar pedidos estándar (Compras menores)', 1, '...', 1, '...'),
+(25, 'Gestionar pedidos por asignación directa', 1, '...', 1, '...'),
+(26, 'Gestionar pedidos por concurso (proyectos)', 1, '...', 1, '...'),
+(27, 'Realizar alta en catalogo de proveedores de insumos (SGC) ', 1, '...', 1, '...'),
+(28, 'Realizar visita de seguimiento a proveedores', 1, '...', 1, '...'),
+(29, 'Realizar visitas con nuevos proveedores de insumos (SGC) (Evaluación)', 1, '...', 1, '...'),
+(30, 'Realizar visitas con proveedores de insumos existentes (SGC)', 1, '...', 1, '...'),
+(31, 'Reporte anual de importaciones (Prosec)', 1, '...', 1, '...'),
+(32, 'Reporte de servicios', 1, '...', 1, '...'),
+(33, 'Reporte mensual ejecutivo', 1, '...', 1, '...'),
+(34, 'Seguimiento de colocación de indicadores y de entregas', 1, '...', 1, '...'),
+(35, 'Venta de bagazo', 1, '...', 1, '...'),
+(36, 'Venta de chatarra (Spot)', 1, '...', 1, '...'),
+(37, 'Venta de chatarra y envase de desechos', 1, '...', 1, '...'),
+(38, 'Venta de equipo de fabrica', 1, '...', 1, '...');
 
 -- --------------------------------------------------------
 
@@ -322,17 +478,6 @@ CREATE TABLE `taxonomina` (
   `nom_proceso` varchar(50) NOT NULL,
   `ID_Subproceso` int(11) NOT NULL,
   `nom_Subproceso` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `temporalidad`
---
-
-CREATE TABLE `temporalidad` (
-  `ID_Temporalidad` int(11) NOT NULL,
-  `Nom_Temporalidad` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -416,8 +561,8 @@ CREATE TABLE `usuario_cliente` (
   `Nom_Direcciones` varchar(50) NOT NULL,
   `ID_Subproceso` int(11) NOT NULL,
   `Nom_Subproceso` varchar(50) NOT NULL,
-  `ID_Temporalidad` int(11) NOT NULL,
-  `Nom_Temporalidad` varchar(50) NOT NULL,
+  `ID_funcion` int(11) NOT NULL,
+  `Nom_funcion` varchar(50) NOT NULL,
   `ID_Valor` int(11) NOT NULL,
   `Nom_Valor` varchar(50) NOT NULL,
   `Nom_frecuencia` varchar(50) NOT NULL
@@ -466,6 +611,12 @@ ALTER TABLE `frecuencia`
   ADD PRIMARY KEY (`ID_Valor`);
 
 --
+-- Indices de la tabla `funciones`
+--
+ALTER TABLE `funciones`
+  ADD PRIMARY KEY (`ID_funcion`);
+
+--
 -- Indices de la tabla `nomenclatura`
 --
 ALTER TABLE `nomenclatura`
@@ -509,12 +660,6 @@ ALTER TABLE `taxonomina`
   ADD KEY `ID_Subproceso` (`ID_Subproceso`);
 
 --
--- Indices de la tabla `temporalidad`
---
-ALTER TABLE `temporalidad`
-  ADD PRIMARY KEY (`ID_Temporalidad`);
-
---
 -- Indices de la tabla `tipo`
 --
 ALTER TABLE `tipo`
@@ -544,9 +689,9 @@ ALTER TABLE `usuario_cliente`
   ADD KEY `ID_Nuevo_Puesto` (`ID_Nuevo_Puesto`),
   ADD KEY `ID_Procesos` (`ID_Procesos`),
   ADD KEY `ID_Subproceso` (`ID_Subproceso`),
-  ADD KEY `ID_Temporalidad` (`ID_Temporalidad`),
   ADD KEY `ID_Unidad_Negocio` (`ID_Unidad_Negocio`),
-  ADD KEY `ID_Valor` (`ID_Valor`);
+  ADD KEY `ID_Valor` (`ID_Valor`),
+  ADD KEY `ID_funcion` (`ID_funcion`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -562,7 +707,7 @@ ALTER TABLE `calculo`
 -- AUTO_INCREMENT de la tabla `detalle_actividad`
 --
 ALTER TABLE `detalle_actividad`
-  MODIFY `ID_Actividad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `ID_Actividad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
 
 --
 -- AUTO_INCREMENT de la tabla `direcciones`
@@ -589,6 +734,12 @@ ALTER TABLE `frecuencia`
   MODIFY `ID_Valor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT de la tabla `funciones`
+--
+ALTER TABLE `funciones`
+  MODIFY `ID_funcion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `nomenclatura`
 --
 ALTER TABLE `nomenclatura`
@@ -598,13 +749,13 @@ ALTER TABLE `nomenclatura`
 -- AUTO_INCREMENT de la tabla `nuevo_puesto`
 --
 ALTER TABLE `nuevo_puesto`
-  MODIFY `ID_Nuevo_Puesto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID_Nuevo_Puesto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `procesos`
 --
 ALTER TABLE `procesos`
-  MODIFY `ID_Procesos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID_Procesos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -616,19 +767,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `sub_proceso`
 --
 ALTER TABLE `sub_proceso`
-  MODIFY `ID_subProcesos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID_subProcesos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `taxonomina`
 --
 ALTER TABLE `taxonomina`
   MODIFY `ID_Taxonomina` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `temporalidad`
---
-ALTER TABLE `temporalidad`
-  MODIFY `ID_Temporalidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo`
@@ -652,7 +797,7 @@ ALTER TABLE `usernames`
 -- AUTO_INCREMENT de la tabla `usuario_cliente`
 --
 ALTER TABLE `usuario_cliente`
-  MODIFY `ID_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
@@ -713,9 +858,10 @@ ALTER TABLE `usuario_cliente`
   ADD CONSTRAINT `usuario_cliente_ibfk_3` FOREIGN KEY (`ID_Nuevo_Puesto`) REFERENCES `nuevo_puesto` (`ID_Nuevo_Puesto`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `usuario_cliente_ibfk_4` FOREIGN KEY (`ID_Procesos`) REFERENCES `procesos` (`ID_Procesos`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `usuario_cliente_ibfk_5` FOREIGN KEY (`ID_Subproceso`) REFERENCES `sub_proceso` (`ID_subProcesos`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `usuario_cliente_ibfk_6` FOREIGN KEY (`ID_Temporalidad`) REFERENCES `temporalidad` (`ID_Temporalidad`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `usuario_cliente_ibfk_6` FOREIGN KEY (`ID_funcion`) REFERENCES `funciones` (`ID_funcion`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `usuario_cliente_ibfk_7` FOREIGN KEY (`ID_Unidad_Negocio`) REFERENCES `unidad_negocio` (`ID_unidad_negocio`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `usuario_cliente_ibfk_8` FOREIGN KEY (`ID_Valor`) REFERENCES `frecuencia` (`ID_Valor`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `usuario_cliente_ibfk_8` FOREIGN KEY (`ID_Valor`) REFERENCES `frecuencia` (`ID_Valor`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `usuario_cliente_ibfk_9` FOREIGN KEY (`ID_funcion`) REFERENCES `funciones` (`ID_funcion`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
