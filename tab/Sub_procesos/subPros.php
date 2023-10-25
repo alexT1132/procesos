@@ -140,7 +140,6 @@ if($varsesion== null || $varsesion=''){
                                 include ("../../config/conexion.php");
 
                                 $sql = $conexion->query("SELECT * FROM detalle_actividad");
-                                $spc = "";
                                 while ($resultado = $sql->fetch_assoc()) {
                                 echo "<option value='".$resultado['ID_Actividad']."'>".$resultado['nom_actividad']."</option>";
                               }
