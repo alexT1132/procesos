@@ -13,10 +13,6 @@ if($varsesion== null || $varsesion=''){
 <?php
 include("../../config/conexion.php");
 $nom_Subproceso = '';
-$ID_Proceso = '';
-$nom_proceso = '';
-$ID_Actividad = '';
-$nom_actividad = ''; 
 
 if  (isset($_GET['ID_subProcesos'])) {
   $ID_subProcesos = $_GET['ID_subProcesos'];
@@ -25,21 +21,13 @@ if  (isset($_GET['ID_subProcesos'])) {
   if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_array($result);
     $nom_Subproceso = $row['nom_Subproceso'];
-    $ID_Proceso = $row['ID_Proceso'];
-    $nom_proceso = $row['nom_proceso'];
-    $ID_Actividad = $row['ID_Actividad'];
-    $nom_actividad = $row['nom_actividad'];
   }
 }
 
 if (isset($_POST['update'])) {
     $ID_subProcesos = $_GET['ID_subProcesos'];
     $nom_Subproceso = $_POST['nom_Subproceso'];
-    $ID_Proceso = $_POST['ID_Proceso'];
-    $nom_proceso = $_POST['nom_proceso'];
-    $ID_Actividad = $_POST['ID_Actividad'];
-    $nom_actividad = $_POST['nom_actividad'];
-    $query = "UPDATE sub_proceso set nom_Subproceso = '$nom_Subproceso', ID_Proceso = '$ID_Proceso', nom_proceso = '$nom_proceso', ID_Actividad = '$ID_Actividad', nom_actividad = '$nom_actividad' WHERE ID_subProcesos = $ID_subProcesos";
+    $query = "UPDATE sub_proceso set nom_Subproceso = '$nom_Subproceso' WHERE ID_subProcesos = $ID_subProcesos";
     mysqli_query($conexion, $query);
     header('Location: subPros.php');
 }
@@ -69,90 +57,6 @@ if (isset($_POST['update'])) {
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nombre subproceso</label>
                 <input type="text" class="form-control" name="nom_Subproceso" value="<?php echo $nom_Subproceso; ?>" placeholder="Actualizar Nombre">
-            </div>
-            <div class="mb-3">
-            <label>ID_Proceso</label>
-        <select class="form-select mb-3" aria-label="Default select example" name="ID_Proceso">
-            <option selected disabled>--Seleccione Proceso--</option>
-            <?php
-                $sql1 = "SELECT * FROM sub_proceso WHERE ID_Proceso =".$row['ID_Proceso'];
-                $resultado1 = $conexion->query($sql1);
-
-                $row1 = $resultado1->fetch_assoc();
-
-                echo "<option selected value='".$row1['ID_Proceso']."'>".$row1['nom_proceso']."</option>";
-
-                $sql2 = "SELECT * FROM procesos";
-                $resultado2 = $conexion->query($sql2);
-
-                while ($Fila = $resultado2->fetch_array()) {
-                    echo "<option value='".$Fila['ID_Procesos']."'>".$Fila['Nom_Procesos']."</option>";
-                }
-            ?>   
-        </select>
-            </div>
-            <div class="mb-3">
-            <label>nom_proceso</label>
-        <select class="form-select mb-3" aria-label="Default select example" name="nom_proceso">
-            <option selected disabled>--Seleccione Proceso--</option>
-            <?php
-                $sql1 = "SELECT * FROM sub_proceso WHERE ID_Proceso =".$row['ID_Proceso'];
-                $resultado1 = $conexion->query($sql1);
-
-                $row1 = $resultado1->fetch_assoc();
-
-                echo "<option selected value='".$row1['nom_proceso']."'>".$row1['nom_proceso']."</option>";
-
-                $sql2 = "SELECT * FROM procesos";
-                $resultado2 = $conexion->query($sql2);
-
-                while ($Fila = $resultado2->fetch_array()) {
-                    echo "<option value='".$Fila['Nom_Procesos']."'>".$Fila['Nom_Procesos']."</option>";
-                }
-            ?>   
-        </select>
-            </div>
-            <div class="mb-3">
-                <label>ID_Actividad</label>
-                <select class="form-select mb-3" aria-label="Default select example" name="ID_Actividad">
-                    <option selected disabled>--Seleccione Actividad--</option>
-                        <?php
-                            $sql1 = "SELECT * FROM sub_proceso WHERE ID_subProcesos =".$row['ID_subProcesos'];
-                            $resultado1 = $conexion->query($sql1);
-
-                            $row1 = $resultado1->fetch_assoc();
-
-                            echo "<option selected value='".$row1['ID_Actividad']."'>".$row1['nom_actividad']."</option>";
-
-                            $sql2 = "SELECT * FROM detalle_actividad";
-                            $resultado2 = $conexion->query($sql2);
-
-                            while ($Fila = $resultado2->fetch_array()) {
-                                echo "<option value='".$Fila['ID_Actividad']."'>".$Fila['nom_actividad']."</option>";
-                            }
-                        ?>   
-                </select>
-            </div>
-            <div class="mb-3">
-                <label>nom_actividad</label>
-                <select class="form-select mb-3" aria-label="Default select example" name="nom_actividad">
-                    <option selected disabled>--Seleccione Actividad--</option>
-                        <?php
-                            $sql1 = "SELECT * FROM sub_proceso WHERE ID_subProcesos =".$row['ID_subProcesos'];
-                            $resultado1 = $conexion->query($sql1);
-
-                            $row1 = $resultado1->fetch_assoc();
-
-                            echo "<option selected value='".$row1['nom_actividad']."'>".$row1['nom_actividad']."</option>";
-
-                            $sql2 = "SELECT * FROM detalle_actividad";
-                            $resultado2 = $conexion->query($sql2);
-
-                            while ($Fila = $resultado2->fetch_array()) {
-                                echo "<option value='".$Fila['nom_actividad']."'>".$Fila['nom_actividad']."</option>";
-                            }
-                        ?>   
-                </select>
             </div>
             <a type="submite" class="btn btn-danger" href="subPros.php">Back</a>
             <button class="btn btn-success" name="update">

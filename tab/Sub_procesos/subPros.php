@@ -65,6 +65,7 @@ if($varsesion== null || $varsesion=''){
                   <li><a href="../Frecuencia/frecuencia.php">Frecuencia</a></li>
                   <li><a href="../funciones/funcion.php">Funcion</a></li>
                   <li><a href="../entrega/entrega.php">Entrega</a></li>
+                  <li><a href="../consultas/consultas.php">Consultas</a></li>
                 </ul>
               </div>
             </div>
@@ -104,62 +105,6 @@ if($varsesion== null || $varsesion=''){
                             <label for="exampleInputEmail1" class="form-label">Nombre subproceso</label>
                             <input type="text" class="form-control" name="nom_Subproceso">
                         </div>
-                        <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">ID Proceso</label>
-                          <select class="form-select mb-3" name="ID_Proceso">
-                            <option selected disabled>Selecciona una opción</option>
-                            <?php
-                                include ("../../config/conexion.php");
-
-                                $sql = $conexion->query("SELECT * FROM procesos");
-                                while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['ID_Procesos']."'>".$resultado['Nom_Procesos']."</option>";
-                              }
-                            ?>
-                          </select>
-                        </div>
-                        <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Nombre Proceso</label>
-                          <select class="form-select mb-3" name="nom_proceso">
-                            <option selected disabled>Selecciona una opción</option>
-                            <?php
-                                include ("../../config/conexion.php");
-
-                                $sql = $conexion->query("SELECT * FROM procesos");
-                                while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['Nom_Procesos']."'>".$resultado['Nom_Procesos']."</option>";
-                              }
-                            ?>
-                          </select>
-                        </div>     
-                        <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">ID Actividad</label>
-                          <select class="form-select mb-3" name="ID_Actividad">
-                            <option selected disabled>Selecciona una opción</option>
-                            <?php
-                                include ("../../config/conexion.php");
-
-                                $sql = $conexion->query("SELECT * FROM detalle_actividad");
-                                while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['ID_Actividad']."'>".$resultado['nom_actividad']."</option>";
-                              }
-                            ?>
-                          </select>
-                        </div>
-                        <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Nombre Actividad</label>
-                          <select class="form-select mb-3" name="nom_actividad">
-                            <option selected disabled>Selecciona una opción</option>
-                            <?php
-                                include ("../../config/conexion.php");
-
-                                $sql = $conexion->query("SELECT * FROM detalle_actividad");
-                                while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['nom_actividad']."'>".$resultado['nom_actividad']."</option>";
-                              }
-                            ?>
-                          </select>
-                        </div> 
                         <div class="row justify-content-end">
                             <button type="submit" name="guardar" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;">Guardar</button>
                         </div>
@@ -171,15 +116,11 @@ if($varsesion== null || $varsesion=''){
 
     <!-- formulario -->
     <div class="row justify-content-center">
-    <table class="table" style="width: 1500px;">
+    <table class="table" style="width: 800px;">
   <thead class="text-center">
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Nom_Subproceso</th>
-      <th scope="col">ID_Proceso</th>
-      <th scope="col">Nom_Proceso</th>
-      <th scope="col">ID_Actividad</th>
-      <th scope="col">nom_actividad</th>
       <th scope="col">Acciones</th>
 
     </tr>
@@ -193,10 +134,6 @@ if($varsesion== null || $varsesion=''){
       <tr>
         <td><?php echo $row['ID_subProcesos']; ?></td>
         <td><?php echo $row['nom_Subproceso']; ?></td>
-        <td><?php echo $row['ID_Proceso']; ?></td>
-        <td><?php echo $row['nom_proceso']; ?></td>
-        <td><?php echo $row['ID_Actividad']; ?></td>
-        <td><?php echo $row['nom_actividad']; ?></td>
         <td>
           <a href="edit.php?ID_subProcesos=<?php echo $row['ID_subProcesos']?>" class="btn btn-warning">
             <i class='bx bxs-edit'></i>
