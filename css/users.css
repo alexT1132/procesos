@@ -20,35 +20,16 @@
     margin-right: 40px;
 }
 
-/*Inputs section*/
-
-.inputs-section{
-    width: 40%;
-    float: left;
-    margin: 20px 0 0 60px;
+.container{
+    padding: 0;
+    margin: 30px 20px 0 0;
 }
 
-.mb-3{
-    margin: 25px -20px 0 90px;
+form{
+    margin-left: 60px;
 }
 
-.form-control{
-    width: 470px;
-    float: right;
-}
-
-.btn:hover{
-    background-color: #BF2626;
-    color: white;
-}
-
-/*Table Section*/
-
-.table-section{
-    width: 40%;
-    float: right;
-}
-
-.table-group-divider{
-    max-height: 80px;
+.card{
+    margin-left: 30px;
+    height: 760px;
 }
