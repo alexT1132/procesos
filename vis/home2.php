@@ -1,4 +1,5 @@
 
+
 <?php include('../config/conexion.php'); ?>
 
 
@@ -32,18 +33,18 @@
     <div class="container text-center">
         <div class="row">
             <div class="col-5">
-                <form method="" action="home2.php" id="datos">
+                <form id="datos">
                     <div class="mb-3">
                         <label class="form-label">Nombre</label>
-                        <input type="text" id="campo1" class="form-control">
+                        <input type="text" id="campo1" class="form-control" disabled>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Puesto</label>
-                        <input type="text" id="campo2" class="form-control">
+                        <input type="text" id="campo2" class="form-control" disabled>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Direccion</label>
-                        <input type="text" id="campo3" class="form-control">
+                        <input type="text" id="campo3" class="form-control" disabled>
                     </div>
                     <div class="row justify-content-center">
                         <button type="submit" name="enviar" id="enviar" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;" disabled>Enviar</button>
@@ -52,7 +53,7 @@
             </div>
             <div class="col-7">
                 <form class="d-flex" role="search">
-                    <select class="form-select mb-3" name="nom_Procesos" disabled>
+                    <select class="form-select mb-3" name="nom_Procesos" id="nom_Procesos">
                         <option selected disabled>Selecciona el proceso</option>
                             <?php
                                 include ("../../config/conexion.php");
@@ -63,15 +64,16 @@
                               }
                             ?>
                     </select>
-                    <button class="btn btn-outline-success" id="buscador" type="submit" disabled style="height: 37px;">Search</button>
+                    <button class="btn btn-outline-success" type="submit" onclick="buscar_filtro($('#nom_Procesos').val());" style="height: 37px;">Search</button>
                 </form>
                 <br>
                 <div class="outer-wrapper" style="margin-left: 50px; width: 1020px">
                     <div class="table-wrapper" style="max-height: 680px; overflow-y: scroll;">
-                        <table class="table" id="tabla" style="width: 1000px; border: 1px solid black; display: none;">
+                        <table class="table" id="tabla" style="width: 1000px; border: 1px solid black;">
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
+                                    <th scope="col">Procesos</th>
                                     <th scope="col" style="width: 250px;">Subprocesos</th>
                                     <th scope="col" style="width: 250px;">Actividades</th>
                                     <th scope="col">Validacion</th>
@@ -86,6 +88,7 @@
                                     while($row = mysqli_fetch_assoc($result_task)) { ?>
                                     <tr>
                                         <td><?php echo $row['ID']; ?></td>
+                                        <td><?php echo $row['nom_Procesos']; ?></td>
                                         <td><?php echo $row['nom_subproceso']; ?></td>
                                         <td><?php echo $row['nom_Actividad']; ?></td>
                                         <td>
@@ -105,7 +108,7 @@
     </div>
         
     
-    <script src="../js/validation.js"></script>
+    <script src="../js/buscador.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
