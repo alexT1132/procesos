@@ -32,21 +32,21 @@
     <div class="container text-center">
         <div class="row">
             <div class="col-5">
-                <form method="" action="home2.php" id="datos">
+                <form method="POST" action="home2.php" id="datos">
                     <div class="mb-3">
                         <label class="form-label">Nombre</label>
-                        <input type="text" id="campo1" class="form-control">
+                        <input type="text" id="campo1" class="form-control" name="nombre">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Puesto</label>
-                        <input type="text" id="campo2" class="form-control">
+                        <input type="text" id="campo2" class="form-control" name="puesto">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Direccion</label>
-                        <input type="text" id="campo3" class="form-control">
+                        <input type="text" id="campo3" class="form-control" name="direccion">
                     </div>
                     <div class="row justify-content-center">
-                        <button type="submit" name="enviar" id="enviar" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;" disabled>Enviar</button>
+                        <button type="submit" name="enviar" id="enviar" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;" disabled>Mostrar</button>
                     </div>
                 </form>
             </div>
@@ -71,7 +71,6 @@
                         <table class="table" id="tabla" style="width: 1000px; border: 1px solid black; display: none;">
                             <thead>
                                 <tr>
-                                    <th scope="col">ID</th>
                                     <th scope="col" style="width: 250px;">Subprocesos</th>
                                     <th scope="col" style="width: 250px;">Actividades</th>
                                     <th scope="col">Validacion</th>
@@ -85,11 +84,10 @@
 
                                     while($row = mysqli_fetch_assoc($result_task)) { ?>
                                     <tr>
-                                        <td><?php echo $row['ID']; ?></td>
                                         <td><?php echo $row['nom_subproceso']; ?></td>
                                         <td><?php echo $row['nom_Actividad']; ?></td>
                                         <td>
-                                            <input type="checkbox" class="form-check-input" id="">
+                                            <input type="checkbox" class="form-check-input">
                                         </td>
                                         <td>
                                             <img src="../img/x-regular-48.png">

@@ -33,7 +33,7 @@
     <div class="container text-center">
         <div class="row">
             <div class="col-5">
-                <form id="datos" method="">
+                <form id="datos">
                     <div class="mb-3">
                         <label class="form-label">Nombre</label>
                         <input type="text" id="campo1" class="form-control" disabled>
@@ -47,9 +47,50 @@
                         <input type="text" id="campo3" class="form-control" disabled>
                     </div>
                     <div class="row justify-content-center">
-                        <button type="submit" name="enviar" id="enviar" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;" disabled>Mostrar</button>
+                        <button type="submit" name="enviar" id="enviar" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;" disabled>Enviar</button>
                     </div>
                 </form>
+                <br><br>
+                <div>
+                <form method="post" action="" id="formulario2" style="height: 70px;">
+                <div class="mb-3">
+                        <label class="form-label">Input</label>
+                        <input type="text" id="campo1" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Sistema</label>
+                        <input type="text" id="campo2" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Rol</label>
+                        <input type="text" id="campo3" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tiempo</label>
+                        <input type="text" id="campo3" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Frecuencia</label>
+                        <input type="text" id="campo3" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Volumen</label>
+                        <input type="text" id="campo3" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Conversion en horas</label>
+                        <input type="text" id="campo3" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">FTE's</label>
+                        <input type="text" id="campo3" class="form-control">
+                    </div>
+                    <div class="row justify-content-center">
+                        <button type="submit" name="enviar" id="enviar" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;" disabled>Enviar</button>
+                    </div>
+                </form>
+            </div>
+
             </div>
             <div class="col-7">
                 <form class="d-flex" role="search">
@@ -71,8 +112,8 @@
                         <table class="table" id="tabla" style="width: 1000px; border: 1px solid black;">
                             <thead>
                                 <tr>
-                                    <th scope="col" style="width: 250px;">Subprocesos</th>
-                                    <th scope="col" style="width: 250px;">Actividades</th>
+                                    <th scope="col" style="width: 300px;">Subprocesos</th>
+                                    <th scope="col" style="width: 300px;">Actividades</th>
                                     <th scope="col">Validacion</th>
                                     <th scope="col">Estado</th>
                                 </tr>
@@ -87,7 +128,7 @@
                                         <td><?php echo $row['nom_subproceso']; ?></td>
                                         <td><?php echo $row['nom_Actividad']; ?></td>
                                         <td>
-                                            <input type="checkbox" class="form-check-input" id="redirigir">
+                                            <input type="checkbox" class="form-check-input" id="checkbox">
                                         </td>
                                         <td>
                                             <img src="../img/x-regular-48.png">
@@ -101,8 +142,7 @@
             </div>
         </div>
     </div>
-      
-    <script src="../js/checkbox.js"></script>
+        
     <script src="../js/buscador.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
