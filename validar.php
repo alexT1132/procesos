@@ -16,7 +16,7 @@ if($filas['rol_id']==1){
 
 }else
 if($filas['rol_id']==2){ 
-    header("location: vis/home.php");
+    header("location: vis/paso1.php");
 
 }else{
     header('location: alerts/index_incorrecto.php');

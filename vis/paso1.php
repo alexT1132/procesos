@@ -1,5 +1,4 @@
 
-
 <?php include('../config/conexion.php'); ?>
 
 
@@ -33,68 +32,45 @@
     <div class="container text-center">
         <div class="row">
             <div class="col-5">
-                <form id="datos">
+                <form method="POST" action="paso2.php" id="datos">
                     <div class="mb-3">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Puesto</label>
+                            <select class="form-select mb-3" name="" id="campo2">
+                                <option selected disabled>Selecciona una opción</option>
+                                <?php
+                                    include ("../config/conexion.php");
+    
+                                    $sql = $conexion->query("SELECT * FROM nuevo_puesto");
+                                    while ($resultado = $sql->fetch_assoc()) {
+                                    echo "<option value='".$resultado['Nuevo_Puesto']."'>".$resultado['Nuevo_Puesto']."</option>";
+                                  }
+                                ?>
+                              </select>
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputEmail1" class="form-label">Direccion</label>
+                              <select class="form-select mb-3" name="Direcciones" id="campo3">
+                                <option selected disabled>Selecciona una opción</option>
+                                <?php
+                                    include ("../config/conexion.php");
+    
+                                    $sql = $conexion->query("SELECT * FROM direcciones");
+                                    while ($resultado = $sql->fetch_assoc()) {
+                                    echo "<option value='".$resultado['Nom_Direccion']."'>".$resultado['Nom_Direccion']."</option>";
+                                  }
+                                ?>
+                              </select>
+                            </div>
                         <label class="form-label">Nombre</label>
-                        <input type="text" id="campo1" class="form-control" disabled>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Puesto</label>
-                        <input type="text" id="campo2" class="form-control" disabled>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Direccion</label>
-                        <input type="text" id="campo3" class="form-control" disabled>
+                        <input type="text" id="campo1" class="form-control" name="nombre">
                     </div>
                     <div class="row justify-content-center">
-                        <button type="submit" name="enviar" id="enviar" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;" disabled>Enviar</button>
+                        <button type="submit" name="enviar" id="enviar" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;" disabled>Mostrar</button>
                     </div>
                 </form>
-                <br><br>
-                <div>
-                <form method="post" action="" id="formulario2" style="height: 70px;">
-                <div class="mb-3">
-                        <label class="form-label">Input</label>
-                        <input type="text" id="campo1" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Sistema</label>
-                        <input type="text" id="campo2" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Rol</label>
-                        <input type="text" id="campo3" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Tiempo</label>
-                        <input type="text" id="campo3" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Frecuencia</label>
-                        <input type="text" id="campo3" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Volumen</label>
-                        <input type="text" id="campo3" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Conversion en horas</label>
-                        <input type="text" id="campo3" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">FTE's</label>
-                        <input type="text" id="campo3" class="form-control">
-                    </div>
-                    <div class="row justify-content-center">
-                        <button type="submit" name="enviar" id="enviar" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;" disabled>Enviar</button>
-                    </div>
-                </form>
-            </div>
-
-            </div>
-            <div class="col-7">
-                <form class="d-flex" role="search">
-                    <select class="form-select mb-3" name="nom_Procesos" id="nom_Procesos">
+                <form class="d-flex" role="search" style="margin-top: 35%;">
+                    <select class="form-select mb-3" name="nom_Procesos" disabled>
                         <option selected disabled>Selecciona el proceso</option>
                             <?php
                                 include ("../../config/conexion.php");
@@ -105,15 +81,18 @@
                               }
                             ?>
                     </select>
+                    <button class="btn btn-outline-success" id="buscador" type="submit" disabled style="height: 37px;">Search</button>
                 </form>
+            </div>
+            <div class="col-7">
                 <br>
                 <div class="outer-wrapper" style="margin-left: 50px; width: 1020px">
                     <div class="table-wrapper" style="max-height: 680px; overflow-y: scroll;">
-                        <table class="table" id="tabla" style="width: 1000px; border: 1px solid black;">
+                        <table class="table" id="tabla" style="width: 1000px; border: 1px solid black; display: none;">
                             <thead>
                                 <tr>
-                                    <th scope="col" style="width: 300px;">Subprocesos</th>
-                                    <th scope="col" style="width: 300px;">Actividades</th>
+                                    <th scope="col" style="width: 250px;">Subprocesos</th>
+                                    <th scope="col" style="width: 250px;">Actividades</th>
                                     <th scope="col">Validacion</th>
                                     <th scope="col">Estado</th>
                                 </tr>
@@ -128,7 +107,7 @@
                                         <td><?php echo $row['nom_subproceso']; ?></td>
                                         <td><?php echo $row['nom_Actividad']; ?></td>
                                         <td>
-                                            <input type="checkbox" class="form-check-input" id="checkbox">
+                                            <input type="checkbox" class="form-check-input">
                                         </td>
                                         <td>
                                             <img src="../img/x-regular-48.png">
@@ -143,7 +122,8 @@
         </div>
     </div>
         
-    <script src="../js/buscador.js"></script>
+    
+    <script src="../js/validation.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
