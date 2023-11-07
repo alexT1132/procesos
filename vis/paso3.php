@@ -1,17 +1,6 @@
-<?php 
-//seguridad de sessiones paginacion
-session_start();
-error_reporting(0);
-$varsesion= $_SESSION['username'];
-if($varsesion== null || $varsesion=''){
-    header("location: ../../error.php");
-    die();
-}
-
-?>
 
 <?php
-include("../../config/conexion.php");
+include("../config/conexion.php");
 $Nombre = '';
 $Apellido = '';
 $ID_Unidad_Negocio = '';
@@ -65,37 +54,7 @@ if  (isset($_GET['ID_empleado'])) {
   }
 }
 
-if (isset($_POST['update'])) {
-    $ID_empleado = $_GET['ID_empleado'];
-    $Nombre = $_POST['Nombre'];
-    $Apellido = $_POST['Apellido'];
-    $ID_Unidad_Negocio = $_POST['ID_Unidad_Negocio'];
-    $Nom_Unidad_Negocio = $_POST['Nom_Unidad_Negocio'];
-    $Email = $_POST['Email'];
-    $Area = $_POST['Area'];
-    $ID_Actividad = $_POST['ID_Actividad'];
-    $Nom_Actividad = $_POST['Nom_Actividad'];
-    $ID_Nuevo_Puesto = $_POST['ID_Nuevo_Puesto'];
-    $Nom_Nuevo_Puesto = $_POST['Nom_Nuevo_Puesto'];
-    $ID_Procesos = $_POST['ID_Procesos'];
-    $Nom_Proceso = $_POST['Nom_Proceso'];
-    $ID_Direcciones = $_POST['ID_Direcciones'];
-    $Nom_Direcciones = $_POST['Nom_Direcciones'];
-    $ID_Subproceso = $_POST['ID_Subproceso'];
-    $Nom_Subproceso = $_POST['Nom_Subproceso'];
-    $ID_funcion = $_POST['ID_funcion'];
-    $Nom_funcion = $_POST['Nom_funcion'];
-    $ID_Valor = $_POST['ID_Valor'];
-    $Nom_Valor = $_POST['Nom_Valor'];
-    $Nom_frecuencia = $_POST['Nom_frecuencia'];
-    $query = "UPDATE usuario_cliente set Nombre = '$Nombre', Apellido = '$Apellido', ID_Unidad_Negocio = '$ID_Unidad_Negocio', Nom_Unidad_Negocio = '$Nom_Unidad_Negocio', Email = '$Email', Area = '$Area', ID_Actividad = '$ID_Actividad', Nom_Actividad = '$Nom_Actividad', ID_Nuevo_Puesto = '$ID_Nuevo_Puesto', Nom_Nuevo_Puesto = '$Nom_Nuevo_Puesto', ID_Procesos = '$ID_Procesos', Nom_Proceso = '$Nom_Proceso', ID_Direcciones = '$ID_Direcciones', Nom_Direcciones = '$Nom_Direcciones', ID_Subproceso = '$ID_Subproceso', Nom_Subproceso = '$Nom_Subproceso', ID_funcion = '$ID_funcion', Nom_funcion = '$Nom_funcion', ID_Valor = '$ID_Valor', 
-    Nom_Valor = '$Nom_Valor', Nom_frecuencia = '$Nom_frecuencia' WHERE ID_empleado = $ID_empleado";
-    mysqli_query($conexion, $query);
-    header('Location: uc.php');
-}
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -103,28 +62,42 @@ if (isset($_POST['update'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grupo Piasa</title>
-    <link rel="shortcut icon" href="../../img/logo_3.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../img/logo_3.png">
+    <link rel="stylesheet" href="../css/users.css">
 </head>
 <body>
+    <section class="navbar-section">
+        <div class="container-navbar">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="../img/logo.png">
+                </div>
+                <div class="button-navbar">
+                    <form class="d-flex" action="../destroy.php">
+                        <button class="btn" type="submit">
+                            <h5>Cerrar Session</h5>
+                        </button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </section>
     <br>
-    <div class="title text-center">
-        <h1>Modificar datos</h1>
-    </div>
-    <div class="container p-4">
-  <div class="row">
-    <div class="col-md-4 mx-auto">
-      <div class="card card-body">
-        <form action="editar.php?ID_empleado=<?php echo $_GET['ID_empleado']; ?>" method="POST">
+    <div class="form-1 row justify-content-center" style="width: 100%;">
+        <div class="container text-center" style="width: 100%;">
+            <div class="row" style="width: 100%;">
+                <div class="col">
+                <form action="valPaso3.php" method="POST">
             <div class="mb-3">
                 <label for="Nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="Nombre" id="Nombre" value="<?php echo $Nombre; ?>" placeholder="Actualizar Nombre">
+                <input type="text" class="form-control" name="Nombre" id="Nombre" value="<?php echo $Nombre; ?>">
             </div>
-            <div class="mb-3">
+            <div class="mb-3" style="display: none;">
                 <label for="Apellido" class="form-label">Apellido</label>
                 <input type="text" class="form-control" name="Apellido" id="Apellido" value="<?php echo $Apellido; ?>" placeholder="Actualizar Nombre">
             </div>
-            <div class="mb-3">
+            <div class="mb-3" style="display: none;">
                 <label for="ID_Unidad_Negocio">ID_Unidad_Negocio</label>
                 <select class="form-select mb-3" aria-label="Default select example" id="ID_Unidad_Negocio" name="ID_Unidad_Negocio">
                     <option selected disabled>--Seleccione Unidad Negocio--</option>
@@ -145,7 +118,7 @@ if (isset($_POST['update'])) {
                         ?>   
                 </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-3" style="display: none;">
                 <label>Nom_Unidad_Negocio</label>
                 <select class="form-select mb-3" aria-label="Default select example" name="Nom_Unidad_Negocio">
                     <option selected disabled>--Seleccione Actividad--</option>
@@ -166,15 +139,15 @@ if (isset($_POST['update'])) {
                         ?>   
                 </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-3" style="display: none;">
                 <label for="Email" class="form-label">Email</label>
                 <input type="text" class="form-control" name="Email" id="Email" value="<?php echo $Email; ?>" placeholder="Actualizar Nombre">
             </div>
-            <div class="mb-3">
+            <div class="mb-3" style="display: none;">
                 <label for="Area" class="form-label">Area</label>
                 <input type="text" class="form-control" name="Area" id="Area" value="<?php echo $Area; ?>" placeholder="Actualizar Nombre">
             </div>
-            <div class="mb-3">
+            <div class="mb-3" style="display: none;">
                 <label>ID_Actividad</label>
                 <select class="form-select mb-3" aria-label="Default select example" name="ID_Actividad">
                     <option selected disabled>--Seleccione Actividad--</option>
@@ -195,7 +168,7 @@ if (isset($_POST['update'])) {
                         ?>   
                 </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-3" style="display: none;">
                 <label>nom_actividad</label>
                 <select class="form-select mb-3" aria-label="Default select example" name="Nom_Actividad">
                     <option selected disabled>--Seleccione Actividad--</option>
@@ -217,16 +190,10 @@ if (isset($_POST['update'])) {
                 </select>
             </div>
             <div class="mb-3">
-                <label>ID_Nuevo_Puesto</label>
-                <select class="form-select mb-3" aria-label="Default select example" name="ID_Nuevo_Puesto">
-                    <option selected disabled>--Seleccione Puesto--</option>
+                <label>ID_Puesto</label>
+                <select class="form-select mb-3 text-center" aria-label="Default select example" name="ID_Nuevo_Puesto">
+                    <option selected disabled>--Seleccione un puesto--</option>
                         <?php
-                            $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Nuevo_Puesto=".$row['ID_Nuevo_Puesto'];
-                            $resultado1 = $conexion->query($sql1);
-
-                            $row1 = $resultado1->fetch_assoc();
-
-                            echo "<option selected value='".$row1['ID_Nuevo_Puesto']."'>".$row1['Nom_Nuevo_Puesto']."</option>";
 
                             $sql2 = "SELECT * FROM nuevo_puesto";
                             $resultado2 = $conexion->query($sql2);
@@ -238,15 +205,10 @@ if (isset($_POST['update'])) {
                 </select>
             </div>
             <div class="mb-3">
-                <label>Nom_Nuevo_Puesto</label>
-                <select class="form-select mb-3" aria-label="Default select example" name="Nom_Nuevo_Puesto">
+                <label>Puesto</label>
+                <select class="form-select mb-3 text-center" aria-label="Default select example" name="Nom_Nuevo_Puesto">
+                    <option selected disabled>--Seleccione un puesto--</option>
                         <?php
-                            $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Nuevo_Puesto=".$row['ID_Nuevo_Puesto'];
-                            $resultado1 = $conexion->query($sql1);
-
-                            $row1 = $resultado1->fetch_assoc();
-
-                            echo "<option selected disabled value='".$row1['Nom_Nuevo_Puesto']."'>".$row1['Nom_Nuevo_Puesto']."</option>";
 
                             $sql2 = "SELECT * FROM nuevo_puesto";
                             $resultado2 = $conexion->query($sql2);
@@ -257,7 +219,7 @@ if (isset($_POST['update'])) {
                         ?>   
                 </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-3" style="display: none;">
             <label>ID_Proceso</label>
         <select class="form-select mb-3" aria-label="Default select example" name="ID_Procesos">
             <option selected disabled>--Seleccione Proceso--</option>
@@ -278,7 +240,7 @@ if (isset($_POST['update'])) {
             ?>   
         </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-3" style="display: none;">
             <label>nom_proceso</label>
         <select class="form-select mb-3" aria-label="Default select example" name="Nom_Proceso">
             <option selected disabled>--Seleccione Proceso--</option>
@@ -301,15 +263,9 @@ if (isset($_POST['update'])) {
             </div>
             <div class="mb-3">
             <label>ID_Direcciones</label>
-        <select class="form-select mb-3" aria-label="Default select example" name="ID_Direcciones">
-            <option selected disabled>--Seleccione Proceso--</option>
+        <select class="form-select mb-3 text-center" aria-label="Default select example" name="ID_Direcciones">
+            <option selected disabled>--Seleccione una direccion--</option>
             <?php
-                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Direcciones =".$row['ID_Direcciones'];
-                $resultado1 = $conexion->query($sql1);
-
-                $row1 = $resultado1->fetch_assoc();
-
-                echo "<option selected value='".$row1['ID_Direcciones']."'>".$row1['Nom_Direcciones']."</option>";
 
                 $sql2 = "SELECT * FROM direcciones";
                 $resultado2 = $conexion->query($sql2);
@@ -322,15 +278,9 @@ if (isset($_POST['update'])) {
             </div>
             <div class="mb-3">
             <label>Nom_Direcciones</label>
-        <select class="form-select mb-3" aria-label="Default select example" name="Nom_Direcciones">
+        <select class="form-select mb-3 text-center" aria-label="Default select example" name="Nom_Direcciones">
             <option selected disabled>--Seleccione Nom_Direcciones--</option>
             <?php
-                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Direcciones =".$row['ID_Direcciones'];
-                $resultado1 = $conexion->query($sql1);
-
-                $row1 = $resultado1->fetch_assoc();
-
-                echo "<option selected value='".$row1['Nom_Direcciones']."'>".$row1['Nom_Direcciones']."</option>";
 
                 $sql2 = "SELECT * FROM direcciones";
                 $resultado2 = $conexion->query($sql2);
@@ -341,7 +291,7 @@ if (isset($_POST['update'])) {
             ?>   
         </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-3" style="display: none;">
             <label>ID_subProceso</label>
         <select class="form-select mb-3" aria-label="Default select example" name="ID_Subproceso">
             <option selected disabled>--Seleccione subProceso--</option>
@@ -362,7 +312,7 @@ if (isset($_POST['update'])) {
             ?>   
         </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-3" style="display: none;">
             <label>Nom_subProceso</label>
         <select class="form-select mb-3" aria-label="Default select example" name="Nom_Subproceso">
             <option selected disabled>--Seleccione Proceso--</option>
@@ -383,7 +333,7 @@ if (isset($_POST['update'])) {
             ?>   
         </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-3" style="display: none;">
             <label>ID_funcion</label>
         <select class="form-select mb-3" aria-label="Default select example" name="ID_funcion">
             <option selected disabled>--Seleccione funcion--</option>
@@ -404,7 +354,7 @@ if (isset($_POST['update'])) {
             ?>   
         </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-3" style="display: none;">
             <label>Nom_funcion</label>
         <select class="form-select mb-3" aria-label="Default select example" name="Nom_funcion">
             <option selected disabled>--Seleccione Funcion--</option>
@@ -425,7 +375,7 @@ if (isset($_POST['update'])) {
             ?>   
         </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-3" style="display: none;">
             <label>ID_Valor</label>
         <select class="form-select mb-3" aria-label="Default select example" name="ID_Valor">
             <option selected disabled>--Seleccione Temporalidad--</option>
@@ -446,7 +396,7 @@ if (isset($_POST['update'])) {
             ?>   
         </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-3" style="display: none;">
             <label>Nom_Valor</label>
         <select class="form-select mb-3" aria-label="Default select example" name="Nom_Valor">
             <option selected disabled>--Seleccione Temporalidad--</option>
@@ -467,7 +417,7 @@ if (isset($_POST['update'])) {
             ?>   
         </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-3" style="display: none;">
             <label>Nom_frecuencia</label>
         <select class="form-select mb-3" aria-label="Default select example" name="Nom_frecuencia">
             <option selected disabled>--Seleccione Frecuencia--</option>
@@ -488,16 +438,15 @@ if (isset($_POST['update'])) {
             ?>   
         </select>
             </div>
-            <a type="submite" class="btn btn-danger" href="uc.php">Back</a>
             <button class="btn btn-success" name="update">
-                Update
+                Mostrar
             </button>
         </form>
-      </div>
+                </div>
+                <div class="col"></div>
+        </div>
     </div>
-  </div>
-</div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+      
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

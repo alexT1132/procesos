@@ -105,6 +105,7 @@ if($varsesion== null || $varsesion=''){
                           <label for="" class="form-label">Nombre tipo</label>
                           <select class="form-select mb-3" name="nom_tipo">
                             <option selected disabled>Selecciona una opcion</option>
+                            <option value="...">...</option>
                             <option value="Transaccional">Transaccional</option>
                             <option value="Estrategico">Estratégico</option>
                           </select>

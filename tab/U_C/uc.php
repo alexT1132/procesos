@@ -368,7 +368,7 @@ if($varsesion== null || $varsesion=''){
 
     <!-- formulario -->
     <div class="row justify-content-center">
-    <table class="table" style="margin-left: 40px;">
+    <table class="table" style="margin-left: 200px;">
   <thead class="text-center">
     <tr>
       <th scope="col">ID</th>
@@ -429,7 +429,7 @@ if($varsesion== null || $varsesion=''){
           <a href="editar.php?ID_empleado=<?php echo $row['ID_empleado']?>" class="btn btn-warning">
             <i class='bx bxs-edit'></i>
           </a>
-          <a href="delete.php?ID_empleado=<?php echo $row['ID_empleado']?>" class="btn btn-danger">
+          <a href="delete.php?ID_empleado=<?php echo $row['ID_empleado']?>" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">
             <i class='bx bx-trash'></i>
           </a>
         </td>

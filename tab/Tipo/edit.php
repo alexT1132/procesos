@@ -65,6 +65,7 @@ if (isset($_POST['update'])) {
                 <label for="" class="form-label">Nombre tipo</label>
                 <select class="form-select mb-3" name="nom_tipo">
                     <option selected disabled value="<?php echo $row['nom_tipo']; ?>"><?php echo $row['nom_tipo']; ?></option>
+                    <option value="...">...</option>
                     <option value="Transaccional">Transaccional</option>
                     <option value="Estrategico">Estratégico</option>
                 </select>
