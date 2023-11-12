@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2023 a las 18:07:11
+-- Tiempo de generación: 10-11-2023 a las 21:24:04
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.1.17
 
@@ -37,13 +37,6 @@ CREATE TABLE `calculo` (
   `Nom_frecuencia` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `calculo`
---
-
-INSERT INTO `calculo` (`ID_Calculo`, `ID_Actividad`, `nom_actividad`, `Tiempo`, `ID_Valor`, `Nom_Valor`, `Nom_frecuencia`) VALUES
-(1, 1, '...', 'aaa', 1, '0', '...');
-
 -- --------------------------------------------------------
 
 --
@@ -59,54 +52,62 @@ CREATE TABLE `consultas` (
   `ID_subproceso` int(11) NOT NULL,
   `nom_subproceso` varchar(100) NOT NULL,
   `ID_Actividad` int(11) NOT NULL,
-  `nom_Actividad` varchar(100) NOT NULL
+  `nom_Actividad` varchar(100) NOT NULL,
+  `input` varchar(255) NOT NULL,
+  `sistema` varchar(255) NOT NULL,
+  `rol` varchar(100) NOT NULL,
+  `tiempo` time NOT NULL,
+  `val_Frec` varchar(150) NOT NULL,
+  `vol` varchar(100) NOT NULL,
+  `T_H` varchar(100) NOT NULL,
+  `fte's` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `consultas`
 --
 
-INSERT INTO `consultas` (`ID`, `ID_funcion`, `Nom_funcion`, `ID_Procesos`, `nom_Procesos`, `ID_subproceso`, `nom_subproceso`, `ID_Actividad`, `nom_Actividad`) VALUES
-(1, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 127, 'Recibir solicitud y propuestas'),
-(2, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 166, 'Validar posible transportista'),
-(3, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 170, 'Visitar instalaciones'),
-(4, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 163, 'Validar documentación'),
-(5, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 156, 'Solicitar información correcta'),
-(6, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 68, 'Llenar contrato'),
-(7, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 43, 'Enviar contrato y documentación para validación'),
-(8, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 25, 'Corregir contrato'),
-(9, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 57, 'Firmar contrato'),
-(10, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 167, 'Validar propuesta del proveedor'),
-(11, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 157, 'Solicitar nueva cotización/propuesta  '),
-(12, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 74, 'Negociar con proveedor'),
-(13, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 133, 'Recibir y validar documentación'),
-(14, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 156, 'Solicitar información correcta'),
-(15, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 147, 'Revisar contrato firmado'),
-(16, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 3, 'Actualizar contrato'),
-(17, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 68, 'Llenar contrato'),
-(18, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 57, 'Firmar contrato'),
-(19, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 43, 'Enviar contrato y documentación para validación'),
-(20, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 25, 'Corregir contrato'),
-(21, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 57, 'Firmar contrato'),
-(22, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 115, 'Recibir propuesta de proveedor'),
-(23, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 75, 'Negociar condiciones comerciales'),
-(24, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 32, 'Determinar mejor opción'),
-(25, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 68, 'Llenar contrato'),
-(26, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 163, 'Validar documentación'),
-(27, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 156, 'Solicitar información correcta'),
-(28, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 43, 'Enviar contrato y documentación para validación'),
-(29, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 25, 'Corregir contrato'),
-(30, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 57, 'Firmar contrato'),
-(31, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 18, 'Gestionar contrato marco SAP', 47, 'Enviar invitación de licitación'),
-(32, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 18, 'Gestionar contrato marco SAP', 79, 'Negociar y seleccionar proveedor'),
-(33, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 18, 'Gestionar contrato marco SAP', 26, 'Crear contrato'),
-(34, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 18, 'Gestionar contrato marco SAP', 65, 'Liberar contrato marco'),
-(35, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 18, 'Gestionar contrato marco SAP', 11, 'Buscar proveedores alternos'),
-(37, 2, 'Abastecimientos', 9, 'Gestionar Datos Maestros de Proveedores', 10, 'Gestionar alta de DM de Proveedores', 123, 'Recibir solicitud de consulta'),
-(38, 2, 'Abastecimientos', 9, 'Gestionar Datos Maestros de Proveedores', 10, 'Gestionar alta de DM de Proveedores', 148, 'Revisar información proporcionada'),
-(39, 2, 'Abastecimientos', 9, 'Gestionar Datos Maestros de Proveedores', 10, 'Gestionar alta de DM de Proveedores', 156, 'Solicitar información correcta'),
-(40, 2, 'Abastecimientos', 9, 'Gestionar Datos Maestros de Proveedores', 10, 'Gestionar alta de DM de Proveedores', 101, 'Realizar alta del DM'),
-(41, 2, 'Abastecimientos', 9, 'Gestionar Datos Maestros de Proveedores', 10, 'Gestionar alta de DM de Proveedores', 90, 'Notificar alta');
+INSERT INTO `consultas` (`ID`, `ID_funcion`, `Nom_funcion`, `ID_Procesos`, `nom_Procesos`, `ID_subproceso`, `nom_subproceso`, `ID_Actividad`, `nom_Actividad`, `input`, `sistema`, `rol`, `tiempo`, `val_Frec`, `vol`, `T_H`, `fte's`) VALUES
+(1, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 127, 'Recibir solicitud y propuestas', '', '', '', '00:00:00', '', '', '', ''),
+(2, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 166, 'Validar posible transportista', '', '', '', '00:00:00', '', '', '', ''),
+(3, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 170, 'Visitar instalaciones', '', '', '', '00:00:00', '', '', '', ''),
+(4, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 163, 'Validar documentación', '', '', '', '00:00:00', '', '', '', ''),
+(5, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 156, 'Solicitar información correcta', '', '', '', '00:00:00', '', '', '', ''),
+(6, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 68, 'Llenar contrato', '', '', '', '00:00:00', '', '', '', ''),
+(7, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 43, 'Enviar contrato y documentación para validación', '', '', '', '00:00:00', '', '', '', ''),
+(8, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 25, 'Corregir contrato', '', '', '', '00:00:00', '', '', '', ''),
+(9, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 57, 'Firmar contrato', '', '', '', '00:00:00', '', '', '', ''),
+(10, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 167, 'Validar propuesta del proveedor', '', '', '', '00:00:00', '', '', '', ''),
+(11, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 157, 'Solicitar nueva cotización/propuesta  ', '', '', '', '00:00:00', '', '', '', ''),
+(12, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 74, 'Negociar con proveedor', '', '', '', '00:00:00', '', '', '', ''),
+(13, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 133, 'Recibir y validar documentación', '', '', '', '00:00:00', '', '', '', ''),
+(14, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 156, 'Solicitar información correcta', '', '', '', '00:00:00', '', '', '', ''),
+(15, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 147, 'Revisar contrato firmado', '', '', '', '00:00:00', '', '', '', ''),
+(16, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 3, 'Actualizar contrato', '', '', '', '00:00:00', '', '', '', ''),
+(17, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 68, 'Llenar contrato', '', '', '', '00:00:00', '', '', '', ''),
+(18, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 57, 'Firmar contrato', '', '', '', '00:00:00', '', '', '', ''),
+(19, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 43, 'Enviar contrato y documentación para validación', '', '', '', '00:00:00', '', '', '', ''),
+(20, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 25, 'Corregir contrato', '', '', '', '00:00:00', '', '', '', ''),
+(21, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 57, 'Firmar contrato', '', '', '', '00:00:00', '', '', '', ''),
+(22, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 115, 'Recibir propuesta de proveedor', '', '', '', '00:00:00', '', '', '', ''),
+(23, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 75, 'Negociar condiciones comerciales', '', '', '', '00:00:00', '', '', '', ''),
+(24, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 32, 'Determinar mejor opción', '', '', '', '00:00:00', '', '', '', ''),
+(25, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 68, 'Llenar contrato', '', '', '', '00:00:00', '', '', '', ''),
+(26, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 163, 'Validar documentación', '', '', '', '00:00:00', '', '', '', ''),
+(27, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 156, 'Solicitar información correcta', '', '', '', '00:00:00', '', '', '', ''),
+(28, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 43, 'Enviar contrato y documentación para validación', '', '', '', '00:00:00', '', '', '', ''),
+(29, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 25, 'Corregir contrato', '', '', '', '00:00:00', '', '', '', ''),
+(30, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 57, 'Firmar contrato', '', '', '', '00:00:00', '', '', '', ''),
+(31, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 18, 'Gestionar contrato marco SAP', 47, 'Enviar invitación de licitación', '', '', '', '00:00:00', '', '', '', ''),
+(32, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 18, 'Gestionar contrato marco SAP', 79, 'Negociar y seleccionar proveedor', '', '', '', '00:00:00', '', '', '', ''),
+(33, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 18, 'Gestionar contrato marco SAP', 26, 'Crear contrato', '', '', '', '00:00:00', '', '', '', ''),
+(34, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 18, 'Gestionar contrato marco SAP', 65, 'Liberar contrato marco', '', '', '', '00:00:00', '', '', '', ''),
+(35, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 18, 'Gestionar contrato marco SAP', 11, 'Buscar proveedores alternos', '', '', '', '00:00:00', '', '', '', ''),
+(37, 2, 'Abastecimientos', 9, 'Gestionar Datos Maestros de Proveedores', 10, 'Gestionar alta de DM de Proveedores', 123, 'Recibir solicitud de consulta', '', '', '', '00:00:00', '', '', '', ''),
+(38, 2, 'Abastecimientos', 9, 'Gestionar Datos Maestros de Proveedores', 10, 'Gestionar alta de DM de Proveedores', 148, 'Revisar información proporcionada', '', '', '', '00:00:00', '', '', '', ''),
+(39, 2, 'Abastecimientos', 9, 'Gestionar Datos Maestros de Proveedores', 10, 'Gestionar alta de DM de Proveedores', 156, 'Solicitar información correcta', '', '', '', '00:00:00', '', '', '', ''),
+(40, 2, 'Abastecimientos', 9, 'Gestionar Datos Maestros de Proveedores', 10, 'Gestionar alta de DM de Proveedores', 101, 'Realizar alta del DM', '', '', '', '00:00:00', '', '', '', ''),
+(41, 2, 'Abastecimientos', 9, 'Gestionar Datos Maestros de Proveedores', 10, 'Gestionar alta de DM de Proveedores', 90, 'Notificar alta', '', '', '', '00:00:00', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -376,9 +377,9 @@ CREATE TABLE `frecuencia` (
 --
 
 INSERT INTO `frecuencia` (`ID_Valor`, `Nom_Valor`, `Nom_frecuencia`) VALUES
-(1, '0', '...'),
 (2, '4', 'Semanal'),
-(3, '1', 'Anual');
+(3, '1', 'Mensual'),
+(4, '12', 'Anual');
 
 -- --------------------------------------------------------
 
@@ -662,71 +663,35 @@ CREATE TABLE `usuario_cliente` (
   `ID_funcion` int(11) NOT NULL,
   `Nom_funcion` varchar(50) NOT NULL,
   `ID_Valor` int(11) NOT NULL,
-  `Nom_Valor` varchar(50) NOT NULL,
-  `Nom_frecuencia` varchar(50) NOT NULL
+  `Nom_frecuencia` varchar(50) NOT NULL,
+  `val_Frec` varchar(255) NOT NULL,
+  `input` varchar(255) NOT NULL,
+  `sistema` varchar(255) NOT NULL,
+  `rol` varchar(100) NOT NULL,
+  `tiempo` time NOT NULL,
+  `vol` varchar(50) NOT NULL,
+  `T_H` varchar(100) NOT NULL,
+  `fte's` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario_cliente`
 --
 
-INSERT INTO `usuario_cliente` (`ID_empleado`, `Nombre`, `Apellido`, `ID_Unidad_Negocio`, `Nom_Unidad_Negocio`, `Email`, `Area`, `ID_Actividad`, `Nom_Actividad`, `ID_Nuevo_Puesto`, `Nom_Nuevo_Puesto`, `ID_Procesos`, `Nom_Proceso`, `ID_Direcciones`, `Nom_Direcciones`, `ID_Subproceso`, `Nom_Subproceso`, `ID_funcion`, `Nom_funcion`, `ID_Valor`, `Nom_Valor`, `Nom_frecuencia`) VALUES
-(4, '', '', 1, '...', '', '', 127, 'Recibir solicitud y propuestas', 8, '', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 1, '0', '...'),
-(5, '', '', 1, '...', '', '', 166, 'Validar posible transportista', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 1, '0', '...'),
-(6, '', '', 1, '...', '', '', 170, 'Visitar instalaciones', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 1, '0', '...'),
-(7, '', '', 1, '...', '', '', 163, 'Validar documentación', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 1, '0', '...'),
-(8, '', '', 1, '...', '', '', 156, 'Solicitar información correcta', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 1, '0', '...'),
-(9, '', '', 1, '...', '', '', 68, 'Llenar contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 1, '0', '...'),
-(10, '', '', 1, '...', '', '', 43, 'Enviar contrato y documentación para validación', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 1, '0', '...'),
-(11, '', '', 1, '...', '', '', 25, 'Corregir contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 1, '0', '...'),
-(12, '', '', 1, '...', '', '', 57, 'Firmar contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 1, '0', '...'),
-(13, '', '', 1, '...', '', '', 167, 'Validar propuesta del proveedor', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 1, '0', '...'),
-(14, '', '', 1, '...', '', '', 157, 'Solicitar nueva cotización/propuesta  ', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 1, '0', '...'),
-(15, '', '', 1, '...', '', '', 74, 'Negociar con proveedor', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 1, '0', '...'),
-(16, '', '', 1, '...', '', '', 133, 'Recibir y validar documentación', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 1, '0', '...'),
-(17, '', '', 1, '...', '', '', 156, 'Solicitar información correcta', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 1, '0', '...'),
-(18, '', '', 1, '...', '', '', 147, 'Revisar contrato firmado', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 1, '0', '...'),
-(19, '', '', 1, '...', '', '', 3, 'Actualizar contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 1, '0', '...'),
-(20, '', '', 1, '...', '', '', 68, 'Llenar contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 1, '0', '...'),
-(21, '', '', 1, '...', '', '', 57, 'Firmar contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 1, '0', '...'),
-(22, '', '', 1, '...', '', '', 43, 'Enviar contrato y documentación para validación', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 1, '0', '...'),
-(23, '', '', 1, '...', '', '', 25, 'Corregir contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 1, '0', '...'),
-(24, '', '', 1, '...', '', '', 57, 'Firmar contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 1, '0', '...'),
-(25, '', '', 1, '...', '', '', 115, 'Recibir propuesta de proveedor', 8, '...', 8, 'Gestionar Contratos', 1, '...', 16, 'Gestionar contrato de servicios administrativos y ', 2, 'Abastecimientos', 1, '0', '...'),
-(26, '', '', 1, '...', '', '', 75, 'Negociar condiciones comerciales', 8, '...', 8, 'Gestionar Contratos', 1, '...', 16, 'Gestionar contrato de servicios administrativos y ', 2, 'Abastecimientos', 1, '0', '...'),
-(27, '', '', 1, '...', '', '', 32, 'Determinar mejor opción', 8, '...', 8, 'Gestionar Contratos', 1, '...', 16, 'Gestionar contrato de servicios administrativos y ', 2, 'Abastecimientos', 1, '0', '...'),
-(28, '', '', 1, '...', '', '', 68, 'Llenar contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 16, 'Gestionar contrato de servicios administrativos y ', 2, 'Abastecimientos', 1, '0', '...'),
-(29, '', '', 1, '...', '', '', 163, 'Validar documentación', 8, '...', 8, 'Gestionar Contratos', 1, '...', 16, 'Gestionar contrato de servicios administrativos y ', 2, 'Abastecimientos', 1, '0', '...'),
-(30, '', '', 1, '...', '', '', 156, 'Solicitar información correcta', 8, '...', 8, 'Gestionar Contratos', 1, '...', 16, 'Gestionar contrato de servicios administrativos y ', 2, 'Abastecimientos', 1, '0', '...'),
-(31, '', '', 1, '...', '', '', 43, 'Enviar contrato y documentación para validación', 8, '...', 8, 'Gestionar Contratos', 1, '...', 16, 'Gestionar contrato de servicios administrativos y ', 2, 'Abastecimientos', 1, '0', '...'),
-(32, '', '', 1, '...', '', '', 25, 'Corregir contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 16, 'Gestionar contrato de servicios administrativos y ', 2, 'Abastecimientos', 1, '0', '...'),
-(33, '', '', 1, '...', '', '', 57, 'Firmar contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 16, 'Gestionar contrato de servicios administrativos y ', 2, 'Abastecimientos', 1, '0', '...'),
-(34, '', '', 1, '...', '', '', 47, 'Enviar invitación de licitación', 8, '...', 8, 'Gestionar Contratos', 1, '...', 18, 'Gestionar contrato marco SAP', 2, 'Abastecimientos', 1, '0', '...'),
-(35, '', '', 1, '...', '', '', 79, 'Negociar y seleccionar proveedor', 8, '...', 8, 'Gestionar Contratos', 1, '...', 18, 'Gestionar contrato marco SAP', 2, 'Abastecimientos', 1, '0', '...'),
-(36, '', '', 1, '...', '', '', 26, 'Crear contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 18, 'Gestionar contrato marco SAP', 2, 'Abastecimientos', 1, '0', '...'),
-(37, '', '', 1, '...', '', '', 65, 'Liberar contrato marco', 8, '...', 8, 'Gestionar Contratos', 1, '...', 18, 'Gestionar contrato marco SAP', 2, 'Abastecimientos', 1, '0', '...'),
-(38, '', '', 1, '...', '', '', 11, 'Buscar proveedores alternos', 8, '...', 8, 'Gestionar Contratos', 1, '...', 18, 'Gestionar contrato marco SAP', 2, 'Abastecimientos', 1, '0', '...'),
-(39, '', '', 1, '...', '', '', 121, 'Recibir solicitud de alta', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 10, 'Gestionar alta de DM de Proveedores', 2, 'Abastecimientos', 1, '0', '...'),
-(40, '', '', 1, '...', '', '', 148, 'Revisar información proporcionada', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 10, 'Gestionar alta de DM de Proveedores', 2, 'Abastecimientos', 1, '0', '...'),
-(41, '', '', 1, '...', '', '', 156, 'Solicitar información correcta', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 10, 'Gestionar alta de DM de Proveedores', 2, 'Abastecimientos', 1, '0', '...'),
-(42, '', '', 1, '...', '', '', 101, 'Realizar alta del DM', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 10, 'Gestionar alta de DM de Proveedores', 2, 'Abastecimientos', 1, '0', '...'),
-(43, '', '', 1, '...', '', '', 90, 'Notificar alta', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 10, 'Gestionar alta de DM de Proveedores', 2, 'Abastecimientos', 1, '0', '...'),
-(44, '', '', 1, '...', '', '', 124, 'Recibir solicitud de modificación', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 21, 'Gestionar modificación de DM de Proveedores', 2, 'Abastecimientos', 1, '0', '...'),
-(45, '', '', 1, '...', '', '', 148, 'Revisar información proporcionada', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 21, 'Gestionar modificación de DM de Proveedores', 2, 'Abastecimientos', 1, '0', '...'),
-(46, '', '', 1, '...', '', '', 156, 'Solicitar información correcta', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 21, 'Gestionar modificación de DM de Proveedores', 2, 'Abastecimientos', 1, '0', '...'),
-(47, '', '', 1, '...', '', '', 106, 'Realizar modificación del DM', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 21, 'Gestionar modificación de DM de Proveedores', 2, 'Abastecimientos', 1, '0', '...'),
-(48, '', '', 1, '...', '', '', 92, 'Notificar la modificación', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 21, 'Gestionar modificación de DM de Proveedores', 2, 'Abastecimientos', 1, '0', '...'),
-(49, '', '', 1, '...', '', '', 121, 'Recibir solicitud de alta', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 11, 'Gestionar alta de DM de Proveedores (Portal)', 2, 'Abastecimientos', 1, '0', '...'),
-(50, '', '', 1, '...', '', '', 90, 'Notificar alta', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 11, 'Gestionar alta de DM de Proveedores (Portal)', 2, 'Abastecimientos', 1, '0', '...'),
-(51, '', '', 1, '...', '', '', 148, 'Revisar información proporcionada', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 11, 'Gestionar alta de DM de Proveedores (Portal)', 2, 'Abastecimientos', 1, '0', '...'),
-(52, '', '', 1, '...', '', '', 156, 'Solicitar información correcta', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 11, 'Gestionar alta de DM de Proveedores (Portal)', 2, 'Abastecimientos', 1, '0', '...'),
-(53, '', '', 1, '...', '', '', 101, 'Realizar alta del DM', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 11, 'Gestionar alta de DM de Proveedores (Portal)', 2, 'Abastecimientos', 1, '0', '...'),
-(54, '', '', 1, '...', '', '', 159, 'Solicitar validación', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 11, 'Gestionar alta de DM de Proveedores (Portal)', 2, 'Abastecimientos', 1, '0', '...'),
-(55, '', '', 1, '...', '', '', 88, 'Notificar al proveedor', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 11, 'Gestionar alta de DM de Proveedores (Portal)', 2, 'Abastecimientos', 1, '0', '...'),
-(56, '', '', 1, '...', '', '', 153, 'Solicitar activación', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 11, 'Gestionar alta de DM de Proveedores (Portal)', 2, 'Abastecimientos', 1, '0', '...'),
-(57, '', '', 1, '...', '', '', 122, 'Recibir solicitud de bloqueo', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 13, 'Gestionar bloqueo de proveedores', 2, 'Abastecimientos', 1, '0', '...'),
-(58, '', '', 1, '...', '', '', 102, 'Realizar bloqueo', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 13, 'Gestionar bloqueo de proveedores', 2, 'Abastecimientos', 1, '0', '...'),
-(59, '', '', 1, '...', '', '', 91, 'Notificar bloqueo', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 13, 'Gestionar bloqueo de proveedores', 2, 'Abastecimientos', 1, '0', '...');
+INSERT INTO `usuario_cliente` (`ID_empleado`, `Nombre`, `Apellido`, `ID_Unidad_Negocio`, `Nom_Unidad_Negocio`, `Email`, `Area`, `ID_Actividad`, `Nom_Actividad`, `ID_Nuevo_Puesto`, `Nom_Nuevo_Puesto`, `ID_Procesos`, `Nom_Proceso`, `ID_Direcciones`, `Nom_Direcciones`, `ID_Subproceso`, `Nom_Subproceso`, `ID_funcion`, `Nom_funcion`, `ID_Valor`, `Nom_frecuencia`, `val_Frec`, `input`, `sistema`, `rol`, `tiempo`, `vol`, `T_H`, `fte's`) VALUES
+(77, '', '', 1, '...', '', '', 127, 'Recibir solicitud y propuestas', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
+(78, '', '', 1, '...', '', '', 166, 'Validar posible transportista', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
+(79, '', '', 1, '...', '', '', 170, 'Visitar instalaciones', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
+(80, '', '', 1, '...', '', '', 163, 'Validar documentación', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
+(81, '', '', 1, '...', '', '', 156, 'Solicitar información correcta', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
+(82, '', '', 1, '...', '', '', 68, 'Llenar contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
+(83, '', '', 1, '...', '', '', 43, 'Enviar contrato y documentación para validación', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
+(84, '', '', 1, '...', '', '', 25, 'Corregir contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
+(85, '', '', 1, '...', '', '', 57, 'Firmar contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
+(86, '', '', 1, '...', '', '', 167, 'Validar propuesta del proveedor', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
+(87, '', '', 1, '...', '', '', 157, 'Solicitar nueva cotización/propuesta  ', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
+(88, '', '', 1, '...', '', '', 74, 'Negociar con proveedor', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
+(89, '', '', 1, '...', '', '', 133, 'Recibir y validar documentación', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', '');
 
 --
 -- Índices para tablas volcadas
@@ -905,7 +870,7 @@ ALTER TABLE `eventos`
 -- AUTO_INCREMENT de la tabla `frecuencia`
 --
 ALTER TABLE `frecuencia`
-  MODIFY `ID_Valor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID_Valor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `funciones`
@@ -971,7 +936,7 @@ ALTER TABLE `usernames`
 -- AUTO_INCREMENT de la tabla `usuario_cliente`
 --
 ALTER TABLE `usuario_cliente`
-  MODIFY `ID_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `ID_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- Restricciones para tablas volcadas
@@ -990,7 +955,7 @@ ALTER TABLE `calculo`
 ALTER TABLE `consultas`
   ADD CONSTRAINT `consultas_ibfk_1` FOREIGN KEY (`ID_funcion`) REFERENCES `funciones` (`ID_funcion`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `consultas_ibfk_2` FOREIGN KEY (`ID_Procesos`) REFERENCES `procesos` (`ID_Procesos`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `consultas_ibfk_3` FOREIGN KEY (`id_subproceso`) REFERENCES `sub_proceso` (`ID_subProcesos`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `consultas_ibfk_3` FOREIGN KEY (`ID_subproceso`) REFERENCES `sub_proceso` (`ID_subProcesos`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `consultas_ibfk_4` FOREIGN KEY (`ID_Actividad`) REFERENCES `detalle_actividad` (`ID_Actividad`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --

@@ -153,7 +153,6 @@ if($varsesion== null || $varsesion=''){
                                 include ("../../config/conexion.php");
 
                                 $sql = $conexion->query("SELECT * FROM detalle_actividad");
-                                $spc = "";
                                 while ($resultado = $sql->fetch_assoc()) {
                                 echo "<option value='".$resultado['ID_Actividad']."'>".$resultado['nom_actividad']."</option>";
                               }
@@ -330,20 +329,6 @@ if($varsesion== null || $varsesion=''){
                           </select>
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Nombre Valor</label>
-                          <select class="form-select mb-3" name="Nom_Valor">
-                            <option selected disabled>Selecciona una opción</option>
-                            <?php
-                                include ("../../config/conexion.php");
-
-                                $sql = $conexion->query("SELECT * FROM frecuencia");
-                                while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['Nom_Valor']."'>".$resultado['Nom_frecuencia']."</option>";
-                              }
-                            ?>
-                          </select>
-                        </div>
-                        <div class="mb-3">
                           <label for="exampleInputEmail1" class="form-label">Nombre Frecuencia</label>
                           <select class="form-select mb-3" name="Nom_frecuencia">
                             <option selected disabled>Selecciona una opción</option>
@@ -391,7 +376,6 @@ if($varsesion== null || $varsesion=''){
       <th scope="col">ID</th>
       <th scope="col">Función</th>
       <th scope="col">ID</th>
-      <th scope="col">Valor</th>
       <th scope="col">frecuencia</th>
       <th scope="col">Acciones</th>
     </tr>
@@ -423,7 +407,6 @@ if($varsesion== null || $varsesion=''){
         <td><?php echo $row['ID_funcion']; ?></td>
         <td><?php echo $row['Nom_funcion']; ?></td>
         <td><?php echo $row['ID_Valor']; ?></td>
-        <td><?php echo $row['Nom_Valor']; ?></td>
         <td><?php echo $row['Nom_frecuencia']; ?></td>
         <td>
           <a href="editar.php?ID_empleado=<?php echo $row['ID_empleado']?>" class="btn btn-warning">
