@@ -108,7 +108,7 @@
               <div class="container text-center">
                 <div class="row">
                     <div class="col d-flex" style="gap: 1%;">
-                    <input type="search" class="form-control" name="busquedaSubpros" id="busquedaSubpros" style="width: 60%;">                   
+                    <input type="search" class="form-control" name="busquedaProcesos" id="busquedaProcesos" style="width: 60%;">                   
                       <button class="btn btn-outline-success" type="submit">Search</button>
                     </div>
                   </div>
@@ -117,11 +117,11 @@
 
               <?php
 
-                $busquedaSubpros = $_POST['busquedaSubpros'] ?? '';
+                $busquedaProcesos = $_POST['busquedaProcesos'] ?? '';
 
                 // Consulta SQL
                 $sql = "SELECT * FROM consultas WHERE 
-                        nom_subproceso LIKE '%$busquedaSubpros%'";
+                        nom_Procesos LIKE '%$busquedaProcesos%'";
 
                 $result = $conexion->query($sql);
 
@@ -142,8 +142,8 @@
                     ?>
                      <tbody>
                       <tr>
-                        <td style="width: 280px;"><?php echo $fila['nom_subproceso']; ?></td>
-                        <td style="width: 280px;"><?php echo $fila['nom_Actividad']; ?></td>
+                        <td><?php echo $fila['nom_subproceso']; ?></td>
+                        <td><?php echo $fila['nom_Actividad']; ?></td>
                         <td>
                           <a href="paso3.php?ID=<?php echo $fila['ID']?>" class="btn btn-warning">
                             Capturar

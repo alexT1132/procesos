@@ -27,69 +27,90 @@
             </nav>
         </div>
     </section>
-    <br><br>
     <section class="body-container">
-        <div class="container p-4">
+        <div class="container" style="margin-top: 8%;">
             <div class="row justify-content-center">
                 <div class="card" style="width: auto;">
                     <div class="card-body">
-                    <form action="" method="post">
+                    <form action="valPaso3.php" method="post">
                         <div class="d-flex" style="gap: 40px;">
                             <div class="mb-3">
                                 <label for="input" class="form-label">Input</label>
-                                <input type="text" class="form-control" id="input" style="width: 300px;">
+                                <input type="text" class="form-control" name="input" id="input" style="width: 300px;">
                             </div>
                             <div class="mb-3">
                                 <label for="sistema" class="form-label">Sistema</label>
-                                <input type="text" class="form-control" id="sistema" style="width: 300px;">
+                                <input type="text" class="form-control" name="sistema" id="sistema" style="width: 300px;">
                             </div>
                             <div class="mb-3">
-                                <label for="sistema" class="form-label">Rol</label>
-                                <select class="form-select mb-3" name="ID_funcion" id="ID_funcion" style="width: 300px;">
+                                <label for="rol" class="form-label">Rol</label>
+                                <select class="form-select mb-3" name="rol" id="rol" style="width: 300px;">
                                     <option selected disabled value="">Selecciona un rol</option>
                                     <option>Ejecutar</option>
-                                    <option>ejecutar</option>
+                                    <option>Supervisar</option>
                                 </select>                            
                             </div>
                         </div>
                         <div class="d-flex" style="gap: 40px;">
                             <div class="mb-3">
-                                <label for="tiempo1" class="form-label">Tiempo</label>
-                                <input type="text" class="form-control" name="tiempo1" id="tiempo1" style="width: 300px;">
+                                <label for="tiempo" class="form-label">Tiempo</label>
+                                <input type="text" class="form-control" name="tiempo" id="tiempo" style="width: 300px;">
                             </div>
-                            <div class="mb-3">
-                          <label for="dato1" class="form-label">Frecuencia</label>
-                          <select class="form-select mb-3" name="dato1" id="dato1" style="width: 300px;">
-                            <option selected disabled value="">Selecciona una frecuencia</option>
-                            <option>Semanal</option>
-                            <option>Mensual</option>
-                            <option>Anual</option>
+                            <div class="md-3" style="align-items: center;">
+                          <label for="val_Frec" class="form-label">Frecuencia</label>
+                          <div class="d-flex" style="gap: 2%;">
+                              <select class="form-select mb-3" name="val_Frec" id="val_Frec">
+                                <option selected disabled>Valor</option>
+                                <?php
+                                    $sql = $conexion->query("SELECT * FROM frecuencia");
+                                    while ($resultado = $sql->fetch_assoc()) {
+                                    echo "<option value='".$resultado['Nom_Valor']."'>".$resultado['Nom_Valor']."</option>";
+                                  }
+                                ?>
+                              </select>
+                              <select class="form-select mb-3" name="Nom_frecuencia">
+                            <option selected disabled>Frecuencia</option>
+                            <?php
+                                $sql = $conexion->query("SELECT * FROM frecuencia");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['Nom_frecuencia']."'>".$resultado['Nom_frecuencia']."</option>";
+                              }
+                            ?>
                           </select>
+                          </div>
                         </div>
                             <div class="mb-3">
-                                <label for="vol1" class="form-label">volumen</label>
-                                <input type="text" class="form-control" id="vol1" name="vol1" style="width: 300px;">
-                            </div>
-                        </div>
-                        <div class="d-flex" style="gap: 40px;">
-                            <div class="mb-3">
-                                <label for="sistema" class="form-label">Conversion en horas</label>
-                                <input type="number" class="form-control" id="sistema" style="width: 300px;">
-                            </div>
-                            <div class="mb-3">
-                                <label for="sistema" class="form-label">FTE's</label>
-                                <input type="text" class="form-control" id="sistema" style="width: 300px;">
+                                <label for="vol" class="form-label">volumen</label>
+                                <input type="text" class="form-control" id="vol" name="vol" style="width: 300px;">
                             </div>
                         </div>
                         <br>
                         <div class="row justify-content-center">
-                            <button type="submit" name="update" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;">Guardar</button>
+                            <button type="submit" name="update" class="btn btn-success btn-block" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 20%; margin-right: 12px;">
+                                Registrar
+                            </button>
                         </div>
                     </form>
                     </div>
                 </div>
             </div>
         </div>
+
+                              <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Añadir Unidad de Negocios</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
     </section>
         
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
