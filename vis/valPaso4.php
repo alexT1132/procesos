@@ -12,20 +12,20 @@
 
         if ($val_Frec == '4') {
             $t_h = ($tiempo * $vol * $val_Frec);
-            echo "El resultado es: " . $t_h;
+            header("Location: paso2.php");
         }else
         if ($val_Frec == '1') {
             $t_h = ($tiempo * $vol * $val_Frec);
-            echo "El resultado es: " . $t_h;
+            header("Location: paso2.php");
         }else
         if ($val_Frec == '12') {
             $t_h = ($tiempo * $vol) / $val_Frec;
-            echo "El resultado es: " . $t_h;
+            header("Location: paso2.php");
         }
 
         if ($t_h) {
             $ftes = $t_h / 160;
-            echo "El resultado es: " . $ftes;
+            header("Location: paso2.php");
         }
 
     }

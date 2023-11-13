@@ -104,12 +104,20 @@
             </div>
 
             <div id="page2" class="page" style="width: 100%;">
-              <form action="paso2.php" method="post">
+              <form action="paso3.php" method="GET">
               <div class="container text-center">
                 <div class="row">
                     <div class="col d-flex" style="gap: 1%;">
-                    <input type="search" class="form-control" name="busquedaProcesos" id="busquedaProcesos" style="width: 60%;">                   
-                      <button class="btn btn-outline-success" type="submit">Search</button>
+                    <select class="form-select mb-3" name="nom_Procesos">
+                            <option value="todos">Todos</option>
+                            <?php
+                                $sql = $conexion->query("SELECT * FROM procesos");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['Nom_Procesos']."'>".$resultado['Nom_Procesos']."</option>";
+                              }
+                            ?>
+                          </select>            
+                          <input type="submit" class="btn btn-outline-success" value="Search">       
                     </div>
                   </div>
                 </div>
@@ -117,12 +125,18 @@
 
               <?php
 
-                $busquedaProcesos = $_POST['busquedaProcesos'] ?? '';
+                error_reporting(0);
+
+
+                  $nom_Procesos = $_GET['nom_Procesos'];
 
                 // Consulta SQL
-                $sql = "SELECT * FROM consultas WHERE 
-                        nom_Procesos LIKE '%$busquedaProcesos%'";
+                $sql = "SELECT * FROM consultas";
 
+                if ($nom_Procesos != 'todos') {
+                  $sql .= " WHERE nom_Procesos = '$nom_Procesos'";
+              }
+              
                 $result = $conexion->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -138,14 +152,14 @@
                         </tr>
                       </thead>
                     <?php
-                    while ($fila = $result->fetch_assoc()) {
+                    while ($row = $result->fetch_assoc()) {
                     ?>
                      <tbody>
                       <tr>
-                        <td><?php echo $fila['nom_subproceso']; ?></td>
-                        <td><?php echo $fila['nom_Actividad']; ?></td>
+                        <td><?php echo $row['nom_subproceso']; ?></td>
+                        <td><?php echo $row['nom_Actividad']; ?></td>
                         <td>
-                          <a href="paso3.php?ID=<?php echo $fila['ID']?>" class="btn btn-warning">
+                          <a href="paso3.php?ID=<?php echo $row['ID']?>" class="btn btn-warning">
                             Capturar
                           </a>
                         </td>
@@ -166,7 +180,7 @@
                     </table>
                     <?php
                 } else {
-                    echo "No se encontraron resultados.";
+                    echo "";
                 }
                 ?>
 
