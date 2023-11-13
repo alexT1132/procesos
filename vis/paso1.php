@@ -1,5 +1,9 @@
 
-<?php include('../config/conexion.php'); ?>
+<?php 
+  session_start();
+
+  include('../config/conexion.php'); 
+?>
 
 
 <!DOCTYPE html>
@@ -30,10 +34,10 @@
         </div>
     </section>
     <section class="body-section">
-        <div class="container-body" style="display: flex; gap: 40px; padding: 40px 0; margin-left: 100px;">
+        <div class="container-body" style="display: flex; gap: 40px; padding: 40px 0; margin-left: 3%;">
             <!--Page 1-->
           <div id="page1" class="page" style="width: 30%;">
-            <form action="paso2.php" method="POST" >
+            <form action="valPaso1.php" method="POST" >
               <div class="card">
                 <div class="card-body">
                         <div class="mb-3">
@@ -143,175 +147,13 @@
                               }
                             ?>
                           </select>
-                        </div>
-                        <div class="mb-3" style="display: none;">
-                          <label for="ID_Procesos" class="form-label">ID Proceso</label>
-                          <select class="form-select mb-3" name="ID_Procesos" id="ID_Procesos">
-                            <?php
-                                $sql = $conexion->query("SELECT * FROM procesos");
-                                while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['ID_Procesos']."'>".$resultado['Nom_Procesos']."</option>";
-                              }
-                            ?>
-                          </select>
-                        </div>
-                        <div class="mb-3">
-                          <label for="opcion" class="form-label">Proceso</label>
-                          <select class="form-select mb-3" name="Nom_Proceso" id="opcion" required>
-                            <option selected value="" disabled>Selecciona una opción</option>
-                            <?php
-                                $sql = $conexion->query("SELECT * FROM procesos");
-                                while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['Nom_Procesos']."'>".$resultado['Nom_Procesos']."</option>";
-                              }
-                            ?>
-                          </select>
-                        </div>
-                        <div class="mb-3" style="display: none;">
-                          <label for="ID_Subproceso" class="form-label">ID Subproceso</label>
-                          <select class="form-select mb-3" name="ID_Subproceso" id="ID_Subproceso">
-                            <?php
-                                $sql = $conexion->query("SELECT * FROM sub_proceso");
-                                while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['ID_subProcesos']."'>".$resultado['nom_Subproceso']."</option>";
-                              }
-                            ?>
-                          </select>
-                        </div>
-                        <div class="mb-3">
-                          <label for="opcion" class="form-label">Subproceso</label>
-                          <select class="form-select mb-3" name="Nom_Subproceso" id="opcion" required>
-                            <option selected value="" disabled>Selecciona una opción</option>
-                            <?php
-                                $sql = $conexion->query("SELECT * FROM sub_proceso");
-                                while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['nom_Subproceso']."'>".$resultado['nom_Subproceso']."</option>";
-                              }
-                            ?>
-                          </select>
-                        </div>
-                        <div class="mb-3" style="display: none;">
-                          <label for="ID_Actividad" class="form-label">ID Actividad</label>
-                          <select class="form-select mb-3" name="ID_Actividad" id="ID_Actividad">
-                            <?php
-                                $sql = $conexion->query("SELECT * FROM detalle_actividad");
-                                while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['ID_Actividad']."'>".$resultado['nom_actividad']."</option>";
-                              }
-                            ?>
-                          </select>
-                        </div>
-                        <div class="mb-3">
-                          <label for="opcion" class="form-label">Actividad</label>
-                          <select class="form-select mb-3" name="Nom_Actividad" id="opcion" required>
-                            <option selected value="" disabled>Selecciona una opción</option>
-                            <?php
-                                $sql = $conexion->query("SELECT * FROM detalle_actividad");
-                                while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['nom_actividad']."'>".$resultado['nom_actividad']."</option>";
-                              }
-                            ?>
-                          </select>
-                        </div>
-                        <div class="mb-3" style="display: none;">
-                          <label for="ID_Valor" class="form-label">ID Valor</label>
-                          <select class="form-select mb-3" name="ID_Valor" id="ID_Valor">
-                            <?php
-                                $sql = $conexion->query("SELECT * FROM frecuencia");
-                                while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['ID_Valor']."'>".$resultado['Nom_frecuencia']."</option>";
-                              }
-                            ?>
-                          </select>
-                        </div>
-                        <div class="mb-3" style="display: none;">
-                          <label for="Nom_Valor" class="form-label">Nombre Valor</label>
-                          <select class="form-select mb-3" name="Nom_Valor" id="Nom_Valor">
-                            <?php
-                                $sql = $conexion->query("SELECT * FROM frecuencia");
-                                while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['Nom_Valor']."'>".$resultado['Nom_frecuencia']."</option>";
-                              }
-                            ?>
-                          </select>
-                        </div>
-                        <div class="mb-3" style="display: none;">
-                          <label for="Nom_frecuencia" class="form-label">Nombre Frecuencia</label>
-                          <select class="form-select mb-3" name="Nom_frecuencia" id="Nom_frecuencia">
-                            <?php
-                                $sql = $conexion->query("SELECT * FROM frecuencia");
-                                while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['Nom_frecuencia']."'>".$resultado['Nom_frecuencia']."</option>";
-                              }
-                            ?>
-                          </select>
-                        </div>     
+                        </div>   
                         <div class="row justify-content-center">
                             <button type="submit" name="guardar" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;">Siguiente</button>
                         </div>
                       </div>
                     </div>
                 </form>
-            </div>
-
-            <div id="page2" class="page" style="width: 60%; margin-left: 5%; display: none;">
-              <form action="paso1.php" method="post">
-              <div class="container text-center">
-                <div class="row">
-                    <div class="col d-flex">
-                      <input class="form-control me-2" type="search" name="busquedaProceso" id="busquedaProceso" placeholder="Buscar Proceso" aria-label="Search" style="width: 40%;">
-                      <button class="btn btn-outline-success" type="submit">Search</button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-
-              <?php
-
-                $busquedaProceso = $_POST['busquedaProceso'] ?? '';
-
-                // Consulta SQL
-                $sql = "SELECT * FROM consultas WHERE 
-                        nom_Procesos LIKE '%$busquedaProceso%'";
-
-                $result = $conexion->query($sql);
-
-                if ($result->num_rows > 0) {
-                   ?>
-                   <br>
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th scope="col">Subprocesos</th>
-                          <th scope="col">Actividades</th>
-                          <th scope="col">Validacion</th>
-                          <th scope="col">Estado</th>
-                        </tr>
-                      </thead>
-                    <?php
-                    while ($fila = $result->fetch_assoc()) {
-                    ?>
-                     <tbody>
-                      <tr>
-                        <td style="width: 280px;"><?php echo $fila['nom_subproceso']; ?></td>
-                        <td style="width: 280px;"><?php echo $fila['nom_Actividad']; ?></td>
-                        <td>
-                          <a href="paso3.php?ID=<?php echo $fila['ID']?>" class="btn btn-warning">
-                            Capturar
-                          </a>
-                        </td>
-                      </tr>
-                    </tbody>
-                    <?php 
-                    }
-                    ?>
-                    </table>
-                    <?php
-                } else {
-                    echo "No se encontraron resultados.";
-                }
-                ?>
-
             </div>
         </div>        
     </section>
