@@ -1,14 +1,22 @@
 <?php
+
+    session_start();
+
     include('../config/conexion.php');
 
-    if (isset($_POST['update'])) {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Recoger datos del formulario
         $input = $_POST['input'];
         $sistema = $_POST['sistema'];
         $rol = $_POST['rol'];
         $tiempo = $_POST['tiempo'];
-        $val_Frec = $_POST['val_Frec'];
-        $Nom_frecuencia = $_POST['Nom_frecuencia'];
-        $vol = $_POST['vol'];
+        $ = $_POST[''];
+        $ = $_POST[''];
+
+
+    // Almacenar en la sesión
+    $_SESSION['nombre'] = $nombre;
+    $_SESSION['email'] = $email;
 
         if ($val_Frec == '4') {
             $t_h = ($tiempo * $vol * $val_Frec);
@@ -30,3 +38,4 @@
 
     }
 ?>
+

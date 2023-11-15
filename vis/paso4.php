@@ -60,28 +60,19 @@
                           <label for="val_Frec" class="form-label">Frecuencia</label>
                           <div class="d-flex" style="gap: 2%;">
                               <select class="form-select mb-3" name="val_Frec" id="val_Frec">
-                                <option selected disabled>Valor</option>
-                                <?php
-                                    $sql = $conexion->query("SELECT * FROM frecuencia");
-                                    while ($resultado = $sql->fetch_assoc()) {
-                                    echo "<option value='".$resultado['Nom_Valor']."'>".$resultado['Nom_Valor']."</option>";
-                                  }
-                                ?>
+                                <option value="4">Semanal</option>
+                                <option value="1">Mensual</option>
+                                <option value="12">Anual</option>
                               </select>
-                              <select class="form-select mb-3" name="Nom_frecuencia">
-                            <option selected disabled>Frecuencia</option>
-                            <?php
-                                $sql = $conexion->query("SELECT * FROM frecuencia");
-                                while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['Nom_frecuencia']."'>".$resultado['Nom_frecuencia']."</option>";
-                              }
-                            ?>
-                          </select>
                           </div>
                         </div>
                             <div class="mb-3">
                                 <label for="vol" class="form-label">volumen</label>
                                 <input type="text" class="form-control" id="vol" name="vol" style="width: 300px;">
+                            </div>
+                            <div class="mb-3">
+                                <label for="vol" class="form-label">FTE'S</label>
+                                <input type="text" class="form-control" id="fte's" name="fte's" style="width: 300px;">
                             </div>
                         </div>
                         <br>
@@ -95,6 +86,7 @@
                 </div>
             </div>
         </div>
+
 
     </section>
         
