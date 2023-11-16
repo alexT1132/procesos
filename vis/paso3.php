@@ -108,7 +108,7 @@
               <div class="container text-center">
                 <div class="row">
                     <div class="col d-flex" style="gap: 1%;">
-                    <select class="form-select mb-3" name="nom_Procesos">
+                    <select class="form-select mb-3" name="Nom_Proceso">
                             <option value="todos">Todos</option>
                             <?php
                                 $sql = $conexion->query("SELECT * FROM procesos");
@@ -128,13 +128,13 @@
                 error_reporting(0);
 
 
-                  $nom_Procesos = $_GET['nom_Procesos'];
+                  $Nom_Proceso = $_GET['Nom_Proceso'];
 
                 // Consulta SQL
-                $sql = "SELECT * FROM consultas";
+                $sql = "SELECT * FROM usuario_cliente";
 
-                if ($nom_Procesos != 'todos') {
-                  $sql .= " WHERE nom_Procesos = '$nom_Procesos'";
+                if ($Nom_Proceso != 'todos') {
+                  $sql .= " WHERE Nom_Proceso = '$Nom_Proceso'";
               }
               
                 $result = $conexion->query($sql);
@@ -156,10 +156,10 @@
                     ?>
                      <tbody>
                       <tr>
-                        <td><?php echo $row['nom_subproceso']; ?></td>
-                        <td><?php echo $row['nom_Actividad']; ?></td>
+                        <td><?php echo $row['Nom_Subproceso']; ?></td>
+                        <td><?php echo $row['Nom_Actividad']; ?></td>
                         <td>
-                          <a href="paso4.php?ID=<?php echo $row['ID']?>" class="btn btn-warning">
+                          <a href="paso4.php?ID_empleado=<?php echo $row['ID_empleado']?>" class="btn btn-warning">
                             Capturar
                           </a>
                         </td>
