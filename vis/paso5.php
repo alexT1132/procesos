@@ -1,44 +1,54 @@
-<?php
+<?php 
+  session_start();
 
-include('../config/conexion.php');
+  include('../config/conexion.php'); 
 
-session_start();
+  if  (isset($_GET['ID_empleado'])) {
+    $ID_empleado = $_GET['ID_empleado'];
+    $query = "SELECT * FROM usuario_cliente WHERE ID_empleado = $ID_empleado";
+    $result = mysqli_query($conexion, $query);
+  }
 
-// Recuperar datos del formulario
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-$input = $_POST['input'];
-$sistema = $_POST['sistema'];
-$rol = $_POST['rol'];
-$tiempo = $_POST['tiempo'];
-$val_Frec = $_POST['val_Frec'];
-$vol = $_POST['vol'];
+  if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $ID_empleado = $_GET['ID_empleado'];
+    //DATOS DEL FORM
+    $input = $_POST['input'];
+    $sistema = $_POST['sistema'];
+    $rol = $_POST['rol'];
+    $tiempo = $_POST['tiempo'];
+    $val_Frec = $_POST['val_Frec'];
+    $vol = $_POST['vol'];
 
-if ($val_Frec == '4') {
-    $t_h = ($tiempo * $vol * $val_Frec);
-}else
-if ($val_Frec == '1') {
-    $t_h = ($tiempo * $vol * $val_Frec);
-}else
-if ($val_Frec == '12') {
-    $t_h = ($tiempo * $vol) / $val_Frec;
-}
+    //DATOS EN LA SESSION
+    $_SESSION['formulario2'] = array(
+        'input' => $input,
+        'sistema' => $sistema,
+        'rol' => $rol,
+        'tiempo' => $tiempo,
+        'val_Frec' => $val_Frec,
+        'vol' => $vol,
+    );
 
-if ($t_h) {
-    $ftes = $t_h / 160;
-}
+    if ($val_Frec == '4') {
+        $t_h = ($tiempo * $vol * $val_Frec);
+    }else
+    if ($val_Frec == '1') {
+        $t_h = ($tiempo * $vol * $val_Frec);
+    }else
+    if ($val_Frec == '12') {
+        $t_h = ($tiempo * $vol) / $val_Frec;
+    }
+    
+    if ($t_h) {
+        $ftes = $t_h / 160;
+    }
 
-// Almacenar datos en la sesión
-$_SESSION['input'] = $input;
-$_SESSION['sistema'] = $sistema;
-$_SESSION['rol'] = $rol;
-$_SESSION['tiempo'] = $tiempo;
-$_SESSION['val_Frec'] = $val_Frec;
-$_SESSION['vol'] = $vol;
-$_SESSION['t_h'] = $t_h;
-$_SESSION['ftes'] = $ftes;
-}
+    echo 'Todo correcto';
+    exit;
 
+  }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -76,10 +86,6 @@ $_SESSION['ftes'] = $ftes;
                     </div>
                     <div class="card-body">
                     <form action="valPaso5.php?ID_empleado=<?php echo $row['ID_empleado']?>" method="POST">
-                    <?php
-                        if (isset($_SESSION['input']) && isset($_SESSION['sistema']) && isset($_SESSION['rol']) && isset($_SESSION['tiempo']) 
-                        && isset($_SESSION['val_Frec']) && isset($_SESSION['vol']) && isset($_SESSION['t_h']) && isset($_SESSION['ftes'])) { 
-                    ?> 
                             <div class="mb-3 d-flex" style="gap: 5%;">
                                 <label for="input" class="form-label" style="margin-top: 3%;">Input:</label>
                                 <input type="text" class="form-control" name="input" id="input" value="<?php echo $_SESSION['input']; ?>" disabled style="width: 100%; border: none; background: none;">

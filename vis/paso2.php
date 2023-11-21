@@ -4,6 +4,13 @@
 
     include('../config/conexion.php');
 
+    if(isset($_SESSION['formulario1'])) {
+      $datos1 = $_SESSION['formulario1'];
+    } else {
+      echo 'Datos no encontrados';
+      exit;
+    }
+
 ?>
 
 
@@ -41,63 +48,38 @@
             <form action="">
               <div class="card">
                 <div class="card-body">
-
-                <?php
-                    if (isset($_SESSION['Nombre']) && isset($_SESSION['Apellido']) && isset($_SESSION['ID_Unidad_Negocio']) && isset($_SESSION['Nom_Unidad_Negocio']) 
-                    && isset($_SESSION['Email']) && isset($_SESSION['Area']) && isset($_SESSION['ID_Direcciones']) && isset($_SESSION['Nom_Direcciones']) 
-                    && isset($_SESSION['ID_Nuevo_Puesto']) && isset($_SESSION['Nom_Nuevo_Puesto']) && isset($_SESSION['ID_funcion']) && isset($_SESSION['Nom_funcion'])) { 
-                ?>
                         <div class="mb-3">
                             <label for="Nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" name="Nombre" id="Nombre" value="<?php echo $_SESSION['Nombre']; ?>" disabled>
+                            <input type="text" class="form-control" name="Nombre" id="Nombre" value="<?php echo $datos1['Nombre']; ?>" disabled>
                         </div>
                         <div class="mb-3">
                             <label for="Apellido" class="form-label">Apellido</label>
-                            <input type="text" class="form-control" name="Apellido" id="Apellido" value="<?php echo $_SESSION['Apellido']; ?>" disabled>
-                        </div>
-                        <div class="mb-3" style="display: none;">
-                          <label for="ID_Unidad_Negocio" class="form-label">ID Unidad_Negocio</label>
-                          <input type="text" class="form-control" name="ID_Unidad_Negocio" id="ID_Unidad_Negocio" value="<?php echo $_SESSION['ID_Unidad_Negocio']; ?>" disabled>
+                            <input type="text" class="form-control" name="Apellido" id="Apellido" value="<?php echo $datos1['Apellido']; ?>" disabled>
                         </div>
                         <div class="mb-3">
                           <label for="Nom_Unidad_Negocio" class="form-label">Unidad de Negocio</label>
-                          <input type="text" class="form-control" name="Nom_Unidad_Negocio" id="Nom_Unidad_Negocio" value="<?php echo $_SESSION['Nom_Unidad_Negocio']; ?>" disabled>
+                          <input type="text" class="form-control" name="Nom_Unidad_Negocio" id="Nom_Unidad_Negocio" value="<?php echo $datos1['Nom_Unidad_Negocio']; ?>" disabled>
                         </div>
                         <div class="mb-3">
                             <label for="Email" class="form-label">Email</label>
-                            <input type="email" class="form-control" name="Email" id="Email" value="<?php echo $_SESSION['Email']; ?>" disabled>
+                            <input type="email" class="form-control" name="Email" id="Email" value="<?php echo $datos1['Email']; ?>" disabled>
                         </div>
                         <div class="mb-3">
                             <label for="Area" class="form-label">Area</label>
-                            <input type="text" class="form-control" name="Area" id="Area" value="<?php echo $_SESSION['Area']; ?>" disabled>
-                        </div>
-                        <div class="mb-3" style="display: none;">
-                          <label for="ID_Direcciones" class="form-label">ID Direccion</label>
-                          <input type="text" class="form-control" name="ID_Direcciones" id="ID_Direcciones" value="<?php echo $_SESSION['ID_Direcciones']; ?>" disabled>
+                            <input type="text" class="form-control" name="Area" id="Area" value="<?php echo $datos1['Area']; ?>" disabled>
                         </div>
                         <div class="mb-3">
                           <label for="Nom_Direcciones" class="form-label">Direccion</label>
-                          <input type="text" class="form-control" name="Nom_Direcciones" id="Nom_Direcciones" value="<?php echo $_SESSION['Nom_Direcciones']; ?>" disabled>
-                        </div>
-                        <div class="mb-3" style="display: none;">
-                          <label for="ID_Nuevo_Puesto" class="form-label">Puesto</label>
-                          <input type="text" class="form-control" name="ID_Nuevo_Puesto" id="ID_Nuevo_Puesto" value="<?php echo $_SESSION['ID_Nuevo_Puesto']; ?>" disabled>
+                          <input type="text" class="form-control" name="Nom_Direcciones" id="Nom_Direcciones" value="<?php echo $datos1['Nom_Direcciones']; ?>" disabled>
                         </div>
                         <div class="mb-3">
                           <label for="Nom_Nuevo_Puesto" class="form-label">Puesto</label>
-                          <input type="text" class="form-control" name="Nom_Nuevo_Puesto" id="Nom_Nuevo_Puesto" value="<?php echo $_SESSION['Nom_Nuevo_Puesto']; ?>" disabled>
-                        </div>
-                        <div class="mb-3" style="display: none;">
-                          <label for="ID_funcion" class="form-label">ID Funcion</label>
-                          <input type="text" class="form-control" name="ID_funcion" id="ID_funcion" value="<?php echo $_SESSION['ID_funcion']; ?>" disabled>
+                          <input type="text" class="form-control" name="Nom_Nuevo_Puesto" id="Nom_Nuevo_Puesto" value="<?php echo $datos1['Nom_Nuevo_Puesto']; ?>" disabled>
                         </div>
                         <div class="mb-3">
                           <label for="Nom_funcion" class="form-label">Funcion</label>
-                          <input type="text" class="form-control" name="Nom_funcion" id="Nom_funcion" value="<?php echo $_SESSION['Nom_funcion']; ?>" disabled>
+                          <input type="text" class="form-control" name="Nom_funcion" id="Nom_funcion" value="<?php echo $datos1['Nom_funcion']; ?>" disabled>
                         </div>     
-                        <?php
-                          }
-                        ?>
                       </div>
                     </div>
                 </form>

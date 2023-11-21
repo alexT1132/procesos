@@ -3,6 +3,34 @@
   session_start();
 
   include('../config/conexion.php'); 
+
+  if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    //DATOS DEL FORM
+    $Nombre = $_POST['Nombre'];
+    $Apellido = $_POST['Apellido'];
+    $Nom_Unidad_Negocio = $_POST['Nom_Unidad_Negocio'];
+    $Email = $_POST['Email'];
+    $Area = $_POST['Area'];
+    $Nom_Direcciones = $_POST['Nom_Direcciones'];
+    $Nom_Nuevo_Puesto = $_POST['Nom_Nuevo_Puesto'];
+    $Nom_funcion = $_POST['Nom_funcion'];
+
+    //DATOS EN LA SESSION
+    $_SESSION['formulario1'] = array(
+      'Nombre' => $Nombre,
+      'Apellido' => $Apellido,
+      'Nom_Unidad_Negocio' => $Nom_Unidad_Negocio,
+      'Email' => $Email,
+      'Area' => $Area,
+      'Nom_Direcciones' => $Nom_Direcciones,
+      'Nom_Nuevo_Puesto' => $Nom_Nuevo_Puesto,
+      'Nom_funcion' => $Nom_funcion
+    );
+
+    header('Location: paso2.php');
+    exit;
+
+  }
 ?>
 
 
@@ -37,7 +65,7 @@
         <div class="container-body" style="display: flex; gap: 40px; padding: 40px 0; margin-left: 3%;">
             <!--Page 1-->
           <div id="page1" class="page" style="width: 30%;">
-            <form action="valPaso1.php" method="POST" >
+            <form action="#" method="POST" >
               <div class="card">
                 <div class="card-body">
                         <div class="mb-3">
@@ -47,17 +75,6 @@
                         <div class="mb-3">
                             <label for="Apellido" class="form-label">Apellido</label>
                             <input type="text" class="form-control" name="Apellido" id="Apellido" required>
-                        </div>
-                        <div class="mb-3" style="display: none;">
-                          <label for="ID_Unidad_Negocio" class="form-label">ID Unidad_Negocio</label>
-                          <select class="form-select mb-3" name="ID_Unidad_Negocio" id="ID_Unidad_Negocio">
-                            <?php
-                                $sql = $conexion->query("SELECT * FROM unidad_negocio");
-                                while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['ID_unidad_negocio']."'>".$resultado['nom_unidad_negocio']."</option>";
-                              }
-                            ?>
-                          </select>
                         </div>
                         <div class="mb-3">
                           <label for="Nom_Unidad_Negocio" class="form-label">Unidad de Negocio</label>
@@ -79,17 +96,6 @@
                             <label for="Area" class="form-label">Area</label>
                             <input type="text" class="form-control" name="Area" id="Area" required>
                         </div>
-                        <div class="mb-3" style="display: none;">
-                          <label for="ID_Direcciones" class="form-label">ID Direccion</label>
-                          <select class="form-select mb-3" name="ID_Direcciones" id="ID_Direcciones">
-                            <?php
-                                $sql = $conexion->query("SELECT * FROM direcciones");
-                                while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['ID_Direccion']."'>".$resultado['Nom_Direccion']."</option>";
-                              }
-                            ?>
-                          </select>
-                        </div>
                         <div class="mb-3">
                           <label for="Nom_Direcciones" class="form-label">Direccion</label>
                           <select class="form-select mb-3" name="Nom_Direcciones" id="Nom_Direcciones" required>
@@ -102,20 +108,9 @@
                             ?>
                           </select>
                         </div>
-                        <div class="mb-3" style="display: none;">
-                          <label for="ID_Nuevo_Puesto" class="form-label">ID_Nuevo_Puesto</label>
-                          <select class="form-select mb-3" name="ID_Nuevo_Puesto" id="ID_Nuevo_Puesto">
-                            <?php
-                                $sql = $conexion->query("SELECT * FROM nuevo_puesto");
-                                while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['ID_Nuevo_Puesto']."'>".$resultado['Nuevo_Puesto']."</option>";
-                              }
-                            ?>
-                          </select>
-                        </div>
                         <div class="mb-3">
-                          <label for="opcion" class="form-label">Puesto</label>
-                          <select class="form-select mb-3" name="Nom_Nuevo_Puesto" id="opcion" required>
+                          <label for="Nom_Nuevo_Puesto" class="form-label">Puesto</label>
+                          <select class="form-select mb-3" name="Nom_Nuevo_Puesto" id="Nom_Nuevo_Puesto" required>
                             <option selected value="" disabled>Selecciona una opción</option>
                             <?php
                                 $sql = $conexion->query("SELECT * FROM nuevo_puesto");
@@ -125,20 +120,9 @@
                             ?>
                           </select>
                         </div>
-                        <div class="mb-3" style="display: none;">
-                          <label for="ID_funcion" class="form-label">ID Funcion</label>
-                          <select class="form-select mb-3" name="ID_funcion" id="ID_funcion">
-                            <?php
-                                $sql = $conexion->query("SELECT * FROM funciones");
-                                while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['ID_funcion']."'>".$resultado['Nom_funcion']."</option>";
-                              }
-                            ?>
-                          </select>
-                        </div>
                         <div class="mb-3">
-                          <label for="opcion" class="form-label">Funcion</label>
-                          <select class="form-select mb-3" name="Nom_funcion" id="opcion" required>
+                          <label for="Nom_funcion" class="form-label">Funcion</label>
+                          <select class="form-select mb-3" name="Nom_funcion" id="Nom_funcion" required>
                             <option selected value="" disabled>Selecciona una opción</option>
                             <?php
                                 $sql = $conexion->query("SELECT * FROM funciones");
@@ -149,7 +133,7 @@
                           </select>
                         </div>   
                         <div class="row justify-content-center">
-                            <button type="submit" name="guardar" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;">Siguiente</button>
+                          <input type="submit" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;" value="Siguiente">
                         </div>
                       </div>
                     </div>

@@ -1,14 +1,12 @@
-<?php
-    include('../config/conexion.php');
+<?php 
+  session_start();
 
-    if  (isset($_GET['ID_empleado'])) {
-        $ID_empleado = $_GET['ID_empleado'];
-        $query = "SELECT * FROM usuario_cliente WHERE ID_empleado = $ID_empleado";
-        $result = mysqli_query($conexion, $query);
-        if (mysqli_num_rows($result) == 1) {
-          $row = mysqli_fetch_array($result);
-        }
-    }
+  include('../config/conexion.php'); 
+
+  if  (isset($_GET['ID_empleado'])) {
+    $ID_empleado = $_GET['ID_empleado'];
+    $query = "SELECT * FROM usuario_cliente WHERE ID_empleado = $ID_empleado";
+  }
 ?>
 
 <!DOCTYPE html>
@@ -84,9 +82,7 @@
                         </div>
                         <br>
                         <div class="row justify-content-center">
-                            <button type="submit" name="update" class="btn btn-success btn-block" style="width: 20%; margin-right: 12px;">
-                                Registrar
-                            </button>
+                            <input type="submit" class="btn btn-success btn-block" style="width: 20%; margin-right: 12px;" value="Enviar">
                         </div>
                     </form>
                     </div>
