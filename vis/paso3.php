@@ -2,7 +2,7 @@
 
     session_start();
 
-    include('../config/conexion.php');
+    include('../config/conexion.php');  
 
     if(isset($_SESSION['formulario1'])) {
       $datos1 = $_SESSION['formulario1'];
@@ -141,7 +141,7 @@
                         <td><?php echo $row['Nom_Subproceso']; ?></td>
                         <td><?php echo $row['Nom_Actividad']; ?></td>
                         <td>
-                          <a href="paso4.php?ID_empleado=<?php echo $row['ID_empleado']?>" class="btn btn-warning">
+                          <a href="paso4.php?ID_empleado=<?php { echo $row['ID_empleado']; } ?>" class="btn btn-warning">
                             Capturar
                           </a>
                         </td>

@@ -1,12 +1,58 @@
 <?php 
-  session_start();
+ session_start();
 
-  include('../config/conexion.php'); 
+ include('../config/conexion.php');
 
-  if  (isset($_GET['ID_empleado'])) {
-    $ID_empleado = $_GET['ID_empleado'];
-    $query = "SELECT * FROM usuario_cliente WHERE ID_empleado = $ID_empleado";
-  }
+ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Obtiene los datos del formulario
+    $ID_empleado = $_POST['ID_empleado'];
+    $input = $_POST['input'];
+    $sistema = $_POST['sistema'];
+    $rol = $_POST['rol'];
+    $tiempo = $_POST['tiempo'];
+    $val_Frec = $_POST['val_Frec'];
+    $vol = $_POST['vol'];
+
+    if ($val_Frec == '4') {
+        $t_h = ($tiempo * $vol * $val_Frec);
+    }else
+    if ($val_Frec == '1') {
+        $t_h = ($tiempo * $vol * $val_Frec);
+    }else
+    if ($val_Frec == '12') {
+        $t_h = ($tiempo * $vol) / $val_Frec;
+    }
+    
+    if ($t_h) {
+        $ftes = $t_h / 160;
+    }
+
+
+    // Guarda los datos en la sesión
+    $_SESSION['formulario2'] = array(
+        'ID_empleado' => $ID_empleado,
+        'input' => $input,
+        'sistema' => $sistema,
+        'rol' => $rol,
+        'tiempo' => $tiempo,
+        'val_Frec' => $val_Frec,
+        'vol' => $vol,
+        't_h' => $t_h,
+        'ftes' => $ftes,
+    );
+
+    if (isset($_GET['ID_empleado'])) {
+        $ID_empleado = $_GET['ID_empleado'];
+ } else {
+    // Si no se proporciona un ID, redirige a la página principal
+    exit;
+}
+    header('Location: paso5.php');
+    exit;
+ } else {
+    // Verifica si se ha proporcionado un ID válido en la URL
+ 
+}
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +87,10 @@
             <div class="row justify-content-center">
                 <div class="card" style="width: auto;">
                     <div class="card-body">
-                    <form action="paso5.php?ID_empleado=<?php echo $row['ID_empleado']?>" method="POST">
+                    <form action="" method="POST">
+                        <div class="mb-3">
+                            <input type="hidden" name="ID_empleado" value="<?php echo $_GET['ID_empleado']; ?>">
+                        </div>
                         <div class="d-flex" style="gap: 40px;">
                             <div class="mb-3">
                                 <label for="input" class="form-label">Input</label>

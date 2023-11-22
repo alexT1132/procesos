@@ -3,49 +3,11 @@
 
   include('../config/conexion.php'); 
 
-  if  (isset($_GET['ID_empleado'])) {
-    $ID_empleado = $_GET['ID_empleado'];
-    $query = "SELECT * FROM usuario_cliente WHERE ID_empleado = $ID_empleado";
-    $result = mysqli_query($conexion, $query);
-  }
-
-  if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $ID_empleado = $_GET['ID_empleado'];
-    //DATOS DEL FORM
-    $input = $_POST['input'];
-    $sistema = $_POST['sistema'];
-    $rol = $_POST['rol'];
-    $tiempo = $_POST['tiempo'];
-    $val_Frec = $_POST['val_Frec'];
-    $vol = $_POST['vol'];
-
-    //DATOS EN LA SESSION
-    $_SESSION['formulario2'] = array(
-        'input' => $input,
-        'sistema' => $sistema,
-        'rol' => $rol,
-        'tiempo' => $tiempo,
-        'val_Frec' => $val_Frec,
-        'vol' => $vol,
-    );
-
-    if ($val_Frec == '4') {
-        $t_h = ($tiempo * $vol * $val_Frec);
-    }else
-    if ($val_Frec == '1') {
-        $t_h = ($tiempo * $vol * $val_Frec);
-    }else
-    if ($val_Frec == '12') {
-        $t_h = ($tiempo * $vol) / $val_Frec;
-    }
-    
-    if ($t_h) {
-        $ftes = $t_h / 160;
-    }
-
-    echo 'Todo correcto';
+  if(isset($_SESSION['formulario2'])) {
+    $datos2 = $_SESSION['formulario2'];
+  } else {
+    echo 'Datos no encontrados';
     exit;
-
   }
 ?>
 
@@ -85,49 +47,44 @@
                         <h2>Confirmación de datos</h2>
                     </div>
                     <div class="card-body">
-                    <form action="valPaso5.php?ID_empleado=<?php echo $row['ID_empleado']?>" method="POST">
                             <div class="mb-3 d-flex" style="gap: 5%;">
                                 <label for="input" class="form-label" style="margin-top: 3%;">Input:</label>
-                                <input type="text" class="form-control" name="input" id="input" value="<?php echo $_SESSION['input']; ?>" disabled style="width: 100%; border: none; background: none;">
+                                <input type="text" class="form-control" name="input" id="input" value="<?php echo $datos2['input']; ?>" disabled style="width: 100%; border: none; background: none;">
                             </div>
                             <div class="mb-3 d-flex" style="gap: 5%;">
                                 <label for="sistema" class="form-label" style="margin-top: 3%;">Sistema:</label>
-                                <input type="text" class="form-control" name="sistema" id="sistema" value="<?php echo $_SESSION['sistema']; ?>" disabled style="width: 100%; border: none; background: none;">
+                                <input type="text" class="form-control" name="sistema" id="sistema" value="<?php echo $datos2['sistema']; ?>" disabled style="width: 100%; border: none; background: none;">
                             </div>
                             <div class="mb-3 d-flex" style="gap: 5%;">
                                 <label for="rol" class="form-label" style="margin-top: 3%;">Rol:</label>
-                                <input type="text" class="form-control" name="rol" id="rol" value="<?php echo $_SESSION['rol']; ?>" disabled style="width: 100%; border: none; background: none;">
+                                <input type="text" class="form-control" name="rol" id="rol" value="<?php echo $datos2['rol']; ?>" disabled style="width: 100%; border: none; background: none;">
                             </div>
                             <div class="mb-3 d-flex" style="gap: 5%;">
                                 <label for="tiempo" class="form-label" style="margin-top: 3%;">Tiempo:</label>
-                                <input type="text" class="form-control" name="tiempo" id="tiempo" value="<?php echo $_SESSION['tiempo']; ?>" disabled style="width: 100%; border: none; background: none;">
+                                <input type="text" class="form-control" name="tiempo" id="tiempo" value="<?php echo $datos2['tiempo']; ?>" disabled style="width: 100%; border: none; background: none;">
                             </div>
                             <div class="mb-3 d-flex" style="gap: 5%;">
                                 <label for="val_Frec" class="form-label" style="margin-top: 3%;">Frecuencia:</label>
-                                <input type="text" class="form-control" name="val_Frec" id="val_Frec" value="<?php echo $_SESSION['val_Frec']; ?>" disabled style="width: 100%; border: none; background: none;">
+                                <input type="text" class="form-control" name="val_Frec" id="val_Frec" value="<?php echo $datos2['val_Frec']; ?>" disabled style="width: 100%; border: none; background: none;">
                             </div>
                             <div class="mb-3 d-flex" style="gap: 5%;" style="margin-top: 3%;">
                                 <label for="vol" class="form-label">Volumen:</label>
-                                <input type="text" class="form-control" name="vol" id="vol" value="<?php echo $_SESSION['vol']; ?>" disabled style="width: 100%; border: none; background: none;">
+                                <input type="text" class="form-control" name="vol" id="vol" value="<?php echo $datos2['vol']; ?>" disabled style="width: 100%; border: none; background: none;">
                             </div>
                             <div class="mb-3 d-flex" style="gap: 5%;" style="margin-top: 3%;">
                                 <label for="t_h" class="form-label">Total de Horas:</label>
-                                <input type="text" class="form-control" name="t_h" id="t_h" value="<?php echo $_SESSION['t_h']; ?>" disabled style="width: 100%; border: none; background: none;">
+                                <input type="text" class="form-control" name="t_h" id="t_h" value="<?php echo $datos2['t_h']; ?>" disabled style="width: 100%; border: none; background: none;">
                             </div>
                             <div class="mb-3 d-flex" style="gap: 5%;" style="margin-top: 3%;">
                                 <label for="ftes" class="form-label">FTE'S:</label>
-                                <input type="text" class="form-control" name="ftes" id="ftes" value="<?php echo $_SESSION['ftes']; ?>" disabled style="width: 100%; border: none; background: none;">
+                                <input type="text" class="form-control" name="ftes" id="ftes" value="<?php echo $datos2['ftes']; ?>" disabled style="width: 100%; border: none; background: none;">
                             </div>
-                            <?php
-                          }
-                        ?>
                         <br>
                         <div class="row justify-content-center">
-                            <button type="submit" name="update" class="btn btn-success btn-block" style="width: 40%; margin-right: 12px;">
+                            <a href="validacion.php" class="btn btn-success btn-block" style="width: 40%; margin-right: 12px;">
                                 Confirmar
-                            </button>
+                            </a>
                         </div>
-                    </form>
                     </div>
                 </div>
             </div>
