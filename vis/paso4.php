@@ -15,16 +15,21 @@
 
     if ($val_Frec == '4') {
         $t_h = ($tiempo * $vol * $val_Frec);
+        $t_h = round($t_h, 4);
     }else
     if ($val_Frec == '1') {
         $t_h = ($tiempo * $vol * $val_Frec);
+        $t_h = round($t_h, 4);
     }else
     if ($val_Frec == '12') {
         $t_h = ($tiempo * $vol) / $val_Frec;
+        $t_h = round($t_h, 4);
     }
-    
+
     if ($t_h) {
         $ftes = $t_h / 160;
+        $ftes = round($ftes, 4);
+
     }
 
 
