@@ -5,7 +5,6 @@
 
  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Obtiene los datos del formulario
-    $ID_empleado = $_POST['ID_empleado'];
     $input = $_POST['input'];
     $sistema = $_POST['sistema'];
     $rol = $_POST['rol'];
@@ -34,8 +33,7 @@
 
 
     // Guarda los datos en la sesión
-    $_SESSION['formulario2'] = array(
-        'ID_empleado' => $ID_empleado,
+    $_SESSION['formulario4'] = array(
         'input' => $input,
         'sistema' => $sistema,
         'rol' => $rol,
@@ -46,12 +44,6 @@
         'ftes' => $ftes,
     );
 
-    if (isset($_GET['ID_empleado'])) {
-        $ID_empleado = $_GET['ID_empleado'];
- } else {
-    // Si no se proporciona un ID, redirige a la página principal
-    exit;
-}
     header('Location: paso5.php');
     exit;
  } else {
@@ -93,21 +85,18 @@
                 <div class="card" style="width: auto;">
                     <div class="card-body">
                     <form action="" method="POST">
-                        <div class="mb-3">
-                            <input type="hidden" name="ID_empleado" value="<?php echo $_GET['ID_empleado']; ?>">
-                        </div>
                         <div class="d-flex" style="gap: 40px;">
                             <div class="mb-3">
                                 <label for="input" class="form-label">Input</label>
-                                <input type="text" class="form-control" name="input" id="input" style="width: 100%;">
+                                <input type="text" class="form-control" name="input" id="input" style="width: 100%;" required>
                             </div>
                             <div class="mb-3">
                                 <label for="sistema" class="form-label">Sistema</label>
-                                <input type="text" class="form-control" name="sistema" id="sistema" style="width: 100%;">
+                                <input type="text" class="form-control" name="sistema" id="sistema" style="width: 100%;" required>
                             </div>
                             <div class="mb-3">
                                 <label for="rol" class="form-label">Rol</label>
-                                <select class="form-select mb-3" name="rol" id="rol" style="width: 100%;">
+                                <select class="form-select mb-3" name="rol" id="rol" style="width: 100%;" required>
                                     <option selected disabled value="">Selecciona un rol</option>
                                     <option>Ejecutar</option>
                                     <option>Supervisar</option>
@@ -117,12 +106,13 @@
                         <div class="d-flex" style="gap: 40px;">
                             <div class="mb-3">
                                 <label for="tiempo" class="form-label">Tiempo</label>
-                                <input type="text" class="form-control" name="tiempo" id="tiempo" style="width: 100%;">
+                                <input type="text" class="form-control" name="tiempo" id="tiempo" style="width: 100%;" required>
                             </div>
                             <div class="md-3" style="align-items: center; width: 20%">
                           <label for="val_Frec" class="form-label">Frecuencia</label>
                           <div class="d-flex" style="gap: 2%;">
-                              <select class="form-select mb-3" name="val_Frec" id="val_Frec">
+                              <select class="form-select mb-3" name="val_Frec" id="val_Frec" required>
+                              <option selected disabled value="">Selecciona una opcion</option>
                                 <option value="4">Semanal</option>
                                 <option value="1">Mensual</option>
                                 <option value="12">Anual</option>
@@ -131,7 +121,7 @@
                         </div>
                             <div class="mb-3">
                                 <label for="vol" class="form-label">volumen</label>
-                                <input type="text" class="form-control" id="vol" name="vol" style="width: 100%;">
+                                <input type="text" class="form-control" id="vol" name="vol" style="width: 100%;" required>
                             </div>
                         </div>
                         <br>

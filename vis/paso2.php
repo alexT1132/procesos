@@ -11,6 +11,20 @@
       exit;
     }
 
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+      //DATOS DEL FORM
+      $Nom_Proceso = $_POST['Nom_Proceso'];
+  
+      //DATOS EN LA SESSION
+      $_SESSION['formulario2'] = array(
+        'Nom_Proceso' => $Nom_Proceso,
+      );
+  
+      header('Location: paso3.php');
+      exit;
+  
+    }
+
 ?>
 
 
@@ -20,6 +34,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grupo Piasa</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="shortcut icon" href="../img/logo_3.png">
     <link rel="stylesheet" href="../css/users.css">
@@ -83,90 +98,33 @@
                       </div>
                     </div>
                 </form>
-            </div>
 
-            <div id="page2" class="page" style="width: 100%;">
-              <form action="paso3.php" method="GET">
-              <div class="container text-center">
-                <div class="row">
-                    <div class="col d-flex" style="gap: 1%;">
-                    <select class="form-select mb-3" name="Nom_Proceso">
-                            <option value="todos">Todos</option>
-                            <?php
-                                $sql = $conexion->query("SELECT * FROM procesos");
-                                while ($resultado = $sql->fetch_assoc()) {
-                                echo "<option value='".$resultado['Nom_Procesos']."'>".$resultado['Nom_Procesos']."</option>";
-                              }
-                            ?>
-                          </select>            
-                          <input type="submit" class="btn btn-outline-success" value="Search">       
-                    </div>
-                  </div>
-                </div>
-              </form>
-
-              <?php
-
-                error_reporting(0);
-
-
-                  $nom_Procesos = $_GET['Nom_Proceso'];
-
-                // Consulta SQL
-                $sql = "SELECT * FROM usuario_cliente";
-
-                if ($Nom_Proceso != 'todos') {
-                  $sql .= " WHERE Nom_Proceso = '$Nom_Proceso'";
-              }
-              
-                $result = $conexion->query($sql);
-
-                if ($result->num_rows > 0) {
-                   ?>
-                   <br>
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th scope="col">Subprocesos</th>
-                          <th scope="col">Actividades</th>
-                          <th scope="col">Validacion</th>
-                          <th scope="col">Estado</th>
-                        </tr>
-                      </thead>
-                    <?php
-                    while ($row = $result->fetch_assoc()) {
-                    ?>
-                     <tbody>
-                      <tr>
-                        <td><?php echo $row['Nom_Subproceso']; ?></td>
-                        <td><?php echo $row['Nom_Subproceso']; ?></td>
-                        <td>
-                          <a href="paso3.php?ID=<?php echo $row['ID']?>" class="btn btn-warning">
-                            Capturar
-                          </a>
-                        </td>
-                        <td>
-                          <?php 
-                            if ($result) {
+                <br>
+                <div>
+                  <form action="" method="post">
+                    <div class="mb-3 text-center">
+                        <label for="exampleInputEmail1" class="form-label">Nombre Proceso</label>
+                            <select class="form-select mb-3" name="Nom_Proceso">
+                              <option selected disabled>Selecciona una opción</option>
+                              <?php
+        
+                                  $sql = $conexion->query("SELECT * FROM procesos");
+                                  while ($resultado = $sql->fetch_assoc()) {
+                                  echo "<option value='".$resultado['Nom_Procesos']."'>".$resultado['Nom_Procesos']."</option>";
+                                }
                               ?>
-                            <img src="../img/x-regular-48.png">   
-                          <?php
-                            }
-                          ?>
-                        </td>
-                      </tr>
-                    </tbody>
-                    <?php 
-                    }
-                    ?>
-                    </table>
-                    <?php
-                } else {
-                    echo "";
-                }
-                ?>
-
+                            </select>
+                          </div>
+                          <div style="margin-left: 35%;">
+                            <a type="submite" class="btn btn-danger" href="paso1.php">Back</a>
+                            <button type="submit" class="btn btn-outline-success" >
+                              Next
+                            </button>
+                          </div>
+                  </form>
+                </div>
             </div>
+            
         </div>        
     </section>
         
