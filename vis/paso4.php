@@ -3,6 +3,14 @@
 
  include('../config/conexion.php');
 
+ if(isset($_SESSION['formulario3'])) {
+    $datos3 = $_SESSION['formulario3'];
+    echo 'Todo bien';
+  } else {
+    echo 'Error';
+    exit;
+  }
+
  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Obtiene los datos del formulario
     $input = $_POST['input'];
@@ -13,43 +21,40 @@
     $vol = $_POST['vol'];
 
     if ($val_Frec == '4') {
-        $t_h = ($tiempo * $vol * $val_Frec);
-        $t_h = round($t_h, 4);
-    }else
-    if ($val_Frec == '1') {
-        $t_h = ($tiempo * $vol * $val_Frec);
-        $t_h = round($t_h, 4);
-    }else
-    if ($val_Frec == '12') {
-        $t_h = ($tiempo * $vol) / $val_Frec;
-        $t_h = round($t_h, 4);
-    }
+     $t_h = ($tiempo * $vol * $val_Frec);
+     $t_h = round($t_h, 4);
+}else
+if ($val_Frec == '1') {
+     $t_h = ($tiempo * $vol * $val_Frec);
+     $t_h = round($t_h, 4);
+}else
+if ($val_Frec == '12') {
+    $t_h = ($tiempo * $vol) / $val_Frec;
+    $t_h = round($t_h, 4);
+}
 
-    if ($t_h) {
-        $ftes = $t_h / 160;
-        $ftes = round($ftes, 4);
+if ($t_h) {
+    $ftes = $t_h / 160;
+    $ftes = round($ftes, 4);
 
-    }
+}
 
 
-    // Guarda los datos en la sesión
-    $_SESSION['formulario4'] = array(
-        'input' => $input,
-        'sistema' => $sistema,
-        'rol' => $rol,
-        'tiempo' => $tiempo,
-        'val_Frec' => $val_Frec,
-        'vol' => $vol,
-        't_h' => $t_h,
-        'ftes' => $ftes,
-    );
+ //Guarda los datos en la sesión
+$_SESSION['formulario4'] = array(
+    'input' => $input,
+    'sistema' => $sistema,
+    'rol' => $rol,
+    'tiempo' => $tiempo,
+    'val_Frec' => $val_Frec,
+    'vol' => $vol,
+    't_h' => $t_h,
+    'ftes' => $ftes,
+   );
 
     header('Location: paso5.php');
-    exit;
- } else {
-    // Verifica si se ha proporcionado un ID válido en la URL
- 
-}
+    //exit;
+ } 
 ?>
 
 <!DOCTYPE html>
@@ -133,6 +138,9 @@
                 </div>
             </div>
         </div>
+
+        <input type="text" value="<?php echo $datos3['Nom_Subproceso']; ?>">
+        <input type="text" value="<?php echo $datos3['Nom_Actividad']; ?>">
 
 
     </section>

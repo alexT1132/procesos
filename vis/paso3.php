@@ -11,24 +11,23 @@
       exit;
     }
 
-    if(isset($_SESSION['formulario3'])) {
-      $datos3 = $_SESSION['formulario3'];
+    if(isset($_SESSION['formulario2'])) {
+      $datos2 = $_SESSION['formulario2'];
     } else {
       echo 'Datos no encontrados';
       exit;
     }
 
-    if($_SERVER['REQUEST_METHOD'] === 'POST') {
-      //DATOS DEL FORM
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $Nom_Subproceso = $_POST['Nom_Subproceso'];
       $Nom_Actividad = $_POST['Nom_Actividad'];
-  
+
       //DATOS EN LA SESSION
       $_SESSION['formulario3'] = array(
         'Nom_Subproceso' => $Nom_Subproceso,
-        'Nom_Actividad' => $Nom_Actividad,
+        'Nom_Actividad' => $Nom_Actividad
       );
-
+  
       header('Location: paso4.php');
       exit;
   
@@ -140,7 +139,7 @@
                               ?>
                                 <tr>
                                   <td>
-                                      <input type="checkbox" class="form-check-input" name="Nom_Subproceso" id="Nom_Subproceso" value="<?php $filaTabla1["nom_Subproceso"]; ?>">
+                                      <input type="checkbox" class="form-check-input" name="Nom_Subproceso[]" id="Nom_Subproceso" value="<?php $filaTabla1["nom_Subproceso"]; ?>">
                                   </td>
                                   <td>
                                     <?php echo $filaTabla1["nom_Subproceso"]; ?>
@@ -152,6 +151,7 @@
                               </tbody>
                             </table>
                           </div>
+                          
                           <div class="tablaAct">
                             <table class="table">
                               <thead>
@@ -169,7 +169,7 @@
                               ?>
                                 <tr>
                                   <td>
-                                      <input type="checkbox" class="form-check-input" name="Nom_Actividad" id="Nom_Actividad" value="<?php $filaTabla2["nom_actividad"]; ?>">
+                                      <input type="checkbox" class="form-check-input" name="Nom_Actividad[]" id="Nom_Actividad" value="<?php $filaTabla2["nom_actividad"]; ?>">
                                   </td>
                                   <td>
                                     <?php echo $filaTabla2["nom_actividad"]; ?>

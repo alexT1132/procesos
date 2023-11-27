@@ -3,8 +3,8 @@
 
   include('../config/conexion.php'); 
 
-  if(isset($_SESSION['formulario2'])) {
-    $datos2 = $_SESSION['formulario2'];
+  if(isset($_SESSION['formulario4'])) {
+    $datos4 = $_SESSION['formulario4'];
   } else {
     echo 'Datos no encontrados';
     exit;
@@ -49,35 +49,35 @@
                     <div class="card-body">
                             <div class="mb-3 d-flex" style="gap: 5%;">
                                 <label for="input" class="form-label" style="margin-top: 3%;">Input:</label>
-                                <input type="text" class="form-control" name="input" id="input" value="<?php echo $datos2['input']; ?>" disabled style="width: 100%; border: none; background: none;">
+                                <input type="text" class="form-control" name="input" id="input" value="<?php echo $datos4['input']; ?>" disabled style="width: 100%; border: none; background: none;">
                             </div>
                             <div class="mb-3 d-flex" style="gap: 5%;">
                                 <label for="sistema" class="form-label" style="margin-top: 3%;">Sistema:</label>
-                                <input type="text" class="form-control" name="sistema" id="sistema" value="<?php echo $datos2['sistema']; ?>" disabled style="width: 100%; border: none; background: none;">
+                                <input type="text" class="form-control" name="sistema" id="sistema" value="<?php echo $datos4['sistema']; ?>" disabled style="width: 100%; border: none; background: none;">
                             </div>
                             <div class="mb-3 d-flex" style="gap: 5%;">
                                 <label for="rol" class="form-label" style="margin-top: 3%;">Rol:</label>
-                                <input type="text" class="form-control" name="rol" id="rol" value="<?php echo $datos2['rol']; ?>" disabled style="width: 100%; border: none; background: none;">
+                                <input type="text" class="form-control" name="rol" id="rol" value="<?php echo $datos4['rol']; ?>" disabled style="width: 100%; border: none; background: none;">
                             </div>
                             <div class="mb-3 d-flex" style="gap: 5%;">
                                 <label for="tiempo" class="form-label" style="margin-top: 3%;">Tiempo:</label>
-                                <input type="text" class="form-control" name="tiempo" id="tiempo" value="<?php echo $datos2['tiempo']; ?>" disabled style="width: 100%; border: none; background: none;">
+                                <input type="text" class="form-control" name="tiempo" id="tiempo" value="<?php echo $datos4['tiempo']; ?>" disabled style="width: 100%; border: none; background: none;">
                             </div>
                             <div class="mb-3 d-flex" style="gap: 5%;">
                                 <label for="val_Frec" class="form-label" style="margin-top: 3%;">Frecuencia:</label>
-                                <input type="text" class="form-control" name="val_Frec" id="val_Frec" value="<?php echo $datos2['val_Frec']; ?>" disabled style="width: 100%; border: none; background: none;">
+                                <input type="text" class="form-control" name="val_Frec" id="val_Frec" value="<?php echo $datos4['val_Frec']; ?>" disabled style="width: 100%; border: none; background: none;">
                             </div>
                             <div class="mb-3 d-flex" style="gap: 5%;" style="margin-top: 3%;">
                                 <label for="vol" class="form-label">Volumen:</label>
-                                <input type="text" class="form-control" name="vol" id="vol" value="<?php echo $datos2['vol']; ?>" disabled style="width: 100%; border: none; background: none;">
+                                <input type="text" class="form-control" name="vol" id="vol" value="<?php echo $datos4['vol']; ?>" disabled style="width: 100%; border: none; background: none;">
                             </div>
                             <div class="mb-3 d-flex" style="gap: 5%;" style="margin-top: 3%;">
                                 <label for="t_h" class="form-label">Total de Horas:</label>
-                                <input type="text" class="form-control" name="t_h" id="t_h" value="<?php echo $datos2['t_h']; ?>" disabled style="width: 100%; border: none; background: none;">
+                                <input type="text" class="form-control" name="t_h" id="t_h" value="<?php echo $datos4['t_h']; ?>" disabled style="width: 100%; border: none; background: none;">
                             </div>
                             <div class="mb-3 d-flex" style="gap: 5%;" style="margin-top: 3%;">
                                 <label for="ftes" class="form-label">FTE'S:</label>
-                                <input type="text" class="form-control" name="ftes" id="ftes" value="<?php echo $datos2['ftes']; ?>" disabled style="width: 100%; border: none; background: none;">
+                                <input type="text" class="form-control" name="ftes" id="ftes" value="<?php echo $datos4['ftes']; ?>" disabled style="width: 100%; border: none; background: none;">
                             </div>
                         <br>
                         <div class="row justify-content-center">

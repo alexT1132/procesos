@@ -3,7 +3,7 @@
 
     include('../config/conexion.php');
 
-    if (isset($_SESSION['formulario1']) && isset($_SESSION['formulario2'])) {
+    if (isset($_SESSION['formulario1']) && isset($_SESSION['formulario2']) && isset($_SESSION['formulario3']) && isset($_SESSION['formulario4'])) {
         $formulario1 = $_SESSION['formulario1'];
         $formulario2 = $_SESSION['formulario2'];
         $formulario3 = $_SESSION['formulario3'];
@@ -32,14 +32,51 @@
         $ftes = $conexion->real_escape_string($formulario4['ftes']);
        
         
-        $query = "INSERT INTO usuario_cliente (Nombre = '$Nombre', Apellido = '$Apellido', Nom_Unidad_Negocio = '$Nom_Unidad_Negocio', Email = '$Email', Area = '$Area', Nom_Direcciones = '$Nom_Direcciones', Nom_Nuevo_Puesto = '$Nom_Nuevo_Puesto', Nom_funcion = '$Nom_funcion', input = '$input', 
-    sistema = '$sistema', rol = '$rol', tiempo = '$tiempo', val_Frec = '$val_Frec', vol = '$vol', t_h = '$t_h', ftes = '$ftes')";
+        $query = "INSERT INTO usuario_cliente (Nombre,
+                                             Apellido,
+                                             Nom_Unidad_Negocio,
+                                             Email,
+                                             Area,
+                                             Nom_Direcciones,
+                                             Nom_Nuevo_Puesto,
+                                             Nom_funcion,
+                                             Nom_Proceso,
+                                             Nom_Subproceso,
+                                             Nom_Actividad,
+                                             input,
+                                             sistema,
+                                             rol,
+                                             tiempo,
+                                             val_Frec,
+                                             vol,
+                                             t_h,
+                                             ftes) VALUES ('$Nombre', 
+                                                            '$Apellido',
+                                                            '$Nom_Unidad_Negocio',
+                                                            '$Email',
+                                                            '$Area',
+                                                            '$Nom_Direcciones',
+                                                            '$Nom_Nuevo_Puesto',
+                                                            '$Nom_funcion',
+                                                            '$Nom_Proceso',
+                                                            '$Nom_Subproceso',
+                                                            '$Nom_Actividad',
+                                                            '$input',
+                                                            '$sistema',
+                                                            '$rol',
+                                                            '$tiempo',
+                                                            '$val_Frec',
+                                                            '$vol',
+                                                            '$t_h',
+                                                            '$ftes')";
     $resultado = $conexion->query($query);
     
     $conexion->close();
     
     // Limpia los datos de la sesión
     unset($_SESSION['formulario2']);
+    unset($_SESSION['formulario3']);
+    unset($_SESSION['formulario4']);
     
     header('Location: paso2.php');
     exit;

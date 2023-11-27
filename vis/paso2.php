@@ -7,7 +7,7 @@
     if(isset($_SESSION['formulario1'])) {
       $datos1 = $_SESSION['formulario1'];
     } else {
-      echo 'Datos no encontrados';
+      echo 'Error';
       exit;
     }
 
