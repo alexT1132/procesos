@@ -11,27 +11,10 @@
       exit;
     }
 
-    if(isset($_SESSION['formulario2'])) {
-      $datos2 = $_SESSION['formulario2'];
-    } else {
-      echo 'Datos no encontrados';
-      exit;
-    }
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-      $Nom_Subproceso = $_POST['Nom_Subproceso'];
-      $Nom_Actividad = $_POST['Nom_Actividad'];
 
-      //DATOS EN LA SESSION
-      $_SESSION['formulario3'] = array(
-        'Nom_Subproceso' => $Nom_Subproceso,
-        'Nom_Actividad' => $Nom_Actividad
-      );
-  
-      header('Location: paso4.php');
-      exit;
-  
-    }
+
+    
 
 ?>
 
@@ -105,89 +88,86 @@
                       </div>
                     </div>
                 </form>
-                <br>
-                <div>
-                  <form action="" method="post">
-                    <div class="mb-3 text-center">
-                      <label for="exampleInputEmail1" class="form-label">Nombre Proceso</label>
-                      <input type="text" class="form-control" name="Nom_funcion" id="Nom_funcion" value="<?php echo $datos2['Nom_Proceso']; ?>" disabled>
-                    </div>
-                  </form>
-                </div>
             </div>
 
             <div id="page2" class="page" style="width: 100%;">
+              <form action="paso3.php" method="GET">
+              <div class="container text-center">
+                <div class="row">
+                    <div class="col d-flex" style="gap: 1%;">
+                    <select class="form-select mb-3" name="Nom_Proceso">
+                            <option value="todos">Todos</option>
+                            <?php
+                                $sql = $conexion->query("SELECT * FROM procesos");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['Nom_Procesos']."'>".$resultado['Nom_Procesos']."</option>";
+                              }
+                            ?>
+                          </select>            
+                          <input type="submit" class="btn btn-outline-success" value="Search">       
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <?php
+                error_reporting(0);
+                  $Nom_Proceso = $_GET['Nom_Proceso'];
+                // Consulta SQL
+                $sql = "SELECT * FROM usuario_cliente";
+                if ($Nom_Proceso != 'todos') {
+                  $sql .= " WHERE Nom_Proceso = '$Nom_Proceso'";
+              }
               
-            <form action="" method="post">
-
-                        <!-- Tablas -->
-                        <div class="tablas d-flex" style="gap: 8%;">
-                          <div class="tablaSubpros">
-                            <table class="table">
-                              <thead>
-                                <tr>
-                                  <th></th>
-                                  <th>Subproceso</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                              <?php
-                              $sqlConsultaTabla1 = "SELECT * FROM sub_proceso";
-                              $resultadoTabla1 = $conexion->query($sqlConsultaTabla1);
-    
-                              while ($filaTabla1 = $resultadoTabla1->fetch_assoc()) {
+                $result = $conexion->query($sql);
+                if ($result->num_rows > 0) {
+                   ?>
+                   <br>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Subprocesos</th>
+                          <th scope="col">Actividades</th>
+                          <th scope="col">Validacion</th>
+                          <th scope="col">Estado</th>
+                        </tr>
+                      </thead>
+                    <?php
+                    while ($row = $result->fetch_assoc()) {
+                    ?>
+                     <tbody>
+                      <tr>
+                        <td><?php echo $row['Nom_Subproceso']; ?></td>
+                        <td><?php echo $row['Nom_Actividad']; ?></td>
+                        <td>
+                          <a href="paso4.php?ID_empleado=<?php echo $row['ID_empleado']?>" class="btn btn-warning">
+                            Capturar
+                          </a>
+                        </td>
+                        <td>
+                          <?php 
+                            if ($row['estado']==0){
                               ?>
-                                <tr>
-                                  <td>
-                                      <input type="checkbox" class="form-check-input" name="Nom_Subproceso[]" id="Nom_Subproceso" value="<?php $filaTabla1["nom_Subproceso"]; ?>">
-                                  </td>
-                                  <td>
-                                    <?php echo $filaTabla1["nom_Subproceso"]; ?>
-                                  </td>
-                                </tr>
-                                <?php
-                                  }
-                                ?>
-                              </tbody>
-                            </table>
-                          </div>
-                          
-                          <div class="tablaAct">
-                            <table class="table">
-                              <thead>
-                                <tr>
-                                  <th></th>
-                                  <th>Actividad</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                              <?php
-                              $sqlConsultaTabla2 = "SELECT * FROM detalle_actividad";
-                              $resultadoTabla2 = $conexion->query($sqlConsultaTabla2);
-    
-                              while ($filaTabla2 = $resultadoTabla2->fetch_assoc()) {
+                            <img src="../img/x-regular-48.png">   
+                          <?php
+                            } else
+                            if ($row['estado']==1) {
                               ?>
-                                <tr>
-                                  <td>
-                                      <input type="checkbox" class="form-check-input" name="Nom_Actividad[]" id="Nom_Actividad" value="<?php $filaTabla2["nom_actividad"]; ?>">
-                                  </td>
-                                  <td>
-                                    <?php echo $filaTabla2["nom_actividad"]; ?>
-                                  </td>
-                                </tr>
-                                <?php
-                                  }
-                                ?>
-                              </tbody>
-                            </table>
-                            <a type="submite" class="btn btn-danger" href="paso2.php">Back</a>
-                            <button type="submit" class="btn btn-success">
-                                Next
-                            </button>
-                          </div>
-                        </div>
-            </form>
-
+                            <img src="../img/check-regular-48.png">   
+                          <?php
+                            }
+                          ?>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <?php 
+                    }
+                    ?>
+                    </table>
+                    <?php
+                } else {
+                    echo "No se encontraron resultados";
+                }
+                ?>
             </div>
         </div>        
     </section>

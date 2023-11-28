@@ -1,18 +1,10 @@
 <?php 
  session_start();
-
  include('../config/conexion.php');
-
- if(isset($_SESSION['formulario3'])) {
-    $datos3 = $_SESSION['formulario3'];
-    echo 'Todo bien';
-  } else {
-    echo 'Error';
-    exit;
-  }
-
  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Obtiene los datos del formulario
+    $ID_empleado = $_POST['ID_empleado'];
+    $estado = $_POST['estado'];
     $input = $_POST['input'];
     $sistema = $_POST['sistema'];
     $rol = $_POST['rol'];
@@ -21,40 +13,49 @@
     $vol = $_POST['vol'];
 
     if ($val_Frec == '4') {
-     $t_h = ($tiempo * $vol * $val_Frec);
-     $t_h = round($t_h, 4);
-}else
-if ($val_Frec == '1') {
-     $t_h = ($tiempo * $vol * $val_Frec);
-     $t_h = round($t_h, 4);
-}else
-if ($val_Frec == '12') {
-    $t_h = ($tiempo * $vol) / $val_Frec;
-    $t_h = round($t_h, 4);
-}
+        $t_h = ($tiempo * $vol * $val_Frec);
+        $t_h = round($t_h, 4);
+    }else
+    if ($val_Frec == '1') {
+        $t_h = ($tiempo * $vol * $val_Frec);
+        $t_h = round($t_h, 4);
+    }else
+    if ($val_Frec == '12') {
+        $t_h = ($tiempo * $vol) / $val_Frec;
+        $t_h = round($t_h, 4);
+    }
+    
 
-if ($t_h) {
-    $ftes = $t_h / 160;
-    $ftes = round($ftes, 4);
+    if ($t_h) {
+        $ftes = $t_h / 160;
+        $ftes = round($ftes, 4);
 
-}
+    }
 
 
- //Guarda los datos en la sesión
-$_SESSION['formulario4'] = array(
-    'input' => $input,
-    'sistema' => $sistema,
-    'rol' => $rol,
-    'tiempo' => $tiempo,
-    'val_Frec' => $val_Frec,
-    'vol' => $vol,
-    't_h' => $t_h,
-    'ftes' => $ftes,
-   );
-
-    header('Location: paso5.php');
-    //exit;
+    // Guarda los datos en la sesión
+    $_SESSION['formulario2'] = array(
+        'ID_empleado' => $ID_empleado,
+        'estado' => $estado,
+        'input' => $input,
+        'sistema' => $sistema,
+        'rol' => $rol,
+        'tiempo' => $tiempo,
+        'val_Frec' => $val_Frec,
+        'vol' => $vol,
+        't_h' => $t_h,
+        'ftes' => $ftes,
+    );
+    if (isset($_GET['ID_empleado'])) {
+        $ID_empleado = $_GET['ID_empleado'];
  } 
+ 
+    header('Location: paso5.php');
+    exit;
+ } else {
+    // Verifica si se ha proporcionado un ID válido en la URL
+ 
+}
 ?>
 
 <!DOCTYPE html>
@@ -90,6 +91,12 @@ $_SESSION['formulario4'] = array(
                 <div class="card" style="width: auto;">
                     <div class="card-body">
                     <form action="" method="POST">
+                        <div class="mb-3">
+                            <input type="hidden" name="ID_empleado" value="<?php echo $_GET['ID_empleado']; ?>">
+                        </div>
+                        <div class="mb-3">
+                            <input type="hidden" name="estado" value="1">
+                        </div>
                         <div class="d-flex" style="gap: 40px;">
                             <div class="mb-3">
                                 <label for="input" class="form-label">Input</label>
@@ -138,9 +145,6 @@ $_SESSION['formulario4'] = array(
                 </div>
             </div>
         </div>
-
-        <input type="text" value="<?php echo $datos3['Nom_Subproceso']; ?>">
-        <input type="text" value="<?php echo $datos3['Nom_Actividad']; ?>">
 
 
     </section>

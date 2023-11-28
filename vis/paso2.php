@@ -11,20 +11,6 @@
       exit;
     }
 
-    if($_SERVER['REQUEST_METHOD'] === 'POST') {
-      //DATOS DEL FORM
-      $Nom_Proceso = $_POST['Nom_Proceso'];
-  
-      //DATOS EN LA SESSION
-      $_SESSION['formulario2'] = array(
-        'Nom_Proceso' => $Nom_Proceso,
-      );
-  
-      header('Location: paso3.php');
-      exit;
-  
-    }
-
 ?>
 
 
@@ -98,31 +84,81 @@
                       </div>
                     </div>
                 </form>
+            </div>
 
-                <br>
-                <div>
-                  <form action="" method="post">
-                    <div class="mb-3 text-center">
-                        <label for="exampleInputEmail1" class="form-label">Nombre Proceso</label>
-                            <select class="form-select mb-3" name="Nom_Proceso">
-                              <option selected disabled>Selecciona una opción</option>
-                              <?php
-        
-                                  $sql = $conexion->query("SELECT * FROM procesos");
-                                  while ($resultado = $sql->fetch_assoc()) {
-                                  echo "<option value='".$resultado['Nom_Procesos']."'>".$resultado['Nom_Procesos']."</option>";
-                                }
-                              ?>
-                            </select>
-                          </div>
-                          <div style="margin-left: 35%;">
-                            <a type="submite" class="btn btn-danger" href="paso1.php">Back</a>
-                            <button type="submit" class="btn btn-outline-success" >
-                              Next
-                            </button>
-                          </div>
-                  </form>
+            <div id="page2" class="page" style="width: 100%;">
+              <form action="paso3.php" method="GET">
+              <div class="container text-center">
+                <div class="row">
+                    <div class="col d-flex" style="gap: 1%;">
+                    <select class="form-select mb-3" name="Nom_Proceso">
+                            <option value="todos">Todos</option>
+                            <?php
+                                $sql = $conexion->query("SELECT * FROM procesos");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['Nom_Procesos']."'>".$resultado['Nom_Procesos']."</option>";
+                              }
+                            ?>
+                          </select>            
+                          <input type="submit" class="btn btn-outline-success" value="Search">       
+                    </div>
+                  </div>
                 </div>
+              </form>
+              <?php
+                error_reporting(0);
+                  $nom_Procesos = $_GET['Nom_Proceso'];
+                // Consulta SQL
+                $sql = "SELECT * FROM usuario_cliente";
+                if ($Nom_Proceso != 'todos') {
+                  $sql .= " WHERE Nom_Proceso = '$Nom_Proceso'";
+              }
+              
+                $result = $conexion->query($sql);
+                if ($result->num_rows > 0) {
+                   ?>
+                   <br>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Subprocesos</th>
+                          <th scope="col">Actividades</th>
+                          <th scope="col">Validacion</th>
+                          <th scope="col">Estado</th>
+                        </tr>
+                      </thead>
+                    <?php
+                    while ($row = $result->fetch_assoc()) {
+                    ?>
+                     <tbody>
+                      <tr>
+                        <td><?php echo $row['Nom_Subproceso']; ?></td>
+                        <td><?php echo $row['Nom_Subproceso']; ?></td>
+                        <td>
+                          <a href="paso3.php?ID=<?php echo $row['ID']?>" class="btn btn-warning">
+                            Capturar
+                          </a>
+                        </td>
+                        <td>
+                          <?php 
+                            if ($result) {
+                              ?>
+                            <img src="../img/x-regular-48.png">   
+                          <?php
+                            }
+                          ?>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <?php 
+                    }
+                    ?>
+                    </table>
+                    <?php
+                } else {
+                    echo "";
+                }
+                ?>
             </div>
             
         </div>        
