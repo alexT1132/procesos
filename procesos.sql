@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-11-2023 a las 21:24:04
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.1.17
+-- Tiempo de generación: 28-11-2023 a las 04:49:30
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -668,30 +668,12 @@ CREATE TABLE `usuario_cliente` (
   `input` varchar(255) NOT NULL,
   `sistema` varchar(255) NOT NULL,
   `rol` varchar(100) NOT NULL,
-  `tiempo` time NOT NULL,
+  `tiempo` varchar(50) NOT NULL,
   `vol` varchar(50) NOT NULL,
   `T_H` varchar(100) NOT NULL,
-  `fte's` varchar(100) NOT NULL
+  `fte's` varchar(100) NOT NULL,
+  `estado` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `usuario_cliente`
---
-
-INSERT INTO `usuario_cliente` (`ID_empleado`, `Nombre`, `Apellido`, `ID_Unidad_Negocio`, `Nom_Unidad_Negocio`, `Email`, `Area`, `ID_Actividad`, `Nom_Actividad`, `ID_Nuevo_Puesto`, `Nom_Nuevo_Puesto`, `ID_Procesos`, `Nom_Proceso`, `ID_Direcciones`, `Nom_Direcciones`, `ID_Subproceso`, `Nom_Subproceso`, `ID_funcion`, `Nom_funcion`, `ID_Valor`, `Nom_frecuencia`, `val_Frec`, `input`, `sistema`, `rol`, `tiempo`, `vol`, `T_H`, `fte's`) VALUES
-(77, '', '', 1, '...', '', '', 127, 'Recibir solicitud y propuestas', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
-(78, '', '', 1, '...', '', '', 166, 'Validar posible transportista', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
-(79, '', '', 1, '...', '', '', 170, 'Visitar instalaciones', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
-(80, '', '', 1, '...', '', '', 163, 'Validar documentación', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
-(81, '', '', 1, '...', '', '', 156, 'Solicitar información correcta', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
-(82, '', '', 1, '...', '', '', 68, 'Llenar contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
-(83, '', '', 1, '...', '', '', 43, 'Enviar contrato y documentación para validación', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
-(84, '', '', 1, '...', '', '', 25, 'Corregir contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
-(85, '', '', 1, '...', '', '', 57, 'Firmar contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
-(86, '', '', 1, '...', '', '', 167, 'Validar propuesta del proveedor', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
-(87, '', '', 1, '...', '', '', 157, 'Solicitar nueva cotización/propuesta  ', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
-(88, '', '', 1, '...', '', '', 74, 'Negociar con proveedor', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', ''),
-(89, '', '', 1, '...', '', '', 133, 'Recibir y validar documentación', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '00:00:00', '', '', '');
 
 --
 -- Índices para tablas volcadas
@@ -936,7 +918,7 @@ ALTER TABLE `usernames`
 -- AUTO_INCREMENT de la tabla `usuario_cliente`
 --
 ALTER TABLE `usuario_cliente`
-  MODIFY `ID_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `ID_empleado` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas

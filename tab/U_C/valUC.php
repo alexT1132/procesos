@@ -22,6 +22,7 @@
         $Nom_funcion = $_POST['Nom_funcion'];
         $ID_Valor = $_POST['ID_Valor'];
         $Nom_frecuencia = $_POST['Nom_frecuencia'];
+        $estado = $_POST['estado'];
         $query = "INSERT INTO usuario_cliente(Nombre, 
                                     Apellido,
                                     ID_Unidad_Negocio,
@@ -41,7 +42,8 @@
                                     ID_funcion,
                                     Nom_funcion,
                                     ID_Valor,
-                                    Nom_frecuencia) VALUES ('$Nombre',
+                                    Nom_frecuencia,
+                                    estado) VALUES ('$Nombre',
                                                         '$Apellido',
                                                         '$ID_Unidad_Negocio',
                                                         '$Nom_Unidad_Negocio',
@@ -60,7 +62,8 @@
                                                         '$ID_funcion',
                                                         '$Nom_funcion',
                                                         '$ID_Valor',
-                                                        '$Nom_frecuencia')";
+                                                        '$Nom_frecuencia',
+                                                        '$estado')";
         $result = mysqli_query($conexion, $query);
         if(!$result) {
             die("Query Failed.");

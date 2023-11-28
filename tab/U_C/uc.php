@@ -341,7 +341,10 @@ if($varsesion== null || $varsesion=''){
                               }
                             ?>
                           </select>
-                        </div>     
+                        </div>  
+                        <div class="mb-3">
+                            <input type="hidden" class="form-control" name="estado" id="estado" value="0">
+                        </div>   
                         <div class="row justify-content-end">
                             <button type="submit" name="guardar" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;">Guardar</button>
                         </div>
