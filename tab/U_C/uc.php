@@ -355,8 +355,8 @@ if($varsesion== null || $varsesion=''){
     </div>
 
     <!-- formulario -->
-    <div class="row justify-content-center">
-    <table class="table" style="margin-left: 200px;">
+    <div class="row justify-content-center" style="width: 100%;">
+    <table class="table" style="margin-left: 3%;">
   <thead class="text-center">
     <tr>
       <th scope="col">ID</th>
