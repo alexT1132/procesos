@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-11-2023 a las 16:47:31
+-- Tiempo de generación: 01-12-2023 a las 23:55:33
 -- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.1.17
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,69 +45,20 @@ CREATE TABLE `calculo` (
 
 CREATE TABLE `consultas` (
   `ID` int(11) NOT NULL,
-  `ID_funcion` int(11) NOT NULL,
-  `Nom_funcion` varchar(200) NOT NULL,
-  `ID_Procesos` int(11) NOT NULL,
-  `nom_Procesos` varchar(100) NOT NULL,
-  `ID_subproceso` int(11) NOT NULL,
-  `nom_subproceso` varchar(100) NOT NULL,
-  `ID_Actividad` int(11) NOT NULL,
-  `nom_Actividad` varchar(100) NOT NULL,
-  `input` varchar(255) NOT NULL,
-  `sistema` varchar(255) NOT NULL,
-  `rol` varchar(100) NOT NULL,
-  `tiempo` time NOT NULL,
-  `val_Frec` varchar(150) NOT NULL,
-  `vol` varchar(100) NOT NULL,
-  `T_H` varchar(100) NOT NULL,
-  `fte's` varchar(100) NOT NULL
+  `procesos` varchar(250) NOT NULL,
+  `subprocesos` varchar(250) NOT NULL,
+  `actividades` varchar(250) NOT NULL,
+  `ftes` varchar(100) NOT NULL,
+  `estado` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `consultas`
 --
 
-INSERT INTO `consultas` (`ID`, `ID_funcion`, `Nom_funcion`, `ID_Procesos`, `nom_Procesos`, `ID_subproceso`, `nom_subproceso`, `ID_Actividad`, `nom_Actividad`, `input`, `sistema`, `rol`, `tiempo`, `val_Frec`, `vol`, `T_H`, `fte's`) VALUES
-(1, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 127, 'Recibir solicitud y propuestas', '', '', '', '00:00:00', '', '', '', ''),
-(2, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 166, 'Validar posible transportista', '', '', '', '00:00:00', '', '', '', ''),
-(3, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 170, 'Visitar instalaciones', '', '', '', '00:00:00', '', '', '', ''),
-(4, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 163, 'Validar documentación', '', '', '', '00:00:00', '', '', '', ''),
-(5, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 156, 'Solicitar información correcta', '', '', '', '00:00:00', '', '', '', ''),
-(6, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 68, 'Llenar contrato', '', '', '', '00:00:00', '', '', '', ''),
-(7, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 43, 'Enviar contrato y documentación para validación', '', '', '', '00:00:00', '', '', '', ''),
-(8, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 25, 'Corregir contrato', '', '', '', '00:00:00', '', '', '', ''),
-(9, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 17, 'Gestionar contrato de transportistas', 57, 'Firmar contrato', '', '', '', '00:00:00', '', '', '', ''),
-(10, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 167, 'Validar propuesta del proveedor', '', '', '', '00:00:00', '', '', '', ''),
-(11, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 157, 'Solicitar nueva cotización/propuesta  ', '', '', '', '00:00:00', '', '', '', ''),
-(12, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 74, 'Negociar con proveedor', '', '', '', '00:00:00', '', '', '', ''),
-(13, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 133, 'Recibir y validar documentación', '', '', '', '00:00:00', '', '', '', ''),
-(14, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 156, 'Solicitar información correcta', '', '', '', '00:00:00', '', '', '', ''),
-(15, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 147, 'Revisar contrato firmado', '', '', '', '00:00:00', '', '', '', ''),
-(16, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 3, 'Actualizar contrato', '', '', '', '00:00:00', '', '', '', ''),
-(17, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 68, 'Llenar contrato', '', '', '', '00:00:00', '', '', '', ''),
-(18, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 57, 'Firmar contrato', '', '', '', '00:00:00', '', '', '', ''),
-(19, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 43, 'Enviar contrato y documentación para validación', '', '', '', '00:00:00', '', '', '', ''),
-(20, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 25, 'Corregir contrato', '', '', '', '00:00:00', '', '', '', ''),
-(21, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 19, 'Gestionar contratos de bodegas de azúcar', 57, 'Firmar contrato', '', '', '', '00:00:00', '', '', '', ''),
-(22, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 115, 'Recibir propuesta de proveedor', '', '', '', '00:00:00', '', '', '', ''),
-(23, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 75, 'Negociar condiciones comerciales', '', '', '', '00:00:00', '', '', '', ''),
-(24, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 32, 'Determinar mejor opción', '', '', '', '00:00:00', '', '', '', ''),
-(25, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 68, 'Llenar contrato', '', '', '', '00:00:00', '', '', '', ''),
-(26, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 163, 'Validar documentación', '', '', '', '00:00:00', '', '', '', ''),
-(27, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 156, 'Solicitar información correcta', '', '', '', '00:00:00', '', '', '', ''),
-(28, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 43, 'Enviar contrato y documentación para validación', '', '', '', '00:00:00', '', '', '', ''),
-(29, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 25, 'Corregir contrato', '', '', '', '00:00:00', '', '', '', ''),
-(30, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 16, 'Gestionar contrato de servicios administrativos y de zafra', 57, 'Firmar contrato', '', '', '', '00:00:00', '', '', '', ''),
-(31, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 18, 'Gestionar contrato marco SAP', 47, 'Enviar invitación de licitación', '', '', '', '00:00:00', '', '', '', ''),
-(32, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 18, 'Gestionar contrato marco SAP', 79, 'Negociar y seleccionar proveedor', '', '', '', '00:00:00', '', '', '', ''),
-(33, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 18, 'Gestionar contrato marco SAP', 26, 'Crear contrato', '', '', '', '00:00:00', '', '', '', ''),
-(34, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 18, 'Gestionar contrato marco SAP', 65, 'Liberar contrato marco', '', '', '', '00:00:00', '', '', '', ''),
-(35, 2, 'Abastecimientos', 8, 'Gestionar Contratos', 18, 'Gestionar contrato marco SAP', 11, 'Buscar proveedores alternos', '', '', '', '00:00:00', '', '', '', ''),
-(37, 2, 'Abastecimientos', 9, 'Gestionar Datos Maestros de Proveedores', 10, 'Gestionar alta de DM de Proveedores', 123, 'Recibir solicitud de consulta', '', '', '', '00:00:00', '', '', '', ''),
-(38, 2, 'Abastecimientos', 9, 'Gestionar Datos Maestros de Proveedores', 10, 'Gestionar alta de DM de Proveedores', 148, 'Revisar información proporcionada', '', '', '', '00:00:00', '', '', '', ''),
-(39, 2, 'Abastecimientos', 9, 'Gestionar Datos Maestros de Proveedores', 10, 'Gestionar alta de DM de Proveedores', 156, 'Solicitar información correcta', '', '', '', '00:00:00', '', '', '', ''),
-(40, 2, 'Abastecimientos', 9, 'Gestionar Datos Maestros de Proveedores', 10, 'Gestionar alta de DM de Proveedores', 101, 'Realizar alta del DM', '', '', '', '00:00:00', '', '', '', ''),
-(41, 2, 'Abastecimientos', 9, 'Gestionar Datos Maestros de Proveedores', 10, 'Gestionar alta de DM de Proveedores', 90, 'Notificar alta', '', '', '', '00:00:00', '', '', '', '');
+INSERT INTO `consultas` (`ID`, `procesos`, `subprocesos`, `actividades`, `ftes`, `estado`) VALUES
+(1, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Recibir solicitud y propuestas', '0.5', '1'),
+(2, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Validar posible transportista', '', '0');
 
 -- --------------------------------------------------------
 
@@ -634,7 +585,8 @@ CREATE TABLE `usernames` (
 
 INSERT INTO `usernames` (`ID`, `username`, `password`, `rol_id`) VALUES
 (1, 'Administrador', 'Pi@5a.2E', 1),
-(2, 'cliente', '1234', 2);
+(2, 'cliente', '1234', 2),
+(4, 'cliente2', 'piasa123', 2);
 
 -- --------------------------------------------------------
 
@@ -646,164 +598,24 @@ CREATE TABLE `usuario_cliente` (
   `ID_empleado` int(11) NOT NULL,
   `Nombre` varchar(50) NOT NULL,
   `Apellido` varchar(50) NOT NULL,
-  `ID_Unidad_Negocio` int(11) NOT NULL,
   `Nom_Unidad_Negocio` varchar(50) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Area` varchar(50) NOT NULL,
-  `ID_Actividad` int(11) NOT NULL,
   `Nom_Actividad` varchar(50) NOT NULL,
-  `ID_Nuevo_Puesto` int(11) NOT NULL,
   `Nom_Nuevo_Puesto` varchar(50) NOT NULL,
-  `ID_Procesos` int(11) NOT NULL,
   `Nom_Proceso` varchar(50) NOT NULL,
-  `ID_Direcciones` int(11) NOT NULL,
   `Nom_Direcciones` varchar(50) NOT NULL,
-  `ID_Subproceso` int(11) NOT NULL,
   `Nom_Subproceso` varchar(50) NOT NULL,
-  `ID_funcion` int(11) NOT NULL,
   `Nom_funcion` varchar(50) NOT NULL,
-  `ID_Valor` int(11) NOT NULL,
-  `Nom_frecuencia` varchar(50) NOT NULL,
   `val_Frec` varchar(255) NOT NULL,
   `input` varchar(255) NOT NULL,
   `sistema` varchar(255) NOT NULL,
   `rol` varchar(100) NOT NULL,
   `tiempo` varchar(50) NOT NULL,
   `vol` varchar(50) NOT NULL,
-  `T_H` varchar(100) NOT NULL,
-  `ftes` varchar(100) NOT NULL,
-  `estado` varchar(50) NOT NULL
+  `t_h` varchar(100) NOT NULL,
+  `ftes` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `usuario_cliente`
---
-
-INSERT INTO `usuario_cliente` (`ID_empleado`, `Nombre`, `Apellido`, `ID_Unidad_Negocio`, `Nom_Unidad_Negocio`, `Email`, `Area`, `ID_Actividad`, `Nom_Actividad`, `ID_Nuevo_Puesto`, `Nom_Nuevo_Puesto`, `ID_Procesos`, `Nom_Proceso`, `ID_Direcciones`, `Nom_Direcciones`, `ID_Subproceso`, `Nom_Subproceso`, `ID_funcion`, `Nom_funcion`, `ID_Valor`, `Nom_frecuencia`, `val_Frec`, `input`, `sistema`, `rol`, `tiempo`, `vol`, `T_H`, `ftes`, `estado`) VALUES
-(1, '', '', 1, '...', '', '', 127, 'Recibir solicitud y propuestas', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(2, '', '', 1, '...', '', '', 166, 'Validar posible transportista', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(3, '', '', 1, '...', '', '', 170, 'Visitar instalaciones', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(4, '', '', 1, '...', '', '', 163, 'Validar documentación', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(5, '', '', 1, '...', '', '', 156, 'Solicitar información correcta', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(6, '', '', 1, '...', '', '', 68, 'Llenar contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(7, '', '', 1, '...', '', '', 43, 'Enviar contrato y documentación para validación', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(8, '', '', 1, '...', '', '', 25, 'Corregir contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(9, '', '', 1, '...', '', '', 57, 'Firmar contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 17, 'Gestionar contrato de transportistas', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(10, '', '', 1, '...', '', '', 167, 'Validar propuesta del proveedor', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(11, '', '', 1, '...', '', '', 157, 'Solicitar nueva cotización/propuesta  ', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(12, '', '', 1, '...', '', '', 74, 'Negociar con proveedor', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(13, '', '', 1, '...', '', '', 133, 'Recibir y validar documentación', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(14, '', '', 1, '...', '', '', 156, 'Solicitar información correcta', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(15, '', '', 1, '...', '', '', 147, 'Revisar contrato firmado', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(16, '', '', 1, '...', '', '', 3, 'Actualizar contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(17, '', '', 1, '...', '', '', 68, 'Llenar contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(18, '', '', 1, '...', '', '', 57, 'Firmar contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(19, '', '', 1, '...', '', '', 57, 'Firmar contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(20, '', '', 1, '...', '', '', 43, 'Enviar contrato y documentación para validación', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(21, '', '', 1, '...', '', '', 25, 'Corregir contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(22, '', '', 1, '...', '', '', 57, 'Firmar contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 19, 'Gestionar contratos de bodegas de azúcar', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(23, '', '', 1, '...', '', '', 115, 'Recibir propuesta de proveedor', 8, '...', 8, 'Gestionar Contratos', 1, '...', 16, 'Gestionar contrato de servicios administrativos y ', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(24, '', '', 1, '...', '', '', 75, 'Negociar condiciones comerciales', 8, '...', 8, 'Gestionar Contratos', 1, '...', 16, 'Gestionar contrato de servicios administrativos y ', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(25, '', '', 1, '...', '', '', 32, 'Determinar mejor opción', 8, '...', 8, 'Gestionar Contratos', 1, '...', 16, 'Gestionar contrato de servicios administrativos y ', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(26, '', '', 1, '...', '', '', 68, 'Llenar contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 16, 'Gestionar contrato de servicios administrativos y ', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(27, '', '', 1, '...', '', '', 163, 'Validar documentación', 8, '...', 8, 'Gestionar Contratos', 1, '...', 16, 'Gestionar contrato de servicios administrativos y ', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(28, '', '', 1, '...', '', '', 156, 'Solicitar información correcta', 8, '...', 8, 'Gestionar Contratos', 1, '...', 16, 'Gestionar contrato de servicios administrativos y ', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(29, '', '', 1, '...', '', '', 43, 'Enviar contrato y documentación para validación', 8, '...', 8, 'Gestionar Contratos', 1, '...', 16, 'Gestionar contrato de servicios administrativos y ', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(30, '', '', 1, '...', '', '', 25, 'Corregir contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 16, 'Gestionar contrato de servicios administrativos y ', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(31, '', '', 1, '...', '', '', 57, 'Firmar contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 16, 'Gestionar contrato de servicios administrativos y ', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(32, '', '', 1, '...', '', '', 47, 'Enviar invitación de licitación', 8, '...', 8, 'Gestionar Contratos', 1, '...', 18, 'Gestionar contrato marco SAP', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(33, '', '', 1, '...', '', '', 79, 'Negociar y seleccionar proveedor', 8, '...', 8, 'Gestionar Contratos', 1, '...', 18, 'Gestionar contrato marco SAP', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(34, '', '', 1, '...', '', '', 26, 'Crear contrato', 8, '...', 8, 'Gestionar Contratos', 1, '...', 18, 'Gestionar contrato marco SAP', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(35, '', '', 1, '...', '', '', 65, 'Liberar contrato marco', 8, '...', 8, 'Gestionar Contratos', 1, '...', 18, 'Gestionar contrato marco SAP', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(36, '', '', 1, '...', '', '', 11, 'Buscar proveedores alternos', 8, '...', 8, 'Gestionar Contratos', 1, '...', 18, 'Gestionar contrato marco SAP', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(37, '', '', 1, '...', '', '', 121, 'Recibir solicitud de alta', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 10, 'Gestionar alta de DM de Proveedores', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(38, '', '', 1, '...', '', '', 148, 'Revisar información proporcionada', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 10, 'Gestionar alta de DM de Proveedores', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(39, '', '', 1, '...', '', '', 156, 'Solicitar información correcta', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 10, 'Gestionar alta de DM de Proveedores', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(40, '', '', 1, '...', '', '', 101, 'Realizar alta del DM', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 10, 'Gestionar alta de DM de Proveedores', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(41, '', '', 1, '...', '', '', 90, 'Notificar alta', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 10, 'Gestionar alta de DM de Proveedores', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(42, '', '', 1, '...', '', '', 124, 'Recibir solicitud de modificación', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 21, 'Gestionar modificación de DM de Proveedores', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(43, '', '', 1, '...', '', '', 148, 'Revisar información proporcionada', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 21, 'Gestionar modificación de DM de Proveedores', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(44, '', '', 1, '...', '', '', 156, 'Solicitar información correcta', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 21, 'Gestionar modificación de DM de Proveedores', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(45, '', '', 1, '...', '', '', 106, 'Realizar modificación del DM', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 21, 'Gestionar modificación de DM de Proveedores', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(46, '', '', 1, '...', '', '', 92, 'Notificar la modificación', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 21, 'Gestionar modificación de DM de Proveedores', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(47, '', '', 1, '...', '', '', 121, 'Recibir solicitud de alta', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 11, 'Gestionar alta de DM de Proveedores (Portal)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(48, '', '', 1, '...', '', '', 90, 'Notificar alta', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 11, 'Gestionar alta de DM de Proveedores (Portal)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(49, '', '', 1, '...', '', '', 148, 'Revisar información proporcionada', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 11, 'Gestionar alta de DM de Proveedores (Portal)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(50, '', '', 1, '...', '', '', 156, 'Solicitar información correcta', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 11, 'Gestionar alta de DM de Proveedores (Portal)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(51, '', '', 1, '...', '', '', 101, 'Realizar alta del DM', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 11, 'Gestionar alta de DM de Proveedores (Portal)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(52, '', '', 1, '...', '', '', 159, 'Solicitar validación', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 11, 'Gestionar alta de DM de Proveedores (Portal)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(53, '', '', 1, '...', '', '', 88, 'Notificar al proveedor', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 11, 'Gestionar alta de DM de Proveedores (Portal)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(54, '', '', 1, '...', '', '', 153, 'Solicitar activación', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 11, 'Gestionar alta de DM de Proveedores (Portal)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(55, '', '', 1, '...', '', '', 122, 'Recibir solicitud de bloqueo', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 13, 'Gestionar bloqueo de proveedores', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(56, '', '', 1, '...', '', '', 102, 'Realizar bloqueo', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 13, 'Gestionar bloqueo de proveedores', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(57, '', '', 1, '...', '', '', 91, 'Notificar bloqueo', 8, '...', 9, 'Gestionar Datos Maestros de Proveedores', 1, '...', 13, 'Gestionar bloqueo de proveedores', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(58, 'hugo', 'sanchez', 1, 'IPSLSA', 'hsanchez@grupopiasa.com', 'operacion', 128, 'Recibir SolP', 8, 'Analista de abasto', 6, 'Gestionar compras de materiales', 1, 'Direccion de Cadena de Suministro', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '4', 'ticket', 'sap', 'Ejecutar', '.5', '4', '8', '0.05', '1'),
-(59, 'hugo', 'sanchez', 1, 'IPSLSA', 'hsanchez@grupopiasa.com', 'operacion', 61, 'Generar petición de oferta en SAP', 8, 'Analista de abasto', 6, 'Gestionar compras de materiales', 1, 'Direccion de Cadena de Suministro', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '4', 'correo', 'fresh', 'Supervisar', '0.25', '1', '1', '0.0063', '1'),
-(60, 'hugo', 'sanchez', 1, 'IPSLSA', 'hsanchez@grupopiasa.com', 'operacion', 116, 'Recibir propuesta de proveedores', 8, 'Analista de abasto', 6, 'Gestionar compras de materiales', 1, 'Direccion de Cadena de Suministro', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '4', 'correo', 'fresh', 'Ejecutar', '.25', '2', '2', '0.0125', '1'),
-(61, 'hugo', 'sanchez', 1, 'IPSLSA', 'hsanchez@grupopiasa.com', 'operacion', 73, 'Negocación y retroalimentación con proveedores', 8, 'Analista de abasto', 6, 'Gestionar compras de materiales', 1, 'Direccion de Cadena de Suministro', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '1', 'correo', 'excel', 'Ejecutar', '.35', '1', '0.35', '0.0022', '1'),
-(62, 'hugo', 'sanchez', 1, 'IPSLSA', 'hsanchez@grupopiasa.com', 'operacion', 58, 'Generar cuadro comparativo', 8, 'Analista de abasto', 6, 'Gestionar compras de materiales', 1, 'Direccion de Cadena de Suministro', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '12', 'ticket', 'sap', 'Supervisar', '0.5', '1', '0.0417', '0.0003', '1'),
-(63, 'guillermo', 'ochoa', 1, 'ITVSA', 'gochoa@grupopiasa.com', 'administrativa', 162, 'Validar con ususarios y almacén / Retroalimentació', 8, 'Analista de abasto', 6, 'Gestionar compras de materiales', 1, 'Direccion de Cadena de Suministro', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '4', 'ticket', 'excel', 'Ejecutar', '100', '100', '40000', '250', '1'),
-(64, 'Fer', 'Soler', 1, 'ITVSA', 'fsoler@grupopiasa.com', 'administrativa', 161, 'Tomar decisión de compra', 8, 'Analista de abasto', 6, 'Gestionar compras de materiales', 1, 'Direccion de Cadena de Suministro', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '12', 'ticket', 'excel', 'Ejecutar', '.25', '1', '0.0208', '0.0001', '1'),
-(65, 'Fer', 'ochoa', 1, 'ITVSA', 'gochoa@grupopiasa.com', 'administrativa', 59, 'Generar pedido', 8, 'Analista de abasto', 6, 'Gestionar compras de materiales', 1, 'Dirección de Finanzas', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '4', 'documento', 'excel', 'Ejecutar', '.002', '1', '0.008', '0.0001', '1'),
-(66, '', '', 1, '...', '', '', 66, 'Liberar pedido', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(67, '', '', 1, '...', '', '', 66, 'Liberar pedido', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(68, '', '', 1, '...', '', '', 96, 'Notificar rechazo de liberación', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(69, '', '', 1, '...', '', '', 111, 'Recibir confirmación de la orden de compra', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(70, '', '', 1, '...', '', '', 28, 'Dar seguimiento a la orden de compra', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(71, '', '', 1, '...', '', '', 131, 'Recibir y registrar factura', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(72, '', '', 1, '...', '', '', 128, 'Recibir SolP', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(73, '', '', 1, '...', '', '', 61, 'Generar petición de oferta en SAP', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(74, '', '', 1, '...', '', '', 116, 'Recibir propuesta de proveedores', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(75, '', '', 1, '...', '', '', 73, 'Negocación y retroalimentación con proveedores', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(76, '', '', 1, '...', '', '', 58, 'Generar cuadro comparativo', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(77, '', '', 1, '...', '', '', 162, 'Validar con ususarios y almacén / Retroalimentació', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(78, '', '', 1, '...', '', '', 161, 'Tomar decisión de compra', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(79, '', '', 1, '...', '', '', 59, 'Generar pedido', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(80, '', '', 1, '...', '', '', 66, 'Liberar pedido', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(81, '', '', 1, '...', '', '', 96, 'Notificar rechazo de liberación', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(82, '', '', 1, '...', '', '', 111, 'Recibir confirmación de la orden de compra', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(83, '', '', 1, '...', '', '', 28, 'Dar seguimiento a la orden de compra', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(84, '', '', 1, '...', '', '', 131, 'Recibir y registrar factura', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(85, '', '', 1, '...', '', '', 128, 'Recibir SolP', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 22, 'Gestionar pedidos con convenio (Contrato Marco)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(86, '', '', 1, '...', '', '', 59, 'Generar pedido', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 22, 'Gestionar pedidos con convenio (Contrato Marco)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(87, '', '', 1, '...', '', '', 111, 'Recibir confirmación de la orden de compra', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 22, 'Gestionar pedidos con convenio (Contrato Marco)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(88, '', '', 1, '...', '', '', 28, 'Dar seguimiento a la orden de compra', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 22, 'Gestionar pedidos con convenio (Contrato Marco)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(89, '', '', 1, '...', '', '', 131, 'Recibir y registrar factura', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 22, 'Gestionar pedidos con convenio (Contrato Marco)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(90, '', '', 1, '...', '', '', 128, 'Recibir SolP', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 25, 'Gestionar pedidos por asignación directa', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(91, '', '', 1, '...', '', '', 110, 'Recibir autorización técnica', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 25, 'Gestionar pedidos por asignación directa', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(92, '', '', 1, '...', '', '', 59, 'Generar pedido', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 25, 'Gestionar pedidos por asignación directa', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(93, '', '', 1, '...', '', '', 66, 'Liberar pedido', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 25, 'Gestionar pedidos por asignación directa', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(94, '', '', 1, '...', '', '', 66, 'Liberar pedido', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 25, 'Gestionar pedidos por asignación directa', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(95, '', '', 1, '...', '', '', 95, 'Notificar rechazo', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 25, 'Gestionar pedidos por asignación directa', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(96, '', '', 1, '...', '', '', 111, 'Recibir confirmación de la orden de compra', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 25, 'Gestionar pedidos por asignación directa', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(97, '', '', 1, '...', '', '', 28, 'Dar seguimiento a la orden de compra', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 25, 'Gestionar pedidos por asignación directa', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(98, '', '', 1, '...', '', '', 131, 'Recibir y registrar factura', 8, '...', 6, 'Gestionar compras de materiales', 1, '...', 25, 'Gestionar pedidos por asignación directa', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(99, '', '', 1, '...', '', '', 128, 'Recibir SolP', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(100, '', '', 1, '...', '', '', 62, 'Generar petición de oferta por correo electrónico', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(101, '', '', 1, '...', '', '', 116, 'Recibir propuesta de proveedores', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(102, '', '', 1, '...', '', '', 58, 'Generar cuadro comparativo', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(103, '', '', 1, '...', '', '', 146, 'Revisar comparativo y propuesta proporcionada (Dec', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(104, '', '', 1, '...', '', '', 130, 'Recibir validación técnica (como anexo en la OC)', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(105, '', '', 1, '...', '', '', 35, 'Elaborar orden de compra', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(106, '', '', 1, '...', '', '', 66, 'Liberar pedido', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(107, '', '', 1, '...', '', '', 66, 'Liberar pedido', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(108, '', '', 1, '...', '', '', 95, 'Notificar rechazo', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(109, '', '', 1, '...', '', '', 111, 'Recibir confirmación de la orden de compra', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 24, 'Gestionar pedidos estándar (Compras menores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(110, '', '', 1, '...', '', '', 128, 'Recibir SolP', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(111, '', '', 1, '...', '', '', 62, 'Generar petición de oferta por correo electrónico', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(112, '', '', 1, '...', '', '', 116, 'Recibir propuesta de proveedores', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(113, '', '', 1, '...', '', '', 58, 'Generar cuadro comparativo', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(114, '', '', 1, '...', '', '', 145, 'Revisar comparativo y propuesta proporcionada', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(115, '', '', 1, '...', '', '', 130, 'Recibir validación técnica (como anexo en la OC)', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(116, '', '', 1, '...', '', '', 35, 'Elaborar orden de compra', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(117, '', '', 1, '...', '', '', 66, 'Liberar pedido', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(118, '', '', 1, '...', '', '', 95, 'Notificar rechazo', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(119, '', '', 1, '...', '', '', 111, 'Recibir confirmación de la orden de compra', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 23, 'Gestionar pedidos estándar (Compras mayores)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(120, '', '', 1, '...', '', '', 128, 'Recibir SolP', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 22, 'Gestionar pedidos con convenio (Contrato Marco)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(121, '', '', 1, '...', '', '', 154, 'Solicitar cotización al proveedor y visto bueno us', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 22, 'Gestionar pedidos con convenio (Contrato Marco)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(122, '', '', 1, '...', '', '', 59, 'Generar pedido', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 22, 'Gestionar pedidos con convenio (Contrato Marco)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(123, '', '', 1, '...', '', '', 66, 'Liberar pedido', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 22, 'Gestionar pedidos con convenio (Contrato Marco)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0'),
-(124, '', '', 1, '...', '', '', 111, 'Recibir confirmación de la orden de compra', 8, '...', 7, 'Gestionar compras de servicios', 1, '...', 22, 'Gestionar pedidos con convenio (Contrato Marco)', 2, 'Abastecimientos', 2, 'Semanal', '', '', '', '', '', '', '', '', '0');
 
 --
 -- Índices para tablas volcadas
@@ -821,11 +633,7 @@ ALTER TABLE `calculo`
 -- Indices de la tabla `consultas`
 --
 ALTER TABLE `consultas`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `ID_funcion` (`ID_funcion`),
-  ADD KEY `ID_Procesos` (`ID_Procesos`),
-  ADD KEY `ID_Actividad` (`ID_Actividad`),
-  ADD KEY `ID_subproceso` (`ID_subproceso`) USING BTREE;
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indices de la tabla `detalle_actividad`
@@ -928,15 +736,7 @@ ALTER TABLE `usernames`
 -- Indices de la tabla `usuario_cliente`
 --
 ALTER TABLE `usuario_cliente`
-  ADD PRIMARY KEY (`ID_empleado`),
-  ADD KEY `ID_Actividad` (`ID_Actividad`),
-  ADD KEY `ID_Direcciones` (`ID_Direcciones`),
-  ADD KEY `ID_Nuevo_Puesto` (`ID_Nuevo_Puesto`),
-  ADD KEY `ID_Procesos` (`ID_Procesos`),
-  ADD KEY `ID_Subproceso` (`ID_Subproceso`),
-  ADD KEY `ID_Unidad_Negocio` (`ID_Unidad_Negocio`),
-  ADD KEY `ID_Valor` (`ID_Valor`),
-  ADD KEY `ID_funcion` (`ID_funcion`);
+  ADD PRIMARY KEY (`ID_empleado`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -952,7 +752,7 @@ ALTER TABLE `calculo`
 -- AUTO_INCREMENT de la tabla `consultas`
 --
 ALTER TABLE `consultas`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_actividad`
@@ -1042,13 +842,13 @@ ALTER TABLE `unidad_negocio`
 -- AUTO_INCREMENT de la tabla `usernames`
 --
 ALTER TABLE `usernames`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario_cliente`
 --
 ALTER TABLE `usuario_cliente`
-  MODIFY `ID_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
+  MODIFY `ID_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
 
 --
 -- Restricciones para tablas volcadas
@@ -1060,15 +860,6 @@ ALTER TABLE `usuario_cliente`
 ALTER TABLE `calculo`
   ADD CONSTRAINT `calculo_ibfk_1` FOREIGN KEY (`ID_Actividad`) REFERENCES `detalle_actividad` (`ID_Actividad`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `calculo_ibfk_2` FOREIGN KEY (`ID_Valor`) REFERENCES `frecuencia` (`ID_Valor`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `consultas`
---
-ALTER TABLE `consultas`
-  ADD CONSTRAINT `consultas_ibfk_1` FOREIGN KEY (`ID_funcion`) REFERENCES `funciones` (`ID_funcion`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `consultas_ibfk_2` FOREIGN KEY (`ID_Procesos`) REFERENCES `procesos` (`ID_Procesos`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `consultas_ibfk_3` FOREIGN KEY (`ID_subproceso`) REFERENCES `sub_proceso` (`ID_subProcesos`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `consultas_ibfk_4` FOREIGN KEY (`ID_Actividad`) REFERENCES `detalle_actividad` (`ID_Actividad`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `nomenclatura`
@@ -1101,20 +892,6 @@ ALTER TABLE `tipo`
 --
 ALTER TABLE `usernames`
   ADD CONSTRAINT `usernames_ibfk_1` FOREIGN KEY (`rol_id`) REFERENCES `roles` (`ID`);
-
---
--- Filtros para la tabla `usuario_cliente`
---
-ALTER TABLE `usuario_cliente`
-  ADD CONSTRAINT `usuario_cliente_ibfk_1` FOREIGN KEY (`ID_Actividad`) REFERENCES `detalle_actividad` (`ID_Actividad`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `usuario_cliente_ibfk_2` FOREIGN KEY (`ID_Direcciones`) REFERENCES `direcciones` (`ID_Direccion`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `usuario_cliente_ibfk_3` FOREIGN KEY (`ID_Nuevo_Puesto`) REFERENCES `nuevo_puesto` (`ID_Nuevo_Puesto`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `usuario_cliente_ibfk_4` FOREIGN KEY (`ID_Procesos`) REFERENCES `procesos` (`ID_Procesos`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `usuario_cliente_ibfk_5` FOREIGN KEY (`ID_Subproceso`) REFERENCES `sub_proceso` (`ID_subProcesos`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `usuario_cliente_ibfk_6` FOREIGN KEY (`ID_funcion`) REFERENCES `funciones` (`ID_funcion`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `usuario_cliente_ibfk_7` FOREIGN KEY (`ID_Unidad_Negocio`) REFERENCES `unidad_negocio` (`ID_unidad_negocio`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `usuario_cliente_ibfk_8` FOREIGN KEY (`ID_Valor`) REFERENCES `frecuencia` (`ID_Valor`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `usuario_cliente_ibfk_9` FOREIGN KEY (`ID_funcion`) REFERENCES `funciones` (`ID_funcion`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -32,7 +32,7 @@
                 <div class="button-navbar">
                     <form class="d-flex" action="../destroy.php">
                         <button class="btn" type="submit">
-                            <h5>Cerrar Sesion</h5>
+                            <h5>Finalizar</h5>
                         </button>
                     </form>
                 </div>

@@ -1,9 +1,31 @@
 <?php 
  session_start();
  include('../config/conexion.php');
+
+ $procesos = '';
+ $subprocesos = '';
+ $actividades = '';
+
+
+if  (isset($_GET['ID'])) {
+  $ID = $_GET['ID'];
+  $query = "SELECT * FROM consultas WHERE ID = $ID";
+  $result = mysqli_query($conexion, $query);
+  if (mysqli_num_rows($result) == 1) {
+    $row = mysqli_fetch_array($result);
+    $procesos = $row['procesos'];
+    $subprocesos = $row['subprocesos'];
+    $actividades = $row['actividades'];
+  }
+}
+
+
  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Obtiene los datos del formulario
-    $ID_empleado = $_POST['ID_empleado'];
+    $ID = $_POST['ID'];
+    $Nom_Proceso = $_POST['Nom_Proceso'];
+    $Nom_Subproceso = $_POST['Nom_Subproceso'];
+    $Nom_Actividad = $_POST['Nom_Actividad'];
     $estado = $_POST['estado'];
     $input = $_POST['input'];
     $sistema = $_POST['sistema'];
@@ -35,7 +57,10 @@
 
     // Guarda los datos en la sesión
     $_SESSION['formulario2'] = array(
-        'ID_empleado' => $ID_empleado,
+        'ID' => $ID,
+        'Nom_Proceso' => $Nom_Proceso,
+        'Nom_Subproceso' => $Nom_Subproceso,
+        'Nom_Actividad' => $Nom_Actividad,
         'estado' => $estado,
         'input' => $input,
         'sistema' => $sistema,
@@ -46,16 +71,10 @@
         't_h' => $t_h,
         'ftes' => $ftes,
     );
-    if (isset($_GET['ID_empleado'])) {
-        $ID_empleado = $_GET['ID_empleado'];
- } 
  
     header('Location: paso5.php');
     exit;
- } else {
-    // Verifica si se ha proporcionado un ID válido en la URL
- 
-}
+ }
 ?>
 
 <!DOCTYPE html>
@@ -78,7 +97,7 @@
                 <div class="button-navbar">
                     <form class="d-flex" action="../destroy.php">
                         <button class="btn" type="submit">
-                            <h5>Cerrar Sesion</h5>
+                            <h5>Finalizar</h5>
                         </button>
                     </form>
                 </div>
@@ -88,11 +107,26 @@
     <section class="body-container">
         <div class="container" style="margin-top: 5%;">
             <div class="row justify-content-center">
+                <div class="title text-center">
+                    <h3><b><?php echo $row['subprocesos']; ?></b></h3>
+                    <br>
+                    <h4><?php echo $row['actividades']; ?></h4>
+                </div>
+                <br><br>
                 <div class="card" style="width: auto;">
                     <div class="card-body">
                     <form action="" method="POST">
                         <div class="mb-3">
-                            <input type="hidden" name="ID_empleado" value="<?php echo $_GET['ID_empleado']; ?>">
+                            <input type="hidden" name="ID" value="<?php echo $_GET['ID']; ?>">
+                        </div>
+                        <div class="mb-3">
+                            <input type="hidden" name="Nom_Proceso" value="<?php echo $row['procesos']; ?>">
+                        </div>
+                        <div class="mb-3">
+                            <input type="hidden" name="Nom_Subproceso" value="<?php echo $row['subprocesos']; ?>">
+                        </div>
+                        <div class="mb-3">
+                            <input type="hidden" name="procesos" value="<?php echo $row['actividades']; ?>">
                         </div>
                         <div class="mb-3">
                             <input type="hidden" name="estado" value="1">
@@ -106,7 +140,7 @@
                                 <label for="sistema" class="form-label">Sistema</label>
                                 <input type="text" class="form-control" name="sistema" id="sistema" style="width: 100%;" required>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3" style="width: 30%;">
                                 <label for="rol" class="form-label">Rol</label>
                                 <select class="form-select mb-3" name="rol" id="rol" style="width: 100%;" required>
                                     <option selected disabled value="">Selecciona un rol</option>
@@ -120,10 +154,10 @@
                                 <label for="tiempo" class="form-label">Tiempo</label>
                                 <input type="text" class="form-control" name="tiempo" id="tiempo" style="width: 100%;" required>
                             </div>
-                            <div class="md-3" style="align-items: center; width: 20%">
+                            <div class="md-3" style="align-items: center; width: 30%">
                           <label for="val_Frec" class="form-label">Frecuencia</label>
                           <div class="d-flex" style="gap: 2%;">
-                              <select class="form-select mb-3" name="val_Frec" id="val_Frec" required>
+                              <select class="form-select mb-3" name="val_Frec" id="val_Frec"  required>
                               <option selected disabled value="">Selecciona una opcion</option>
                                 <option value="4">Semanal</option>
                                 <option value="1">Mensual</option>

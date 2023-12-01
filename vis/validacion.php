@@ -16,6 +16,9 @@
         $Nom_Direcciones = $conexion->real_escape_string($formulario1['Nom_Direcciones']);
         $Nom_Nuevo_Puesto = $conexion->real_escape_string($formulario1['Nom_Nuevo_Puesto']);
         $Nom_funcion = $conexion->real_escape_string($formulario1['Nom_funcion']);
+        $Nom_Proceso = $conexion->real_escape_string($formulario2['Nom_Proceso']);
+        $Nom_Subproceso = $conexion->real_escape_string($formulario2['Nom_Subproceso']);
+        $Nom_Actividad = $conexion->real_escape_string($formulario2['Nom_Actividad']);
         $estado = $conexion->real_escape_string($formulario2['estado']);
         $input = $conexion->real_escape_string($formulario2['input']);
         $sistema = $conexion->real_escape_string($formulario2['sistema']);
@@ -26,9 +29,51 @@
         $t_h = $conexion->real_escape_string($formulario2['t_h']);
         $ftes = $conexion->real_escape_string($formulario2['ftes']);
 
-        $query = "UPDATE usuario_cliente SET Nombre = '$Nombre', Apellido = '$Apellido', Nom_Unidad_Negocio = '$Nom_Unidad_Negocio', Email = '$Email', Area = '$Area', Nom_Direcciones = '$Nom_Direcciones', Nom_Nuevo_Puesto = '$Nom_Nuevo_Puesto', Nom_funcion = '$Nom_funcion', 
-        estado = '$estado', input = '$input', sistema = '$sistema', rol = '$rol', tiempo = '$tiempo', val_Frec = '$val_Frec', vol = '$vol', t_h = '$t_h', ftes = '$ftes' WHERE ID_empleado = {$formulario2['ID_empleado']}";
-    $resultado = $conexion->query($query);
+        $query1 = "UPDATE consultas SET ftes = '$ftes', estado = '$estado' WHERE ID = {$formulario2['ID']}";
+        $resultado1 = $conexion->query($query1);
+
+        if ($resultado1) {
+            
+            $query2 = "INSERT INTO usuario_cliente (Nombre,
+                                                        Apellido,
+                                                        Nom_Unidad_Negocio,
+                                                        Email,
+                                                        Area,
+                                                        Nom_Actividad,
+                                                        Nom_Nuevo_Puesto,
+                                                        Nom_Proceso,
+                                                        Nom_Direcciones,
+                                                        Nom_Subproceso,
+                                                        Nom_funcion,
+                                                        val_Frec,
+                                                        input,
+                                                        sistema,
+                                                        rol,
+                                                        tiempo,
+                                                        vol,
+                                                        t_h,
+                                                        ftes) Values ('$Nombre',
+                                                                        '$Apellido',
+                                                                        '$Nom_Unidad_Negocio',
+                                                                        '$Email',
+                                                                        '$Area',
+                                                                        '$Nom_Actividad',
+                                                                        '$Nom_Nuevo_Puesto',
+                                                                        '$Nom_Proceso',
+                                                                        '$Nom_Direcciones',
+                                                                        '$Nom_Subproceso',
+                                                                        '$Nom_funcion',
+                                                                        '$val_Frec',
+                                                                        '$input',
+                                                                        '$sistema',
+                                                                        '$rol',
+                                                                        '$tiempo',
+                                                                        '$vol',
+                                                                        '$t_h',
+                                                                        '$ftes')";
+            $resultado2 = $conexion->query($query2);
+
+        }
 
     $conexion->close();
 

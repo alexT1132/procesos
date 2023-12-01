@@ -12,6 +12,23 @@
     }
 
 
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+      //DATOS DEL FORM
+      $Nom_Proceso = $_POST['Nom_Proceso'];
+      $Nom_Subproceso = $_POST['Nom_Subproceso'];
+      $Nom_Actividad = $_POST['Nom_Actividad'];
+  
+      //DATOS EN LA SESSION
+      $_SESSION['formulario2'] = array(
+        'Nom_Proceso' => $Nom_Proceso,
+        'Nom_Subproceso' => $Nom_Subproceso,
+        'Nom_Actividad' => $Nom_Actividad,
+      );
+  
+      header('Location: paso4.php');
+      exit;
+  
+    }
 
 
     
@@ -39,7 +56,7 @@
                 <div class="button-navbar">
                     <form class="d-flex" action="../destroy.php">
                         <button class="btn" type="submit">
-                            <h5>Cerrar Session</h5>
+                            <h5>Finalizar</h5>
                         </button>
                     </form>
                 </div>
@@ -104,7 +121,7 @@
                               }
                             ?>
                           </select>            
-                          <input type="submit" class="btn btn-outline-success" value="Search">       
+                          <input type="submit" class="btn btn-outline-success" value="Search" style="height: 72%;">       
                     </div>
                   </div>
                 </div>
@@ -113,9 +130,9 @@
                 error_reporting(0);
                   $Nom_Proceso = $_GET['Nom_Proceso'];
                 // Consulta SQL
-                $sql = "SELECT * FROM usuario_cliente";
+                $sql = "SELECT * FROM consultas";
                 if ($Nom_Proceso != 'todos') {
-                  $sql .= " WHERE Nom_Proceso = '$Nom_Proceso'";
+                  $sql .= " WHERE procesos = '$Nom_Proceso'";
               }
               
                 $result = $conexion->query($sql);
@@ -127,6 +144,7 @@
                         <tr>
                           <th scope="col">Subprocesos</th>
                           <th scope="col">Actividades</th>
+                          <th scope="col">Fte's</th>
                           <th scope="col">Validacion</th>
                           <th scope="col">Estado</th>
                         </tr>
@@ -136,12 +154,26 @@
                     ?>
                      <tbody>
                       <tr>
-                        <td><?php echo $row['Nom_Subproceso']; ?></td>
-                        <td><?php echo $row['Nom_Actividad']; ?></td>
+                        <td><?php echo $row['subprocesos']; ?></td>
+                        <td><?php echo $row['actividades']; ?></td>
+                        <td><?php echo $row['ftes']; ?></td>
                         <td>
-                          <a href="paso4.php?ID_empleado=<?php echo $row['ID_empleado']?>" class="btn btn-warning">
-                            Capturar
-                          </a>
+                        <?php 
+                            if ($row['estado']==0){
+                              ?>
+                            <a href="paso4.php?ID=<?php echo $row['ID']?>" class="btn btn-warning">
+                              Capturar
+                            </a>
+                          <?php
+                            } else
+                            if ($row['estado']==1) {
+                              ?>
+                            <a href="#" class="btn btn-danger" onclick="return confirm('Estas seguro que deseas editar esta informacion?')">
+                              Editar
+                            </a>   
+                          <?php
+                            }
+                          ?>
                         </td>
                         <td>
                           <?php 

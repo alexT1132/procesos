@@ -35,7 +35,7 @@
                 <div class="button-navbar">
                     <form class="d-flex" action="../destroy.php">
                         <button class="btn" type="submit">
-                            <h5>Cerrar Session</h5>
+                            <h5>Finalizar</h5>
                         </button>
                     </form>
                 </div>
@@ -100,7 +100,7 @@
                               }
                             ?>
                           </select>            
-                          <input type="submit" class="btn btn-outline-success" value="Search">       
+                          <input type="submit" class="btn btn-outline-success" value="Search" style="height: 72%;">       
                     </div>
                   </div>
                 </div>
@@ -109,9 +109,9 @@
                 error_reporting(0);
                   $nom_Procesos = $_GET['Nom_Proceso'];
                 // Consulta SQL
-                $sql = "SELECT * FROM usuario_cliente";
+                $sql = "SELECT * FROM consultas";
                 if ($Nom_Proceso != 'todos') {
-                  $sql .= " WHERE Nom_Proceso = '$Nom_Proceso'";
+                  $sql .= " WHERE procesos = '$Nom_Proceso'";
               }
               
                 $result = $conexion->query($sql);
