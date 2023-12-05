@@ -151,3 +151,10 @@ $query = "INSERT INTO usuario_cliente(Nombre,
                                                         '$Nom_funcion',
                                                         '$ID_Valor',
                                                         '$Nom_frecuencia')";
+
+
+
+                                                         $sql = "SELECT consultas.ID_User, consultas.subprocesos, consultas.actividades, consultas.ftes FROM consultas WHERE consultas.ID_User = 2";
+                if ($Nom_Proceso != 'todos') {
+                  $sql .= " WHERE procesos = '$Nom_Proceso'";
+              }

@@ -109,7 +109,7 @@
                 error_reporting(0);
                   $nom_Procesos = $_GET['Nom_Proceso'];
                 // Consulta SQL
-                $sql = "SELECT * FROM consultas";
+                $sql = "SELECT consultas.ID, consultas.subprocesos, consultas.actividades, consultas.ftes FROM consultas WHERE consultas.ID_username = 2";
                 if ($Nom_Proceso != 'todos') {
                   $sql .= " WHERE procesos = '$Nom_Proceso'";
               }

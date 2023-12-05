@@ -4,6 +4,12 @@
 
     include('../config/conexion.php');  
 
+    if (!isset($_SESSION['ID_username'])) {
+      $ID_username = $_SESSION['ID_username'];
+      exit();
+  }
+  
+
     if(isset($_SESSION['formulario1'])) {
       $datos1 = $_SESSION['formulario1'];
     } else {
@@ -130,7 +136,7 @@
                 error_reporting(0);
                   $Nom_Proceso = $_GET['Nom_Proceso'];
                 // Consulta SQL
-                $sql = "SELECT * FROM consultas";
+                $sql = "SELECT consultas.ID, consultas.subprocesos, consultas.actividades, consultas.ftes FROM consultas WHERE consultas.ID_username = 2";
                 if ($Nom_Proceso != 'todos') {
                   $sql .= " WHERE procesos = '$Nom_Proceso'";
               }

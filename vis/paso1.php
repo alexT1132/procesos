@@ -4,6 +4,7 @@
 
   include('../config/conexion.php'); 
 
+
   if($_SERVER['REQUEST_METHOD'] === 'POST') {
     //DATOS DEL FORM
     $Nombre = $_POST['Nombre'];
