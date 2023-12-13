@@ -29,7 +29,7 @@
         $t_h = $conexion->real_escape_string($formulario2['t_h']);
         $ftes = $conexion->real_escape_string($formulario2['ftes']);
 
-        $query1 = "UPDATE consultas SET ftes = '$ftes', estado = '$estado' WHERE ID = {$formulario2['ID']}";
+        $query1 = "UPDATE consultas SET estado = '$estado' WHERE ID = {$formulario2['ID']}";
         $resultado1 = $conexion->query($query1);
 
         if ($resultado1) {

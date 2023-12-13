@@ -143,11 +143,10 @@
                     <table class="table">
                       <thead>
                         <tr>
-                          <th scope="col">Subprocesos</th>
-                          <th scope="col">Actividades</th>
-                          <th scope="col">Fte's</th>
-                          <th scope="col">Validacion</th>
-                          <th scope="col">Estado</th>
+                          <th scope="col" style="width: 30%;">Subprocesos</th>
+                          <th scope="col" style="width: 35%;">Actividades</th>
+                          <th scope="col" style="width: 15%;">Validacion</th>
+                          <th scope="col" style="width: 15%;">Estado</th>
                         </tr>
                       </thead>
                     <?php
@@ -157,7 +156,6 @@
                       <tr>
                         <td><?php echo $row['subprocesos']; ?></td>
                         <td><?php echo $row['actividades']; ?></td>
-                        <td><?php echo $row['ftes']; ?></td>
                         <td>
                         <?php 
                             if ($row['estado']==0){
@@ -169,7 +167,7 @@
                             } else
                             if ($row['estado']==1) {
                               ?>
-                            <a href="#" class="btn btn-danger" onclick="return confirm('Estas seguro que deseas editar esta informacion?')">
+                            <a href="paso4.php?ID=<?php echo $row['ID']?>" class="btn btn-danger" onclick="return confirm('Estas seguro que deseas editar esta informacion?')">
                               Editar
                             </a>   
                           <?php
