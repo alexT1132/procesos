@@ -5,6 +5,12 @@
  $procesos = '';
  $subprocesos = '';
  $actividades = '';
+ $input = '';
+ $sistema = '';
+ $rol = '';
+ $tiempo = '';
+ $val_Frec = '';
+ $vol = '';
 
 
 if  (isset($_GET['ID'])) {
@@ -16,6 +22,12 @@ if  (isset($_GET['ID'])) {
     $procesos = $row['procesos'];
     $subprocesos = $row['subprocesos'];
     $actividades = $row['actividades'];
+    $input = $row['input'];
+    $sistema = $row['sistema'];
+    $rol = $row['rol'];
+    $tiempo = $row['tiempo'];
+    $val_Frec = $row['val_Frec'];
+    $vol = $row['vol'];
   }
 }
 
@@ -26,7 +38,6 @@ if  (isset($_GET['ID'])) {
     $Nom_Proceso = $_POST['Nom_Proceso'];
     $Nom_Subproceso = $_POST['Nom_Subproceso'];
     $Nom_Actividad = $_POST['Nom_Actividad'];
-    $estado = $_POST['estado'];
     $input = $_POST['input'];
     $sistema = $_POST['sistema'];
     $rol = $_POST['rol'];
@@ -56,7 +67,7 @@ if  (isset($_GET['ID'])) {
 
 
     // Guarda los datos en la sesión
-    $_SESSION['formulario2'] = array(
+    $_SESSION['Editar'] = array(
         'ID' => $ID,
         'Nom_Proceso' => $Nom_Proceso,
         'Nom_Subproceso' => $Nom_Subproceso,
@@ -72,7 +83,7 @@ if  (isset($_GET['ID'])) {
         'ftes' => $ftes,
     );
  
-    header('Location: paso5.php');
+    header('Location: editVal.php');
     exit;
  }
 ?>
@@ -134,16 +145,16 @@ if  (isset($_GET['ID'])) {
                         <div class="d-flex" style="gap: 40px;">
                             <div class="mb-3">
                                 <label for="input" class="form-label">Input</label>
-                                <input type="text" class="form-control" name="input" id="input" style="width: 100%;" required>
+                                <input type="text" class="form-control" name="input" id="input" value="<?php echo $row['input']; ?>" style="width: 100%;">
                             </div>
                             <div class="mb-3">
                                 <label for="sistema" class="form-label">Sistema</label>
-                                <input type="text" class="form-control" name="sistema" id="sistema" style="width: 100%;" required>
+                                <input type="text" class="form-control" name="sistema" id="sistema" value="<?php echo $row['sistema']; ?>" style="width: 100%;">
                             </div>
                             <div class="mb-3" style="width: 30%;">
                                 <label for="rol" class="form-label">Rol</label>
-                                <select class="form-select mb-3" name="rol" id="rol" style="width: 100%;" required>
-                                    <option selected disabled value="">Selecciona un rol</option>
+                                <select class="form-select mb-3" name="rol" id="rol" style="width: 100%;">
+                                    <option selected value="<?php echo $row['rol']; ?>"><?php echo $row['rol']; ?></option>
                                     <option>Ejecutar</option>
                                     <option>Supervisar</option>
                                 </select>                            
@@ -152,13 +163,22 @@ if  (isset($_GET['ID'])) {
                         <div class="d-flex" style="gap: 40px;">
                             <div class="mb-3">
                                 <label for="tiempo" class="form-label">Tiempo</label>
-                                <input type="text" class="form-control" name="tiempo" id="tiempo" style="width: 100%;" required>
+                                <input type="text" class="form-control" name="tiempo" id="tiempo" value="<?php echo $row['tiempo']; ?>" style="width: 100%;">
                             </div>
                             <div class="md-3" style="align-items: center; width: 30%">
                           <label for="val_Frec" class="form-label">Frecuencia</label>
                           <div class="d-flex" style="gap: 2%;">
-                              <select class="form-select mb-3" name="val_Frec" id="val_Frec"  required>
-                              <option selected disabled value="">Selecciona una opcion</option>
+                              <select class="form-select mb-3" name="val_Frec" id="val_Frec" required>
+                              <option selected value="<?php echo $row['val_Frec']; ?>">
+                              <?php if ($row['val_Frec'] == 4) {
+                                echo 'Semanal';
+                              } else
+                              if ($row['val_Frec'] == 1) {
+                                echo 'Mensual';
+                              } else
+                              if ($row['val_Frec'] == 12) {
+                                echo 'Anual';
+                              } ?></option>
                                 <option value="4">Semanal</option>
                                 <option value="1">Mensual</option>
                                 <option value="12">Anual</option>
@@ -167,12 +187,12 @@ if  (isset($_GET['ID'])) {
                         </div>
                             <div class="mb-3">
                                 <label for="vol" class="form-label">volumen</label>
-                                <input type="text" class="form-control" id="vol" name="vol" style="width: 100%;" required>
+                                <input type="text" class="form-control" id="vol" name="vol" value="<?php echo $row['vol']; ?>" style="width: 100%;">
                             </div>
                         </div>
                         <br>
                         <div class="row justify-content-center">
-                            <input type="submit" class="btn btn-success btn-block" style="width: 20%; margin-right: 12px;" value="Enviar">
+                            <input type="submit" class="btn btn-success btn-block" style="width: 30%; margin-right: 12px;" value="Guardar cambios">
                         </div>
                     </form>
                     </div>
