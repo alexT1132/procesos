@@ -28,6 +28,7 @@
         $vol = $conexion->real_escape_string($formulario2['vol']);
         $t_h = $conexion->real_escape_string($formulario2['t_h']);
         $ftes = $conexion->real_escape_string($formulario2['ftes']);
+        
 
         $query1 = "UPDATE consultas SET val_Frec = '$val_Frec', input = '$input', sistema = '$sistema', rol = '$rol', tiempo = '$tiempo', vol = '$vol',
         t_h = '$t_h', ftes = '$ftes', estado = '$estado' WHERE ID = {$formulario2['ID']}";
