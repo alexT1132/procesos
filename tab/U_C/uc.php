@@ -224,6 +224,7 @@ if($varsesion== null || $varsesion=''){
         </div>
     </div>
 
+    
     <!-- formulario -->
     <div class="row justify-content-center" style="width: 100%; margin-left: 2%; margin-top: 6%;">
     <table class="table">
