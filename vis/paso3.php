@@ -57,7 +57,7 @@
                 <div class="button-navbar">
                     <form class="d-flex" action="../destroy.php">
                         <button class="btn" type="submit">
-                            <h5>Finalizar</h5>
+                            <h5>Finalizar encuesta</h5>
                         </button>
                     </form>
                 </div>
@@ -114,7 +114,8 @@
                 <div class="row">
                     <div class="col d-flex" style="gap: 1%;">
                     <select class="form-select mb-3" name="Nom_Proceso">
-                            <option value="todos">Todos</option>
+                            <option><?php echo $_GET['Nom_Proceso'] ?></option>
+                            <option value="Todos">Todos</option>
                             <?php
                                 $sql = $conexion->query("SELECT * FROM procesos");
                                 while ($resultado = $sql->fetch_assoc()) {
@@ -132,7 +133,7 @@
                   $Nom_Proceso = $_GET['Nom_Proceso'];
                 // Consulta SQL
                 $sql = "SELECT * FROM consultas";
-                if ($Nom_Proceso != 'todos') {
+                if ($Nom_Proceso != 'Todos') {
                   $sql .= " WHERE procesos = '$Nom_Proceso'";
               }
               

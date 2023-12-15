@@ -4,13 +4,11 @@
 
     include('../config/conexion.php');
 
+    
     if(isset($_SESSION['formulario1'])) {
       $datos1 = $_SESSION['formulario1'];
-    } else {
-      echo 'Error';
-      exit;
-    }
-
+    } 
+    
 ?>
 
 
@@ -35,7 +33,7 @@
                 <div class="button-navbar">
                     <form class="d-flex" action="../destroy.php">
                         <button class="btn" type="submit">
-                            <h5>Finalizar</h5>
+                            <h5>Finalizar encuesta</h5>
                         </button>
                     </form>
                 </div>
@@ -92,7 +90,7 @@
                 <div class="row">
                     <div class="col d-flex" style="gap: 1%;">
                     <select class="form-select mb-3" name="Nom_Proceso">
-                            <option value="todos">Todos</option>
+                          <option value="Todos">Todos</option>
                             <?php
                                 $sql = $conexion->query("SELECT * FROM procesos");
                                 while ($resultado = $sql->fetch_assoc()) {
@@ -109,8 +107,8 @@
                 error_reporting(0);
                   $nom_Procesos = $_GET['Nom_Proceso'];
                 // Consulta SQL
-                $sql = "SELECT consultas.ID, consultas.subprocesos, consultas.actividades, consultas.ftes FROM consultas WHERE consultas.ID_username = 2";
-                if ($Nom_Proceso != 'todos') {
+                $sql = "SELECT * FROM consultas";
+                if ($Nom_Proceso != 'Todos') {
                   $sql .= " WHERE procesos = '$Nom_Proceso'";
               }
               

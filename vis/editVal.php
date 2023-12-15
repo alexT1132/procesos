@@ -35,7 +35,7 @@
     $conexion->close();
 
     // Limpia los datos de la sesión
-    unset($_SESSION['Editar']);
+    //unset($_SESSION['Editar']);
 
     header('Location: paso2.php');
     exit;

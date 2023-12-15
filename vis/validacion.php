@@ -79,9 +79,6 @@
 
     $conexion->close();
 
-    // Limpia los datos de la sesión
-    unset($_SESSION['formulario2']);
-
     header('Location: paso2.php');
     exit;
 
