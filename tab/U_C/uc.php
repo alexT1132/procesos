@@ -86,9 +86,9 @@ if($varsesion== null || $varsesion=''){
     </div>
     
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin: 50px;">
+    <!--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin: 50px;">
         Añadir <i class='bx bx-plus'></i>
-    </button>
+    </button>-->
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -225,7 +225,7 @@ if($varsesion== null || $varsesion=''){
     </div>
 
     <!-- formulario -->
-    <div class="row justify-content-center" style="width: 100%; margin-left: 2%;">
+    <div class="row justify-content-center" style="width: 100%; margin-left: 2%; margin-top: 6%;">
     <table class="table">
   <thead class="text-center">
     <tr>
