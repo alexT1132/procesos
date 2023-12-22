@@ -6,6 +6,7 @@
     if (isset($_SESSION['formulario1']) && isset($_SESSION['formulario2'])) {
         $formulario1 = $_SESSION['formulario1'];
         $formulario2 = $_SESSION['formulario2'];
+        $id = $_SESSION['ID'];
 
         // Escapa los datos para prevenir inyección SQL
         $Nombre = $conexion->real_escape_string($formulario1['Nombre']);
@@ -31,7 +32,7 @@
         
 
         $query1 = "UPDATE consultas SET val_Frec = '$val_Frec', input = '$input', sistema = '$sistema', rol = '$rol', tiempo = '$tiempo', vol = '$vol',
-        t_h = '$t_h', ftes = '$ftes', estado = '$estado' WHERE ID = {$formulario2['ID']}";
+        t_h = '$t_h', ftes = '$ftes', estado = '$estado', username_id = '$id' WHERE procesos_id = {$formulario2['ID']}";
         $resultado1 = $conexion->query($query1);
 
         if ($resultado1) {

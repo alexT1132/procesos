@@ -23,8 +23,15 @@ $Nom_Proceso = '';
 $Nom_Direcciones = '';
 $Nom_Subproceso = '';
 $Nom_funcion = '';
-$Nom_Valor = '';
-$Nom_frecuencia = '';
+$val_Frec = '';
+$input = '';
+$sistema = '';
+$rol = '';
+$tiempo = '';
+$vol = '';
+$t_h = '';
+$ftes = '';
+
 
 
 if  (isset($_GET['ID_empleado'])) {
@@ -44,37 +51,47 @@ if  (isset($_GET['ID_empleado'])) {
     $Nom_Direcciones = $row['Nom_Direcciones'];
     $Nom_Subproceso = $row['Nom_Subproceso'];
     $Nom_funcion = $row['Nom_funcion'];
+    $val_Frec = $row['val_Frec'];
     $input = $row['input'];
     $sistema = $row['sistema'];
     $rol = $row['rol'];
+    $tiempo = $row['tiempo'];
+    $vol = $row['vol'];
+    $t_h = $row['t_h'];
+    $ftes = $row['ftes'];
   }
 
   if (isset($_POST['update'])) {
     $ID_empleado = $_GET['ID_empleado'];
     $Nombre = $_POST['Nombre'];
     $Apellido = $_POST['Apellido'];
-    $ID_Unidad_Negocio = $_POST['ID_Unidad_Negocio'];
     $Nom_Unidad_Negocio = $_POST['Nom_Unidad_Negocio'];
     $Email = $_POST['Email'];
     $Area = $_POST['Area'];
-    $ID_Actividad = $_POST['ID_Actividad'];
     $Nom_Actividad = $_POST['Nom_Actividad'];
-    $ID_Nuevo_Puesto = $_POST['ID_Nuevo_Puesto'];
     $Nom_Nuevo_Puesto = $_POST['Nom_Nuevo_Puesto'];
-    $ID_Procesos = $_POST['ID_Procesos'];
     $Nom_Proceso = $_POST['Nom_Proceso'];
-    $ID_Direcciones = $_POST['ID_Direcciones'];
     $Nom_Direcciones = $_POST['Nom_Direcciones'];
-    $ID_Subproceso = $_POST['ID_Subproceso'];
     $Nom_Subproceso = $_POST['Nom_Subproceso'];
-    $ID_funcion = $_POST['ID_funcion'];
     $Nom_funcion = $_POST['Nom_funcion'];
-    $ID_Valor = $_POST['ID_Valor'];
-    $Nom_Valor = $_POST['Nom_Valor'];
-    $Nom_frecuencia = $_POST['Nom_frecuencia'];
+    $val_Frec = $_POST['val_Frec'];
+    $input = $_POST['input'];
+    $sistema = $_POST['sistema'];
+    $rol = $_POST['rol'];
+    $tiempo = $_POST['tiempo'];
+    $vol = $_POST['vol'];
+    $t_h = $_POST['t_h'];
+    $ftes = $_POST['ftes'];
+
+    $query1 = "UPDATE usuario_cliente SET val_Frec = '$val_Frec', input = '$input', sistema = '$sistema', rol = '$rol', tiempo = '$tiempo', vol = '$vol',
+    t_h = '$t_h', ftes = '$ftes' WHERE ID_empleado = '$ID_empleado'";
+    $resultado1 = $conexion->query($query1);
+
+
     $query = "UPDATE usuario_cliente set Nombre = '$Nombre', Apellido = '$Apellido', ID_Unidad_Negocio = '$ID_Unidad_Negocio', Nom_Unidad_Negocio = '$Nom_Unidad_Negocio', Email = '$Email', Area = '$Area', ID_Actividad = '$ID_Actividad', Nom_Actividad = '$Nom_Actividad', ID_Nuevo_Puesto = '$ID_Nuevo_Puesto', Nom_Nuevo_Puesto = '$Nom_Nuevo_Puesto', ID_Procesos = '$ID_Procesos', Nom_Proceso = '$Nom_Proceso', ID_Direcciones = '$ID_Direcciones', Nom_Direcciones = '$Nom_Direcciones', ID_Subproceso = '$ID_Subproceso', Nom_Subproceso = '$Nom_Subproceso', ID_funcion = '$ID_funcion', Nom_funcion = '$Nom_funcion', ID_Valor = '$ID_Valor', 
     Nom_Valor = '$Nom_Valor', Nom_frecuencia = '$Nom_frecuencia' WHERE ID_empleado = $ID_empleado";
     mysqli_query($conexion, $query);
+    
     header('Location: uc.php');
 }
 
@@ -112,32 +129,10 @@ if  (isset($_GET['ID_empleado'])) {
                 <input type="text" class="form-control" name="Apellido" id="Apellido" value="<?php echo $Apellido; ?>" placeholder="Actualizar Nombre">
             </div>
             <div class="mb-3">
-                <label for="ID_Unidad_Negocio">ID_Unidad_Negocio</label>
-                <select class="form-select mb-3" aria-label="Default select example" id="ID_Unidad_Negocio" name="ID_Unidad_Negocio">
-                    <option selected disabled>--Seleccione Unidad Negocio--</option>
-                        <?php
-                            $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Unidad_Negocio=".$row['ID_Unidad_Negocio'];
-                            $resultado1 = $conexion->query($sql1);
-
-                            $row1 = $resultado1->fetch_assoc();
-
-                            echo "<option selected value='".$row1['ID_Unidad_Negocio']."'>".$row1['Nom_Unidad_Negocio']."</option>";
-
-                            $sql2 = "SELECT * FROM unidad_negocio";
-                            $resultado2 = $conexion->query($sql2);
-
-                            while ($Fila = $resultado2->fetch_array()) {
-                                echo "<option value='".$Fila['ID_unidad_negocio']."'>".$Fila['nom_unidad_negocio']."</option>";
-                            }
-                        ?>   
-                </select>
-            </div>
-            <div class="mb-3">
                 <label>Nom_Unidad_Negocio</label>
                 <select class="form-select mb-3" aria-label="Default select example" name="Nom_Unidad_Negocio">
-                    <option selected disabled>--Seleccione Actividad--</option>
                         <?php
-                            $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Unidad_Negocio=".$row['ID_Unidad_Negocio'];
+                            $sql1 = "SELECT * FROM usuario_cliente WHERE ID_empleado=".$row['ID_empleado'];
                             $resultado1 = $conexion->query($sql1);
 
                             $row1 = $resultado1->fetch_assoc();
@@ -162,37 +157,15 @@ if  (isset($_GET['ID_empleado'])) {
                 <input type="text" class="form-control" name="Area" id="Area" value="<?php echo $Area; ?>" placeholder="Actualizar Nombre">
             </div>
             <div class="mb-3">
-                <label>ID_Actividad</label>
-                <select class="form-select mb-3" aria-label="Default select example" name="ID_Actividad">
-                    <option selected disabled>--Seleccione Actividad--</option>
-                        <?php
-                            $sql1 = "SELECT * FROM detalle_actividad WHERE ID_Actividad=".$row['ID_Actividad'];
-                            $resultado1 = $conexion->query($sql1);
-
-                            $row1 = $resultado1->fetch_assoc();
-
-                            echo "<option selected value='".$row1['ID_Actividad']."'>".$row1['nom_actividad']."</option>";
-
-                            $sql2 = "SELECT * FROM detalle_actividad";
-                            $resultado2 = $conexion->query($sql2);
-
-                            while ($Fila = $resultado2->fetch_array()) {
-                                echo "<option value='".$Fila['ID_Actividad']."'>".$Fila['nom_actividad']."</option>";
-                            }
-                        ?>   
-                </select>
-            </div>
-            <div class="mb-3">
                 <label>nom_actividad</label>
                 <select class="form-select mb-3" aria-label="Default select example" name="Nom_Actividad">
-                    <option selected disabled>--Seleccione Actividad--</option>
                         <?php
-                            $sql1 = "SELECT * FROM detalle_actividad WHERE ID_Actividad=".$row['ID_Actividad'];
+                            $sql1 = "SELECT * FROM usuario_cliente WHERE ID_empleado=".$row['ID_empleado'];
                             $resultado1 = $conexion->query($sql1);
 
                             $row1 = $resultado1->fetch_assoc();
 
-                            echo "<option selected value='".$row1['nom_actividad']."'>".$row1['nom_actividad']."</option>";
+                            echo "<option selected value='".$row1['Nom_Actividad']."'>".$row1['Nom_Actividad']."</option>";
 
                             $sql2 = "SELECT * FROM detalle_actividad";
                             $resultado2 = $conexion->query($sql2);
@@ -204,31 +177,10 @@ if  (isset($_GET['ID_empleado'])) {
                 </select>
             </div>
             <div class="mb-3">
-                <label>ID_Nuevo_Puesto</label>
-                <select class="form-select mb-3" aria-label="Default select example" name="ID_Nuevo_Puesto">
-                    <option selected disabled>--Seleccione Puesto--</option>
-                        <?php
-                            $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Nuevo_Puesto=".$row['ID_Nuevo_Puesto'];
-                            $resultado1 = $conexion->query($sql1);
-
-                            $row1 = $resultado1->fetch_assoc();
-
-                            echo "<option selected value='".$row1['ID_Nuevo_Puesto']."'>".$row1['Nom_Nuevo_Puesto']."</option>";
-
-                            $sql2 = "SELECT * FROM nuevo_puesto";
-                            $resultado2 = $conexion->query($sql2);
-
-                            while ($Fila = $resultado2->fetch_array()) {
-                                echo "<option value='".$Fila['ID_Nuevo_Puesto']."'>".$Fila['Nuevo_Puesto']."</option>";
-                            }
-                        ?>   
-                </select>
-            </div>
-            <div class="mb-3">
                 <label>Nom_Nuevo_Puesto</label>
                 <select class="form-select mb-3" aria-label="Default select example" name="Nom_Nuevo_Puesto">
                         <?php
-                            $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Nuevo_Puesto=".$row['ID_Nuevo_Puesto'];
+                            $sql1 = "SELECT * FROM usuario_cliente WHERE ID_empleado=".$row['ID_empleado'];
                             $resultado1 = $conexion->query($sql1);
 
                             $row1 = $resultado1->fetch_assoc();
@@ -245,32 +197,11 @@ if  (isset($_GET['ID_empleado'])) {
                 </select>
             </div>
             <div class="mb-3">
-            <label>ID_Proceso</label>
-        <select class="form-select mb-3" aria-label="Default select example" name="ID_Procesos">
-            <option selected disabled>--Seleccione Proceso--</option>
-            <?php
-                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Procesos =".$row['ID_Procesos'];
-                $resultado1 = $conexion->query($sql1);
-
-                $row1 = $resultado1->fetch_assoc();
-
-                echo "<option selected value='".$row1['ID_Procesos']."'>".$row1['Nom_Proceso']."</option>";
-
-                $sql2 = "SELECT * FROM procesos";
-                $resultado2 = $conexion->query($sql2);
-
-                while ($Fila = $resultado2->fetch_array()) {
-                    echo "<option value='".$Fila['ID_Procesos']."'>".$Fila['Nom_Procesos']."</option>";
-                }
-            ?>   
-        </select>
-            </div>
-            <div class="mb-3">
             <label>nom_proceso</label>
         <select class="form-select mb-3" aria-label="Default select example" name="Nom_Proceso">
             <option selected disabled>--Seleccione Proceso--</option>
             <?php
-                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Procesos =".$row['ID_Procesos'];
+                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_empleado =".$row['ID_empleado'];
                 $resultado1 = $conexion->query($sql1);
 
                 $row1 = $resultado1->fetch_assoc();
@@ -287,32 +218,11 @@ if  (isset($_GET['ID_empleado'])) {
         </select>
             </div>
             <div class="mb-3">
-            <label>ID_Direcciones</label>
-        <select class="form-select mb-3" aria-label="Default select example" name="ID_Direcciones">
-            <option selected disabled>--Seleccione Proceso--</option>
-            <?php
-                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Direcciones =".$row['ID_Direcciones'];
-                $resultado1 = $conexion->query($sql1);
-
-                $row1 = $resultado1->fetch_assoc();
-
-                echo "<option selected value='".$row1['ID_Direcciones']."'>".$row1['Nom_Direcciones']."</option>";
-
-                $sql2 = "SELECT * FROM direcciones";
-                $resultado2 = $conexion->query($sql2);
-
-                while ($Fila = $resultado2->fetch_array()) {
-                    echo "<option value='".$Fila['ID_Direccion']."'>".$Fila['Nom_Direccion']."</option>";
-                }
-            ?>   
-        </select>
-            </div>
-            <div class="mb-3">
             <label>Nom_Direcciones</label>
         <select class="form-select mb-3" aria-label="Default select example" name="Nom_Direcciones">
             <option selected disabled>--Seleccione Nom_Direcciones--</option>
             <?php
-                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Direcciones =".$row['ID_Direcciones'];
+                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_empleado =".$row['ID_empleado'];
                 $resultado1 = $conexion->query($sql1);
 
                 $row1 = $resultado1->fetch_assoc();
@@ -329,32 +239,11 @@ if  (isset($_GET['ID_empleado'])) {
         </select>
             </div>
             <div class="mb-3">
-            <label>ID_subProceso</label>
-        <select class="form-select mb-3" aria-label="Default select example" name="ID_Subproceso">
-            <option selected disabled>--Seleccione subProceso--</option>
-            <?php
-                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Subproceso =".$row['ID_Subproceso'];
-                $resultado1 = $conexion->query($sql1);
-
-                $row1 = $resultado1->fetch_assoc();
-
-                echo "<option selected value='".$row1['ID_Subproceso']."'>".$row1['Nom_Subproceso']."</option>";
-
-                $sql2 = "SELECT * FROM sub_proceso";
-                $resultado2 = $conexion->query($sql2);
-
-                while ($Fila = $resultado2->fetch_array()) {
-                    echo "<option value='".$Fila['ID_subProcesos']."'>".$Fila['nom_Subproceso']."</option>";
-                }
-            ?>   
-        </select>
-            </div>
-            <div class="mb-3">
             <label>Nom_subProceso</label>
         <select class="form-select mb-3" aria-label="Default select example" name="Nom_Subproceso">
             <option selected disabled>--Seleccione Proceso--</option>
             <?php
-                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Subproceso =".$row['ID_Subproceso'];
+                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_empleado =".$row['ID_empleado'];
                 $resultado1 = $conexion->query($sql1);
 
                 $row1 = $resultado1->fetch_assoc();
@@ -371,32 +260,11 @@ if  (isset($_GET['ID_empleado'])) {
         </select>
             </div>
             <div class="mb-3">
-            <label>ID_funcion</label>
-        <select class="form-select mb-3" aria-label="Default select example" name="ID_funcion">
-            <option selected disabled>--Seleccione funcion--</option>
-            <?php
-                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_funcion =".$row['ID_funcion'];
-                $resultado1 = $conexion->query($sql1);
-
-                $row1 = $resultado1->fetch_assoc();
-
-                echo "<option selected value='".$row1['ID_funcion']."'>".$row1['Nom_funcion']."</option>";
-
-                $sql2 = "SELECT * FROM funciones";
-                $resultado2 = $conexion->query($sql2);
-
-                while ($Fila = $resultado2->fetch_array()) {
-                    echo "<option value='".$Fila['ID_funcion']."'>".$Fila['Nom_funcion']."</option>";
-                }
-            ?>   
-        </select>
-            </div>
-            <div class="mb-3">
             <label>Nom_funcion</label>
         <select class="form-select mb-3" aria-label="Default select example" name="Nom_funcion">
             <option selected disabled>--Seleccione Funcion--</option>
             <?php
-                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_funcion =".$row['ID_funcion'];
+                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_empleado =".$row['ID_empleado'];
                 $resultado1 = $conexion->query($sql1);
 
                 $row1 = $resultado1->fetch_assoc();
@@ -413,64 +281,22 @@ if  (isset($_GET['ID_empleado'])) {
         </select>
             </div>
             <div class="mb-3">
-            <label>ID_Valor</label>
-        <select class="form-select mb-3" aria-label="Default select example" name="ID_Valor">
-            <option selected disabled>--Seleccione Temporalidad--</option>
+            <label>Nom_frecuencia</label>
+        <select class="form-select mb-3" aria-label="Default select example" name="Nom_frecuencia">
+            <option selected disabled>--Seleccione Frecuencia--</option>
             <?php
-                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Valor =".$row['ID_Valor'];
+                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_empleado =".$row['ID_empleado'];
                 $resultado1 = $conexion->query($sql1);
 
                 $row1 = $resultado1->fetch_assoc();
 
-                echo "<option selected value='".$row1['ID_Valor']."'>".$row1['Nom_frecuencia']."</option>";
-
-                $sql2 = "SELECT * FROM frecuencia";
-                $resultado2 = $conexion->query($sql2);
-
-                while ($Fila = $resultado2->fetch_array()) {
-                    echo "<option value='".$Fila['ID_Valor']."'>".$Fila['Nom_frecuencia']."</option>";
-                }
-            ?>   
-        </select>
-            </div>
-            <div class="mb-3">
-            <label>Nom_Valor</label>
-        <select class="form-select mb-3" aria-label="Default select example" name="Nom_Valor">
-            <option selected disabled>--Seleccione Temporalidad--</option>
-            <?php
-                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Valor =".$row['ID_Valor'];
-                $resultado1 = $conexion->query($sql1);
-
-                $row1 = $resultado1->fetch_assoc();
-
-                echo "<option selected value='".$row1['Nom_Valor']."'>".$row1['Nom_frecuencia']."</option>";
+                echo "<option selected value='".$row1['val_Frec']."'>".$row1['val_Frec']."</option>";
 
                 $sql2 = "SELECT * FROM frecuencia";
                 $resultado2 = $conexion->query($sql2);
 
                 while ($Fila = $resultado2->fetch_array()) {
                     echo "<option value='".$Fila['Nom_Valor']."'>".$Fila['Nom_frecuencia']."</option>";
-                }
-            ?>   
-        </select>
-            </div>
-            <div class="mb-3">
-            <label>Nom_frecuencia</label>
-        <select class="form-select mb-3" aria-label="Default select example" name="Nom_frecuencia">
-            <option selected disabled>--Seleccione Frecuencia--</option>
-            <?php
-                $sql1 = "SELECT * FROM usuario_cliente WHERE ID_Valor =".$row['ID_Valor'];
-                $resultado1 = $conexion->query($sql1);
-
-                $row1 = $resultado1->fetch_assoc();
-
-                echo "<option selected value='".$row1['Nom_frecuencia']."'>".$row1['Nom_frecuencia']."</option>";
-
-                $sql2 = "SELECT * FROM frecuencia";
-                $resultado2 = $conexion->query($sql2);
-
-                while ($Fila = $resultado2->fetch_array()) {
-                    echo "<option value='".$Fila['Nom_frecuencia']."'>".$Fila['Nom_frecuencia']."</option>";
                 }
             ?>   
         </select>

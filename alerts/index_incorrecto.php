@@ -11,17 +11,17 @@
     <link rel="shortcut icon" href="../img/logo_3.png">
 </head>
 <body style="background: rgb(205 205 205);">
-    <div class="alert alert-danger d-flex align-items-center justify-content-center" role="alert" style="height: 90px;">
-        <div>
-            Usuario y/o contraseña incorrecta
-        </div>
-    </div>
     <div class="box" style="margin-top: -146px;">
         <div class="container">
             <div class="top-header">
                 <header>
-                    <img src="../img/logo_2.png" alt="" srcset="">
+                    <img src="../img/logo_2.png">
                 </header>
+                <div class="alert alert-danger d-flex align-items-center justify-content-center" role="alert" style="height: 90px;">
+                    <div>
+                        Usuario y/o contraseña incorrecta
+                    </div>
+                </div>
                 <br>
             </div>
             <form action="../validar.php" method="POST">

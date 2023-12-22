@@ -7,15 +7,15 @@
  $actividades = '';
 
 
-if  (isset($_GET['ID'])) {
-  $ID = $_GET['ID'];
-  $query = "SELECT * FROM consultas WHERE ID = $ID";
+if  (isset($_GET['id'])) {
+  $id = $_GET['id'];
+  $query = "SELECT * FROM procesos_consultas WHERE id = $id";
   $result = mysqli_query($conexion, $query);
   if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_array($result);
-    $procesos = $row['procesos'];
-    $subprocesos = $row['subprocesos'];
-    $actividades = $row['actividades'];
+    $procesos = $row['proceso'];
+    $subprocesos = $row['subproceso'];
+    $actividades = $row['actividad'];
   }
 }
 
@@ -108,25 +108,25 @@ if  (isset($_GET['ID'])) {
         <div class="container" style="margin-top: 5%;">
             <div class="row justify-content-center">
                 <div class="title text-center">
-                    <h3><b><?php echo $row['subprocesos']; ?></b></h3>
+                    <h3><b><?php echo $row['subproceso']; ?></b></h3>
                     <br>
-                    <h4><?php echo $row['actividades']; ?></h4>
+                    <h4><?php echo $row['actividad']; ?></h4>
                 </div>
                 <br><br>
                 <div class="card" style="width: auto;">
                     <div class="card-body">
                     <form action="" method="POST">
                         <div class="mb-3">
-                            <input type="hidden" name="ID" value="<?php echo $_GET['ID']; ?>">
+                            <input type="hidden" name="ID" value="<?php echo $_GET['id']; ?>">
                         </div>
                         <div class="mb-3">
-                            <input type="hidden" name="Nom_Proceso" value="<?php echo $row['procesos']; ?>">
+                            <input type="hidden" name="Nom_Proceso" value="<?php echo $row['proceso']; ?>">
                         </div>
                         <div class="mb-3">
-                            <input type="hidden" name="Nom_Subproceso" value="<?php echo $row['subprocesos']; ?>">
+                            <input type="hidden" name="Nom_Subproceso" value="<?php echo $row['subproceso']; ?>">
                         </div>
                         <div class="mb-3">
-                            <input type="hidden" name="Nom_Actividad" value="<?php echo $row['actividades']; ?>">
+                            <input type="hidden" name="Nom_Actividad" value="<?php echo $row['actividad']; ?>">
                         </div>
                         <div class="mb-3">
                             <input type="hidden" name="estado" value="1">
