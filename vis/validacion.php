@@ -3,10 +3,10 @@
 
     include('../config/conexion.php');
 
-    if (isset($_SESSION['formulario1']) && isset($_SESSION['formulario2'])) {
+    if (isset($_SESSION['ID']) && isset($_SESSION['formulario1']) && isset($_SESSION['formulario2'])) {
         $formulario1 = $_SESSION['formulario1'];
         $formulario2 = $_SESSION['formulario2'];
-        $id = $_SESSION['ID'];
+        $ID = $_SESSION['ID'];
 
         // Escapa los datos para prevenir inyección SQL
         $Nombre = $conexion->real_escape_string($formulario1['Nombre']);
@@ -29,10 +29,12 @@
         $vol = $conexion->real_escape_string($formulario2['vol']);
         $t_h = $conexion->real_escape_string($formulario2['t_h']);
         $ftes = $conexion->real_escape_string($formulario2['ftes']);
+
+
         
 
         $query1 = "UPDATE consultas SET val_Frec = '$val_Frec', input = '$input', sistema = '$sistema', rol = '$rol', tiempo = '$tiempo', vol = '$vol',
-        t_h = '$t_h', ftes = '$ftes', estado = '$estado', username_id = '$id' WHERE procesos_id = {$formulario2['ID']}";
+        t_h = '$t_h', ftes = '$ftes', estado = '$estado', username_id = '$ID' WHERE procesos_id = {$formulario2['ID']}";
         $resultado1 = $conexion->query($query1);
 
         if ($resultado1) {

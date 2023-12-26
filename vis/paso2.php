@@ -4,11 +4,11 @@ session_start();
 
 include('../config/conexion.php');
 
+
 if (isset($_SESSION['formulario1'])) {
   $datos1 = $_SESSION['formulario1'];
   $id = $_SESSION['ID'];
 }
-
 
 ?>
 
@@ -106,6 +106,63 @@ if (isset($_SESSION['formulario1'])) {
             </div>
           </div>
         </form>
+        <?php
+        error_reporting(0);
+        $nom_Procesos = $_GET['Nom_Proceso'];
+        // Consulta SQL
+        $sql = "SELECT * FROM consultas WHERE username_id <> $id UNION
+                SELECT * FROM procesos_consultas pc, consultas c
+                WHERE c.procesos_id = pc.id AND (c.username_id = $id OR c.username_id = 0)";
+        if ($Nom_Proceso != 'Todos') {
+          $sql .= " AND proceso = '$Nom_Proceso'";
+        }
+
+        $result = $conexion->query($sql);
+        // print_r($result);
+        if ($result->num_rows > 0) {
+        ?>
+          <br>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Subprocesos</th>
+                <th scope="col">Actividades</th>
+                <th scope="col">Validacion</th>
+                <th scope="col">Estado</th>
+              </tr>
+            </thead>
+            <?php
+            while ($row = $result->fetch_assoc()) {
+            ?>
+              <tbody>
+                <tr>
+                  <td><?php echo $row['Nom_Subproceso']; ?></td>
+                  <td><?php echo $row['Nom_Subproceso']; ?></td>
+                  <td>
+                    <a href="paso3.php?ID=<?php echo $row['ID'] ?>" class="btn btn-warning">
+                      Capturar
+                    </a>
+                  </td>
+                  <td>
+                    <?php
+                    if ($result) {
+                    ?>
+                      <img src="../img/x-regular-48.png">
+                    <?php
+                    }
+                    ?>
+                  </td>
+                </tr>
+              </tbody>
+            <?php
+            }
+            ?>
+          </table>
+        <?php
+        } else {
+          echo "";
+        }
+        ?>
       </div>
 
     </div>

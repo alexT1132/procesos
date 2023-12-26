@@ -134,10 +134,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         error_reporting(0);
         $Nom_Proceso = $_GET['Nom_Proceso'];
         // Consulta SQL
-        $sql = "SELECT pc.id, proceso, subproceso, actividad, 0 as ID, null as val_Frec,
-                null as input, null as sistema, null as rol, null as tiempo, null as vol,
-                null as t_h, null as ftes, null as estado, 0 as username_id, 0 as procesos_id
-                FROM procesos_consultas pc, consultas c
+        $sql = "SELECT * FROM procesos_consultas pc
+                INNER JOIN consultas c
                 WHERE username_id <> $id AND c.procesos_id = pc.id AND (c.username_id = $id OR c.username_id = 0)";
         if (isset($_GET['Nom_Proceso']) && $Nom_Proceso != 'Todos') {
           $sql .= " AND proceso = '$Nom_Proceso'";
