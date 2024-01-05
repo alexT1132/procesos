@@ -65,7 +65,7 @@ if($varsesion== null || $varsesion=''){
                   <li><a href="../Frecuencia/frecuencia.php">Frecuencia</a></li>
                   <li><a href="../funciones/funcion.php">Funcion</a></li>
                   <li><a href="../entrega/entrega.php">Entrega</a></li>
-                  <li><a href="../consultas/consultas.php">Consultas</a></li>
+                  <li><a href="../users/users.php">Usuarios</a></li>
                 </ul>
               </div>
             </div>
@@ -226,7 +226,7 @@ if($varsesion== null || $varsesion=''){
 
     
     <!-- formulario -->
-    <div class="row justify-content-center" style="width: 100%; margin-left: 2%; margin-top: 6%;">
+    <div class="row justify-content-center" style="width: 100%; margin-left: 8%; margin-top: 6%;">
     <table class="table">
   <thead class="text-center">
     <tr>

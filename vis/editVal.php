@@ -5,8 +5,12 @@
 
     if (isset($_SESSION['Editar'])) {
         $Editar = $_SESSION['Editar'];
+        $formulario1 = $_SESSION['formulario1'];
+        $username_tab = $_SESSION['username'];
+
 
         // Escapa los datos para prevenir inyección SQL
+        $Nombre = $conexion->real_escape_string($formulario1['Nombre']);
         $Nom_Proceso = $conexion->real_escape_string($Editar['Nom_Proceso']);
         $Nom_Subproceso = $conexion->real_escape_string($Editar['Nom_Subproceso']);
         $Nom_Actividad = $conexion->real_escape_string($Editar['Nom_Actividad']);
@@ -19,14 +23,14 @@
         $t_h = $conexion->real_escape_string($Editar['t_h']);
         $ftes = $conexion->real_escape_string($Editar['ftes']);
 
-        $query1 = "UPDATE consultas SET val_Frec = '$val_Frec', input = '$input', sistema = '$sistema', rol = '$rol', tiempo = '$tiempo', vol = '$vol',
-        t_h = '$t_h', ftes = '$ftes' WHERE ID = {$Editar['ID']}";
+        $query1 = "UPDATE $username_tab SET val_Frec = '$val_Frec', input = '$input', sistema = '$sistema', rol = '$rol', tiempo = '$tiempo', vol = '$vol',
+        t_h = '$t_h', ftes = '$ftes' WHERE id = {$Editar['id']}";
         $resultado1 = $conexion->query($query1);
 
         if ($resultado1) {
             
             $query2 = "UPDATE usuario_cliente SET val_Frec = '$val_Frec', input = '$input', sistema = '$sistema', rol = '$rol', tiempo = '$tiempo', vol = '$vol',
-            t_h = '$t_h', ftes = '$ftes' WHERE Nom_Proceso = '$Nom_Proceso' AND Nom_Subproceso = '$Nom_Subproceso' AND Nom_Actividad = '$Nom_Actividad'";
+            t_h = '$t_h', ftes = '$ftes' WHERE Nom_Proceso = '$Nom_Proceso' AND Nom_Subproceso = '$Nom_Subproceso' AND Nom_Actividad = '$Nom_Actividad' AND Nombre = '$Nombre'";
             $resultado2 = $conexion->query($query2);
 
         }

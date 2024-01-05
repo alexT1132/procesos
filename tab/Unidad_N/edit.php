@@ -27,6 +27,7 @@ if  (isset($_GET['ID_unidad_negocio'])) {
 if (isset($_POST['update'])) {
     $ID_unidad_negocio = $_GET['ID_unidad_negocio'];
     $nom_unidad_negocio = $_POST['nom_unidad_negocio'];
+    
     $query = "UPDATE unidad_negocio set nom_unidad_negocio = '$nom_unidad_negocio' WHERE ID_unidad_negocio = $ID_unidad_negocio";
     mysqli_query($conexion, $query);
     header('Location: UN.php');

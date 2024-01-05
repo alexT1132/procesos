@@ -12,30 +12,61 @@ if($varsesion== null || $varsesion=''){
 
 <?php
 include("../../config/conexion.php");
-$Procesos = '';
-$subproceso = '';
-$Actividad = '';
+
+$username = '';
+$password = '';
+$rol_id = '';
+
 
 if  (isset($_GET['ID'])) {
   $ID = $_GET['ID'];
-  $query = "SELECT * FROM consultas WHERE ID = $ID";
+  $query = "SELECT * FROM usernames WHERE ID = $ID";
   $result = mysqli_query($conexion, $query);
   if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_array($result);
-    $Procesos = $row['Procesos'];
-    $subproceso = $row['subproceso'];
-    $Actividad = $row['Actividad'];
+    $username = $row['username'];
+    $password = $row['password'];
+    $rol_id = $row['rol_id'];
   }
 }
 
 if (isset($_POST['update'])) {
     $ID = $_GET['ID'];
-    $Procesos = $_POST['Procesos'];
-    $subproceso = $_POST['subproceso'];
-    $Actividad = $_POST['Actividad'];
-    $query = "UPDATE consultas set Procesos = '$Procesos', subproceso = '$subproceso', Actividad = '$Actividad' WHERE ID = $ID";
-    mysqli_query($conexion, $query);
-    header('Location: consultas.php');
+    $new_username = $_POST['new_username'];
+    $new_password = $_POST['new_password'];
+    $new_rol_id = $_POST['new_rol_id'];
+    $query = "UPDATE usernames SET username = '$new_username', password = '$new_password', rol_id = '$new_rol_id' WHERE ID = $ID";
+    $result_update = mysqli_query($conexion, $query);
+    
+    if ($conexion->query($query) === TRUE) {
+        header('location: users.php');
+    } else {
+        echo "Error al cambiar el nombre de usuario.";
+    }
+
+    // Nombre de la tabla que deseas seleccionar y renombrar
+    $username_tab = $username;
+
+    // Consulta para seleccionar datos de la tabla
+    $sql_select_data = "SELECT * FROM $username_tab";
+
+    $result_select_data = $conexion->query($sql_select_data);
+
+    if ($result_select_data->num_rows > 0) {
+
+        // Consulta para cambiar el nombre de la tabla
+        $new_name_tab = $new_username;
+        $sql_rename_table = "RENAME TABLE $username_tab TO $new_name_tab";
+
+        if ($conexion->query($sql_rename_table) === TRUE) {
+            header('location: users.php');
+        } else {
+            echo "Error al cambiar el nombre de la tabla: ";
+        }
+    } else {
+        echo "No se encontraron datos en la tabla seleccionada.";
+    }
+
 }
 
 ?>
@@ -61,67 +92,26 @@ if (isset($_POST['update'])) {
       <div class="card card-body">
         <form action="edit.php?ID=<?php echo $_GET['ID']; ?>" method="POST">
         <div class="mb-3">
-            <label>nom_proceso</label>
-        <select class="form-select mb-3" aria-label="Default select example" name="Procesos">
-            <?php
-                $sql1 = "SELECT * FROM consultas WHERE ID =".$row['ID'];
-                $resultado1 = $conexion->query($sql1);
-
-                $row1 = $resultado1->fetch_assoc();
-
-                echo "<option selected disabled value='".$row1['Procesos']."'>".$row1['Procesos']."</option>";
-
-                $sql2 = "SELECT * FROM procesos";
-                $resultado2 = $conexion->query($sql2);
-
-                while ($Fila = $resultado2->fetch_array()) {
-                    echo "<option value='".$Fila['Nom_Procesos']."'>".$Fila['Nom_Procesos']."</option>";
-                }
-            ?>   
-        </select>
+            <label>Usuario</label>
+            <input type="text" class="form-control" name="new_username" value="<?php echo $username; ?>" placeholder="Actualizar Nombre">
             </div>
             <div class="mb-3">
-            <label>Nom_subProceso</label>
-        <select class="form-select mb-3" aria-label="Default select example" name="subproceso">
-            <?php
-                $sql1 = "SELECT * FROM consultas WHERE ID =".$row['ID'];
-                $resultado1 = $conexion->query($sql1);
-
-                $row1 = $resultado1->fetch_assoc();
-
-                echo "<option selected disabled value='".$row1['subproceso']."'>".$row1['subproceso']."</option>";
-
-                $sql2 = "SELECT * FROM sub_proceso";
-                $resultado2 = $conexion->query($sql2);
-
-                while ($Fila = $resultado2->fetch_array()) {
-                    echo "<option value='".$Fila['nom_Subproceso']."'>".$Fila['nom_Subproceso']."</option>";
-                }
-            ?>   
-        </select>
+            <label>Password</label>
+            <input type="text" class="form-control" name="new_password" value="<?php echo $password; ?>" placeholder="Actualizar Nombre">
             </div>
             <div class="mb-3">
-                <label>nom_actividad</label>
-                <select class="form-select mb-3" aria-label="Default select example" name="Actividad">
-                    <option selected disabled>--Seleccione Actividad--</option>
-                        <?php
-                            $sql1 = "SELECT * FROM consultas WHERE ID=".$row['ID'];
-                            $resultado1 = $conexion->query($sql1);
-
-                            $row1 = $resultado1->fetch_assoc();
-
-                            echo "<option selected value='".$row1['Actividad']."'>".$row1['Actividad']."</option>";
-
-                            $sql2 = "SELECT * FROM detalle_actividad";
-                            $resultado2 = $conexion->query($sql2);
-
-                            while ($Fila = $resultado2->fetch_array()) {
-                                echo "<option value='".$Fila['nom_actividad']."'>".$Fila['nom_actividad']."</option>";
-                            }
-                        ?>   
+                <label>Rol_id</label>
+                <select class="form-select mb-3" aria-label="Default select example" name="new_rol_id">
+                <option selected><?php echo $rol_id; ?></option>
+                            <?php
+                                $sql = $conexion->query("SELECT * FROM roles");
+                                while ($resultado = $sql->fetch_assoc()) {
+                                echo "<option value='".$resultado['ID']."'>".$resultado['rol']."</option>";
+                              }
+                            ?>
                 </select>
             </div>
-            <a type="submite" class="btn btn-danger" href="calculo.php">Back</a>
+            <a type="submite" class="btn btn-danger" href="users.php">Back</a>
             <button class="btn btn-success" name="update">
                 Update
             </button>

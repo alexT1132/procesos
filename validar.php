@@ -11,7 +11,7 @@ $resultado = mysqli_query($conexion, $consulta);
 $filas = mysqli_fetch_array($resultado);
 
 if (count($filas) != 0) {
-    $_SESSION['ID'] = $filas['ID'];
+    $_SESSION['username'] = $username;
 }
 
 if ($filas['rol_id'] == 1) {

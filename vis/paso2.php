@@ -7,7 +7,7 @@ include('../config/conexion.php');
 
 if (isset($_SESSION['formulario1'])) {
   $datos1 = $_SESSION['formulario1'];
-  $id = $_SESSION['ID'];
+  $username_tab = $_SESSION['username'];
 }
 
 ?>
@@ -110,11 +110,9 @@ if (isset($_SESSION['formulario1'])) {
         error_reporting(0);
         $nom_Procesos = $_GET['Nom_Proceso'];
         // Consulta SQL
-        $sql = "SELECT * FROM consultas WHERE username_id <> $id UNION
-                SELECT * FROM procesos_consultas pc, consultas c
-                WHERE c.procesos_id = pc.id AND (c.username_id = $id OR c.username_id = 0)";
+        $sql = "SELECT * FROM $username_tab";
         if ($Nom_Proceso != 'Todos') {
-          $sql .= " AND proceso = '$Nom_Proceso'";
+          $sql .= " WHERE proceso = '$Nom_Proceso'";
         }
 
         $result = $conexion->query($sql);

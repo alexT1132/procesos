@@ -7,7 +7,7 @@ include('../config/conexion.php');
 
 if (isset($_SESSION['formulario1'])) {
   $datos1 = $_SESSION['formulario1'];
-  $id = $_SESSION['ID'];
+  $username_tab = $_SESSION['username'];
 } else {
   echo 'Datos no encontrados';
   exit;
@@ -134,11 +134,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         error_reporting(0);
         $Nom_Proceso = $_GET['Nom_Proceso'];
         // Consulta SQL
-        $sql = "SELECT * FROM procesos_consultas pc
-                INNER JOIN consultas c
-                WHERE username_id <> $id AND c.procesos_id = pc.id AND (c.username_id = $id OR c.username_id = 0)";
-        if (isset($_GET['Nom_Proceso']) && $Nom_Proceso != 'Todos') {
-          $sql .= " AND proceso = '$Nom_Proceso'";
+        $sql = "SELECT * FROM $username_tab";
+        if ($Nom_Proceso != 'Todos') {
+          $sql .= " WHERE proceso = '$Nom_Proceso'";
         }
         $result = $conexion->query($sql);
         if ($result->num_rows > 0) {
