@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-01-2024 a las 18:19:44
+-- Tiempo de generación: 17-01-2024 a las 00:27:00
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.1.17
 
@@ -36,6 +36,358 @@ CREATE TABLE `calculo` (
   `Nom_Valor` varchar(50) NOT NULL,
   `Nom_frecuencia` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cliente1`
+--
+
+CREATE TABLE `cliente1` (
+  `id` int(11) NOT NULL,
+  `proceso` varchar(255) NOT NULL,
+  `subproceso` varchar(255) NOT NULL,
+  `actividad` varchar(255) NOT NULL,
+  `val_Frec` varchar(100) NOT NULL,
+  `input` varchar(100) NOT NULL,
+  `sistema` varchar(100) NOT NULL,
+  `rol` varchar(100) NOT NULL,
+  `tiempo` varchar(100) NOT NULL,
+  `vol` varchar(100) NOT NULL,
+  `t_h` varchar(100) NOT NULL,
+  `ftes` varchar(100) NOT NULL,
+  `estado` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `cliente1`
+--
+
+INSERT INTO `cliente1` (`id`, `proceso`, `subproceso`, `actividad`, `val_Frec`, `input`, `sistema`, `rol`, `tiempo`, `vol`, `t_h`, `ftes`, `estado`) VALUES
+(1, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Firmar contrato', '4', 'fgdf', 'xxx', 'Ejecutar', '8', '4', '128', '0.8', '1'),
+(2, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Recibir solicitud y propuestas', '4', 'fgdf', 'aaaaaa', 'Supervisar', '10', '2', '80', '0.5', '1'),
+(3, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Validar posible transportista', '4', 'llamada', 'sap', 'Supervisar', '1', '10', '40', '0.25', '1'),
+(4, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Visitar instalaciones', '4', 'llamada', 'outlook', 'Ejecutar', '2', '10', '80', '0.5', '1'),
+(5, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Validar documentación', '4', 'correo', 'excel', 'Ejecutar', '1', '2', '8', '0.05', '1'),
+(6, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Solicitar información correcta', '4', 'fgdf', 'aaaaaa', 'Ejecutar', '10', '2', '80', '0.5', '1'),
+(7, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Llenar contrato', '4', 'fgdf', 'aaaaaa', 'Ejecutar', '10', '2', '80', '0.5', '1'),
+(8, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Enviar contrato y documentación para validación', '4', 'fgdf', 'aaaaaa', 'Ejecutar', '10', '2', '80', '0.5', '1'),
+(9, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Corregir contrato', '4', 'fgdf', 'aaaaaa', 'Ejecutar', '8', '2', '64', '0.4', '1'),
+(10, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Firmar contrato', '', '', '', '', '', '', '', '', '0'),
+(11, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Validar propuesta del proveedor', '', '', '', '', '', '', '', '', '0'),
+(12, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Solicitar nueva cotización/propuesta', '', '', '', '', '', '', '', '', '0'),
+(13, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Negociar con proveedor', '', '', '', '', '', '', '', '', '0'),
+(14, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Recibir y validar documentación', '', '', '', '', '', '', '', '', '0'),
+(15, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Solicitar información correcta', '', '', '', '', '', '', '', '', '0'),
+(16, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Revisar contrato firmado', '', '', '', '', '', '', '', '', '0'),
+(17, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Actualizar contrato', '', '', '', '', '', '', '', '', '0'),
+(18, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Llenar contrato', '', '', '', '', '', '', '', '', '0'),
+(19, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Firmar contrato', '', '', '', '', '', '', '', '', '0'),
+(20, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Enviar contrato y documentación para validación', '', '', '', '', '', '', '', '', '0'),
+(21, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Corregir contrato', '', '', '', '', '', '', '', '', '0'),
+(22, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Firmar contrato', '', '', '', '', '', '', '', '', '0'),
+(23, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Recibir propuesta de proveedor', '', '', '', '', '', '', '', '', '0'),
+(24, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Negociar condiciones comerciales', '', '', '', '', '', '', '', '', '0'),
+(25, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Determinar mejor opción', '', '', '', '', '', '', '', '', '0'),
+(26, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Llenar contrato', '', '', '', '', '', '', '', '', '0'),
+(27, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Validar documentación', '', '', '', '', '', '', '', '', '0'),
+(28, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Solicitar información correcta', '', '', '', '', '', '', '', '', '0'),
+(29, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Enviar contrato y documentación para validación', '', '', '', '', '', '', '', '', '0'),
+(30, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Corregir contrato', '', '', '', '', '', '', '', '', '0'),
+(31, 'Gestionar Contratos', 'Gestionar contrato marco SAP', 'Enviar invitación de licitación', '', '', '', '', '', '', '', '', '0'),
+(32, 'Gestionar Contratos', 'Gestionar contrato marco SAP', 'Negociar y seleccionar proveedor', '', '', '', '', '', '', '', '', '0'),
+(33, 'Gestionar Contratos', 'Gestionar contrato marco SAP', 'Crear contrato', '', '', '', '', '', '', '', '', '0'),
+(34, 'Gestionar Contratos', 'Gestionar contrato marco SAP', 'Liberar contrato marco', '', '', '', '', '', '', '', '', '0'),
+(35, 'Gestionar Contratos', 'Gestionar contrato marco SAP', 'Buscar proveedores alternos', '', '', '', '', '', '', '', '', '0'),
+(36, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores', 'Recibir solicitud de alta', '4', 'fgdf', 'xxx', 'Ejecutar', '10', '2', '80', '0.5', '1'),
+(37, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores', 'Revisar información proporcionada', '', '', '', '', '', '', '', '', '0'),
+(38, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores', 'Solicitar información correcta', '', '', '', '', '', '', '', '', '0'),
+(39, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores', 'Realizar alta del DM', '', '', '', '', '', '', '', '', '0'),
+(40, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores', 'Notificar alta', '4', 'correo', 'sap', 'Ejecutar', '.25', '1', '1', '0.0063', '1'),
+(41, 'Gestionar Datos Maestros de Proveedores', 'Gestionar modificación de DM de Proveedores', 'Recibir solicitud de modificación', '4', 'correo', 'sap', 'Supervisar', '1', '20', '80', '0.5', '1'),
+(42, 'Gestionar Datos Maestros de Proveedores', 'Gestionar modificación de DM de Proveedores', 'Revisar información proporcionada', '', '', '', '', '', '', '', '', '0'),
+(43, 'Gestionar Datos Maestros de Proveedores', 'Gestionar modificación de DM de Proveedores', 'Solicitar información correcta', '', '', '', '', '', '', '', '', '0'),
+(44, 'Gestionar Datos Maestros de Proveedores', 'Gestionar modificación de DM de Proveedores', 'Realizar modificación del DM', '', '', '', '', '', '', '', '', '0'),
+(45, 'Gestionar Datos Maestros de Proveedores', 'Gestionar modificación de DM de Proveedores', 'Notificar la modificación', '', '', '', '', '', '', '', '', '0'),
+(46, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Recibir solicitud de alta', '', '', '', '', '', '', '', '', '0'),
+(47, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Notificar alta', '', '', '', '', '', '', '', '', '0'),
+(48, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Revisar información proporcionada', '', '', '', '', '', '', '', '', '0'),
+(49, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Solicitar información correcta', '', '', '', '', '', '', '', '', '0'),
+(50, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Realizar alta del DM', '', '', '', '', '', '', '', '', '0'),
+(51, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Solicitar validación', '', '', '', '', '', '', '', '', '0'),
+(52, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Notificar al proveedor', '', '', '', '', '', '', '', '', '0'),
+(53, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Solicitar activación', '', '', '', '', '', '', '', '', '0'),
+(54, 'Gestionar Datos Maestros de Proveedores', 'Gestionar bloqueo de proveedores', 'Recibir solicitud de bloqueo', '', '', '', '', '', '', '', '', '0'),
+(55, 'Gestionar Datos Maestros de Proveedores', 'Gestionar bloqueo de proveedores', 'Realizar bloqueo\r\n', '', '', '', '', '', '', '', '', '0'),
+(56, 'Gestionar Datos Maestros de Proveedores', 'Gestionar bloqueo de proveedores', 'Notificar bloqueo', '', '', '', '', '', '', '', '', '0'),
+(57, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir SolP', '', '', '', '', '', '', '', '', '0'),
+(58, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Generar petición de oferta en SAP', '', '', '', '', '', '', '', '', '0'),
+(59, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir propuesta de proveedores', '', '', '', '', '', '', '', '', '0'),
+(60, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Negociación y retroalimentación con proveedores', '', '', '', '', '', '', '', '', '0'),
+(61, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Generar cuadro comparativo', '', '', '', '', '', '', '', '', '0'),
+(62, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Validar con usuarios y almacén / Retroalimentación proveedores', '', '', '', '', '', '', '', '', '0'),
+(63, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Tomar decisión de compra', '', '', '', '', '', '', '', '', '0'),
+(64, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Generar pedido', '', '', '', '', '', '', '', '', '0'),
+(65, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Liberar pedido\r\n', '', '', '', '', '', '', '', '', '0'),
+(66, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
+(67, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Notificar rechazo de liberación', '', '', '', '', '', '', '', '', '0'),
+(68, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(69, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Dar seguimiento a la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(70, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir y registrar factura', '', '', '', '', '', '', '', '', '0'),
+(71, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir SolP', '', '', '', '', '', '', '', '', '0'),
+(72, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Generar petición de oferta en SAP', '', '', '', '', '', '', '', '', '0'),
+(73, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir propuesta de proveedores', '', '', '', '', '', '', '', '', '0'),
+(74, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Negociación y retroalimentación con proveedores', '', '', '', '', '', '', '', '', '0'),
+(75, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Generar cuadro comparativo', '', '', '', '', '', '', '', '', '0'),
+(76, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Validar con usuarios y almacén / Retroalimentación proveedores', '', '', '', '', '', '', '', '', '0'),
+(77, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Tomar decisión de compra', '', '', '', '', '', '', '', '', '0'),
+(78, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Generar pedido', '', '', '', '', '', '', '', '', '0'),
+(79, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
+(80, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Notificar rechazo de liberación', '', '', '', '', '', '', '', '', '0'),
+(81, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(82, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Dar seguimiento a la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(83, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir y registrar factura', '', '', '', '', '', '', '', '', '0'),
+(84, 'Gestionar compras de materiales', 'Gestionar pedidos con convenio (Contrato Marco)', 'Recibir SolP', '', '', '', '', '', '', '', '', '0'),
+(85, 'Gestionar compras de materiales', 'Gestionar pedidos con convenio (Contrato Marco)', 'Generar pedido', '', '', '', '', '', '', '', '', '0'),
+(86, 'Gestionar compras de materiales', 'Gestionar pedidos con convenio (Contrato Marco)', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(87, 'Gestionar compras de materiales', 'Gestionar pedidos con convenio (Contrato Marco)', 'Dar seguimiento a la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(88, 'Gestionar compras de materiales', 'Gestionar pedidos con convenio (Contrato Marco)', 'Recibir y registrar factura', '', '', '', '', '', '', '', '', '0'),
+(89, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Recibir SolP', '', '', '', '', '', '', '', '', '0'),
+(90, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Recibir autorización técnica', '', '', '', '', '', '', '', '', '0'),
+(91, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Generar pedido', '', '', '', '', '', '', '', '', '0'),
+(92, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
+(93, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
+(94, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Notificar rechazo', '', '', '', '', '', '', '', '', '0'),
+(95, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(96, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Dar seguimiento a la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(97, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Recibir y registrar factura', '', '', '', '', '', '', '', '', '0'),
+(98, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir SolP', '', '', '', '', '', '', '', '', '0'),
+(99, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Generar petición de oferta por correo electrónico', '', '', '', '', '', '', '', '', '0'),
+(100, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir propuestas de proveedores', '', '', '', '', '', '', '', '', '0'),
+(101, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Generar cuadro comparativo', '', '', '', '', '', '', '', '', '0'),
+(102, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Revisar comparativo y propuesta proporcionada (Decisión de compra)', '', '', '', '', '', '', '', '', '0'),
+(103, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir validación técnica (como anexo en la OC)', '', '', '', '', '', '', '', '', '0'),
+(104, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Elaborar orden de compra', '', '', '', '', '', '', '', '', '0'),
+(105, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
+(106, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
+(107, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Notificar rechazo', '', '', '', '', '', '', '', '', '0'),
+(108, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(109, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir SolP', '', '', '', '', '', '', '', '', '0'),
+(110, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Generar petición de oferta por correo electrónico', '', '', '', '', '', '', '', '', '0'),
+(111, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir propuestas de proveedores', '', '', '', '', '', '', '', '', '0'),
+(112, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Generar cuadro comparativo', '', '', '', '', '', '', '', '', '0'),
+(113, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Revisar comparativo y propuesta proporcionada', '', '', '', '', '', '', '', '', '0'),
+(114, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir validación técnica (como anexo en la OC)', '', '', '', '', '', '', '', '', '0'),
+(115, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Elaborar orden de compra', '', '', '', '', '', '', '', '', '0'),
+(116, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Liberar pedido\r\n', '', '', '', '', '', '', '', '', '0'),
+(117, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Notificar rechazo', '', '', '', '', '', '', '', '', '0'),
+(118, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(119, 'Gestionar compras de servicios', 'Gestionar pedidos con convenio (Contrato Marco)', 'Recibir SolP', '', '', '', '', '', '', '', '', '0'),
+(120, 'Gestionar compras de servicios', 'Gestionar pedidos con convenio (Contrato Marco)', 'Solicitar cotización al proveedor y visto bueno usuario', '', '', '', '', '', '', '', '', '0'),
+(121, 'Gestionar compras de servicios', 'Gestionar pedidos con convenio (Contrato Marco)', 'Generar pedido', '', '', '', '', '', '', '', '', '0'),
+(122, 'Gestionar compras de servicios', 'Gestionar pedidos con convenio (Contrato Marco)', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
+(123, 'Gestionar compras de servicios', 'Gestionar pedidos con convenio (Contrato Marco)', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(124, 'Gestionar compras de servicios', 'Gestionar pedidos por asignación directa', 'Recibir SolP ', '', '', '', '', '', '', '', '', '0'),
+(125, 'Gestionar compras de servicios', 'Gestionar pedidos por asignación directa', 'Revisar autorización técnica', '', '', '', '', '', '', '', '', '0'),
+(126, 'Gestionar compras de servicios', 'Gestionar pedidos por asignación directa', 'Generar pedido (Se adjunta el PDF de validación)', '', '', '', '', '', '', '', '', '0'),
+(127, 'Gestionar compras de servicios', 'Gestionar pedidos por asignación directa', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
+(128, 'Gestionar compras de servicios', 'Gestionar pedidos por asignación directa', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
+(129, 'Gestionar compras de servicios', 'Gestionar pedidos por asignación directa', 'Notificar rechazo', '', '', '', '', '', '', '', '', '0'),
+(130, 'Gestionar compras de servicios', 'Gestionar pedidos por asignación directa', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(131, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Recibir SolP', '', '', '', '', '', '', '', '', '0'),
+(132, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Recibir solicitud del área de proyectos', '', '', '', '', '', '', '', '', '0'),
+(133, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Enviar invitación', '', '', '', '', '', '', '', '', '0'),
+(134, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Realizar conferencia', '', '', '', '', '', '', '', '', '0'),
+(135, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Recibir propuestas de proveedores', '', '', '', '', '', '', '', '', '0'),
+(136, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Generar cuadro comparativo', '', '', '', '', '', '', '', '', '0'),
+(137, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Revisar comparativo y propuesta proporcionada (Decisión de compra)', '', '', '', '', '', '', '', '', '0'),
+(138, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Recibir validación técnica', '', '', '', '', '', '', '', '', '0'),
+(139, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Elaborar orden de compra', '', '', '', '', '', '', '', '', '0'),
+(140, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
+(141, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Notificar rechazo', '', '', '', '', '', '', '', '', '0'),
+(142, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(143, 'Gestionar compras de servicios', 'Evaluar proveedores de servicios de proyectos ', 'Enlistar proveedores', '', '', '', '', '', '', '', '', '0'),
+(144, 'Gestionar compras de servicios', 'Evaluar proveedores de servicios de proyectos ', 'Evaluar y asignar calificación', '', '', '', '', '', '', '', '', '0'),
+(145, 'Gestionar compras de servicios', 'Evaluar proveedores de servicios de proyectos ', 'Enviar calificaciones a proyectos', '', '', '', '', '', '', '', '', '0'),
+(146, 'Gestionar compras de servicios', 'Evaluar proveedores de servicios de proyectos ', 'Enviar justificación de calificación (si aplica)', '', '', '', '', '', '', '', '', '0'),
+(147, 'Gestionar compras de servicios', 'Evaluar proveedores de servicios de proyectos ', 'Recibir retroalimentación del área de proyectos en cuanto a la calificación de los proveedores (calificación integral)', '', '', '', '', '', '', '', '', '0'),
+(148, 'Gestionar compras de servicios', 'Evaluar proveedores de servicios de proyectos ', 'Resguardar evaluación', '', '', '', '', '', '', '', '', '0');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cliente2`
+--
+
+CREATE TABLE `cliente2` (
+  `id` int(11) NOT NULL,
+  `proceso` varchar(255) NOT NULL,
+  `subproceso` varchar(255) NOT NULL,
+  `actividad` varchar(255) NOT NULL,
+  `val_Frec` varchar(100) NOT NULL,
+  `input` varchar(100) NOT NULL,
+  `sistema` varchar(100) NOT NULL,
+  `rol` varchar(100) NOT NULL,
+  `tiempo` varchar(100) NOT NULL,
+  `vol` varchar(100) NOT NULL,
+  `t_h` varchar(100) NOT NULL,
+  `ftes` varchar(100) NOT NULL,
+  `estado` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `cliente2`
+--
+
+INSERT INTO `cliente2` (`id`, `proceso`, `subproceso`, `actividad`, `val_Frec`, `input`, `sistema`, `rol`, `tiempo`, `vol`, `t_h`, `ftes`, `estado`) VALUES
+(1, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Firmar contrato', '', '', '', '', '', '', '', '', '0'),
+(2, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Recibir solicitud y propuestas', '', '', '', '', '', '', '', '', '0'),
+(3, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Validar posible transportista', '', '', '', '', '', '', '', '', '0'),
+(4, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Visitar instalaciones', '', '', '', '', '', '', '', '', '0'),
+(5, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Validar documentación', '', '', '', '', '', '', '', '', '0'),
+(6, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Solicitar información correcta', '', '', '', '', '', '', '', '', '0'),
+(7, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Llenar contrato', '', '', '', '', '', '', '', '', '0'),
+(8, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Enviar contrato y documentación para validación', '', '', '', '', '', '', '', '', '0'),
+(9, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Corregir contrato', '', '', '', '', '', '', '', '', '0'),
+(10, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Firmar contrato', '', '', '', '', '', '', '', '', '0'),
+(11, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Validar propuesta del proveedor', '', '', '', '', '', '', '', '', '0'),
+(12, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Solicitar nueva cotización/propuesta', '', '', '', '', '', '', '', '', '0'),
+(13, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Negociar con proveedor', '', '', '', '', '', '', '', '', '0'),
+(14, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Recibir y validar documentación', '', '', '', '', '', '', '', '', '0'),
+(15, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Solicitar información correcta', '', '', '', '', '', '', '', '', '0'),
+(16, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Revisar contrato firmado', '', '', '', '', '', '', '', '', '0'),
+(17, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Actualizar contrato', '', '', '', '', '', '', '', '', '0'),
+(18, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Llenar contrato', '', '', '', '', '', '', '', '', '0'),
+(19, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Firmar contrato', '', '', '', '', '', '', '', '', '0'),
+(20, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Enviar contrato y documentación para validación', '', '', '', '', '', '', '', '', '0'),
+(21, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Corregir contrato', '', '', '', '', '', '', '', '', '0'),
+(22, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Firmar contrato', '', '', '', '', '', '', '', '', '0'),
+(23, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Recibir propuesta de proveedor', '', '', '', '', '', '', '', '', '0'),
+(24, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Negociar condiciones comerciales', '', '', '', '', '', '', '', '', '0'),
+(25, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Determinar mejor opción', '', '', '', '', '', '', '', '', '0'),
+(26, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Llenar contrato', '', '', '', '', '', '', '', '', '0'),
+(27, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Validar documentación', '', '', '', '', '', '', '', '', '0'),
+(28, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Solicitar información correcta', '', '', '', '', '', '', '', '', '0'),
+(29, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Enviar contrato y documentación para validación', '', '', '', '', '', '', '', '', '0'),
+(30, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Corregir contrato', '', '', '', '', '', '', '', '', '0'),
+(31, 'Gestionar Contratos', 'Gestionar contrato marco SAP', 'Enviar invitación de licitación', '', '', '', '', '', '', '', '', '0'),
+(32, 'Gestionar Contratos', 'Gestionar contrato marco SAP', 'Negociar y seleccionar proveedor', '', '', '', '', '', '', '', '', '0'),
+(33, 'Gestionar Contratos', 'Gestionar contrato marco SAP', 'Crear contrato', '', '', '', '', '', '', '', '', '0'),
+(34, 'Gestionar Contratos', 'Gestionar contrato marco SAP', 'Liberar contrato marco', '', '', '', '', '', '', '', '', '0'),
+(35, 'Gestionar Contratos', 'Gestionar contrato marco SAP', 'Buscar proveedores alternos', '', '', '', '', '', '', '', '', '0'),
+(36, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores', 'Recibir solicitud de alta', '4', 'fgdf', 'aaaaaa', 'Ejecutar', '10', '2', '80', '0.5', '1'),
+(37, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores', 'Revisar información proporcionada', '', '', '', '', '', '', '', '', '0'),
+(38, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores', 'Solicitar información correcta', '', '', '', '', '', '', '', '', '0'),
+(39, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores', 'Realizar alta del DM', '', '', '', '', '', '', '', '', '0'),
+(40, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores', 'Notificar alta', '', '', '', '', '', '', '', '', '0'),
+(41, 'Gestionar Datos Maestros de Proveedores', 'Gestionar modificación de DM de Proveedores', 'Recibir solicitud de modificación', '', '', '', '', '', '', '', '', '0'),
+(42, 'Gestionar Datos Maestros de Proveedores', 'Gestionar modificación de DM de Proveedores', 'Revisar información proporcionada', '', '', '', '', '', '', '', '', '0'),
+(43, 'Gestionar Datos Maestros de Proveedores', 'Gestionar modificación de DM de Proveedores', 'Solicitar información correcta', '', '', '', '', '', '', '', '', '0'),
+(44, 'Gestionar Datos Maestros de Proveedores', 'Gestionar modificación de DM de Proveedores', 'Realizar modificación del DM', '', '', '', '', '', '', '', '', '0'),
+(45, 'Gestionar Datos Maestros de Proveedores', 'Gestionar modificación de DM de Proveedores', 'Notificar la modificación', '', '', '', '', '', '', '', '', '0'),
+(46, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Recibir solicitud de alta', '', '', '', '', '', '', '', '', '0'),
+(47, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Notificar alta', '', '', '', '', '', '', '', '', '0'),
+(48, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Revisar información proporcionada', '', '', '', '', '', '', '', '', '0'),
+(49, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Solicitar información correcta', '', '', '', '', '', '', '', '', '0'),
+(50, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Realizar alta del DM', '', '', '', '', '', '', '', '', '0'),
+(51, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Solicitar validación', '', '', '', '', '', '', '', '', '0'),
+(52, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Notificar al proveedor', '', '', '', '', '', '', '', '', '0'),
+(53, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Solicitar activación', '', '', '', '', '', '', '', '', '0'),
+(54, 'Gestionar Datos Maestros de Proveedores', 'Gestionar bloqueo de proveedores', 'Recibir solicitud de bloqueo', '', '', '', '', '', '', '', '', '0'),
+(55, 'Gestionar Datos Maestros de Proveedores', 'Gestionar bloqueo de proveedores', 'Realizar bloqueo\r\n', '', '', '', '', '', '', '', '', '0'),
+(56, 'Gestionar Datos Maestros de Proveedores', 'Gestionar bloqueo de proveedores', 'Notificar bloqueo', '', '', '', '', '', '', '', '', '0'),
+(57, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir SolP', '4', 'llamada', 'fresh', 'Ejecutar', '5', '5', '100', '0.625', '1'),
+(58, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Generar petición de oferta en SAP', '4', 'ticket', 'excel', 'Supervisar', '5', '5', '100', '0.625', '1'),
+(59, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir propuesta de proveedores', '4', 'corre', 'fresh', 'Ejecutar', '5', '5', '100', '0.625', '1'),
+(60, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Negociación y retroalimentación con proveedores', '', '', '', '', '', '', '', '', '0'),
+(61, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Generar cuadro comparativo', '', '', '', '', '', '', '', '', '0'),
+(62, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Validar con usuarios y almacén / Retroalimentación proveedores', '', '', '', '', '', '', '', '', '0'),
+(63, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Tomar decisión de compra', '', '', '', '', '', '', '', '', '0'),
+(64, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Generar pedido', '', '', '', '', '', '', '', '', '0'),
+(65, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Liberar pedido\r\n', '', '', '', '', '', '', '', '', '0'),
+(66, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
+(67, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Notificar rechazo de liberación', '', '', '', '', '', '', '', '', '0'),
+(68, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(69, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Dar seguimiento a la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(70, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir y registrar factura', '', '', '', '', '', '', '', '', '0'),
+(71, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir SolP', '', '', '', '', '', '', '', '', '0'),
+(72, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Generar petición de oferta en SAP', '', '', '', '', '', '', '', '', '0'),
+(73, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir propuesta de proveedores', '', '', '', '', '', '', '', '', '0'),
+(74, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Negociación y retroalimentación con proveedores', '', '', '', '', '', '', '', '', '0'),
+(75, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Generar cuadro comparativo', '', '', '', '', '', '', '', '', '0'),
+(76, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Validar con usuarios y almacén / Retroalimentación proveedores', '', '', '', '', '', '', '', '', '0'),
+(77, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Tomar decisión de compra', '', '', '', '', '', '', '', '', '0'),
+(78, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Generar pedido', '', '', '', '', '', '', '', '', '0'),
+(79, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
+(80, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Notificar rechazo de liberación', '', '', '', '', '', '', '', '', '0'),
+(81, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(82, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Dar seguimiento a la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(83, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir y registrar factura', '', '', '', '', '', '', '', '', '0'),
+(84, 'Gestionar compras de materiales', 'Gestionar pedidos con convenio (Contrato Marco)', 'Recibir SolP', '', '', '', '', '', '', '', '', '0'),
+(85, 'Gestionar compras de materiales', 'Gestionar pedidos con convenio (Contrato Marco)', 'Generar pedido', '', '', '', '', '', '', '', '', '0'),
+(86, 'Gestionar compras de materiales', 'Gestionar pedidos con convenio (Contrato Marco)', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(87, 'Gestionar compras de materiales', 'Gestionar pedidos con convenio (Contrato Marco)', 'Dar seguimiento a la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(88, 'Gestionar compras de materiales', 'Gestionar pedidos con convenio (Contrato Marco)', 'Recibir y registrar factura', '', '', '', '', '', '', '', '', '0'),
+(89, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Recibir SolP', '4', 'correo', 'sap', 'Ejecutar', '2', '1', '8', '0.05', '1'),
+(90, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Recibir autorización técnica', '', '', '', '', '', '', '', '', '0'),
+(91, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Generar pedido', '', '', '', '', '', '', '', '', '0'),
+(92, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
+(93, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
+(94, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Notificar rechazo', '', '', '', '', '', '', '', '', '0'),
+(95, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(96, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Dar seguimiento a la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(97, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Recibir y registrar factura', '', '', '', '', '', '', '', '', '0'),
+(98, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir SolP', '', '', '', '', '', '', '', '', '0'),
+(99, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Generar petición de oferta por correo electrónico', '', '', '', '', '', '', '', '', '0'),
+(100, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir propuestas de proveedores', '', '', '', '', '', '', '', '', '0'),
+(101, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Generar cuadro comparativo', '', '', '', '', '', '', '', '', '0'),
+(102, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Revisar comparativo y propuesta proporcionada (Decisión de compra)', '', '', '', '', '', '', '', '', '0'),
+(103, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir validación técnica (como anexo en la OC)', '', '', '', '', '', '', '', '', '0'),
+(104, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Elaborar orden de compra', '', '', '', '', '', '', '', '', '0'),
+(105, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
+(106, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
+(107, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Notificar rechazo', '', '', '', '', '', '', '', '', '0'),
+(108, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(109, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir SolP', '', '', '', '', '', '', '', '', '0'),
+(110, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Generar petición de oferta por correo electrónico', '', '', '', '', '', '', '', '', '0'),
+(111, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir propuestas de proveedores', '', '', '', '', '', '', '', '', '0'),
+(112, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Generar cuadro comparativo', '', '', '', '', '', '', '', '', '0'),
+(113, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Revisar comparativo y propuesta proporcionada', '', '', '', '', '', '', '', '', '0'),
+(114, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir validación técnica (como anexo en la OC)', '', '', '', '', '', '', '', '', '0'),
+(115, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Elaborar orden de compra', '', '', '', '', '', '', '', '', '0'),
+(116, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Liberar pedido\r\n', '', '', '', '', '', '', '', '', '0'),
+(117, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Notificar rechazo', '', '', '', '', '', '', '', '', '0'),
+(118, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(119, 'Gestionar compras de servicios', 'Gestionar pedidos con convenio (Contrato Marco)', 'Recibir SolP', '', '', '', '', '', '', '', '', '0'),
+(120, 'Gestionar compras de servicios', 'Gestionar pedidos con convenio (Contrato Marco)', 'Solicitar cotización al proveedor y visto bueno usuario', '', '', '', '', '', '', '', '', '0'),
+(121, 'Gestionar compras de servicios', 'Gestionar pedidos con convenio (Contrato Marco)', 'Generar pedido', '', '', '', '', '', '', '', '', '0'),
+(122, 'Gestionar compras de servicios', 'Gestionar pedidos con convenio (Contrato Marco)', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
+(123, 'Gestionar compras de servicios', 'Gestionar pedidos con convenio (Contrato Marco)', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(124, 'Gestionar compras de servicios', 'Gestionar pedidos por asignación directa', 'Recibir SolP ', '', '', '', '', '', '', '', '', '0'),
+(125, 'Gestionar compras de servicios', 'Gestionar pedidos por asignación directa', 'Revisar autorización técnica', '', '', '', '', '', '', '', '', '0'),
+(126, 'Gestionar compras de servicios', 'Gestionar pedidos por asignación directa', 'Generar pedido (Se adjunta el PDF de validación)', '', '', '', '', '', '', '', '', '0'),
+(127, 'Gestionar compras de servicios', 'Gestionar pedidos por asignación directa', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
+(128, 'Gestionar compras de servicios', 'Gestionar pedidos por asignación directa', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
+(129, 'Gestionar compras de servicios', 'Gestionar pedidos por asignación directa', 'Notificar rechazo', '', '', '', '', '', '', '', '', '0'),
+(130, 'Gestionar compras de servicios', 'Gestionar pedidos por asignación directa', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(131, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Recibir SolP', '', '', '', '', '', '', '', '', '0'),
+(132, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Recibir solicitud del área de proyectos', '', '', '', '', '', '', '', '', '0'),
+(133, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Enviar invitación', '', '', '', '', '', '', '', '', '0'),
+(134, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Realizar conferencia', '', '', '', '', '', '', '', '', '0'),
+(135, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Recibir propuestas de proveedores', '', '', '', '', '', '', '', '', '0'),
+(136, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Generar cuadro comparativo', '', '', '', '', '', '', '', '', '0'),
+(137, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Revisar comparativo y propuesta proporcionada (Decisión de compra)', '', '', '', '', '', '', '', '', '0'),
+(138, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Recibir validación técnica', '', '', '', '', '', '', '', '', '0'),
+(139, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Elaborar orden de compra', '', '', '', '', '', '', '', '', '0'),
+(140, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
+(141, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Notificar rechazo', '', '', '', '', '', '', '', '', '0'),
+(142, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '', '0'),
+(143, 'Gestionar compras de servicios', 'Evaluar proveedores de servicios de proyectos ', 'Enlistar proveedores', '', '', '', '', '', '', '', '', '0'),
+(144, 'Gestionar compras de servicios', 'Evaluar proveedores de servicios de proyectos ', 'Evaluar y asignar calificación', '', '', '', '', '', '', '', '', '0'),
+(145, 'Gestionar compras de servicios', 'Evaluar proveedores de servicios de proyectos ', 'Enviar calificaciones a proyectos', '', '', '', '', '', '', '', '', '0'),
+(146, 'Gestionar compras de servicios', 'Evaluar proveedores de servicios de proyectos ', 'Enviar justificación de calificación (si aplica)', '', '', '', '', '', '', '', '', '0'),
+(147, 'Gestionar compras de servicios', 'Evaluar proveedores de servicios de proyectos ', 'Recibir retroalimentación del área de proyectos en cuanto a la calificación de los proveedores (calificación integral)', '', '', '', '', '', '', '', '', '0'),
+(148, 'Gestionar compras de servicios', 'Evaluar proveedores de servicios de proyectos ', 'Resguardar evaluación', '', '', '', '', '', '', '', '', '0');
 
 -- --------------------------------------------------------
 
@@ -230,181 +582,6 @@ INSERT INTO `detalle_actividad` (`ID_Actividad`, `nom_actividad`, `Entregable`, 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `diana`
---
-
-CREATE TABLE `diana` (
-  `id` int(11) NOT NULL,
-  `proceso` varchar(255) NOT NULL,
-  `subproceso` varchar(255) NOT NULL,
-  `actividad` varchar(255) NOT NULL,
-  `val_Frec` varchar(100) NOT NULL,
-  `input` varchar(100) NOT NULL,
-  `sistema` varchar(100) NOT NULL,
-  `rol` varchar(100) NOT NULL,
-  `tiempo` varchar(100) NOT NULL,
-  `t_h` varchar(100) NOT NULL,
-  `ftes` varchar(100) NOT NULL,
-  `estado` varchar(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `diana`
---
-
-INSERT INTO `diana` (`id`, `proceso`, `subproceso`, `actividad`, `val_Frec`, `input`, `sistema`, `rol`, `tiempo`, `t_h`, `ftes`, `estado`) VALUES
-(1, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Firmar contrato', '', '', '', '', '', '', '', '0'),
-(2, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Recibir solicitud y propuestas', '', '', '', '', '', '', '', '0'),
-(3, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Validar posible transportista', '', '', '', '', '', '', '', '0'),
-(4, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Visitar instalaciones', '', '', '', '', '', '', '', '0'),
-(5, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Validar documentación', '', '', '', '', '', '', '', '0'),
-(6, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Solicitar información correcta', '', '', '', '', '', '', '', '0'),
-(7, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Llenar contrato', '', '', '', '', '', '', '', '0'),
-(8, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Enviar contrato y documentación para validación', '', '', '', '', '', '', '', '0'),
-(9, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Corregir contrato', '', '', '', '', '', '', '', '0'),
-(10, 'Gestionar Contratos', 'Gestionar contrato de transportistas', 'Firmar contrato', '', '', '', '', '', '', '', '0'),
-(11, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Validar propuesta del proveedor', '', '', '', '', '', '', '', '0'),
-(12, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Solicitar nueva cotización/propuesta', '', '', '', '', '', '', '', '0'),
-(13, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Negociar con proveedor', '', '', '', '', '', '', '', '0'),
-(14, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Recibir y validar documentación', '', '', '', '', '', '', '', '0'),
-(15, 'Gestionar Contratos', '', 'Solicitar información correcta', '', '', '', '', '', '', '', '0'),
-(16, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Revisar contrato firmado', '', '', '', '', '', '', '', '0'),
-(17, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Actualizar contrato', '', '', '', '', '', '', '', '0'),
-(18, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Llenar contrato', '', '', '', '', '', '', '', '0'),
-(19, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Firmar contrato', '', '', '', '', '', '', '', '0'),
-(20, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Enviar contrato y documentación para validación', '', '', '', '', '', '', '', '0'),
-(21, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Corregir contrato', '', '', '', '', '', '', '', '0'),
-(22, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Firmar contrato', '', '', '', '', '', '', '', '0'),
-(23, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Recibir propuesta de proveedor', '', '', '', '', '', '', '', '0'),
-(24, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Negociar condiciones comerciales', '', '', '', '', '', '', '', '0'),
-(25, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Determinar mejor opción', '', '', '', '', '', '', '', '0'),
-(26, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Llenar contrato', '', '', '', '', '', '', '', '0'),
-(27, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Validar documentación', '', '', '', '', '', '', '', '0'),
-(28, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Solicitar información correcta', '', '', '', '', '', '', '', '0'),
-(29, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Enviar contrato y documentación para validación', '', '', '', '', '', '', '', '0'),
-(30, 'Gestionar Contratos', 'Gestionar contrato de servicios administrativos y de zafra', 'Corregir contrato', '', '', '', '', '', '', '', '0'),
-(31, 'Gestionar Contratos', 'Gestionar contrato marco SAP', 'Enviar invitación de licitación', '', '', '', '', '', '', '', '0'),
-(32, 'Gestionar Contratos', 'Gestionar contrato marco SAP', 'Negociar y seleccionar proveedor', '', '', '', '', '', '', '', '0'),
-(33, 'Gestionar Contratos', 'Gestionar contrato marco SAP', 'Crear contrato', '', '', '', '', '', '', '', '0'),
-(34, 'Gestionar Contratos', 'Gestionar contrato marco SAP', 'Liberar contrato marco', '', '', '', '', '', '', '', '0'),
-(35, 'Gestionar Contratos', 'Gestionar contrato marco SAP', 'Buscar proveedores alternos', '', '', '', '', '', '', '', '0'),
-(36, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores', 'Recibir solicitud de alta', '', '', '', '', '', '', '', '0'),
-(37, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores', 'Revisar información proporcionada', '', '', '', '', '', '', '', '0'),
-(38, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores', 'Solicitar información correcta', '', '', '', '', '', '', '', '0'),
-(39, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores', 'Realizar alta del DM', '', '', '', '', '', '', '', '0'),
-(40, 'Gestionar Datos Maestros de Proveedores', '', 'Notificar alta', '', '', '', '', '', '', '', '0'),
-(41, 'Gestionar Datos Maestros de Proveedores', 'Gestionar modificación de DM de Proveedores', 'Recibir solicitud de modificación', '', '', '', '', '', '', '', '0'),
-(42, 'Gestionar Datos Maestros de Proveedores', 'Gestionar modificación de DM de Proveedores', 'Revisar información proporcionada', '', '', '', '', '', '', '', '0'),
-(43, 'Gestionar Datos Maestros de Proveedores', 'Gestionar modificación de DM de Proveedores', 'Solicitar información correcta', '', '', '', '', '', '', '', '0'),
-(44, 'Gestionar Datos Maestros de Proveedores', 'Gestionar modificación de DM de Proveedores', 'Realizar modificación del DM', '', '', '', '', '', '', '', '0'),
-(45, 'Gestionar Datos Maestros de Proveedores', 'Gestionar modificación de DM de Proveedores', 'Notificar la modificación', '', '', '', '', '', '', '', '0'),
-(46, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Recibir solicitud de alta', '', '', '', '', '', '', '', '0'),
-(47, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Notificar alta', '', '', '', '', '', '', '', '0'),
-(48, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Revisar información proporcionada', '', '', '', '', '', '', '', '0'),
-(49, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Solicitar información correcta', '', '', '', '', '', '', '', '0'),
-(50, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Realizar alta del DM', '', '', '', '', '', '', '', '0'),
-(51, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Solicitar validación', '', '', '', '', '', '', '', '0'),
-(52, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Notificar al proveedor', '', '', '', '', '', '', '', '0'),
-(53, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores (Portal)', 'Solicitar activación', '', '', '', '', '', '', '', '0'),
-(54, 'Gestionar Datos Maestros de Proveedores', 'Gestionar bloqueo de proveedores', 'Recibir solicitud de bloqueo', '', '', '', '', '', '', '', '0'),
-(55, 'Gestionar Datos Maestros de Proveedores', 'Gestionar bloqueo de proveedores', 'Realizar bloqueo\r\n', '', '', '', '', '', '', '', '0'),
-(56, 'Gestionar Datos Maestros de Proveedores', 'Gestionar bloqueo de proveedores', 'Notificar bloqueo', '', '', '', '', '', '', '', '0'),
-(57, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir SolP', '', '', '', '', '', '', '', '0'),
-(58, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Generar petición de oferta en SAP', '', '', '', '', '', '', '', '0'),
-(59, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir propuesta de proveedores', '', '', '', '', '', '', '', '0'),
-(60, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Negociación y retroalimentación con proveedores', '', '', '', '', '', '', '', '0'),
-(61, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Generar cuadro comparativo', '', '', '', '', '', '', '', '0'),
-(62, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Validar con usuarios y almacén / Retroalimentación proveedores', '', '', '', '', '', '', '', '0'),
-(63, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Tomar decisión de compra', '', '', '', '', '', '', '', '0'),
-(64, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Generar pedido', '', '', '', '', '', '', '', '0'),
-(65, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Liberar pedido\r\n', '', '', '', '', '', '', '', '0'),
-(66, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Liberar pedido', '', '', '', '', '', '', '', '0'),
-(67, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Notificar rechazo de liberación', '', '', '', '', '', '', '', '0'),
-(68, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '0'),
-(69, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Dar seguimiento a la orden de compra', '', '', '', '', '', '', '', '0'),
-(70, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir y registrar factura', '', '', '', '', '', '', '', '0'),
-(71, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir SolP', '', '', '', '', '', '', '', '0'),
-(72, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Generar petición de oferta en SAP', '', '', '', '', '', '', '', '0'),
-(73, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir propuesta de proveedores', '', '', '', '', '', '', '', '0'),
-(74, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Negociación y retroalimentación con proveedores', '', '', '', '', '', '', '', '0'),
-(75, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Generar cuadro comparativo', '', '', '', '', '', '', '', '0'),
-(76, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Validar con usuarios y almacén / Retroalimentación proveedores', '', '', '', '', '', '', '', '0'),
-(77, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Tomar decisión de compra', '', '', '', '', '', '', '', '0'),
-(78, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Generar pedido', '', '', '', '', '', '', '', '0'),
-(79, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Liberar pedido', '', '', '', '', '', '', '', '0'),
-(80, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Notificar rechazo de liberación', '', '', '', '', '', '', '', '0'),
-(81, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '0'),
-(82, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Dar seguimiento a la orden de compra', '', '', '', '', '', '', '', '0'),
-(83, 'Gestionar compras de materiales', 'Gestionar pedidos estándar (Compras menores)', 'Recibir y registrar factura', '', '', '', '', '', '', '', '0'),
-(84, 'Gestionar compras de materiales', 'Gestionar pedidos con convenio (Contrato Marco)', 'Recibir SolP', '', '', '', '', '', '', '', '0'),
-(85, 'Gestionar compras de materiales', 'Gestionar pedidos con convenio (Contrato Marco)', 'Generar pedido', '', '', '', '', '', '', '', '0'),
-(86, 'Gestionar compras de materiales', 'Gestionar pedidos con convenio (Contrato Marco)', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '0'),
-(87, 'Gestionar compras de materiales', 'Gestionar pedidos con convenio (Contrato Marco)', 'Dar seguimiento a la orden de compra', '', '', '', '', '', '', '', '0'),
-(88, 'Gestionar compras de materiales', 'Gestionar pedidos con convenio (Contrato Marco)', 'Recibir y registrar factura', '', '', '', '', '', '', '', '0'),
-(89, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Recibir SolP', '', '', '', '', '', '', '', '0'),
-(90, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Recibir autorización técnica', '', '', '', '', '', '', '', '0'),
-(91, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Generar pedido', '', '', '', '', '', '', '', '0'),
-(92, 'Gestionar compras de materiales', '', 'Liberar pedido', '', '', '', '', '', '', '', '0'),
-(93, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Liberar pedido', '', '', '', '', '', '', '', '0'),
-(94, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Notificar rechazo', '', '', '', '', '', '', '', '0'),
-(95, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '0'),
-(96, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Dar seguimiento a la orden de compra', '', '', '', '', '', '', '', '0'),
-(97, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Recibir y registrar factura', '', '', '', '', '', '', '', '0'),
-(98, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir SolP', '', '', '', '', '', '', '', '0'),
-(99, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Generar petición de oferta por correo electrónico', '', '', '', '', '', '', '', '0'),
-(100, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir propuestas de proveedores', '', '', '', '', '', '', '', '0'),
-(101, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Generar cuadro comparativo', '', '', '', '', '', '', '', '0'),
-(102, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Revisar comparativo y propuesta proporcionada (Decisión de compra)', '', '', '', '', '', '', '', '0'),
-(103, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir validación técnica (como anexo en la OC)', '', '', '', '', '', '', '', '0'),
-(104, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Elaborar orden de compra', '', '', '', '', '', '', '', '0'),
-(105, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Liberar pedido', '', '', '', '', '', '', '', '0'),
-(106, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Liberar pedido', '', '', '', '', '', '', '', '0'),
-(107, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Notificar rechazo', '', '', '', '', '', '', '', '0'),
-(108, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '0'),
-(109, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir SolP', '', '', '', '', '', '', '', '0'),
-(110, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Generar petición de oferta por correo electrónico', '', '', '', '', '', '', '', '0'),
-(111, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir propuestas de proveedores', '', '', '', '', '', '', '', '0'),
-(112, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Generar cuadro comparativo', '', '', '', '', '', '', '', '0'),
-(113, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Revisar comparativo y propuesta proporcionada', '', '', '', '', '', '', '', '0'),
-(114, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir validación técnica (como anexo en la OC)', '', '', '', '', '', '', '', '0'),
-(115, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Elaborar orden de compra', '', '', '', '', '', '', '', '0'),
-(116, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Liberar pedido\r\n', '', '', '', '', '', '', '', '0'),
-(117, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Notificar rechazo', '', '', '', '', '', '', '', '0'),
-(118, 'Gestionar compras de servicios', 'Gestionar pedidos estándar (Compras menores)', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '0'),
-(119, 'Gestionar compras de servicios', 'Gestionar pedidos con convenio (Contrato Marco)', 'Recibir SolP', '', '', '', '', '', '', '', '0'),
-(120, 'Gestionar compras de servicios', 'Gestionar pedidos con convenio (Contrato Marco)', 'Solicitar cotización al proveedor y visto bueno usuario', '', '', '', '', '', '', '', '0'),
-(121, 'Gestionar compras de servicios', 'Gestionar pedidos con convenio (Contrato Marco)', 'Generar pedido', '', '', '', '', '', '', '', '0'),
-(122, 'Gestionar compras de servicios', 'Gestionar pedidos con convenio (Contrato Marco)', 'Liberar pedido', '', '', '', '', '', '', '', '0'),
-(123, 'Gestionar compras de servicios', 'Gestionar pedidos con convenio (Contrato Marco)', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '0'),
-(124, 'Gestionar compras de servicios', 'Gestionar pedidos por asignación directa', 'Recibir SolP ', '', '', '', '', '', '', '', '0'),
-(125, 'Gestionar compras de servicios', 'Gestionar pedidos por asignación directa', 'Revisar autorización técnica', '', '', '', '', '', '', '', '0'),
-(126, 'Gestionar compras de servicios', 'Gestionar pedidos por asignación directa', 'Generar pedido (Se adjunta el PDF de validación)', '', '', '', '', '', '', '', '0'),
-(127, 'Gestionar compras de servicios', 'Gestionar pedidos por asignación directa', 'Liberar pedido', '', '', '', '', '', '', '', '0'),
-(128, 'Gestionar compras de servicios', 'Gestionar pedidos por asignación directa', 'Liberar pedido', '', '', '', '', '', '', '', '0'),
-(129, 'Gestionar compras de servicios', 'Gestionar pedidos por asignación directa', 'Notificar rechazo', '', '', '', '', '', '', '', '0'),
-(130, 'Gestionar compras de servicios', 'Gestionar pedidos por asignación directa', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '0'),
-(131, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Recibir SolP', '', '', '', '', '', '', '', '0'),
-(132, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Recibir solicitud del área de proyectos', '', '', '', '', '', '', '', '0'),
-(133, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Enviar invitación', '', '', '', '', '', '', '', '0'),
-(134, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Realizar conferencia', '', '', '', '', '', '', '', '0'),
-(135, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Recibir propuestas de proveedores', '', '', '', '', '', '', '', '0'),
-(136, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Generar cuadro comparativo', '', '', '', '', '', '', '', '0'),
-(137, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Revisar comparativo y propuesta proporcionada (Decisión de compra)', '', '', '', '', '', '', '', '0'),
-(138, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Recibir validación técnica', '', '', '', '', '', '', '', '0'),
-(139, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Elaborar orden de compra', '', '', '', '', '', '', '', '0'),
-(140, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Liberar pedido', '', '', '', '', '', '', '', '0'),
-(141, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Notificar rechazo', '', '', '', '', '', '', '', '0'),
-(142, 'Gestionar compras de servicios', 'Gestionar pedidos por concurso (proyectos)', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '0'),
-(143, 'Gestionar compras de servicios', 'Evaluar proveedores de servicios de proyectos ', 'Enlistar proveedores', '', '', '', '', '', '', '', '0'),
-(144, 'Gestionar compras de servicios', 'Evaluar proveedores de servicios de proyectos ', 'Evaluar y asignar calificación', '', '', '', '', '', '', '', '0'),
-(145, 'Gestionar compras de servicios', 'Evaluar proveedores de servicios de proyectos ', 'Enviar calificaciones a proyectos', '', '', '', '', '', '', '', '0'),
-(146, 'Gestionar compras de servicios', 'Evaluar proveedores de servicios de proyectos ', 'Enviar justificación de calificación (si aplica)', '', '', '', '', '', '', '', '0'),
-(147, 'Gestionar compras de servicios', 'Evaluar proveedores de servicios de proyectos ', 'Recibir retroalimentación del área de proyectos en cuanto a la calificación de los proveedores (calificación integral)', '', '', '', '', '', '', '', '0'),
-(148, 'Gestionar compras de servicios', 'Evaluar proveedores de servicios de proyectos ', 'Resguardar evaluación', '', '', '', '', '', '', '', '0');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `direcciones`
 --
 
@@ -547,7 +724,9 @@ CREATE TABLE `nuevo_puesto` (
 INSERT INTO `nuevo_puesto` (`ID_Nuevo_Puesto`, `Nuevo_Puesto`, `ID_Actividad`, `nom_actividad`) VALUES
 (8, '...', 1, '...'),
 (10, 'Analista', 1, '...'),
-(13, 'Coordinador', 1, '...');
+(13, 'Coordinador', 1, '...'),
+(14, 'Jefatura', 1, '...'),
+(15, 'Dirección de área', 1, '...');
 
 -- --------------------------------------------------------
 
@@ -618,7 +797,7 @@ INSERT INTO `procesos_consultas` (`id`, `proceso`, `subproceso`, `actividad`, `v
 (12, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Solicitar nueva cotización/propuesta', '', '', '', '', '', '', '', '', '0'),
 (13, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Negociar con proveedor', '', '', '', '', '', '', '', '', '0'),
 (14, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Recibir y validar documentación', '', '', '', '', '', '', '', '', '0'),
-(15, 'Gestionar Contratos', '', 'Solicitar información correcta', '', '', '', '', '', '', '', '', '0'),
+(15, 'Gestionar Contratos', 'Gestionar alta de DM de Proveedores', 'Solicitar información correcta', '', '', '', '', '', '', '', '', '0'),
 (16, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Revisar contrato firmado', '', '', '', '', '', '', '', '', '0'),
 (17, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Actualizar contrato', '', '', '', '', '', '', '', '', '0'),
 (18, 'Gestionar Contratos', 'Gestionar contratos de bodegas de azúcar', 'Llenar contrato', '', '', '', '', '', '', '', '', '0'),
@@ -643,7 +822,7 @@ INSERT INTO `procesos_consultas` (`id`, `proceso`, `subproceso`, `actividad`, `v
 (37, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores', 'Revisar información proporcionada', '', '', '', '', '', '', '', '', '0'),
 (38, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores', 'Solicitar información correcta', '', '', '', '', '', '', '', '', '0'),
 (39, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores', 'Realizar alta del DM', '', '', '', '', '', '', '', '', '0'),
-(40, 'Gestionar Datos Maestros de Proveedores', '', 'Notificar alta', '', '', '', '', '', '', '', '', '0'),
+(40, 'Gestionar Datos Maestros de Proveedores', 'Gestionar alta de DM de Proveedores', 'Notificar alta', '', '', '', '', '', '', '', '', '0'),
 (41, 'Gestionar Datos Maestros de Proveedores', 'Gestionar modificación de DM de Proveedores', 'Recibir solicitud de modificación', '', '', '', '', '', '', '', '', '0'),
 (42, 'Gestionar Datos Maestros de Proveedores', 'Gestionar modificación de DM de Proveedores', 'Revisar información proporcionada', '', '', '', '', '', '', '', '', '0'),
 (43, 'Gestionar Datos Maestros de Proveedores', 'Gestionar modificación de DM de Proveedores', 'Solicitar información correcta', '', '', '', '', '', '', '', '', '0'),
@@ -695,7 +874,7 @@ INSERT INTO `procesos_consultas` (`id`, `proceso`, `subproceso`, `actividad`, `v
 (89, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Recibir SolP', '', '', '', '', '', '', '', '', '0'),
 (90, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Recibir autorización técnica', '', '', '', '', '', '', '', '', '0'),
 (91, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Generar pedido', '', '', '', '', '', '', '', '', '0'),
-(92, 'Gestionar compras de materiales', '', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
+(92, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
 (93, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Liberar pedido', '', '', '', '', '', '', '', '', '0'),
 (94, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Notificar rechazo', '', '', '', '', '', '', '', '', '0'),
 (95, 'Gestionar compras de materiales', 'Gestionar pedidos por asignación directa', 'Recibir confirmación de la orden de compra', '', '', '', '', '', '', '', '', '0'),
@@ -914,7 +1093,8 @@ CREATE TABLE `usernames` (
 
 INSERT INTO `usernames` (`ID`, `username`, `password`, `rol_id`) VALUES
 (1, 'Administrador', 'Pi@5a.2E', 1),
-(15, 'Diana', '1234', 2);
+(31, 'cliente1', '1234', 2),
+(32, 'cliente2', '1234', 2);
 
 -- --------------------------------------------------------
 
@@ -950,11 +1130,27 @@ CREATE TABLE `usuario_cliente` (
 --
 
 INSERT INTO `usuario_cliente` (`ID_empleado`, `Nombre`, `Apellido`, `Nom_Unidad_Negocio`, `Email`, `Area`, `Nom_Actividad`, `Nom_Nuevo_Puesto`, `Nom_Proceso`, `Nom_Direcciones`, `Nom_Subproceso`, `Nom_funcion`, `val_Frec`, `input`, `sistema`, `rol`, `tiempo`, `vol`, `t_h`, `ftes`) VALUES
-(150, 'x', 'sss', 'ITVSA', 'aaaaaaaa@gmail.com', 'ti', 'Visitar instalaciones', 'Analista de abasto', 'Gestionar Contratos', 'Direccion de Cadena de Suministro', 'Gestionar contrato de transportistas', 'Abastecimientos', '4', 'fgdf', 'aaaaaa', 'Ejecutar', '10', '2', '80', '0.5'),
-(151, 'x', 'sss', 'ITVSA', 'aaaaaaaa@gmail.com', 'ti', 'Validar documentación', 'Analista de abasto', 'Gestionar Contratos', 'Direccion de Cadena de Suministro', 'Gestionar contrato de transportistas', 'Abastecimientos', '1', 'fgdf', 'alex', 'Ejecutar', '10', '2', '20', '0.125'),
-(152, 'hugo', 'sanchez', 'CIS', 'hsanchez@grupopiasa.com', 'operacion', 'Recibir solicitud de alta', 'Analista de abasto', 'Gestionar Datos Maestros de Proveedores', 'Direccion de Cadena de Suministro', 'Gestionar alta de DM de Proveedores', 'Abastecimientos', '4', 'documento', 'sap', 'Ejecutar', '20', '100', '8000', '50'),
-(153, 'guillermo', 'ochoa', 'IALMSA', 'gochoa@grupopiasa.com', 'administrativa', 'Revisar información proporcionada', 'Analista de abasto', 'Gestionar Datos Maestros de Proveedores', 'Direccion de Cadena de Suministro', 'Gestionar alta de DM de Proveedores', 'Abastecimientos', '4', 'ticket', 'fresh', 'Ejecutar', '.5', '5', '10', '0.0625'),
-(154, 'hugo', 'sanchez', 'CIS', 'hsanchez@grupopiasa.com', 'administrativa', 'Realizar alta del DM', 'Coordinador', 'Gestionar Datos Maestros de Proveedores', 'Direccion de Cadena de Suministro', 'Gestionar alta de DM de Proveedores (Portal)', 'Abastecimientos', '1', 'llamada', 'sap', 'Ejecutar', '1', '10', '10', '0.0625');
+(156, 'x', 'sss', 'SAISA', 'aaaaaaaa@gmail.com', 'ti', 'Firmar contrato', 'Analista', 'Gestionar Contratos', 'Direccion de Cadena de Suministro', 'Gestionar contrato de servicios administrativos y de zafra', 'Abastecimientos', '4', 'fgdf', 'xxx', 'Ejecutar', '8', '4', '128', '0.8'),
+(157, 'diana', 'vera', 'SAISA', 'aaaaaaaa@gmail.com', 'x', 'Recibir solicitud de alta', 'Analista', 'Gestionar Datos Maestros de Proveedores', 'Direccion de Cadena de Suministro', 'Gestionar alta de DM de Proveedores', 'Abastecimientos', '4', 'fgdf', 'aaaaaa', 'Ejecutar', '10', '2', '80', '0.5'),
+(158, 'Fernando', 'osorio', 'CIS', 'fosorio@grupopiasa.com', 'administrativa', 'Notificar alta', 'Coordinador', 'Gestionar Datos Maestros de Proveedores', 'Direccion de Cadena de Suministro', 'Gestionar alta de DM de Proveedores', 'Abastecimientos', '4', 'correo', 'sap', 'Ejecutar', '.25', '1', '1', '0.0063'),
+(159, 'Fernando', 'osorio', 'CIS', 'fosorio@grupopiasa.com', 'administrativa', 'Recibir solicitud de modificación', 'Coordinador', 'Gestionar Datos Maestros de Proveedores', 'Direccion de Cadena de Suministro', 'Gestionar modificación de DM de Proveedores', 'Abastecimientos', '4', 'correo', 'sap', 'Supervisar', '1', '20', '80', '0.5'),
+(160, 'x', 'sss', 'SAISA', 'aaaaaaaa@gmail.com', 'ti', 'Recibir solicitud y propuestas', 'Analista', 'Gestionar Contratos', 'Direccion de Cadena de Suministro', 'Gestionar contrato de transportistas', 'Abastecimientos', '4', 'fgdf', 'aaaaaa', 'Supervisar', '10', '2', '80', '0.5'),
+(161, 'x', 'sss', 'SAISA', 'aaaaaaaa@gmail.com', 'ti', 'Recibir solicitud de alta', 'Analista', 'Gestionar Datos Maestros de Proveedores', 'Direccion de Cadena de Suministro', 'Gestionar alta de DM de Proveedores', 'Abastecimientos', '4', 'fgdf', 'xxx', 'Ejecutar', '10', '2', '80', '0.5'),
+(162, 'Arturo', 'Soler', 'CIS', 'fsoler@grupopiasa.com', 'administrativa', 'Validar posible transportista', 'Analista', 'Gestionar Contratos', 'Dirección de Finanzas', 'Gestionar contrato de transportistas', 'Abastecimientos', '4', 'llamada', 'sap', 'Supervisar', '1', '10', '40', '0.25'),
+(163, 'Arturo', 'Soler', 'CIS', 'fsoler@grupopiasa.com', 'administrativa', 'Visitar instalaciones', 'Analista', 'Gestionar Contratos', 'Dirección de Finanzas', 'Gestionar contrato de transportistas', 'Abastecimientos', '4', 'llamada', 'outlook', 'Ejecutar', '2', '10', '80', '0.5'),
+(164, 'hugo', 'sanchez', 'CIS', 'hsanchez@grupopiasa.com', 'administrativa', 'Recibir SolP', 'Coordinador', 'Gestionar compras de materiales', 'Direccion de Cadena de Suministro', 'Gestionar pedidos por asignación directa', 'Abastecimientos', '4', 'correo', 'sap', 'Ejecutar', '2', '1', '8', '0.05'),
+(165, 'Javier', 'hernandez', 'SAISA', 'jhernendez@grupopiasa.com', 'operacion', 'Recibir SolP', 'Dirección de área', 'Gestionar compras de materiales', 'Direccion de Cadena de Suministro', 'Gestionar pedidos estándar (Compras menores)', 'Abastecimientos', '4', 'llamada', 'fresh', 'Ejecutar', '5', '5', '100', '0.625'),
+(166, 'Javier', 'hernandez', 'SAISA', 'jhernendez@grupopiasa.com', 'operacion', 'Generar petición de oferta en SAP', 'Dirección de área', 'Gestionar compras de materiales', 'Direccion de Cadena de Suministro', 'Gestionar pedidos estándar (Compras menores)', 'Abastecimientos', '4', 'ticket', 'excel', 'Supervisar', '5', '5', '100', '0.625'),
+(167, 'Javier', 'hernandez', 'SAISA', 'jhernendez@grupopiasa.com', 'operacion', 'Recibir propuesta de proveedores', 'Dirección de área', 'Gestionar compras de materiales', 'Direccion de Cadena de Suministro', 'Gestionar pedidos estándar (Compras menores)', 'Abastecimientos', '4', 'corre', 'fresh', 'Ejecutar', '5', '5', '100', '0.625'),
+(168, 'guillermo', 'ochoa', 'IPSLSA', 'gochoa@grupopiasa.com', 'administrativa', 'Validar documentación', 'Jefatura', 'Gestionar Contratos', 'Direccion de Cadena de Suministro', 'Gestionar contrato de transportistas', 'Abastecimientos', '4', 'correo', 'excel', 'Ejecutar', '1', '2', '8', '0.05'),
+(169, 'x', 'sss', 'SAISA', 'aaaaaaaa@gmail.com', 'ti', 'Solicitar información correcta', 'Analista', 'Gestionar Contratos', 'Direccion de Cadena de Suministro', 'Gestionar contrato de transportistas', 'Abastecimientos', '4', 'fgdf', 'aaaaaa', 'Ejecutar', '10', '2', '80', '0.5'),
+(170, 'x', 'sss', 'SAISA', 'aaaaaaaa@gmail.com', 'ti', 'Solicitar información correcta', 'Analista', 'Gestionar Contratos', 'Direccion de Cadena de Suministro', 'Gestionar contrato de transportistas', 'Abastecimientos', '4', 'fgdf', 'aaaaaa', 'Ejecutar', '10', '2', '80', '0.5'),
+(171, 'x', 'sss', 'SAISA', 'aaaaaaaa@gmail.com', 'ti', 'Solicitar información correcta', 'Analista', 'Gestionar Contratos', 'Direccion de Cadena de Suministro', 'Gestionar contrato de transportistas', 'Abastecimientos', '4', 'fgdf', 'aaaaaa', 'Ejecutar', '10', '2', '80', '0.5'),
+(172, 'x', 'sss', 'SAISA', 'aaaaaaaa@gmail.com', 'ti', 'Solicitar información correcta', 'Analista', 'Gestionar Contratos', 'Direccion de Cadena de Suministro', 'Gestionar contrato de transportistas', 'Abastecimientos', '4', 'fgdf', 'aaaaaa', 'Ejecutar', '10', '2', '80', '0.5'),
+(173, 'x', 'sss', 'SAISA', 'aaaaaaaa@gmail.com', 'ti', 'Solicitar información correcta', 'Analista', 'Gestionar Contratos', 'Direccion de Cadena de Suministro', 'Gestionar contrato de transportistas', 'Abastecimientos', '4', 'fgdf', 'aaaaaa', 'Ejecutar', '10', '2', '80', '0.5'),
+(174, 'x', 'sss', 'SAISA', 'aaaaaaaa@gmail.com', 'ti', 'Llenar contrato', 'Analista', 'Gestionar Contratos', 'Direccion de Cadena de Suministro', 'Gestionar contrato de transportistas', 'Abastecimientos', '4', 'fgdf', 'aaaaaa', 'Ejecutar', '10', '2', '80', '0.5'),
+(175, 'x', 'sss', 'SAISA', 'aaaaaaaa@gmail.com', 'ti', 'Enviar contrato y documentación para validación', 'Analista', 'Gestionar Contratos', 'Direccion de Cadena de Suministro', 'Gestionar contrato de transportistas', 'Abastecimientos', '4', 'fgdf', 'aaaaaa', 'Ejecutar', '10', '2', '80', '0.5'),
+(176, 'x', 'sss', 'SAISA', 'aaaaaaaa@gmail.com', 'ti', 'Corregir contrato', 'Analista', 'Gestionar Contratos', 'Direccion de Cadena de Suministro', 'Gestionar contrato de transportistas', 'Abastecimientos', '4', 'fgdf', 'aaaaaa', 'Ejecutar', '8', '2', '64', '0.4');
 
 --
 -- Índices para tablas volcadas
@@ -969,16 +1165,22 @@ ALTER TABLE `calculo`
   ADD KEY `ID_Valor` (`ID_Valor`);
 
 --
+-- Indices de la tabla `cliente1`
+--
+ALTER TABLE `cliente1`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `cliente2`
+--
+ALTER TABLE `cliente2`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `detalle_actividad`
 --
 ALTER TABLE `detalle_actividad`
   ADD PRIMARY KEY (`ID_Actividad`);
-
---
--- Indices de la tabla `diana`
---
-ALTER TABLE `diana`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `direcciones`
@@ -1094,16 +1296,22 @@ ALTER TABLE `calculo`
   MODIFY `ID_Calculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT de la tabla `cliente1`
+--
+ALTER TABLE `cliente1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
+
+--
+-- AUTO_INCREMENT de la tabla `cliente2`
+--
+ALTER TABLE `cliente2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
+
+--
 -- AUTO_INCREMENT de la tabla `detalle_actividad`
 --
 ALTER TABLE `detalle_actividad`
   MODIFY `ID_Actividad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
-
---
--- AUTO_INCREMENT de la tabla `diana`
---
-ALTER TABLE `diana`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
 
 --
 -- AUTO_INCREMENT de la tabla `direcciones`
@@ -1145,7 +1353,7 @@ ALTER TABLE `nomenclatura`
 -- AUTO_INCREMENT de la tabla `nuevo_puesto`
 --
 ALTER TABLE `nuevo_puesto`
-  MODIFY `ID_Nuevo_Puesto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID_Nuevo_Puesto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `procesos`
@@ -1193,13 +1401,13 @@ ALTER TABLE `unidad_negocio`
 -- AUTO_INCREMENT de la tabla `usernames`
 --
 ALTER TABLE `usernames`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario_cliente`
 --
 ALTER TABLE `usuario_cliente`
-  MODIFY `ID_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
+  MODIFY `ID_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
 
 --
 -- Restricciones para tablas volcadas

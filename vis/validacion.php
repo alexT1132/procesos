@@ -31,8 +31,22 @@
         $ftes = $conexion->real_escape_string($formulario2['ftes']);
 
 
-        
+        // Consulta SQL para sumar la columna
+        $sql_suma = "SELECT SUM(ftes) as suma_total FROM $username_tab";
+        $result_suma = $conexion->query($sql_suma);
 
+        // Verificar si hay resultados
+        if ($result_suma->num_rows > 0) {
+            // Obtener el resultado de la suma
+            $row = $result_suma->fetch_assoc();
+            $sumaTotal = $row["suma_total"];
+
+            if ($sumaTotal > 1.4) {
+
+                header('location: paso_2.php');
+                
+            } else {
+                
         $query1 = "UPDATE $username_tab SET val_Frec = '$val_Frec', input = '$input', sistema = '$sistema', rol = '$rol', tiempo = '$tiempo', vol = '$vol',
         t_h = '$t_h', ftes = '$ftes', estado = '$estado' WHERE id = {$formulario2['ID']}";
         $resultado1 = $conexion->query($query1);
@@ -84,6 +98,10 @@
 
     header('Location: paso2.php');
     exit;
+
+            }
+        }
+        
 
 } else {
     header('location: ../error.php');
